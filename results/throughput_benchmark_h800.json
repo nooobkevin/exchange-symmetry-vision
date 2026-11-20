@@ -1,0 +1,235 @@
+[
+  {
+    "layout": "8x1gpu_bs256",
+    "wall_sec_incl_compile": 58.0,
+    "aggregate_img_per_sec": 45366.3,
+    "per_gpu_img_per_sec": 5670.8,
+    "mean_data_wait_frac": 0.3153,
+    "est_epoch_min_per_run": 3.77,
+    "est_30ep_runs_per_hour": 4.25,
+    "per_worker": [
+      {
+        "name": "bench_1gpu_bs256_g0",
+        "world_size": 1,
+        "batch_size_per_gpu": 256,
+        "steps": 100,
+        "wall_sec": 4.15,
+        "img_per_sec": 5555.0,
+        "data_wait_frac": 0.3617,
+        "peak_vram_gb": 4.42
+      },
+      {
+        "name": "bench_1gpu_bs256_g1",
+        "world_size": 1,
+        "batch_size_per_gpu": 256,
+        "steps": 100,
+        "wall_sec": 4.07,
+        "img_per_sec": 5656.0,
+        "data_wait_frac": 0.2913,
+        "peak_vram_gb": 4.42
+      },
+      {
+        "name": "bench_1gpu_bs256_g2",
+        "world_size": 1,
+        "batch_size_per_gpu": 256,
+        "steps": 100,
+        "wall_sec": 3.89,
+        "img_per_sec": 5917.7,
+        "data_wait_frac": 0.3093,
+        "peak_vram_gb": 4.42
+      },
+      {
+        "name": "bench_1gpu_bs256_g3",
+        "world_size": 1,
+        "batch_size_per_gpu": 256,
+        "steps": 100,
+        "wall_sec": 4.13,
+        "img_per_sec": 5572.1,
+        "data_wait_frac": 0.3381,
+        "peak_vram_gb": 4.42
+      },
+      {
+        "name": "bench_1gpu_bs256_g4",
+        "world_size": 1,
+        "batch_size_per_gpu": 256,
+        "steps": 100,
+        "wall_sec": 4.06,
+        "img_per_sec": 5681.5,
+        "data_wait_frac": 0.3201,
+        "peak_vram_gb": 4.42
+      },
+      {
+        "name": "bench_1gpu_bs256_g5",
+        "world_size": 1,
+        "batch_size_per_gpu": 256,
+        "steps": 100,
+        "wall_sec": 4.02,
+        "img_per_sec": 5729.9,
+        "data_wait_frac": 0.3002,
+        "peak_vram_gb": 4.42
+      },
+      {
+        "name": "bench_1gpu_bs256_g6",
+        "world_size": 1,
+        "batch_size_per_gpu": 256,
+        "steps": 100,
+        "wall_sec": 4.02,
+        "img_per_sec": 5726.2,
+        "data_wait_frac": 0.3162,
+        "peak_vram_gb": 4.42
+      },
+      {
+        "name": "bench_1gpu_bs256_g7",
+        "world_size": 1,
+        "batch_size_per_gpu": 256,
+        "steps": 100,
+        "wall_sec": 4.17,
+        "img_per_sec": 5527.9,
+        "data_wait_frac": 0.2859,
+        "peak_vram_gb": 4.42
+      }
+    ]
+  },
+  {
+    "layout": "8x1gpu_bs512",
+    "wall_sec_incl_compile": 62.4,
+    "aggregate_img_per_sec": 63219.7,
+    "per_gpu_img_per_sec": 7902.5,
+    "mean_data_wait_frac": 0.188,
+    "est_epoch_min_per_run": 2.7,
+    "est_30ep_runs_per_hour": 5.92,
+    "per_worker": [
+      {
+        "name": "bench_1gpu_bs512_g0",
+        "world_size": 1,
+        "batch_size_per_gpu": 512,
+        "steps": 60,
+        "wall_sec": 3.29,
+        "img_per_sec": 7791.8,
+        "data_wait_frac": 0.1921,
+        "peak_vram_gb": 8.65
+      },
+      {
+        "name": "bench_1gpu_bs512_g1",
+        "world_size": 1,
+        "batch_size_per_gpu": 512,
+        "steps": 60,
+        "wall_sec": 3.32,
+        "img_per_sec": 7711.3,
+        "data_wait_frac": 0.1632,
+        "peak_vram_gb": 8.65
+      },
+      {
+        "name": "bench_1gpu_bs512_g2",
+        "world_size": 1,
+        "batch_size_per_gpu": 512,
+        "steps": 60,
+        "wall_sec": 3.12,
+        "img_per_sec": 8212.5,
+        "data_wait_frac": 0.1764,
+        "peak_vram_gb": 8.65
+      },
+      {
+        "name": "bench_1gpu_bs512_g3",
+        "world_size": 1,
+        "batch_size_per_gpu": 512,
+        "steps": 60,
+        "wall_sec": 3.18,
+        "img_per_sec": 8055.2,
+        "data_wait_frac": 0.1883,
+        "peak_vram_gb": 8.65
+      },
+      {
+        "name": "bench_1gpu_bs512_g4",
+        "world_size": 1,
+        "batch_size_per_gpu": 512,
+        "steps": 60,
+        "wall_sec": 3.05,
+        "img_per_sec": 8389.8,
+        "data_wait_frac": 0.1475,
+        "peak_vram_gb": 8.65
+      },
+      {
+        "name": "bench_1gpu_bs512_g5",
+        "world_size": 1,
+        "batch_size_per_gpu": 512,
+        "steps": 60,
+        "wall_sec": 3.3,
+        "img_per_sec": 7749.9,
+        "data_wait_frac": 0.2101,
+        "peak_vram_gb": 8.65
+      },
+      {
+        "name": "bench_1gpu_bs512_g6",
+        "world_size": 1,
+        "batch_size_per_gpu": 512,
+        "steps": 60,
+        "wall_sec": 3.42,
+        "img_per_sec": 7479.6,
+        "data_wait_frac": 0.2479,
+        "peak_vram_gb": 8.65
+      },
+      {
+        "name": "bench_1gpu_bs512_g7",
+        "world_size": 1,
+        "batch_size_per_gpu": 512,
+        "steps": 60,
+        "wall_sec": 3.27,
+        "img_per_sec": 7829.6,
+        "data_wait_frac": 0.1783,
+        "peak_vram_gb": 8.65
+      }
+    ]
+  },
+  {
+    "layout": "4x2gpu_ddp_bs256",
+    "wall_sec_incl_compile": 60.7,
+    "aggregate_img_per_sec": 46899.2,
+    "per_gpu_img_per_sec": 5862.4,
+    "mean_data_wait_frac": 0.0579,
+    "est_epoch_min_per_run": 1.82,
+    "est_30ep_runs_per_hour": 4.39,
+    "per_worker": [
+      {
+        "name": "bench_2gpu_bs256_p0",
+        "world_size": 2,
+        "batch_size_per_gpu": 256,
+        "steps": 100,
+        "wall_sec": 3.86,
+        "img_per_sec": 11941.2,
+        "data_wait_frac": 0.0059,
+        "peak_vram_gb": 4.45
+      },
+      {
+        "name": "bench_2gpu_bs256_p1",
+        "world_size": 2,
+        "batch_size_per_gpu": 256,
+        "steps": 100,
+        "wall_sec": 3.87,
+        "img_per_sec": 11914.7,
+        "data_wait_frac": 0.0107,
+        "peak_vram_gb": 4.44
+      },
+      {
+        "name": "bench_2gpu_bs256_p2",
+        "world_size": 2,
+        "batch_size_per_gpu": 256,
+        "steps": 100,
+        "wall_sec": 3.96,
+        "img_per_sec": 11644.8,
+        "data_wait_frac": 0.1923,
+        "peak_vram_gb": 4.43
+      },
+      {
+        "name": "bench_2gpu_bs256_p3",
+        "world_size": 2,
+        "batch_size_per_gpu": 256,
+        "steps": 100,
+        "wall_sec": 4.04,
+        "img_per_sec": 11398.5,
+        "data_wait_frac": 0.0226,
+        "peak_vram_gb": 4.44
+      }
+    ]
+  }
+]

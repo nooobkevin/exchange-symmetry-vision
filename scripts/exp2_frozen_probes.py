@@ -66,24 +66,27 @@ def extract_features_for_indices(
     for start in range(0, n, batch_size):
         end = min(start + batch_size, n)
         batch_idx = indices[start:end]
-        imgs_list = []
-        for ii, idx in enumerate(batch_idx):
-            if shps_mm is not None:
-                nh, nw = int(shps_mm[idx, 0]), int(shps_mm[idx, 1])
-                arr = np.array(imgs_mm[idx, :, :nh, :nw], copy=True)
-                t = torch.from_numpy(arr).float().unsqueeze(0)
-                # Center-crop/resize to 224x224 cleanly for fixed feature extraction
-                t = F.interpolate(t, size=(224, 224), mode="bilinear", align_corners=False, antialias=True).squeeze(0)
-            else:
-                arr = np.array(imgs_mm[idx], copy=True)
-                t = torch.from_numpy(arr).float()
-            if rotations is not None:
-                k = int(rotations[start + ii])
-                if k > 0:
-                    t = torch.rot90(t, k=k, dims=[1, 2])
-            imgs_list.append(t)
-
-        x = torch.stack(imgs_list, dim=0).to(device, non_blocking=True).div_(255.0)
+        # Vectorized single-slice copy from memmap (zero Python per-image overhead)
+        arr = np.asarray(imgs_mm[batch_idx])  # (B, 3, H, W) uint8
+        x = torch.from_numpy(arr).to(device, non_blocking=True).float()
+        if shps_mm is not None:
+            # Aspect-ratio-preserving crop & resize on GPU using per-image valid (nh, nw)
+            shps = shps_mm[batch_idx]
+            resized = torch.empty((len(batch_idx), 3, 224, 224), device=device, dtype=torch.float32)
+            for ii in range(len(batch_idx)):
+                nh, nw = int(shps[ii, 0]), int(shps[ii, 1])
+                resized[ii] = F.interpolate(
+                    x[ii : ii + 1, :, :nh, :nw], size=(224, 224), mode="bilinear", align_corners=False
+                ).squeeze(0)
+            x = resized
+        if rotations is not None:
+            rots = rotations[start:end]
+            for k in (1, 2, 3):
+                mask = (rots == k)
+                if np.any(mask):
+                    idx_t = torch.from_numpy(np.flatnonzero(mask)).to(device)
+                    x[idx_t] = torch.rot90(x[idx_t], k=k, dims=[2, 3])
+        x.div_(255.0)
         x = (x - mean_t) / std_t
         if corruption != "clean":
             x = apply_corruption_gpu(x, corruption, mean_t, std_t, seed=start)
@@ -226,6 +229,7 @@ def train_and_eval_head(
 
 
 def main() -> None:
+    torch.set_num_threads(4)
     parser = argparse.ArgumentParser(description="Experiment 2: Frozen ConvNeXt-Atto Multi-Shot & Directional Probes")
     parser.add_argument("--cache-dir", type=str, default="/dev/shm/in1k_raw_cache_ar320")
     parser.add_argument(

@@ -295,7 +295,8 @@ class SpatialExchangeAdapter(nn.Module):
 
         self.out_proj = nn.Linear(self.rank, dim, bias=False)
         nn.init.trunc_normal_(self.out_proj.weight, std=out_init_std)
-        self.gamma = nn.Parameter(torch.full((1, dim, 1, 1), gamma_init))
+        # 1D parameter avoids PyTorch Inductor channels_last backward shape mismatch on [1, C, 1, 1]
+        self.gamma = nn.Parameter(torch.full((dim,), gamma_init))
 
         if drop_path > 0.0:
             from timm.layers import DropPath
@@ -335,7 +336,8 @@ class SpatialExchangeAdapter(nn.Module):
         v_hwc = v_nchw.permute(0, 2, 3, 1)
         f = self.core(u_hwc, v_hwc)
         out_hwc = self.out_proj(f)
-        delta = out_hwc.permute(0, 3, 1, 2) * self.gamma
+        gamma_4d = self.gamma.view(1, -1, 1, 1)
+        delta = out_hwc.permute(0, 3, 1, 2) * gamma_4d
         if self._capture_stats:
             with torch.no_grad():
                 f_f = f.float()
@@ -345,7 +347,7 @@ class SpatialExchangeAdapter(nn.Module):
                 # Exact post-W_out functional antisymmetry via swapped input pair (v, u):
                 # delta_sym = 0.5*(delta(u,v) + delta(v,u)), delta_anti = 0.5*(delta(u,v) - delta(v,u))
                 f_swapped = self.core(v_hwc, u_hwc)
-                delta_swapped = self.out_proj(f_swapped).permute(0, 3, 1, 2) * self.gamma
+                delta_swapped = self.out_proj(f_swapped).permute(0, 3, 1, 2) * gamma_4d
                 d_f = delta.float()
                 ds_f = delta_swapped.float()
                 e_sym_func = float((0.5 * (d_f + ds_f)).pow(2).mean().item())

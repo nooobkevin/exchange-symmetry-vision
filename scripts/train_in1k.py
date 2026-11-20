@@ -210,6 +210,7 @@ def parse_args() -> argparse.Namespace:
 
 
 def main() -> None:
+    torch.set_num_threads(4)
     args = parse_args()
     rank, world_size, local_rank = init_distributed()
     is_main = rank == 0
@@ -411,6 +412,7 @@ def main() -> None:
         loss_accum = 0.0
         n_steps_ep = 0
         n_imgs_ep = 0
+        warmup_bench_steps = 10 if args.max_steps > 0 else 0
         theta_grad_norms: list[float] = []
         optimizer.zero_grad(set_to_none=True)
 
@@ -452,6 +454,13 @@ def main() -> None:
                 update_ema(ema_model, raw_model, args.ema_decay)
                 global_opt_step += 1
                 n_steps_ep += 1
+
+                # Reset benchmark timer after torch.compile warmup steps
+                if warmup_bench_steps > 0 and n_steps_ep == warmup_bench_steps:
+                    torch.cuda.synchronize()
+                    t_ep0 = time.monotonic()
+                    t_data_wait = 0.0
+                    n_imgs_ep = 0
 
             t_prev = time.monotonic()
             if args.max_steps > 0 and n_steps_ep >= args.max_steps:

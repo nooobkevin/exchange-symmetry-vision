@@ -288,6 +288,7 @@ def main() -> None:
         val_sampler = None
 
     def _worker_init(wid: int) -> None:
+        torch.set_num_threads(1)
         seed_everything(args.data_seed + wid * 9973 + rank * 100003)
 
     g_loader = torch.Generator().manual_seed(args.data_seed)

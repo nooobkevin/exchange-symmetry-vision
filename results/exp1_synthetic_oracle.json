@@ -1,0 +1,2695 @@
+{
+  "config": {
+    "d": 16,
+    "rank": 16,
+    "steps": 600,
+    "noise_std": 0.05,
+    "workers": 64,
+    "out": "/project/itscspod/chtaihei/cliffordnet/exchange-symmetry-vision/results/exp1_synthetic_oracle.json"
+  },
+  "wall_time_sec": 38.78,
+  "summary": {
+    "antisymmetric": {
+      "aligned": {
+        "64": {
+          "ols_bilinear": {
+            "r2_mean": 0.2167,
+            "r2_std": 0.0412,
+            "mse_mean": 0.77112,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 256
+          },
+          "grouped_wedge_fixed": {
+            "r2_mean": 0.9958,
+            "r2_std": 0.002,
+            "mse_mean": 0.00415,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 656
+          },
+          "grouped_wedge_proj": {
+            "r2_mean": -0.0525,
+            "r2_std": 0.0546,
+            "mse_mean": 1.0361,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 1168
+          },
+          "anti": {
+            "r2_mean": 0.2523,
+            "r2_std": 0.1258,
+            "mse_mean": 0.73776,
+            "eff_anti_mean": 1.0,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "sym": {
+            "r2_mean": -1.2028,
+            "r2_std": 0.416,
+            "mse_mean": 2.16762,
+            "eff_anti_mean": 0.0,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "star": {
+            "r2_mean": -0.1173,
+            "r2_std": 0.1414,
+            "mse_mean": 1.09989,
+            "eff_anti_mean": 0.5,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "free_anti": {
+            "r2_mean": 0.2373,
+            "r2_std": 0.1288,
+            "mse_mean": 0.75274,
+            "eff_anti_mean": 0.9359,
+            "eff_anti_std": 0.022,
+            "n_params": 544
+          },
+          "free_star": {
+            "r2_mean": -0.0411,
+            "r2_std": 0.109,
+            "mse_mean": 1.02553,
+            "eff_anti_mean": 0.5977,
+            "eff_anti_std": 0.0821,
+            "n_params": 544
+          },
+          "free_sym": {
+            "r2_mean": -0.7907,
+            "r2_std": 0.4007,
+            "mse_mean": 1.76603,
+            "eff_anti_mean": 0.1292,
+            "eff_anti_std": 0.0321,
+            "n_params": 544
+          }
+        },
+        "128": {
+          "ols_bilinear": {
+            "r2_mean": 0.481,
+            "r2_std": 0.0532,
+            "mse_mean": 0.5186,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 256
+          },
+          "grouped_wedge_fixed": {
+            "r2_mean": 0.999,
+            "r2_std": 0.0003,
+            "mse_mean": 0.00105,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 656
+          },
+          "grouped_wedge_proj": {
+            "r2_mean": 0.0868,
+            "r2_std": 0.1628,
+            "mse_mean": 0.91146,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 1168
+          },
+          "anti": {
+            "r2_mean": 0.9753,
+            "r2_std": 0.0016,
+            "mse_mean": 0.0247,
+            "eff_anti_mean": 1.0,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "sym": {
+            "r2_mean": -3.0766,
+            "r2_std": 0.5112,
+            "mse_mean": 4.08042,
+            "eff_anti_mean": 0.0,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "star": {
+            "r2_mean": 0.2185,
+            "r2_std": 0.0653,
+            "mse_mean": 0.78194,
+            "eff_anti_mean": 0.5,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "free_anti": {
+            "r2_mean": 0.8058,
+            "r2_std": 0.0464,
+            "mse_mean": 0.19463,
+            "eff_anti_mean": 0.9615,
+            "eff_anti_std": 0.0119,
+            "n_params": 544
+          },
+          "free_star": {
+            "r2_mean": 0.4323,
+            "r2_std": 0.0904,
+            "mse_mean": 0.56768,
+            "eff_anti_mean": 0.7304,
+            "eff_anti_std": 0.072,
+            "n_params": 544
+          },
+          "free_sym": {
+            "r2_mean": -0.704,
+            "r2_std": 0.316,
+            "mse_mean": 1.70264,
+            "eff_anti_mean": 0.273,
+            "eff_anti_std": 0.0796,
+            "n_params": 544
+          }
+        },
+        "256": {
+          "ols_bilinear": {
+            "r2_mean": 0.7444,
+            "r2_std": 0.1033,
+            "mse_mean": 0.2551,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 256
+          },
+          "grouped_wedge_fixed": {
+            "r2_mean": 0.9994,
+            "r2_std": 0.0001,
+            "mse_mean": 0.00056,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 656
+          },
+          "grouped_wedge_proj": {
+            "r2_mean": 0.8727,
+            "r2_std": 0.0294,
+            "mse_mean": 0.12658,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 1168
+          },
+          "anti": {
+            "r2_mean": 0.9978,
+            "r2_std": 0.0004,
+            "mse_mean": 0.00216,
+            "eff_anti_mean": 1.0,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "sym": {
+            "r2_mean": -1.2839,
+            "r2_std": 0.0364,
+            "mse_mean": 2.26947,
+            "eff_anti_mean": 0.0,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "star": {
+            "r2_mean": 0.9009,
+            "r2_std": 0.0295,
+            "mse_mean": 0.09854,
+            "eff_anti_mean": 0.5,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "free_anti": {
+            "r2_mean": 0.9963,
+            "r2_std": 0.0005,
+            "mse_mean": 0.00369,
+            "eff_anti_mean": 0.9987,
+            "eff_anti_std": 0.0008,
+            "n_params": 544
+          },
+          "free_star": {
+            "r2_mean": 0.9906,
+            "r2_std": 0.0033,
+            "mse_mean": 0.00935,
+            "eff_anti_mean": 0.9878,
+            "eff_anti_std": 0.0081,
+            "n_params": 544
+          },
+          "free_sym": {
+            "r2_mean": 0.9497,
+            "r2_std": 0.018,
+            "mse_mean": 0.04976,
+            "eff_anti_mean": 0.918,
+            "eff_anti_std": 0.0329,
+            "n_params": 544
+          }
+        },
+        "512": {
+          "ols_bilinear": {
+            "r2_mean": 0.9973,
+            "r2_std": 0.0005,
+            "mse_mean": 0.00264,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 256
+          },
+          "grouped_wedge_fixed": {
+            "r2_mean": 0.9998,
+            "r2_std": 0.0001,
+            "mse_mean": 0.0002,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 656
+          },
+          "grouped_wedge_proj": {
+            "r2_mean": 0.9973,
+            "r2_std": 0.0005,
+            "mse_mean": 0.00263,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 1168
+          },
+          "anti": {
+            "r2_mean": 0.9992,
+            "r2_std": 0.0001,
+            "mse_mean": 0.00074,
+            "eff_anti_mean": 1.0,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "sym": {
+            "r2_mean": -0.4587,
+            "r2_std": 0.0591,
+            "mse_mean": 1.43543,
+            "eff_anti_mean": 0.0,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "star": {
+            "r2_mean": 0.9973,
+            "r2_std": 0.0005,
+            "mse_mean": 0.00264,
+            "eff_anti_mean": 0.5,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "free_anti": {
+            "r2_mean": 0.999,
+            "r2_std": 0.0002,
+            "mse_mean": 0.00098,
+            "eff_anti_mean": 0.9997,
+            "eff_anti_std": 0.0001,
+            "n_params": 544
+          },
+          "free_star": {
+            "r2_mean": 0.9988,
+            "r2_std": 0.0002,
+            "mse_mean": 0.00118,
+            "eff_anti_mean": 0.9986,
+            "eff_anti_std": 0.0006,
+            "n_params": 544
+          },
+          "free_sym": {
+            "r2_mean": 0.9975,
+            "r2_std": 0.0006,
+            "mse_mean": 0.00249,
+            "eff_anti_mean": 0.867,
+            "eff_anti_std": 0.0835,
+            "n_params": 544
+          }
+        },
+        "1024": {
+          "ols_bilinear": {
+            "r2_mean": 0.999,
+            "r2_std": 0.0,
+            "mse_mean": 0.00096,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 256
+          },
+          "grouped_wedge_fixed": {
+            "r2_mean": 0.9999,
+            "r2_std": 0.0,
+            "mse_mean": 0.00012,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 656
+          },
+          "grouped_wedge_proj": {
+            "r2_mean": 0.999,
+            "r2_std": 0.0001,
+            "mse_mean": 0.001,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 1168
+          },
+          "anti": {
+            "r2_mean": 0.9997,
+            "r2_std": 0.0,
+            "mse_mean": 0.00035,
+            "eff_anti_mean": 1.0,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "sym": {
+            "r2_mean": -0.1921,
+            "r2_std": 0.0291,
+            "mse_mean": 1.20806,
+            "eff_anti_mean": 0.0,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "star": {
+            "r2_mean": 0.9991,
+            "r2_std": 0.0,
+            "mse_mean": 0.00096,
+            "eff_anti_mean": 0.5,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "free_anti": {
+            "r2_mean": 0.9996,
+            "r2_std": 0.0,
+            "mse_mean": 0.00042,
+            "eff_anti_mean": 0.9999,
+            "eff_anti_std": 0.0,
+            "n_params": 544
+          },
+          "free_star": {
+            "r2_mean": 0.9994,
+            "r2_std": 0.0001,
+            "mse_mean": 0.00057,
+            "eff_anti_mean": 0.996,
+            "eff_anti_std": 0.0047,
+            "n_params": 544
+          },
+          "free_sym": {
+            "r2_mean": 0.999,
+            "r2_std": 0.0,
+            "mse_mean": 0.00097,
+            "eff_anti_mean": 0.7301,
+            "eff_anti_std": 0.1005,
+            "n_params": 544
+          }
+        },
+        "2048": {
+          "ols_bilinear": {
+            "r2_mean": 0.9996,
+            "r2_std": 0.0,
+            "mse_mean": 0.00039,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 256
+          },
+          "grouped_wedge_fixed": {
+            "r2_mean": 0.9999,
+            "r2_std": 0.0,
+            "mse_mean": 5e-05,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 656
+          },
+          "grouped_wedge_proj": {
+            "r2_mean": 0.9996,
+            "r2_std": 0.0,
+            "mse_mean": 0.00039,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 1168
+          },
+          "anti": {
+            "r2_mean": 0.9998,
+            "r2_std": 0.0,
+            "mse_mean": 0.00016,
+            "eff_anti_mean": 1.0,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "sym": {
+            "r2_mean": -0.0794,
+            "r2_std": 0.0203,
+            "mse_mean": 1.0741,
+            "eff_anti_mean": 0.0,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "star": {
+            "r2_mean": 0.9996,
+            "r2_std": 0.0,
+            "mse_mean": 0.00039,
+            "eff_anti_mean": 0.5,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "free_anti": {
+            "r2_mean": 0.9998,
+            "r2_std": 0.0,
+            "mse_mean": 0.00018,
+            "eff_anti_mean": 1.0,
+            "eff_anti_std": 0.0,
+            "n_params": 544
+          },
+          "free_star": {
+            "r2_mean": 0.9998,
+            "r2_std": 0.0,
+            "mse_mean": 0.00025,
+            "eff_anti_mean": 0.998,
+            "eff_anti_std": 0.0019,
+            "n_params": 544
+          },
+          "free_sym": {
+            "r2_mean": 0.9996,
+            "r2_std": 0.0,
+            "mse_mean": 0.00039,
+            "eff_anti_mean": 0.5338,
+            "eff_anti_std": 0.0449,
+            "n_params": 544
+          }
+        }
+      },
+      "rotated": {
+        "64": {
+          "ols_bilinear": {
+            "r2_mean": 0.2377,
+            "r2_std": 0.033,
+            "mse_mean": 0.75752,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 256
+          },
+          "grouped_wedge_fixed": {
+            "r2_mean": -1.2745,
+            "r2_std": 0.462,
+            "mse_mean": 2.25691,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 656
+          },
+          "grouped_wedge_proj": {
+            "r2_mean": 0.0064,
+            "r2_std": 0.0895,
+            "mse_mean": 0.98649,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 1168
+          },
+          "anti": {
+            "r2_mean": 0.3719,
+            "r2_std": 0.0579,
+            "mse_mean": 0.62441,
+            "eff_anti_mean": 1.0,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "sym": {
+            "r2_mean": -1.1247,
+            "r2_std": 0.2876,
+            "mse_mean": 2.1091,
+            "eff_anti_mean": 0.0,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "star": {
+            "r2_mean": 0.0327,
+            "r2_std": 0.0595,
+            "mse_mean": 0.96093,
+            "eff_anti_mean": 0.5,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "free_anti": {
+            "r2_mean": 0.3519,
+            "r2_std": 0.0327,
+            "mse_mean": 0.64429,
+            "eff_anti_mean": 0.9382,
+            "eff_anti_std": 0.0351,
+            "n_params": 544
+          },
+          "free_star": {
+            "r2_mean": 0.1081,
+            "r2_std": 0.0621,
+            "mse_mean": 0.88702,
+            "eff_anti_mean": 0.5892,
+            "eff_anti_std": 0.1009,
+            "n_params": 544
+          },
+          "free_sym": {
+            "r2_mean": -0.7485,
+            "r2_std": 0.1681,
+            "mse_mean": 1.73849,
+            "eff_anti_mean": 0.0948,
+            "eff_anti_std": 0.0432,
+            "n_params": 544
+          }
+        },
+        "128": {
+          "ols_bilinear": {
+            "r2_mean": 0.4933,
+            "r2_std": 0.0241,
+            "mse_mean": 0.50526,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 256
+          },
+          "grouped_wedge_fixed": {
+            "r2_mean": -0.2134,
+            "r2_std": 0.1182,
+            "mse_mean": 1.21144,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 656
+          },
+          "grouped_wedge_proj": {
+            "r2_mean": 0.1713,
+            "r2_std": 0.0501,
+            "mse_mean": 0.8277,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 1168
+          },
+          "anti": {
+            "r2_mean": 0.9557,
+            "r2_std": 0.034,
+            "mse_mean": 0.0441,
+            "eff_anti_mean": 1.0,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "sym": {
+            "r2_mean": -3.6601,
+            "r2_std": 0.3622,
+            "mse_mean": 4.64989,
+            "eff_anti_mean": 0.0,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "star": {
+            "r2_mean": 0.2354,
+            "r2_std": 0.0499,
+            "mse_mean": 0.76349,
+            "eff_anti_mean": 0.5,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "free_anti": {
+            "r2_mean": 0.8196,
+            "r2_std": 0.0726,
+            "mse_mean": 0.18007,
+            "eff_anti_mean": 0.9539,
+            "eff_anti_std": 0.0239,
+            "n_params": 544
+          },
+          "free_star": {
+            "r2_mean": 0.436,
+            "r2_std": 0.0734,
+            "mse_mean": 0.56297,
+            "eff_anti_mean": 0.7382,
+            "eff_anti_std": 0.0444,
+            "n_params": 544
+          },
+          "free_sym": {
+            "r2_mean": -0.8057,
+            "r2_std": 0.3397,
+            "mse_mean": 1.79897,
+            "eff_anti_mean": 0.2756,
+            "eff_anti_std": 0.0527,
+            "n_params": 544
+          }
+        },
+        "256": {
+          "ols_bilinear": {
+            "r2_mean": 0.7542,
+            "r2_std": 0.0962,
+            "mse_mean": 0.25137,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 256
+          },
+          "grouped_wedge_fixed": {
+            "r2_mean": -0.0206,
+            "r2_std": 0.0681,
+            "mse_mean": 1.04272,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 656
+          },
+          "grouped_wedge_proj": {
+            "r2_mean": 0.8509,
+            "r2_std": 0.0455,
+            "mse_mean": 0.15245,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 1168
+          },
+          "anti": {
+            "r2_mean": 0.9979,
+            "r2_std": 0.0004,
+            "mse_mean": 0.00216,
+            "eff_anti_mean": 1.0,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "sym": {
+            "r2_mean": -1.438,
+            "r2_std": 0.4118,
+            "mse_mean": 2.49245,
+            "eff_anti_mean": 0.0,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "star": {
+            "r2_mean": 0.8844,
+            "r2_std": 0.0265,
+            "mse_mean": 0.11828,
+            "eff_anti_mean": 0.5,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "free_anti": {
+            "r2_mean": 0.9969,
+            "r2_std": 0.0006,
+            "mse_mean": 0.00316,
+            "eff_anti_mean": 0.9988,
+            "eff_anti_std": 0.0007,
+            "n_params": 544
+          },
+          "free_star": {
+            "r2_mean": 0.9875,
+            "r2_std": 0.0037,
+            "mse_mean": 0.0128,
+            "eff_anti_mean": 0.986,
+            "eff_anti_std": 0.0039,
+            "n_params": 544
+          },
+          "free_sym": {
+            "r2_mean": 0.9146,
+            "r2_std": 0.0615,
+            "mse_mean": 0.0877,
+            "eff_anti_mean": 0.8681,
+            "eff_anti_std": 0.1301,
+            "n_params": 544
+          }
+        },
+        "512": {
+          "ols_bilinear": {
+            "r2_mean": 0.9974,
+            "r2_std": 0.0006,
+            "mse_mean": 0.00264,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 256
+          },
+          "grouped_wedge_fixed": {
+            "r2_mean": 0.0678,
+            "r2_std": 0.0746,
+            "mse_mean": 0.94162,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 656
+          },
+          "grouped_wedge_proj": {
+            "r2_mean": 0.9973,
+            "r2_std": 0.0006,
+            "mse_mean": 0.00276,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 1168
+          },
+          "anti": {
+            "r2_mean": 0.9993,
+            "r2_std": 0.0001,
+            "mse_mean": 0.00074,
+            "eff_anti_mean": 1.0,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "sym": {
+            "r2_mean": -0.4028,
+            "r2_std": 0.0682,
+            "mse_mean": 1.41701,
+            "eff_anti_mean": 0.0,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "star": {
+            "r2_mean": 0.9974,
+            "r2_std": 0.0006,
+            "mse_mean": 0.00265,
+            "eff_anti_mean": 0.5,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "free_anti": {
+            "r2_mean": 0.9991,
+            "r2_std": 0.0002,
+            "mse_mean": 0.00091,
+            "eff_anti_mean": 0.9997,
+            "eff_anti_std": 0.0001,
+            "n_params": 544
+          },
+          "free_star": {
+            "r2_mean": 0.9988,
+            "r2_std": 0.0003,
+            "mse_mean": 0.00118,
+            "eff_anti_mean": 0.9978,
+            "eff_anti_std": 0.0021,
+            "n_params": 544
+          },
+          "free_sym": {
+            "r2_mean": 0.9975,
+            "r2_std": 0.0005,
+            "mse_mean": 0.00255,
+            "eff_anti_mean": 0.8803,
+            "eff_anti_std": 0.0513,
+            "n_params": 544
+          }
+        },
+        "1024": {
+          "ols_bilinear": {
+            "r2_mean": 0.999,
+            "r2_std": 0.0,
+            "mse_mean": 0.00097,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 256
+          },
+          "grouped_wedge_fixed": {
+            "r2_mean": 0.1335,
+            "r2_std": 0.083,
+            "mse_mean": 0.87302,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 656
+          },
+          "grouped_wedge_proj": {
+            "r2_mean": 0.9981,
+            "r2_std": 0.002,
+            "mse_mean": 0.0019,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 1168
+          },
+          "anti": {
+            "r2_mean": 0.9997,
+            "r2_std": 0.0,
+            "mse_mean": 0.00035,
+            "eff_anti_mean": 1.0,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "sym": {
+            "r2_mean": -0.1963,
+            "r2_std": 0.0144,
+            "mse_mean": 1.20572,
+            "eff_anti_mean": 0.0,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "star": {
+            "r2_mean": 0.999,
+            "r2_std": 0.0,
+            "mse_mean": 0.00096,
+            "eff_anti_mean": 0.5,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "free_anti": {
+            "r2_mean": 0.9996,
+            "r2_std": 0.0,
+            "mse_mean": 0.00041,
+            "eff_anti_mean": 0.9999,
+            "eff_anti_std": 0.0001,
+            "n_params": 544
+          },
+          "free_star": {
+            "r2_mean": 0.9994,
+            "r2_std": 0.0001,
+            "mse_mean": 0.00058,
+            "eff_anti_mean": 0.9975,
+            "eff_anti_std": 0.002,
+            "n_params": 544
+          },
+          "free_sym": {
+            "r2_mean": 0.999,
+            "r2_std": 0.0,
+            "mse_mean": 0.00096,
+            "eff_anti_mean": 0.7235,
+            "eff_anti_std": 0.0847,
+            "n_params": 544
+          }
+        },
+        "2048": {
+          "ols_bilinear": {
+            "r2_mean": 0.9996,
+            "r2_std": 0.0,
+            "mse_mean": 0.00039,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 256
+          },
+          "grouped_wedge_fixed": {
+            "r2_mean": 0.1551,
+            "r2_std": 0.0685,
+            "mse_mean": 0.85869,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 656
+          },
+          "grouped_wedge_proj": {
+            "r2_mean": 0.9996,
+            "r2_std": 0.0,
+            "mse_mean": 0.00039,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 1168
+          },
+          "anti": {
+            "r2_mean": 0.9998,
+            "r2_std": 0.0,
+            "mse_mean": 0.00016,
+            "eff_anti_mean": 1.0,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "sym": {
+            "r2_mean": -0.0779,
+            "r2_std": 0.0206,
+            "mse_mean": 1.09471,
+            "eff_anti_mean": 0.0,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "star": {
+            "r2_mean": 0.9996,
+            "r2_std": 0.0,
+            "mse_mean": 0.00039,
+            "eff_anti_mean": 0.5,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "free_anti": {
+            "r2_mean": 0.9998,
+            "r2_std": 0.0,
+            "mse_mean": 0.00019,
+            "eff_anti_mean": 0.9999,
+            "eff_anti_std": 0.0,
+            "n_params": 544
+          },
+          "free_star": {
+            "r2_mean": 0.9997,
+            "r2_std": 0.0001,
+            "mse_mean": 0.00026,
+            "eff_anti_mean": 0.9976,
+            "eff_anti_std": 0.0025,
+            "n_params": 544
+          },
+          "free_sym": {
+            "r2_mean": 0.9996,
+            "r2_std": 0.0,
+            "mse_mean": 0.00039,
+            "eff_anti_mean": 0.5894,
+            "eff_anti_std": 0.0608,
+            "n_params": 544
+          }
+        }
+      }
+    },
+    "symmetric": {
+      "aligned": {
+        "64": {
+          "ols_bilinear": {
+            "r2_mean": 0.2431,
+            "r2_std": 0.0329,
+            "mse_mean": 0.75753,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 256
+          },
+          "grouped_wedge_fixed": {
+            "r2_mean": -0.5384,
+            "r2_std": 0.3553,
+            "mse_mean": 1.54525,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 656
+          },
+          "grouped_wedge_proj": {
+            "r2_mean": -0.019,
+            "r2_std": 0.0312,
+            "mse_mean": 1.01964,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 1168
+          },
+          "anti": {
+            "r2_mean": -1.4946,
+            "r2_std": 0.6772,
+            "mse_mean": 2.49049,
+            "eff_anti_mean": 1.0,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "sym": {
+            "r2_mean": 0.2836,
+            "r2_std": 0.0387,
+            "mse_mean": 0.71674,
+            "eff_anti_mean": 0.0,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "star": {
+            "r2_mean": -0.0073,
+            "r2_std": 0.0413,
+            "mse_mean": 1.00809,
+            "eff_anti_mean": 0.5,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "free_anti": {
+            "r2_mean": -0.8897,
+            "r2_std": 0.2142,
+            "mse_mean": 1.89359,
+            "eff_anti_mean": 0.9004,
+            "eff_anti_std": 0.0731,
+            "n_params": 544
+          },
+          "free_star": {
+            "r2_mean": 0.0382,
+            "r2_std": 0.0433,
+            "mse_mean": 0.96313,
+            "eff_anti_mean": 0.4195,
+            "eff_anti_std": 0.1041,
+            "n_params": 544
+          },
+          "free_sym": {
+            "r2_mean": 0.2727,
+            "r2_std": 0.0567,
+            "mse_mean": 0.7279,
+            "eff_anti_mean": 0.0508,
+            "eff_anti_std": 0.0206,
+            "n_params": 544
+          }
+        },
+        "128": {
+          "ols_bilinear": {
+            "r2_mean": 0.5074,
+            "r2_std": 0.0599,
+            "mse_mean": 0.48686,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 256
+          },
+          "grouped_wedge_fixed": {
+            "r2_mean": 0.1541,
+            "r2_std": 0.1338,
+            "mse_mean": 0.83649,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 656
+          },
+          "grouped_wedge_proj": {
+            "r2_mean": 0.125,
+            "r2_std": 0.1113,
+            "mse_mean": 0.86449,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 1168
+          },
+          "anti": {
+            "r2_mean": -4.7789,
+            "r2_std": 0.9801,
+            "mse_mean": 5.70157,
+            "eff_anti_mean": 1.0,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "sym": {
+            "r2_mean": 0.8401,
+            "r2_std": 0.1201,
+            "mse_mean": 0.15875,
+            "eff_anti_mean": 0.0,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "star": {
+            "r2_mean": 0.1933,
+            "r2_std": 0.0798,
+            "mse_mean": 0.7984,
+            "eff_anti_mean": 0.5,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "free_anti": {
+            "r2_mean": -0.7849,
+            "r2_std": 0.2739,
+            "mse_mean": 1.76711,
+            "eff_anti_mean": 0.6951,
+            "eff_anti_std": 0.0567,
+            "n_params": 544
+          },
+          "free_star": {
+            "r2_mean": 0.3029,
+            "r2_std": 0.1149,
+            "mse_mean": 0.69044,
+            "eff_anti_mean": 0.318,
+            "eff_anti_std": 0.0623,
+            "n_params": 544
+          },
+          "free_sym": {
+            "r2_mean": 0.7216,
+            "r2_std": 0.146,
+            "mse_mean": 0.27593,
+            "eff_anti_mean": 0.0512,
+            "eff_anti_std": 0.0126,
+            "n_params": 544
+          }
+        },
+        "256": {
+          "ols_bilinear": {
+            "r2_mean": 0.7746,
+            "r2_std": 0.085,
+            "mse_mean": 0.23018,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 256
+          },
+          "grouped_wedge_fixed": {
+            "r2_mean": 0.3394,
+            "r2_std": 0.103,
+            "mse_mean": 0.67059,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 656
+          },
+          "grouped_wedge_proj": {
+            "r2_mean": 0.9035,
+            "r2_std": 0.0304,
+            "mse_mean": 0.09817,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 1168
+          },
+          "anti": {
+            "r2_mean": -1.0911,
+            "r2_std": 0.1896,
+            "mse_mean": 2.12721,
+            "eff_anti_mean": 1.0,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "sym": {
+            "r2_mean": 0.9973,
+            "r2_std": 0.0006,
+            "mse_mean": 0.00279,
+            "eff_anti_mean": 0.0,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "star": {
+            "r2_mean": 0.9133,
+            "r2_std": 0.0422,
+            "mse_mean": 0.08779,
+            "eff_anti_mean": 0.5,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "free_anti": {
+            "r2_mean": 0.9402,
+            "r2_std": 0.0141,
+            "mse_mean": 0.06078,
+            "eff_anti_mean": 0.1455,
+            "eff_anti_std": 0.0501,
+            "n_params": 544
+          },
+          "free_star": {
+            "r2_mean": 0.9895,
+            "r2_std": 0.0027,
+            "mse_mean": 0.01064,
+            "eff_anti_mean": 0.0156,
+            "eff_anti_std": 0.0085,
+            "n_params": 544
+          },
+          "free_sym": {
+            "r2_mean": 0.9953,
+            "r2_std": 0.0014,
+            "mse_mean": 0.00485,
+            "eff_anti_mean": 0.0024,
+            "eff_anti_std": 0.001,
+            "n_params": 544
+          }
+        },
+        "512": {
+          "ols_bilinear": {
+            "r2_mean": 0.9973,
+            "r2_std": 0.0005,
+            "mse_mean": 0.00264,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 256
+          },
+          "grouped_wedge_fixed": {
+            "r2_mean": 0.4093,
+            "r2_std": 0.1009,
+            "mse_mean": 0.58705,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 656
+          },
+          "grouped_wedge_proj": {
+            "r2_mean": 0.9973,
+            "r2_std": 0.0005,
+            "mse_mean": 0.00273,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 1168
+          },
+          "anti": {
+            "r2_mean": -0.4617,
+            "r2_std": 0.0637,
+            "mse_mean": 1.45248,
+            "eff_anti_mean": 1.0,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "sym": {
+            "r2_mean": 0.9991,
+            "r2_std": 0.0001,
+            "mse_mean": 0.00092,
+            "eff_anti_mean": 0.0,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "star": {
+            "r2_mean": 0.9973,
+            "r2_std": 0.0005,
+            "mse_mean": 0.00265,
+            "eff_anti_mean": 0.5,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "free_anti": {
+            "r2_mean": 0.9973,
+            "r2_std": 0.0005,
+            "mse_mean": 0.00268,
+            "eff_anti_mean": 0.2076,
+            "eff_anti_std": 0.1076,
+            "n_params": 544
+          },
+          "free_star": {
+            "r2_mean": 0.9984,
+            "r2_std": 0.0003,
+            "mse_mean": 0.00158,
+            "eff_anti_mean": 0.0048,
+            "eff_anti_std": 0.0024,
+            "n_params": 544
+          },
+          "free_sym": {
+            "r2_mean": 0.9989,
+            "r2_std": 0.0001,
+            "mse_mean": 0.00112,
+            "eff_anti_mean": 0.0003,
+            "eff_anti_std": 0.0001,
+            "n_params": 544
+          }
+        },
+        "1024": {
+          "ols_bilinear": {
+            "r2_mean": 0.9991,
+            "r2_std": 0.0,
+            "mse_mean": 0.00096,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 256
+          },
+          "grouped_wedge_fixed": {
+            "r2_mean": 0.4472,
+            "r2_std": 0.0898,
+            "mse_mean": 0.56341,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 656
+          },
+          "grouped_wedge_proj": {
+            "r2_mean": 0.9991,
+            "r2_std": 0.0,
+            "mse_mean": 0.00096,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 1168
+          },
+          "anti": {
+            "r2_mean": -0.1806,
+            "r2_std": 0.0083,
+            "mse_mean": 1.20103,
+            "eff_anti_mean": 1.0,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "sym": {
+            "r2_mean": 0.9996,
+            "r2_std": 0.0,
+            "mse_mean": 0.00043,
+            "eff_anti_mean": 0.0,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "star": {
+            "r2_mean": 0.9991,
+            "r2_std": 0.0,
+            "mse_mean": 0.00096,
+            "eff_anti_mean": 0.5,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "free_anti": {
+            "r2_mean": 0.999,
+            "r2_std": 0.0001,
+            "mse_mean": 0.00099,
+            "eff_anti_mean": 0.3739,
+            "eff_anti_std": 0.0752,
+            "n_params": 544
+          },
+          "free_star": {
+            "r2_mean": 0.9993,
+            "r2_std": 0.0001,
+            "mse_mean": 0.00068,
+            "eff_anti_mean": 0.0064,
+            "eff_anti_std": 0.0033,
+            "n_params": 544
+          },
+          "free_sym": {
+            "r2_mean": 0.9995,
+            "r2_std": 0.0,
+            "mse_mean": 0.00051,
+            "eff_anti_mean": 0.0002,
+            "eff_anti_std": 0.0001,
+            "n_params": 544
+          }
+        },
+        "2048": {
+          "ols_bilinear": {
+            "r2_mean": 0.9996,
+            "r2_std": 0.0,
+            "mse_mean": 0.00039,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 256
+          },
+          "grouped_wedge_fixed": {
+            "r2_mean": 0.4623,
+            "r2_std": 0.0942,
+            "mse_mean": 0.54221,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 656
+          },
+          "grouped_wedge_proj": {
+            "r2_mean": 0.9996,
+            "r2_std": 0.0,
+            "mse_mean": 0.00039,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 1168
+          },
+          "anti": {
+            "r2_mean": -0.0702,
+            "r2_std": 0.0111,
+            "mse_mean": 1.0769,
+            "eff_anti_mean": 1.0,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "sym": {
+            "r2_mean": 0.9998,
+            "r2_std": 0.0,
+            "mse_mean": 0.0002,
+            "eff_anti_mean": 0.0,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "star": {
+            "r2_mean": 0.9996,
+            "r2_std": 0.0,
+            "mse_mean": 0.00039,
+            "eff_anti_mean": 0.5,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "free_anti": {
+            "r2_mean": 0.9996,
+            "r2_std": 0.0,
+            "mse_mean": 0.00039,
+            "eff_anti_mean": 0.4904,
+            "eff_anti_std": 0.1173,
+            "n_params": 544
+          },
+          "free_star": {
+            "r2_mean": 0.9997,
+            "r2_std": 0.0001,
+            "mse_mean": 0.00032,
+            "eff_anti_mean": 0.0071,
+            "eff_anti_std": 0.0088,
+            "n_params": 544
+          },
+          "free_sym": {
+            "r2_mean": 0.9998,
+            "r2_std": 0.0,
+            "mse_mean": 0.00023,
+            "eff_anti_mean": 0.0001,
+            "eff_anti_std": 0.0,
+            "n_params": 544
+          }
+        }
+      },
+      "rotated": {
+        "64": {
+          "ols_bilinear": {
+            "r2_mean": 0.2234,
+            "r2_std": 0.0231,
+            "mse_mean": 0.78177,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 256
+          },
+          "grouped_wedge_fixed": {
+            "r2_mean": -1.0025,
+            "r2_std": 0.238,
+            "mse_mean": 2.01596,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 656
+          },
+          "grouped_wedge_proj": {
+            "r2_mean": -0.0318,
+            "r2_std": 0.0966,
+            "mse_mean": 1.03827,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 1168
+          },
+          "anti": {
+            "r2_mean": -1.4446,
+            "r2_std": 0.3416,
+            "mse_mean": 2.46085,
+            "eff_anti_mean": 1.0,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "sym": {
+            "r2_mean": 0.3002,
+            "r2_std": 0.0797,
+            "mse_mean": 0.70399,
+            "eff_anti_mean": 0.0,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "star": {
+            "r2_mean": 0.0463,
+            "r2_std": 0.0613,
+            "mse_mean": 0.96026,
+            "eff_anti_mean": 0.5,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "free_anti": {
+            "r2_mean": -0.724,
+            "r2_std": 0.1252,
+            "mse_mean": 1.73587,
+            "eff_anti_mean": 0.8678,
+            "eff_anti_std": 0.0421,
+            "n_params": 544
+          },
+          "free_star": {
+            "r2_mean": 0.0755,
+            "r2_std": 0.0943,
+            "mse_mean": 0.93083,
+            "eff_anti_mean": 0.4214,
+            "eff_anti_std": 0.0735,
+            "n_params": 544
+          },
+          "free_sym": {
+            "r2_mean": 0.2972,
+            "r2_std": 0.0728,
+            "mse_mean": 0.70695,
+            "eff_anti_mean": 0.0639,
+            "eff_anti_std": 0.028,
+            "n_params": 544
+          }
+        },
+        "128": {
+          "ols_bilinear": {
+            "r2_mean": 0.5057,
+            "r2_std": 0.0336,
+            "mse_mean": 0.50288,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 256
+          },
+          "grouped_wedge_fixed": {
+            "r2_mean": -0.3725,
+            "r2_std": 0.1805,
+            "mse_mean": 1.40503,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 656
+          },
+          "grouped_wedge_proj": {
+            "r2_mean": 0.11,
+            "r2_std": 0.139,
+            "mse_mean": 0.90284,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 1168
+          },
+          "anti": {
+            "r2_mean": -3.647,
+            "r2_std": 0.4934,
+            "mse_mean": 4.73138,
+            "eff_anti_mean": 1.0,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "sym": {
+            "r2_mean": 0.8784,
+            "r2_std": 0.0431,
+            "mse_mean": 0.12356,
+            "eff_anti_mean": 0.0,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "star": {
+            "r2_mean": 0.1912,
+            "r2_std": 0.0712,
+            "mse_mean": 0.82306,
+            "eff_anti_mean": 0.5,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "free_anti": {
+            "r2_mean": -0.8113,
+            "r2_std": 0.2123,
+            "mse_mean": 1.84302,
+            "eff_anti_mean": 0.7217,
+            "eff_anti_std": 0.0521,
+            "n_params": 544
+          },
+          "free_star": {
+            "r2_mean": 0.3647,
+            "r2_std": 0.0591,
+            "mse_mean": 0.64906,
+            "eff_anti_mean": 0.2818,
+            "eff_anti_std": 0.0677,
+            "n_params": 544
+          },
+          "free_sym": {
+            "r2_mean": 0.7227,
+            "r2_std": 0.0977,
+            "mse_mean": 0.28447,
+            "eff_anti_mean": 0.0599,
+            "eff_anti_std": 0.0244,
+            "n_params": 544
+          }
+        },
+        "256": {
+          "ols_bilinear": {
+            "r2_mean": 0.763,
+            "r2_std": 0.0995,
+            "mse_mean": 0.23558,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 256
+          },
+          "grouped_wedge_fixed": {
+            "r2_mean": -0.0769,
+            "r2_std": 0.0783,
+            "mse_mean": 1.07923,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 656
+          },
+          "grouped_wedge_proj": {
+            "r2_mean": 0.8813,
+            "r2_std": 0.0618,
+            "mse_mean": 0.1178,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 1168
+          },
+          "anti": {
+            "r2_mean": -0.9605,
+            "r2_std": 0.2649,
+            "mse_mean": 1.97212,
+            "eff_anti_mean": 1.0,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "sym": {
+            "r2_mean": 0.9972,
+            "r2_std": 0.0005,
+            "mse_mean": 0.00279,
+            "eff_anti_mean": 0.0,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "star": {
+            "r2_mean": 0.9035,
+            "r2_std": 0.0607,
+            "mse_mean": 0.09669,
+            "eff_anti_mean": 0.5,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "free_anti": {
+            "r2_mean": 0.9077,
+            "r2_std": 0.0416,
+            "mse_mean": 0.09296,
+            "eff_anti_mean": 0.1769,
+            "eff_anti_std": 0.0348,
+            "n_params": 544
+          },
+          "free_star": {
+            "r2_mean": 0.9813,
+            "r2_std": 0.0069,
+            "mse_mean": 0.0187,
+            "eff_anti_mean": 0.0302,
+            "eff_anti_std": 0.0109,
+            "n_params": 544
+          },
+          "free_sym": {
+            "r2_mean": 0.9945,
+            "r2_std": 0.0018,
+            "mse_mean": 0.00555,
+            "eff_anti_mean": 0.0032,
+            "eff_anti_std": 0.002,
+            "n_params": 544
+          }
+        },
+        "512": {
+          "ols_bilinear": {
+            "r2_mean": 0.9974,
+            "r2_std": 0.0006,
+            "mse_mean": 0.00264,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 256
+          },
+          "grouped_wedge_fixed": {
+            "r2_mean": 0.0064,
+            "r2_std": 0.0315,
+            "mse_mean": 0.99399,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 656
+          },
+          "grouped_wedge_proj": {
+            "r2_mean": 0.9974,
+            "r2_std": 0.0004,
+            "mse_mean": 0.00259,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 1168
+          },
+          "anti": {
+            "r2_mean": -0.383,
+            "r2_std": 0.0754,
+            "mse_mean": 1.38343,
+            "eff_anti_mean": 1.0,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "sym": {
+            "r2_mean": 0.9991,
+            "r2_std": 0.0001,
+            "mse_mean": 0.00092,
+            "eff_anti_mean": 0.0,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "star": {
+            "r2_mean": 0.9974,
+            "r2_std": 0.0006,
+            "mse_mean": 0.00264,
+            "eff_anti_mean": 0.5,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "free_anti": {
+            "r2_mean": 0.9973,
+            "r2_std": 0.0005,
+            "mse_mean": 0.00266,
+            "eff_anti_mean": 0.2314,
+            "eff_anti_std": 0.0583,
+            "n_params": 544
+          },
+          "free_star": {
+            "r2_mean": 0.9983,
+            "r2_std": 0.0005,
+            "mse_mean": 0.00169,
+            "eff_anti_mean": 0.0062,
+            "eff_anti_std": 0.0063,
+            "n_params": 544
+          },
+          "free_sym": {
+            "r2_mean": 0.9989,
+            "r2_std": 0.0002,
+            "mse_mean": 0.00112,
+            "eff_anti_mean": 0.0005,
+            "eff_anti_std": 0.0002,
+            "n_params": 544
+          }
+        },
+        "1024": {
+          "ols_bilinear": {
+            "r2_mean": 0.999,
+            "r2_std": 0.0001,
+            "mse_mean": 0.00096,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 256
+          },
+          "grouped_wedge_fixed": {
+            "r2_mean": 0.0632,
+            "r2_std": 0.0228,
+            "mse_mean": 0.94927,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 656
+          },
+          "grouped_wedge_proj": {
+            "r2_mean": 0.999,
+            "r2_std": 0.0001,
+            "mse_mean": 0.00097,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 1168
+          },
+          "anti": {
+            "r2_mean": -0.1478,
+            "r2_std": 0.0289,
+            "mse_mean": 1.16273,
+            "eff_anti_mean": 1.0,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "sym": {
+            "r2_mean": 0.9996,
+            "r2_std": 0.0,
+            "mse_mean": 0.00043,
+            "eff_anti_mean": 0.0,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "star": {
+            "r2_mean": 0.999,
+            "r2_std": 0.0001,
+            "mse_mean": 0.00097,
+            "eff_anti_mean": 0.5,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "free_anti": {
+            "r2_mean": 0.9991,
+            "r2_std": 0.0,
+            "mse_mean": 0.00095,
+            "eff_anti_mean": 0.4018,
+            "eff_anti_std": 0.0867,
+            "n_params": 544
+          },
+          "free_star": {
+            "r2_mean": 0.9993,
+            "r2_std": 0.0001,
+            "mse_mean": 0.00072,
+            "eff_anti_mean": 0.0063,
+            "eff_anti_std": 0.0043,
+            "n_params": 544
+          },
+          "free_sym": {
+            "r2_mean": 0.9995,
+            "r2_std": 0.0,
+            "mse_mean": 0.0005,
+            "eff_anti_mean": 0.0001,
+            "eff_anti_std": 0.0001,
+            "n_params": 544
+          }
+        },
+        "2048": {
+          "ols_bilinear": {
+            "r2_mean": 0.9996,
+            "r2_std": 0.0,
+            "mse_mean": 0.00039,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 256
+          },
+          "grouped_wedge_fixed": {
+            "r2_mean": 0.0817,
+            "r2_std": 0.0315,
+            "mse_mean": 0.90717,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 656
+          },
+          "grouped_wedge_proj": {
+            "r2_mean": 0.9996,
+            "r2_std": 0.0,
+            "mse_mean": 0.00039,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 1168
+          },
+          "anti": {
+            "r2_mean": -0.0707,
+            "r2_std": 0.0093,
+            "mse_mean": 1.05849,
+            "eff_anti_mean": 1.0,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "sym": {
+            "r2_mean": 0.9998,
+            "r2_std": 0.0,
+            "mse_mean": 0.0002,
+            "eff_anti_mean": 0.0,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "star": {
+            "r2_mean": 0.9996,
+            "r2_std": 0.0,
+            "mse_mean": 0.00039,
+            "eff_anti_mean": 0.5,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "free_anti": {
+            "r2_mean": 0.9996,
+            "r2_std": 0.0,
+            "mse_mean": 0.00039,
+            "eff_anti_mean": 0.5476,
+            "eff_anti_std": 0.0526,
+            "n_params": 544
+          },
+          "free_star": {
+            "r2_mean": 0.9996,
+            "r2_std": 0.0001,
+            "mse_mean": 0.00035,
+            "eff_anti_mean": 0.0128,
+            "eff_anti_std": 0.0152,
+            "n_params": 544
+          },
+          "free_sym": {
+            "r2_mean": 0.9998,
+            "r2_std": 0.0,
+            "mse_mean": 0.00023,
+            "eff_anti_mean": 0.0001,
+            "eff_anti_std": 0.0001,
+            "n_params": 544
+          }
+        }
+      }
+    },
+    "general": {
+      "aligned": {
+        "64": {
+          "ols_bilinear": {
+            "r2_mean": 0.2185,
+            "r2_std": 0.0404,
+            "mse_mean": 0.77364,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 256
+          },
+          "grouped_wedge_fixed": {
+            "r2_mean": 0.1283,
+            "r2_std": 0.1878,
+            "mse_mean": 0.86601,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 656
+          },
+          "grouped_wedge_proj": {
+            "r2_mean": 0.0032,
+            "r2_std": 0.0742,
+            "mse_mean": 0.9871,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 1168
+          },
+          "anti": {
+            "r2_mean": -0.5769,
+            "r2_std": 0.3137,
+            "mse_mean": 1.55921,
+            "eff_anti_mean": 1.0,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "sym": {
+            "r2_mean": -0.4018,
+            "r2_std": 0.257,
+            "mse_mean": 1.38897,
+            "eff_anti_mean": 0.0,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "star": {
+            "r2_mean": -0.0566,
+            "r2_std": 0.0949,
+            "mse_mean": 1.04505,
+            "eff_anti_mean": 0.5,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "free_anti": {
+            "r2_mean": -0.2483,
+            "r2_std": 0.0897,
+            "mse_mean": 1.23662,
+            "eff_anti_mean": 0.8932,
+            "eff_anti_std": 0.0502,
+            "n_params": 544
+          },
+          "free_star": {
+            "r2_mean": -0.0494,
+            "r2_std": 0.0808,
+            "mse_mean": 1.03839,
+            "eff_anti_mean": 0.4746,
+            "eff_anti_std": 0.0989,
+            "n_params": 544
+          },
+          "free_sym": {
+            "r2_mean": -0.1942,
+            "r2_std": 0.1488,
+            "mse_mean": 1.18396,
+            "eff_anti_mean": 0.0939,
+            "eff_anti_std": 0.0281,
+            "n_params": 544
+          }
+        },
+        "128": {
+          "ols_bilinear": {
+            "r2_mean": 0.4884,
+            "r2_std": 0.0654,
+            "mse_mean": 0.51194,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 256
+          },
+          "grouped_wedge_fixed": {
+            "r2_mean": 0.5651,
+            "r2_std": 0.0704,
+            "mse_mean": 0.43451,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 656
+          },
+          "grouped_wedge_proj": {
+            "r2_mean": 0.1658,
+            "r2_std": 0.0755,
+            "mse_mean": 0.83499,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 1168
+          },
+          "anti": {
+            "r2_mean": -1.4011,
+            "r2_std": 0.2343,
+            "mse_mean": 2.40152,
+            "eff_anti_mean": 1.0,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "sym": {
+            "r2_mean": -0.8025,
+            "r2_std": 0.2829,
+            "mse_mean": 1.80152,
+            "eff_anti_mean": 0.0,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "star": {
+            "r2_mean": 0.2291,
+            "r2_std": 0.0345,
+            "mse_mean": 0.77166,
+            "eff_anti_mean": 0.5,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "free_anti": {
+            "r2_mean": -0.2528,
+            "r2_std": 0.1804,
+            "mse_mean": 1.25632,
+            "eff_anti_mean": 0.7903,
+            "eff_anti_std": 0.0189,
+            "n_params": 544
+          },
+          "free_star": {
+            "r2_mean": 0.1855,
+            "r2_std": 0.0507,
+            "mse_mean": 0.81541,
+            "eff_anti_mean": 0.5099,
+            "eff_anti_std": 0.0399,
+            "n_params": 544
+          },
+          "free_sym": {
+            "r2_mean": -0.1344,
+            "r2_std": 0.127,
+            "mse_mean": 1.13249,
+            "eff_anti_mean": 0.1856,
+            "eff_anti_std": 0.0367,
+            "n_params": 544
+          }
+        },
+        "256": {
+          "ols_bilinear": {
+            "r2_mean": 0.7638,
+            "r2_std": 0.0919,
+            "mse_mean": 0.23908,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 256
+          },
+          "grouped_wedge_fixed": {
+            "r2_mean": 0.6538,
+            "r2_std": 0.0516,
+            "mse_mean": 0.34909,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 656
+          },
+          "grouped_wedge_proj": {
+            "r2_mean": 0.8838,
+            "r2_std": 0.0446,
+            "mse_mean": 0.1171,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 1168
+          },
+          "anti": {
+            "r2_mean": -0.046,
+            "r2_std": 0.0817,
+            "mse_mean": 1.05598,
+            "eff_anti_mean": 1.0,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "sym": {
+            "r2_mean": -0.1097,
+            "r2_std": 0.0241,
+            "mse_mean": 1.11986,
+            "eff_anti_mean": 0.0,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "star": {
+            "r2_mean": 0.9251,
+            "r2_std": 0.0171,
+            "mse_mean": 0.07572,
+            "eff_anti_mean": 0.5,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "free_anti": {
+            "r2_mean": 0.8959,
+            "r2_std": 0.0155,
+            "mse_mean": 0.10526,
+            "eff_anti_mean": 0.578,
+            "eff_anti_std": 0.0488,
+            "n_params": 544
+          },
+          "free_star": {
+            "r2_mean": 0.9238,
+            "r2_std": 0.0201,
+            "mse_mean": 0.07696,
+            "eff_anti_mean": 0.5042,
+            "eff_anti_std": 0.0518,
+            "n_params": 544
+          },
+          "free_sym": {
+            "r2_mean": 0.8823,
+            "r2_std": 0.0596,
+            "mse_mean": 0.11868,
+            "eff_anti_mean": 0.4469,
+            "eff_anti_std": 0.0668,
+            "n_params": 544
+          }
+        },
+        "512": {
+          "ols_bilinear": {
+            "r2_mean": 0.9973,
+            "r2_std": 0.0005,
+            "mse_mean": 0.00264,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 256
+          },
+          "grouped_wedge_fixed": {
+            "r2_mean": 0.6925,
+            "r2_std": 0.052,
+            "mse_mean": 0.30299,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 656
+          },
+          "grouped_wedge_proj": {
+            "r2_mean": 0.9972,
+            "r2_std": 0.0006,
+            "mse_mean": 0.00276,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 1168
+          },
+          "anti": {
+            "r2_mean": 0.2642,
+            "r2_std": 0.0352,
+            "mse_mean": 0.72583,
+            "eff_anti_mean": 1.0,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "sym": {
+            "r2_mean": 0.271,
+            "r2_std": 0.033,
+            "mse_mean": 0.71909,
+            "eff_anti_mean": 0.0,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "star": {
+            "r2_mean": 0.9973,
+            "r2_std": 0.0005,
+            "mse_mean": 0.00266,
+            "eff_anti_mean": 0.5,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "free_anti": {
+            "r2_mean": 0.9974,
+            "r2_std": 0.0004,
+            "mse_mean": 0.0026,
+            "eff_anti_mean": 0.5925,
+            "eff_anti_std": 0.0648,
+            "n_params": 544
+          },
+          "free_star": {
+            "r2_mean": 0.9973,
+            "r2_std": 0.0005,
+            "mse_mean": 0.00263,
+            "eff_anti_mean": 0.5337,
+            "eff_anti_std": 0.0602,
+            "n_params": 544
+          },
+          "free_sym": {
+            "r2_mean": 0.9974,
+            "r2_std": 0.0004,
+            "mse_mean": 0.00259,
+            "eff_anti_mean": 0.5044,
+            "eff_anti_std": 0.0706,
+            "n_params": 544
+          }
+        },
+        "1024": {
+          "ols_bilinear": {
+            "r2_mean": 0.9991,
+            "r2_std": 0.0,
+            "mse_mean": 0.00096,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 256
+          },
+          "grouped_wedge_fixed": {
+            "r2_mean": 0.7155,
+            "r2_std": 0.0466,
+            "mse_mean": 0.28937,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 656
+          },
+          "grouped_wedge_proj": {
+            "r2_mean": 0.9989,
+            "r2_std": 0.0003,
+            "mse_mean": 0.00108,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 1168
+          },
+          "anti": {
+            "r2_mean": 0.4099,
+            "r2_std": 0.0141,
+            "mse_mean": 0.59999,
+            "eff_anti_mean": 1.0,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "sym": {
+            "r2_mean": 0.4093,
+            "r2_std": 0.0156,
+            "mse_mean": 0.60065,
+            "eff_anti_mean": 0.0,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "star": {
+            "r2_mean": 0.9991,
+            "r2_std": 0.0,
+            "mse_mean": 0.00096,
+            "eff_anti_mean": 0.5,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "free_anti": {
+            "r2_mean": 0.9991,
+            "r2_std": 0.0,
+            "mse_mean": 0.00097,
+            "eff_anti_mean": 0.6251,
+            "eff_anti_std": 0.0763,
+            "n_params": 544
+          },
+          "free_star": {
+            "r2_mean": 0.9991,
+            "r2_std": 0.0,
+            "mse_mean": 0.00096,
+            "eff_anti_mean": 0.5374,
+            "eff_anti_std": 0.066,
+            "n_params": 544
+          },
+          "free_sym": {
+            "r2_mean": 0.9991,
+            "r2_std": 0.0,
+            "mse_mean": 0.00096,
+            "eff_anti_mean": 0.4657,
+            "eff_anti_std": 0.0575,
+            "n_params": 544
+          }
+        },
+        "2048": {
+          "ols_bilinear": {
+            "r2_mean": 0.9996,
+            "r2_std": 0.0,
+            "mse_mean": 0.00039,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 256
+          },
+          "grouped_wedge_fixed": {
+            "r2_mean": 0.7196,
+            "r2_std": 0.0469,
+            "mse_mean": 0.2808,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 656
+          },
+          "grouped_wedge_proj": {
+            "r2_mean": 0.9993,
+            "r2_std": 0.0006,
+            "mse_mean": 0.00069,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 1168
+          },
+          "anti": {
+            "r2_mean": 0.461,
+            "r2_std": 0.0163,
+            "mse_mean": 0.53963,
+            "eff_anti_mean": 1.0,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "sym": {
+            "r2_mean": 0.4664,
+            "r2_std": 0.0084,
+            "mse_mean": 0.53422,
+            "eff_anti_mean": 0.0,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "star": {
+            "r2_mean": 0.9996,
+            "r2_std": 0.0,
+            "mse_mean": 0.00039,
+            "eff_anti_mean": 0.5,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "free_anti": {
+            "r2_mean": 0.9996,
+            "r2_std": 0.0,
+            "mse_mean": 0.00039,
+            "eff_anti_mean": 0.6389,
+            "eff_anti_std": 0.0645,
+            "n_params": 544
+          },
+          "free_star": {
+            "r2_mean": 0.9996,
+            "r2_std": 0.0,
+            "mse_mean": 0.00039,
+            "eff_anti_mean": 0.5443,
+            "eff_anti_std": 0.0655,
+            "n_params": 544
+          },
+          "free_sym": {
+            "r2_mean": 0.9996,
+            "r2_std": 0.0,
+            "mse_mean": 0.00039,
+            "eff_anti_mean": 0.4881,
+            "eff_anti_std": 0.0747,
+            "n_params": 544
+          }
+        }
+      },
+      "rotated": {
+        "64": {
+          "ols_bilinear": {
+            "r2_mean": 0.256,
+            "r2_std": 0.0276,
+            "mse_mean": 0.75595,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 256
+          },
+          "grouped_wedge_fixed": {
+            "r2_mean": -1.0102,
+            "r2_std": 0.438,
+            "mse_mean": 2.04315,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 656
+          },
+          "grouped_wedge_proj": {
+            "r2_mean": -0.0397,
+            "r2_std": 0.139,
+            "mse_mean": 1.05616,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 1168
+          },
+          "anti": {
+            "r2_mean": -0.6651,
+            "r2_std": 0.2279,
+            "mse_mean": 1.69127,
+            "eff_anti_mean": 1.0,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "sym": {
+            "r2_mean": -0.4191,
+            "r2_std": 0.1807,
+            "mse_mean": 1.44302,
+            "eff_anti_mean": 0.0,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "star": {
+            "r2_mean": -0.0021,
+            "r2_std": 0.0693,
+            "mse_mean": 1.01823,
+            "eff_anti_mean": 0.5,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "free_anti": {
+            "r2_mean": -0.3244,
+            "r2_std": 0.1565,
+            "mse_mean": 1.34577,
+            "eff_anti_mean": 0.9144,
+            "eff_anti_std": 0.019,
+            "n_params": 544
+          },
+          "free_star": {
+            "r2_mean": 0.0011,
+            "r2_std": 0.0673,
+            "mse_mean": 1.01506,
+            "eff_anti_mean": 0.5457,
+            "eff_anti_std": 0.0546,
+            "n_params": 544
+          },
+          "free_sym": {
+            "r2_mean": -0.2164,
+            "r2_std": 0.0816,
+            "mse_mean": 1.23661,
+            "eff_anti_mean": 0.0798,
+            "eff_anti_std": 0.0256,
+            "n_params": 544
+          }
+        },
+        "128": {
+          "ols_bilinear": {
+            "r2_mean": 0.5088,
+            "r2_std": 0.0677,
+            "mse_mean": 0.49246,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 256
+          },
+          "grouped_wedge_fixed": {
+            "r2_mean": -0.334,
+            "r2_std": 0.2166,
+            "mse_mean": 1.34461,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 656
+          },
+          "grouped_wedge_proj": {
+            "r2_mean": 0.1747,
+            "r2_std": 0.0693,
+            "mse_mean": 0.82692,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 1168
+          },
+          "anti": {
+            "r2_mean": -1.0055,
+            "r2_std": 0.2,
+            "mse_mean": 2.00932,
+            "eff_anti_mean": 1.0,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "sym": {
+            "r2_mean": -1.0464,
+            "r2_std": 0.3393,
+            "mse_mean": 2.05266,
+            "eff_anti_mean": 0.0,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "star": {
+            "r2_mean": 0.2684,
+            "r2_std": 0.0917,
+            "mse_mean": 0.73297,
+            "eff_anti_mean": 0.5,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "free_anti": {
+            "r2_mean": -0.1834,
+            "r2_std": 0.1679,
+            "mse_mean": 1.18464,
+            "eff_anti_mean": 0.829,
+            "eff_anti_std": 0.0181,
+            "n_params": 544
+          },
+          "free_star": {
+            "r2_mean": 0.2471,
+            "r2_std": 0.0527,
+            "mse_mean": 0.75534,
+            "eff_anti_mean": 0.4906,
+            "eff_anti_std": 0.0736,
+            "n_params": 544
+          },
+          "free_sym": {
+            "r2_mean": -0.0459,
+            "r2_std": 0.1234,
+            "mse_mean": 1.05084,
+            "eff_anti_mean": 0.1936,
+            "eff_anti_std": 0.0199,
+            "n_params": 544
+          }
+        },
+        "256": {
+          "ols_bilinear": {
+            "r2_mean": 0.7513,
+            "r2_std": 0.1074,
+            "mse_mean": 0.25051,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 256
+          },
+          "grouped_wedge_fixed": {
+            "r2_mean": -0.0545,
+            "r2_std": 0.0782,
+            "mse_mean": 1.06937,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 656
+          },
+          "grouped_wedge_proj": {
+            "r2_mean": 0.8869,
+            "r2_std": 0.0284,
+            "mse_mean": 0.11451,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 1168
+          },
+          "anti": {
+            "r2_mean": 0.0457,
+            "r2_std": 0.1462,
+            "mse_mean": 0.9708,
+            "eff_anti_mean": 1.0,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "sym": {
+            "r2_mean": -0.2315,
+            "r2_std": 0.2057,
+            "mse_mean": 1.24944,
+            "eff_anti_mean": 0.0,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "star": {
+            "r2_mean": 0.8823,
+            "r2_std": 0.0413,
+            "mse_mean": 0.11947,
+            "eff_anti_mean": 0.5,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "free_anti": {
+            "r2_mean": 0.8969,
+            "r2_std": 0.0304,
+            "mse_mean": 0.10518,
+            "eff_anti_mean": 0.5904,
+            "eff_anti_std": 0.0518,
+            "n_params": 544
+          },
+          "free_star": {
+            "r2_mean": 0.8938,
+            "r2_std": 0.0366,
+            "mse_mean": 0.10806,
+            "eff_anti_mean": 0.5337,
+            "eff_anti_std": 0.04,
+            "n_params": 544
+          },
+          "free_sym": {
+            "r2_mean": 0.8718,
+            "r2_std": 0.0336,
+            "mse_mean": 0.1301,
+            "eff_anti_mean": 0.4439,
+            "eff_anti_std": 0.0641,
+            "n_params": 544
+          }
+        },
+        "512": {
+          "ols_bilinear": {
+            "r2_mean": 0.9974,
+            "r2_std": 0.0006,
+            "mse_mean": 0.00264,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 256
+          },
+          "grouped_wedge_fixed": {
+            "r2_mean": 0.0462,
+            "r2_std": 0.0276,
+            "mse_mean": 0.96844,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 656
+          },
+          "grouped_wedge_proj": {
+            "r2_mean": 0.9972,
+            "r2_std": 0.0008,
+            "mse_mean": 0.00285,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 1168
+          },
+          "anti": {
+            "r2_mean": 0.3148,
+            "r2_std": 0.0594,
+            "mse_mean": 0.69461,
+            "eff_anti_mean": 1.0,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "sym": {
+            "r2_mean": 0.3034,
+            "r2_std": 0.0257,
+            "mse_mean": 0.70718,
+            "eff_anti_mean": 0.0,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "star": {
+            "r2_mean": 0.9974,
+            "r2_std": 0.0006,
+            "mse_mean": 0.00262,
+            "eff_anti_mean": 0.5,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "free_anti": {
+            "r2_mean": 0.9974,
+            "r2_std": 0.0005,
+            "mse_mean": 0.00259,
+            "eff_anti_mean": 0.6049,
+            "eff_anti_std": 0.0698,
+            "n_params": 544
+          },
+          "free_star": {
+            "r2_mean": 0.9974,
+            "r2_std": 0.0006,
+            "mse_mean": 0.00262,
+            "eff_anti_mean": 0.5763,
+            "eff_anti_std": 0.0412,
+            "n_params": 544
+          },
+          "free_sym": {
+            "r2_mean": 0.9974,
+            "r2_std": 0.0006,
+            "mse_mean": 0.00263,
+            "eff_anti_mean": 0.488,
+            "eff_anti_std": 0.0503,
+            "n_params": 544
+          }
+        },
+        "1024": {
+          "ols_bilinear": {
+            "r2_mean": 0.999,
+            "r2_std": 0.0001,
+            "mse_mean": 0.00097,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 256
+          },
+          "grouped_wedge_fixed": {
+            "r2_mean": 0.1001,
+            "r2_std": 0.0504,
+            "mse_mean": 0.90791,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 656
+          },
+          "grouped_wedge_proj": {
+            "r2_mean": 0.999,
+            "r2_std": 0.0001,
+            "mse_mean": 0.00096,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 1168
+          },
+          "anti": {
+            "r2_mean": 0.4194,
+            "r2_std": 0.0148,
+            "mse_mean": 0.58561,
+            "eff_anti_mean": 1.0,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "sym": {
+            "r2_mean": 0.4044,
+            "r2_std": 0.0209,
+            "mse_mean": 0.60078,
+            "eff_anti_mean": 0.0,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "star": {
+            "r2_mean": 0.999,
+            "r2_std": 0.0001,
+            "mse_mean": 0.00096,
+            "eff_anti_mean": 0.5,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "free_anti": {
+            "r2_mean": 0.999,
+            "r2_std": 0.0001,
+            "mse_mean": 0.00096,
+            "eff_anti_mean": 0.62,
+            "eff_anti_std": 0.0779,
+            "n_params": 544
+          },
+          "free_star": {
+            "r2_mean": 0.999,
+            "r2_std": 0.0001,
+            "mse_mean": 0.00096,
+            "eff_anti_mean": 0.548,
+            "eff_anti_std": 0.0465,
+            "n_params": 544
+          },
+          "free_sym": {
+            "r2_mean": 0.999,
+            "r2_std": 0.0001,
+            "mse_mean": 0.00096,
+            "eff_anti_mean": 0.4699,
+            "eff_anti_std": 0.0374,
+            "n_params": 544
+          }
+        },
+        "2048": {
+          "ols_bilinear": {
+            "r2_mean": 0.9996,
+            "r2_std": 0.0,
+            "mse_mean": 0.00039,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 256
+          },
+          "grouped_wedge_fixed": {
+            "r2_mean": 0.1121,
+            "r2_std": 0.0304,
+            "mse_mean": 0.89403,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 656
+          },
+          "grouped_wedge_proj": {
+            "r2_mean": 0.9996,
+            "r2_std": 0.0,
+            "mse_mean": 0.00039,
+            "eff_anti_mean": null,
+            "eff_anti_std": null,
+            "n_params": 1168
+          },
+          "anti": {
+            "r2_mean": 0.4688,
+            "r2_std": 0.016,
+            "mse_mean": 0.53471,
+            "eff_anti_mean": 1.0,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "sym": {
+            "r2_mean": 0.4576,
+            "r2_std": 0.0185,
+            "mse_mean": 0.54582,
+            "eff_anti_mean": 0.0,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "star": {
+            "r2_mean": 0.9996,
+            "r2_std": 0.0,
+            "mse_mean": 0.00039,
+            "eff_anti_mean": 0.5,
+            "eff_anti_std": 0.0,
+            "n_params": 528
+          },
+          "free_anti": {
+            "r2_mean": 0.9996,
+            "r2_std": 0.0,
+            "mse_mean": 0.00039,
+            "eff_anti_mean": 0.6195,
+            "eff_anti_std": 0.0932,
+            "n_params": 544
+          },
+          "free_star": {
+            "r2_mean": 0.9996,
+            "r2_std": 0.0,
+            "mse_mean": 0.00039,
+            "eff_anti_mean": 0.5568,
+            "eff_anti_std": 0.0474,
+            "n_params": 544
+          },
+          "free_sym": {
+            "r2_mean": 0.9996,
+            "r2_std": 0.0,
+            "mse_mean": 0.00039,
+            "eff_anti_mean": 0.4858,
+            "eff_anti_std": 0.0537,
+            "n_params": 544
+          }
+        }
+      }
+    }
+  }
+}

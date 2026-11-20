@@ -1,0 +1,189 @@
+{
+  "wall_time_sec": 28.0,
+  "summary": {
+    "rank_sweep": {
+      "antisymmetric": {
+        "4": {
+          "anti": 0.9259,
+          "sym": -0.3296,
+          "star": 0.543,
+          "free_anti": 0.9232,
+          "free_star": 0.9236
+        },
+        "8": {
+          "anti": 0.9992,
+          "sym": -0.4255,
+          "star": 0.8996,
+          "free_anti": 0.9991,
+          "free_star": 0.9991
+        },
+        "12": {
+          "anti": 0.9991,
+          "sym": -0.4841,
+          "star": 0.9753,
+          "free_anti": 0.9991,
+          "free_star": 0.9984
+        },
+        "16": {
+          "anti": 0.9992,
+          "sym": -0.4637,
+          "star": 0.9967,
+          "free_anti": 0.9989,
+          "free_star": 0.9982
+        },
+        "24": {
+          "anti": 0.9992,
+          "sym": -0.4179,
+          "star": 0.9972,
+          "free_anti": 0.9989,
+          "free_star": 0.9975
+        }
+      },
+      "symmetric": {
+        "4": {
+          "anti": -0.2493,
+          "sym": 0.8367,
+          "star": 0.5864,
+          "free_anti": 0.833,
+          "free_star": 0.839
+        },
+        "8": {
+          "anti": -0.3398,
+          "sym": 0.9908,
+          "star": 0.8216,
+          "free_anti": 0.9884,
+          "free_star": 0.9891
+        },
+        "12": {
+          "anti": -0.3628,
+          "sym": 0.9991,
+          "star": 0.9745,
+          "free_anti": 0.9974,
+          "free_star": 0.9987
+        },
+        "16": {
+          "anti": -0.345,
+          "sym": 0.9988,
+          "star": 0.9967,
+          "free_anti": 0.9967,
+          "free_star": 0.9977
+        },
+        "24": {
+          "anti": -0.3675,
+          "sym": 0.9991,
+          "star": 0.9972,
+          "free_anti": 0.9972,
+          "free_star": 0.9975
+        }
+      },
+      "general": {
+        "4": {
+          "anti": 0.3124,
+          "sym": 0.2317,
+          "star": 0.4507,
+          "free_anti": 0.4634,
+          "free_star": 0.4999
+        },
+        "8": {
+          "anti": 0.3215,
+          "sym": 0.2644,
+          "star": 0.8554,
+          "free_anti": 0.9552,
+          "free_star": 0.9665
+        },
+        "12": {
+          "anti": 0.3106,
+          "sym": 0.2838,
+          "star": 0.9854,
+          "free_anti": 0.9972,
+          "free_star": 0.9974
+        },
+        "16": {
+          "anti": 0.3243,
+          "sym": 0.2682,
+          "star": 0.9967,
+          "free_anti": 0.9967,
+          "free_star": 0.9966
+        },
+        "24": {
+          "anti": 0.302,
+          "sym": 0.2872,
+          "star": 0.9972,
+          "free_anti": 0.9972,
+          "free_star": 0.9972
+        }
+      }
+    },
+    "noise_sweep": {
+      "antisymmetric": {
+        "0.05": {
+          "anti": 0.9992,
+          "sym": -0.4637,
+          "star": 0.9967,
+          "free_anti": 0.9989,
+          "free_star": 0.9982
+        },
+        "0.25": {
+          "anti": 0.9783,
+          "sym": -0.4144,
+          "star": 0.9386,
+          "free_anti": 0.9696,
+          "free_star": 0.9613
+        },
+        "0.5": {
+          "anti": 0.9239,
+          "sym": -0.4726,
+          "star": 0.7438,
+          "free_anti": 0.8213,
+          "free_star": 0.7687
+        }
+      },
+      "symmetric": {
+        "0.05": {
+          "anti": -0.345,
+          "sym": 0.9988,
+          "star": 0.9967,
+          "free_anti": 0.9967,
+          "free_star": 0.9977
+        },
+        "0.25": {
+          "anti": -0.4172,
+          "sym": 0.9777,
+          "star": 0.9345,
+          "free_anti": 0.9351,
+          "free_star": 0.9539
+        },
+        "0.5": {
+          "anti": -0.3832,
+          "sym": 0.9116,
+          "star": 0.7545,
+          "free_anti": 0.745,
+          "free_star": 0.7885
+        }
+      },
+      "general": {
+        "0.05": {
+          "anti": 0.3243,
+          "sym": 0.2682,
+          "star": 0.9967,
+          "free_anti": 0.9967,
+          "free_star": 0.9966
+        },
+        "0.25": {
+          "anti": 0.2939,
+          "sym": 0.267,
+          "star": 0.9362,
+          "free_anti": 0.9373,
+          "free_star": 0.9366
+        },
+        "0.5": {
+          "anti": 0.2479,
+          "sym": 0.1992,
+          "star": 0.7416,
+          "free_anti": 0.7564,
+          "free_star": 0.7429
+        }
+      }
+    }
+  }
+}

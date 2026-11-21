@@ -88,10 +88,10 @@
     }
   },
   {
-    "name": "scratch_vittiny_dir_free_anti_s42",
+    "name": "scratch_vittiny_dir_self_avg_s42",
     "args": {
       "backbone": "vit_tiny_patch16_224",
-      "mode": "free_anti",
+      "mode": "self_avg",
       "pair_type": "directed_right",
       "vit_insert_block": 8,
       "epochs": 100,
@@ -220,10 +220,10 @@
     }
   },
   {
-    "name": "scratch_vittiny_dir_free_anti_s101",
+    "name": "scratch_vittiny_dir_self_avg_s101",
     "args": {
       "backbone": "vit_tiny_patch16_224",
-      "mode": "free_anti",
+      "mode": "self_avg",
       "pair_type": "directed_right",
       "vit_insert_block": 8,
       "epochs": 100,

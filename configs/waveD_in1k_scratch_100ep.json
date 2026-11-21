@@ -88,6 +88,28 @@
     }
   },
   {
+    "name": "scratch_ms_dir_self_avg_s42",
+    "args": {
+      "backbone": "convnext_atto",
+      "mode": "self_avg",
+      "pair_type": "directed_right",
+      "placement": "multi_stage",
+      "epochs": 100,
+      "batch_size": 512,
+      "grad_accum": 2,
+      "num_workers": 12,
+      "lr": 0.004,
+      "adapter_lr_mult": 1.0,
+      "warmup_epochs": 5,
+      "weight_decay": 0.05,
+      "drop_path": 0.1,
+      "ema_decay": 0.9995,
+      "data_seed": 42,
+      "init_seed": 5042,
+      "eval_interval": 5
+    }
+  },
+  {
     "name": "scratch_ms_dir_free_anti_s42",
     "args": {
       "backbone": "convnext_atto",
@@ -114,28 +136,6 @@
     "args": {
       "backbone": "convnext_atto",
       "mode": "free_star",
-      "pair_type": "directed_right",
-      "placement": "multi_stage",
-      "epochs": 100,
-      "batch_size": 512,
-      "grad_accum": 2,
-      "num_workers": 12,
-      "lr": 0.004,
-      "adapter_lr_mult": 1.0,
-      "warmup_epochs": 5,
-      "weight_decay": 0.05,
-      "drop_path": 0.1,
-      "ema_decay": 0.9995,
-      "data_seed": 42,
-      "init_seed": 5042,
-      "eval_interval": 5
-    }
-  },
-  {
-    "name": "scratch_ms_dir_free_sym_s42",
-    "args": {
-      "backbone": "convnext_atto",
-      "mode": "free_sym",
       "pair_type": "directed_right",
       "placement": "multi_stage",
       "epochs": 100,
@@ -264,6 +264,28 @@
     }
   },
   {
+    "name": "scratch_ms_dir_self_avg_s101",
+    "args": {
+      "backbone": "convnext_atto",
+      "mode": "self_avg",
+      "pair_type": "directed_right",
+      "placement": "multi_stage",
+      "epochs": 100,
+      "batch_size": 512,
+      "grad_accum": 2,
+      "num_workers": 12,
+      "lr": 0.004,
+      "adapter_lr_mult": 1.0,
+      "warmup_epochs": 5,
+      "weight_decay": 0.05,
+      "drop_path": 0.1,
+      "ema_decay": 0.9995,
+      "data_seed": 101,
+      "init_seed": 5101,
+      "eval_interval": 5
+    }
+  },
+  {
     "name": "scratch_ms_dir_free_anti_s101",
     "args": {
       "backbone": "convnext_atto",
@@ -290,28 +312,6 @@
     "args": {
       "backbone": "convnext_atto",
       "mode": "free_star",
-      "pair_type": "directed_right",
-      "placement": "multi_stage",
-      "epochs": 100,
-      "batch_size": 512,
-      "grad_accum": 2,
-      "num_workers": 12,
-      "lr": 0.004,
-      "adapter_lr_mult": 1.0,
-      "warmup_epochs": 5,
-      "weight_decay": 0.05,
-      "drop_path": 0.1,
-      "ema_decay": 0.9995,
-      "data_seed": 101,
-      "init_seed": 5101,
-      "eval_interval": 5
-    }
-  },
-  {
-    "name": "scratch_ms_dir_free_sym_s101",
-    "args": {
-      "backbone": "convnext_atto",
-      "mode": "free_sym",
       "pair_type": "directed_right",
       "placement": "multi_stage",
       "epochs": 100,
@@ -440,6 +440,28 @@
     }
   },
   {
+    "name": "scratch_ms_dir_self_avg_s202",
+    "args": {
+      "backbone": "convnext_atto",
+      "mode": "self_avg",
+      "pair_type": "directed_right",
+      "placement": "multi_stage",
+      "epochs": 100,
+      "batch_size": 512,
+      "grad_accum": 2,
+      "num_workers": 12,
+      "lr": 0.004,
+      "adapter_lr_mult": 1.0,
+      "warmup_epochs": 5,
+      "weight_decay": 0.05,
+      "drop_path": 0.1,
+      "ema_decay": 0.9995,
+      "data_seed": 202,
+      "init_seed": 5202,
+      "eval_interval": 5
+    }
+  },
+  {
     "name": "scratch_ms_dir_free_anti_s202",
     "args": {
       "backbone": "convnext_atto",
@@ -466,28 +488,6 @@
     "args": {
       "backbone": "convnext_atto",
       "mode": "free_star",
-      "pair_type": "directed_right",
-      "placement": "multi_stage",
-      "epochs": 100,
-      "batch_size": 512,
-      "grad_accum": 2,
-      "num_workers": 12,
-      "lr": 0.004,
-      "adapter_lr_mult": 1.0,
-      "warmup_epochs": 5,
-      "weight_decay": 0.05,
-      "drop_path": 0.1,
-      "ema_decay": 0.9995,
-      "data_seed": 202,
-      "init_seed": 5202,
-      "eval_interval": 5
-    }
-  },
-  {
-    "name": "scratch_ms_dir_free_sym_s202",
-    "args": {
-      "backbone": "convnext_atto",
-      "mode": "free_sym",
       "pair_type": "directed_right",
       "placement": "multi_stage",
       "epochs": 100,

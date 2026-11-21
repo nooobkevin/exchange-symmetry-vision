@@ -40,6 +40,7 @@ VALID_MODES = (
     "anti",
     "sym",
     "star",
+    "self_avg",
     "free_anti",
     "free_star",
     "free_sym",
@@ -50,6 +51,7 @@ MODE_INIT_THETA: dict[str, float] = {
     "anti": -math.pi / 4.0,
     "sym": math.pi / 4.0,
     "star": 0.0,
+    "self_avg": math.pi / 4.0,
     "free_anti": -math.pi / 4.0,
     "free_star": 0.0,
     "free_sym": math.pi / 4.0,
@@ -136,6 +138,16 @@ class ExchangeBilinearCore(nn.Module):
         return e_sym, e_anti
 
     def forward(self, u: torch.Tensor, v: torch.Tensor) -> torch.Tensor:
+        if self.mode == "self_avg":
+            # Same-token quadratic features averaged across both tokens: ((Au)*(Bu) + (Av)*(Bv)) / sqrt(2)
+            # Exact algebraic relation: SelfAvg(u,v) - Sym(u,v) == (A(u-v) * B(u-v)) / sqrt(2)
+            hu = self.proj_a(u) * self.proj_b(u)
+            hv = self.proj_a(v) * self.proj_b(v)
+            out_f = (hu.float() + hv.float()) * SQRT2_INV
+            if self.sym_gain != 1.0:
+                out_f = out_f * self.sym_gain
+            return out_f.to(u.dtype)
+
         au = self.proj_a(u)
         bv = self.proj_b(v)
         p = au * bv

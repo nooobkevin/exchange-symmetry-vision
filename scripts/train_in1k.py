@@ -301,7 +301,7 @@ def main() -> None:
         pin_memory=True,
         drop_last=True,
         persistent_workers=(args.num_workers > 0),
-        prefetch_factor=2 if args.num_workers > 0 else None,
+        prefetch_factor=4 if args.num_workers > 0 else None,
         worker_init_fn=_worker_init,
         generator=g_loader if train_sampler is None else None,
     )

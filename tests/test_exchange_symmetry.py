@@ -130,6 +130,28 @@ def test_grouped_wedge_runs() -> None:
     assert torch.isfinite(out).all()
 
 
+def test_self_avg_exact_difference_identity() -> None:
+    """Verify Astra's algebraic identity:
+    SelfAvg(u, v) - Sym(u, v) == (A(u - v) * B(u - v)) / sqrt(2)
+    and SelfAvg(u, u) == Sym(u, u), SelfAvg(v, u) == SelfAvg(u, v).
+    """
+    torch.manual_seed(21)
+    u = torch.randn(4, 7, 7, 64)
+    v = torch.randn(4, 7, 7, 64)
+
+    sym = ExchangeBilinearCore(64, 64, mode="sym")
+    sa = ExchangeBilinearCore(64, 64, mode="self_avg")
+    with torch.no_grad():
+        sa.proj_a.weight.copy_(sym.proj_a.weight)
+        sa.proj_b.weight.copy_(sym.proj_b.weight)
+
+    diff = sa(u, v) - sym(u, v)
+    expected = (sym.proj_a(u - v) * sym.proj_b(u - v)) / math.sqrt(2.0)
+    assert torch.allclose(diff, expected, atol=1e-5), "SelfAvg - Sym identity failed!"
+    assert torch.allclose(sa(u, u), sym(u, u), atol=1e-6), "SelfAvg(u,u) must equal Sym(u,u)!"
+    assert torch.allclose(sa(u, v), sa(v, u), atol=1e-6), "SelfAvg must be exchange-symmetric!"
+
+
 if __name__ == "__main__":
     test_exact_exchange_symmetry_core()
     test_step0_equivalence_and_nonzero_theta_grad()
@@ -137,4 +159,5 @@ if __name__ == "__main__":
     test_exact_decomposition_intervention()
     test_non_cancellation_in_convnext_stage4()
     test_grouped_wedge_runs()
-    print("ALL 6 EXCHANGE-SYMMETRY UNIT TESTS PASSED!")
+    test_self_avg_exact_difference_identity()
+    print("ALL 7 EXCHANGE-SYMMETRY UNIT TESTS PASSED!")

@@ -110,7 +110,6 @@ class ShmImageNetDataset(Dataset):
             size=(self.image_size, self.image_size),
             mode="bilinear",
             align_corners=False,
-            antialias=True,
         ).squeeze(0).clamp_(0.0, 255.0).to(torch.uint8)
 
     def __getitem__(self, idx: int) -> tuple[torch.Tensor, int]:

@@ -183,12 +183,16 @@ def main() -> None:
     p.add_argument("--out", type=str, required=True)
     p.add_argument("--cache-dir", type=str, default="/dev/shm/in1k_raw_cache_ar320")
     p.add_argument("--gpu", type=int, default=0)
+    p.add_argument("--shard-idx", type=int, default=0)
+    p.add_argument("--num-shards", type=int, default=1)
     args = p.parse_args()
 
+    torch.set_num_threads(4)
     t0 = time.monotonic()
     device = torch.device(f"cuda:{args.gpu}")
     runs_root = Path(args.runs_dir)
-    run_dirs = sorted([d for d in runs_root.iterdir() if d.is_dir() and ((d / "best_ema.pt").exists() or (d / "last.pt").exists())])
+    all_dirs = sorted([d for d in runs_root.iterdir() if d.is_dir() and ((d / "best_ema.pt").exists() or (d / "last.pt").exists())])
+    run_dirs = [d for i, d in enumerate(all_dirs) if i % args.num_shards == args.shard_idx]
 
     results = {}
     for rdir in run_dirs:

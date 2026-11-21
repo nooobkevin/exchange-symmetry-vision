@@ -64,9 +64,10 @@ class ConvNeXtWithAdapter(nn.Module):
         self.pair_type = pair_type
         self.placement = placement if adapter_mode != "none" else "none"
 
+        init_num_classes = 1000 if pretrained_ckpt is not None else num_classes
         self.backbone = timm.create_model(
             timm_name,
-            num_classes=num_classes,
+            num_classes=init_num_classes,
             drop_path_rate=drop_path_rate,
         )
         if pretrained_ckpt is not None:

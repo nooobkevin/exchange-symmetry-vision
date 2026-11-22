@@ -1,0 +1,46 @@
+[
+  {
+    "name": "scratch_vittiny_dir_anti_s202",
+    "args": {
+      "backbone": "vit_tiny_patch16_224",
+      "mode": "anti",
+      "pair_type": "directed_right",
+      "vit_insert_block": 8,
+      "epochs": 100,
+      "batch_size": 512,
+      "grad_accum": 2,
+      "num_workers": 12,
+      "lr": 0.001,
+      "adapter_lr_mult": 1.0,
+      "warmup_epochs": 10,
+      "weight_decay": 0.05,
+      "drop_path": 0.1,
+      "ema_decay": 0.9995,
+      "data_seed": 202,
+      "init_seed": 6202,
+      "eval_interval": 5
+    }
+  },
+  {
+    "name": "scratch_vittiny_dir_star_s202",
+    "args": {
+      "backbone": "vit_tiny_patch16_224",
+      "mode": "star",
+      "pair_type": "directed_right",
+      "vit_insert_block": 8,
+      "epochs": 100,
+      "batch_size": 512,
+      "grad_accum": 2,
+      "num_workers": 12,
+      "lr": 0.001,
+      "adapter_lr_mult": 1.0,
+      "warmup_epochs": 10,
+      "weight_decay": 0.05,
+      "drop_path": 0.1,
+      "ema_decay": 0.9995,
+      "data_seed": 202,
+      "init_seed": 6202,
+      "eval_interval": 5
+    }
+  }
+]

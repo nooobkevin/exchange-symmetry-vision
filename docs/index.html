@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>When Should Multiplicative Symmetry Be Hard-Coded? | Exchange Symmetry in Vision</title>
+  <meta name="description" content="Exchange-symmetric, antisymmetric, same-token quadratic, and learnable-angle bilinear interactions across synthetic oracles, frozen probes, fine-tuning, and 100-epoch ImageNet-1k training." />
+  <style>
+    :root {
+      --bg: #fcfbf9;
+      --surface: #ffffff;
+      --surface-alt: #f5f3ef;
+      --ink: #1a1d21;
+      --muted: #5b626b;
+      --border: #e5e1d8;
+      --border-strong: #cfc9bc;
+      --teal: #0f766e;
+      --teal-soft: #e6f4f1;
+      --coral: #c84b31;
+      --coral-soft: #fbeae5;
+      --blue: #2563eb;
+      --amber: #b45309;
+      --purple: #6d28d9;
+      --slate: #64748b;
+      --body-w: 740px;
+      --wide-w: 1020px;
+      --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+      --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 16.5px;
+      line-height: 1.68;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    #progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      width: 0%;
+      background: var(--teal);
+      z-index: 100;
+    }
+
+    nav.topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(252, 251, 249, 0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      font-size: 13.5px;
+    }
+
+    .topbar-inner {
+      max-width: var(--wide-w);
+      margin: 0 auto;
+      padding: 10px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      font-family: var(--mono);
+      font-weight: 600;
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .nav-links a:hover { color: var(--teal); }
+
+    article { padding: 0 22px 72px; }
+    .l-body { max-width: var(--body-w); margin: 0 auto; }
+    .l-wide { max-width: var(--wide-w); margin: 28px auto; }
+
+    header.hero {
+      max-width: var(--body-w);
+      margin: 46px auto 32px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .kicker {
+      font-family: var(--mono);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--teal);
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      font-family: var(--serif);
+      font-size: clamp(28px, 4.2vw, 40px);
+      line-height: 1.18;
+      letter-spacing: -0.01em;
+      margin: 0 0 14px;
+      font-weight: 700;
+    }
+
+    .subtitle {
+      font-size: 18.5px;
+      line-height: 1.5;
+      color: var(--muted);
+      margin: 0 0 18px;
+    }
+
+    .byline {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 20px;
+      font-size: 13.5px;
+      color: var(--muted);
+    }
+
+    a { color: var(--teal); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+    a:hover { color: var(--ink); }
+
+    h2 {
+      font-family: var(--serif);
+      font-size: 25px;
+      line-height: 1.28;
+      margin: 44px 0 14px;
+    }
+
+    h3 {
+      font-size: 15px;
+      margin: 18px 0 8px;
+    }
+
+    p { margin: 0 0 16px; }
+
+    code {
+      font-family: var(--mono);
+      font-size: 0.88em;
+      background: var(--surface-alt);
+      padding: 2px 5px;
+      border-radius: 4px;
+    }
+
+    .math {
+      font-family: var(--serif);
+      font-style: italic;
+      white-space: nowrap;
+    }
+
+    .math-block {
+      font-family: var(--serif);
+      font-size: 1.08rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--teal);
+      border-radius: 6px;
+      padding: 13px 18px;
+      margin: 18px 0 20px;
+      overflow-x: auto;
+      line-height: 1.65;
+    }
+
+    .callout {
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 15px 19px;
+      margin: 22px 0;
+      font-size: 15px;
+    }
+
+    .callout-title {
+      font-family: var(--mono);
+      font-weight: 600;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--teal);
+      margin-bottom: 6px;
+    }
+
+    .fig-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px 22px 18px;
+      box-shadow: 0 1px 3px rgba(26, 29, 33, 0.03), 0 8px 24px rgba(26, 29, 33, 0.03);
+    }
+
+    .fig-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px 14px;
+      margin-bottom: 14px;
+      padding-bottom: 11px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .fig-label {
+      font-family: var(--mono);
+      font-size: 11.5px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--teal);
+      margin-right: 8px;
+    }
+
+    .fig-title { font-weight: 600; font-size: 15.5px; }
+
+    .fig-caption {
+      margin-top: 13px;
+      padding-top: 11px;
+      border-top: 1px solid var(--border);
+      font-size: 13.5px;
+      line-height: 1.55;
+      color: var(--muted);
+    }
+
+    .pills { display: flex; flex-wrap: wrap; gap: 6px; }
+
+    .pill {
+      appearance: none;
+      border: 1px solid var(--border-strong);
+      background: var(--bg);
+      color: var(--muted);
+      font-family: var(--sans);
+      font-size: 12.5px;
+      font-weight: 500;
+      padding: 5px 11px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all 120ms ease;
+    }
+
+    .pill:hover { border-color: var(--ink); color: var(--ink); }
+    .pill.active { background: var(--ink); border-color: var(--ink); color: #fff; }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1.08fr 1fr;
+      gap: 22px;
+      align-items: start;
+    }
+
+    .two-col-equal {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+      align-items: start;
+    }
+
+    @media (max-width: 840px) {
+      .two-col, .two-col-equal { grid-template-columns: 1fr; }
+      .fig-card { padding: 15px; }
+    }
+
+    table.compact {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      margin: 10px 0;
+    }
+
+    table.compact th, table.compact td {
+      padding: 7px 9px;
+      border-bottom: 1px solid var(--border);
+      text-align: left;
+    }
+
+    table.compact th {
+      font-size: 11.5px;
+      font-weight: 600;
+      color: var(--muted);
+      border-bottom: 1.5px solid var(--border-strong);
+    }
+
+    table.compact td.num, table.compact th.num {
+      text-align: right;
+      font-family: var(--mono);
+    }
+
+    .stat-strip {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    @media (max-width: 720px) {
+      .stat-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    .stat-box {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      padding: 9px 12px;
+    }
+
+    .stat-box .k { font-size: 11.5px; color: var(--muted); margin-bottom: 2px; }
+    .stat-box .v { font-family: var(--mono); font-size: 16px; font-weight: 600; }
+
+    ul.clean { padding-left: 20px; margin: 0 0 18px; }
+    ul.clean li { margin-bottom: 9px; }
+
+    details {
+      margin: 18px 0;
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      background: var(--surface);
+      padding: 10px 15px;
+      font-size: 14.5px;
+    }
+
+    details summary { cursor: pointer; font-weight: 500; color: var(--muted); }
+
+    footer.site-footer {
+      max-width: var(--body-w);
+      margin: 52px auto 0;
+      padding-top: 22px;
+      border-top: 1px solid var(--border);
+      font-size: 13.5px;
+      color: var(--muted);
+    }
+
+    .link-grid { display: flex; flex-wrap: wrap; gap: 10px 18px; margin-top: 8px; }
+  </style>
+</head>
+<body>
+  <div id="progress-bar"></div>
+
+  <nav class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="https://github.com/nooobkevin/exchange-symmetry-vision">nooobkevin/exchange-symmetry-vision</a>
+      <div class="nav-links">
+        <a href="#oracle">1. Bilinear Laws</a>
+        <a href="#dissociation">2. Task &amp; Pair Symmetry</a>
+        <a href="#selfavg">3. Cross-Token vs SelfAvg</a>
+        <a href="#coadaptation">4. From-Scratch &amp; Depth</a>
+        <a href="#takeaways">5. Takeaways</a>
+      </div>
+    </div>
+  </nav>
+
+  <article>
+    <header class="hero">
+      <div class="kicker">Empirical Study &middot; Interactive Note</div>
+      <h1>When Should Multiplicative Symmetry Be Hard-Coded?</h1>
+      <p class="subtitle">Exchange-symmetric, antisymmetric, same-token quadratic, and learnable-angle bilinear interactions in vision backbones.</p>
+      <div class="byline">
+        <span>Code &amp; data: <a href="https://github.com/nooobkevin/exchange-symmetry-vision">nooobkevin/exchange-symmetry-vision</a></span>
+        <span>Precursor study: <a href="https://nooobkevin.github.io/CliffordNet/">Revisiting Wedge Products in Subspace Clifford Networks</a></span>
+      </div>
+    </header>
+
+    <div class="l-body">
+      <p>
+        Multiplicative vision layers multiply two projected feature streams elementwise, as in StarNet, polynomial MetaFormers, and Clifford networks. Whenever a layer multiplies features from an ordered pair of tokens <span class="math">(u, v)</span> using shared projections <span class="math">A, B</span>, the swapped products <span class="math">p = (Au) &odot; (Bv)</span> and <span class="math">q = (Av) &odot; (Bu)</span> span two orthogonal subspaces under input exchange: a symmetric part <span class="math">s = (p + q) / &radic;2</span> that stays unchanged when <span class="math">u</span> and <span class="math">v</span> swap, and an antisymmetric part <span class="math">a = (p &minus; q) / &radic;2</span> that flips sign.
+      </p>
+      <div class="math-block">
+        <i>f<sub>r</sub></i>(<i>u</i>, <i>v</i>) = cos(&theta;<sub><i>r</i></sub>) <i>p<sub>r</sub></i> + sin(&theta;<sub><i>r</i></sub>) <i>q<sub>r</sub></i> = cos(&theta;<sub><i>r</i></sub> &minus; &pi;/4) <i>s<sub>r</sub></i> + cos(&theta;<sub><i>r</i></sub> + &pi;/4) <i>a<sub>r</sub></i>
+      </div>
+      <p>
+        Fixing <span class="math">&theta; = &minus;&pi;/4</span> gives pure antisymmetry (<code>anti</code>, the projected counterpart of a Clifford wedge product). Fixing <span class="math">&theta; = +&pi;/4</span> gives pure symmetry (<code>sym</code>), and fixing <span class="math">&theta; = 0</span> gives an unconstrained Hadamard product (<code>star</code>). Making <span class="math">&theta; &isin; &real;<sup>R</sup></span> learnable (<code>free_anti</code>, <code>free_star</code>, <code>free_sym</code>) starts from the exact same function and step-0 gradients as the corresponding fixed model while letting gradient descent rotate each channel's symmetry continuously.
+      </p>
+      <p>
+        Across synthetic bilinear teachers, frozen ConvNeXt-Atto probes, paired ImageNet-1k fine-tuning, 4-way orientation prediction, and 100-epoch from-scratch ConvNeXt-Atto and ViT-Tiny runs on an 8&times; H800 node, we test three concrete questions: when hard-coding antisymmetry helps or hurts, what symmetry gradient descent chooses on its own, and when apparent symmetric neighbor interactions reduce to single-token quadratic features (<code>self_avg</code>).
+      </p>
+    </div>
+
+    <!-- SECTION 1: SYNTHETIC ORACLE -->
+    <div class="l-body" id="oracle">
+      <h2>1. Three algebraic laws before touching a backbone</h2>
+      <p>
+        Any bilinear form <span class="math">y = u<sup>T</sup> M v</span> can be represented by unconstrained Hadamard products <span class="math">p = (Au) &odot; (Bv)</span> once the rank <span class="math">R</span> is wide enough, because a wedge term <span class="math">u<sub>i</sub> v<sub>j</sub> &minus; u<sub>j</sub> v<sub>i</sub></span> is a difference of two products. Hard-coding symmetry therefore changes sample complexity, coordinate dependence, and effective rank rather than universal expressivity.
+      </p>
+      <p>
+        Testing ground-truth teachers <span class="math">y = u<sup>T</sup> M v + &epsilon;</span> (<span class="math">d = 16</span>) across antisymmetric, symmetric, and mixed matrices exposes three clean properties, plus an instrumentation trap: individual channels in a learnable layer can have <span class="math">&theta;<sub>r</sub> &ne; +&pi;/4</span> while canceling their antisymmetric parts across channels in the readout <span class="math">W<sub>out</sub></span>. Measuring post-readout functional antisymmetry via swapped inputs, <span class="math">FuncAnti(&delta;) = ||&delta;<sub>anti</sub>||<sup>2</sup> / (||&delta;<sub>sym</sub>||<sup>2</sup> + ||&delta;<sub>anti</sub>||<sup>2</sup>)</span>, recovers the true operator symmetry to three decimal places regardless of initialization.
+      </p>
+    </div>
+
+    <div class="l-wide">
+      <div class="fig-card">
+        <div class="fig-header">
+          <div>
+            <span class="fig-label">Figure 1</span>
+            <span class="fig-title">Synthetic Bilinear Oracle: Coordinate Rotation, Rank Doubling &amp; Thermometer Calibration</span>
+          </div>
+          <div class="pills" id="fig1-view-pills">
+            <button class="pill active" data-view="coord">Aligned vs. Rotated Coords (N=256)</button>
+            <button class="pill" data-view="rank">Rank Bottleneck Sweep (R=4..24)</button>
+            <button class="pill" data-view="thermo">Symmetry Thermometer (E<sub>anti</sub>=0..1)</button>
+          </div>
+        </div>
+
+        <div class="pills" id="fig1-teacher-pills" style="margin-bottom:12px;">
+          <button class="pill active" data-teacher="antisymmetric">Antisymmetric Teacher (M<sup>T</sup> = &minus;M)</button>
+          <button class="pill" data-teacher="symmetric">Symmetric Teacher (M<sup>T</sup> = +M)</button>
+          <button class="pill" data-teacher="general">General 50/50 Teacher</button>
+        </div>
+
+        <div class="two-col-equal">
+          <div>
+            <h3 id="fig1-left-title" style="margin-top:0;color:var(--muted);">Held-Out R&sup2; (5 seeds, higher is better)</h3>
+            <svg id="svg-fig1-left" viewBox="0 0 460 255" style="width:100%;height:auto;display:block;"></svg>
+          </div>
+          <div>
+            <h3 id="fig1-right-title" style="margin-top:0;color:var(--muted);">Rotation Sensitivity &amp; Learned FuncAnti</h3>
+            <svg id="svg-fig1-right" viewBox="0 0 460 255" style="width:100%;height:auto;display:block;"></svg>
+          </div>
+        </div>
+
+        <div class="fig-caption" id="fig1-caption"></div>
+      </div>
+    </div>
+
+    <!-- SECTION 2: TASK x PAIR DOUBLE DISSOCIATION -->
+    <div class="l-body" id="dissociation">
+      <h2>2. Task symmetry vs. pair geometry: a double dissociation</h2>
+      <p>
+        To test exchange symmetry inside a standard non-Clifford vision model without activation confounds, we insert a pure bilinear residual adapter (no internal SiLU or GELU) into <code>ConvNeXt-Atto</code> with shared <code>RMSNorm2d</code>. Because the adapter is strictly bilinear up to <code>W<sub>out</sub></code>, swapping <span class="math">u</span> and <span class="math">v</span> flips the exact residual update <span class="math">&delta;(v, u) = &minus;&delta;(u, v)</span> for <code>anti</code> and preserves it for <code>sym</code>.
+      </p>
+      <p>
+        Comparing horizontally directed neighbor pairs <span class="math">(x<sub>i,j</sub>, x<sub>i,j+1</sub>)</span> across three paired experimental settings reveals why antisymmetry appeared useless in one regime and indispensable in another:
+      </p>
+      <ul class="clean">
+        <li><strong>Directed neighbor + reflection-invariant ImageNet-1k classification:</strong> horizontal image flips swap left-right order while preserving the class label. During 30-epoch fine-tuning, gradient descent suppresses <code>anti</code> residual amplitude by 10&times; (<code>RMS ratio = 0.037</code> vs. <code>0.374</code> for <code>sym</code>, even when step-0 RMS is explicitly equalized), and <code>free_star</code> converges across all four seeds to <strong>99.7% functional symmetry</strong> (<code>FuncAnti = 0.003</code>).</li>
+        <li><strong>Directed neighbor + 4-way image rotation prediction (<code>{0&deg;, 90&deg;, 180&deg;, 270&deg;}</code>):</strong> on the exact same backbone and images, spatial orientation now determines the label. Every indicator reverses: <code>anti</code> grows to <code>RMS = 0.624</code> (1.5&times; larger than <code>sym</code>), zeroing the antisymmetric component at inference drops <code>anti</code> by <strong>&minus;7.37%</strong> and <code>free_star</code> by <strong>&minus;3.51%</strong> (15&times; larger than zeroing <code>sym</code>), and <code>free_sym</code> actively escapes pure symmetry (<code>FuncAnti: 0.000 &rarr; 0.498</code>).</li>
+        <li><strong>Isotropic center-surround pair <code>(u, DWConv5x5(u))</code> on ImageNet-1k:</strong> swapping center and isotropic surround is no longer a spatial reflection. Immediately, <code>anti</code> stops collapsing (<code>RMS = 0.417</code>, <code>+0.20%</code> over baseline, <code>&minus;0.91%</code> when zeroed), matching <code>sym</code> and <code>free_star</code>.</li>
+      </ul>
+    </div>
+
+    <div class="l-wide">
+      <div class="fig-card">
+        <div class="fig-header">
+          <div>
+            <span class="fig-label">Figure 2</span>
+            <span class="fig-title">Interactive Task &times; Pair Explorer: Paired Accuracy, FuncAnti &amp; Causal Decomposed Interventions</span>
+          </div>
+          <div class="pills" id="fig2-wave-pills">
+            <button class="pill active" data-wave="waveA_ft_s4_dir">IN1K Directed (4 seeds)</button>
+            <button class="pill" data-wave="waveC_rot4_s4_dir">4-Way Rotation Directed (3 seeds)</button>
+            <button class="pill" data-wave="waveB_ft_s4_ctx">IN1K Center-Context (3 seeds)</button>
+            <button class="pill" data-wave="waveB2_ft_s3_dir">IN1K Stage-3 Directed (3 seeds)</button>
+          </div>
+        </div>
+
+        <div class="two-col">
+          <div>
+            <h3 id="fig2-left-title" style="margin-top:0;color:var(--muted);">Validation Top-1 &amp; Learned Symmetry</h3>
+            <table class="compact" id="table-fig2">
+              <thead>
+                <tr>
+                  <th>Mode</th>
+                  <th class="num">Val Top-1</th>
+                  <th class="num">&Delta; vs none</th>
+                  <th class="num">FuncAnti</th>
+                  <th class="num">RMS ratio</th>
+                </tr>
+              </thead>
+              <tbody id="tbody-fig2"></tbody>
+            </table>
+          </div>
+          <div>
+            <h3 style="margin-top:0;color:var(--muted);">Zero-Retraining Causal Intervention (&Delta; Top-1%)</h3>
+            <svg id="svg-fig2-interv" viewBox="0 0 450 250" style="width:100%;height:auto;display:block;"></svg>
+          </div>
+        </div>
+
+        <div class="fig-caption" id="fig2-caption"></div>
+      </div>
+    </div>
+
+    <!-- SECTION 3: SELF-AVG AUDIT -->
+    <div class="l-body" id="selfavg">
+      <h2>3. Does symmetric neighbor multiplication even multiply across tokens?</h2>
+      <p>
+        Because adjacent Stage-4 tokens are correlated (<span class="math">cos(u, v) = 0.483</span>), a natural skepticism arises: when <code>sym</code> and <code>free_star</code> beat the baseline during ImageNet-1k fine-tuning, did the model learn a genuine relation between two positions, or did it just use <span class="math">v &approx; u</span> to compute a single-point quadratic nonlinearity?
+      </p>
+      <p>
+        We test this with an exact exchange-symmetric control, <code>self_avg</code>, which sees the exact same two tokens and computes two elementwise products without multiplying across positions:
+      </p>
+      <div class="math-block">
+        SelfAvg(<i>u</i>, <i>v</i>) = [ (<i>Au</i>) &odot; (<i>Bu</i>) + (<i>Av</i>) &odot; (<i>Bv</i>) ] / &radic;2, &nbsp;&nbsp;&nbsp; SelfAvg(<i>u</i>, <i>v</i>) &minus; Sym(<i>u</i>, <i>v</i>) = [ <i>A</i>(<i>u</i> &minus; <i>v</i>) &odot; <i>B</i>(<i>u</i> &minus; <i>v</i>) ] / &radic;2
+      </div>
+      <p>
+        Swapping <code>sym</code> to <code>self_avg</code> at inference on our four trained Wave A checkpoints without retraining drops 50k ImageNet-1k Top-1 by only <strong>&minus;0.066%</strong> (compared to <strong>&minus;0.354%</strong> when bypassing the adapter) and preserves <strong>96.0%</strong> top-1 prediction agreement. Retraining <code>self_avg</code> from the same initialization across all four paired seeds matches <code>sym</code> and <code>free_star</code> on clean Top-1 (<code>71.45%</code> vs. <code>71.42%</code> and <code>71.47%</code>; paired <code>SelfAvg &minus; Sym = +0.04 &plusmn; 0.08%</code>), though <code>self_avg</code> loses <strong>&minus;1.35%</strong> on 0.12&times; low-contrast images (<code>29.25%</code> vs. <code>30.60%</code>) where the cross-difference term <span class="math">A(u &minus; v) &odot; B(u &minus; v)</span> carries local contrast. During short fine-tuning, clean accuracy gains come from adding degree-2 channel gating rather than cross-token products.
+      </p>
+    </div>
+
+    <!-- SECTION 4: FROM-SCRATCH CO-ADAPTATION & DEPTH HIERARCHY -->
+    <div class="l-body" id="coadaptation">
+      <h2>4. 100-epoch from-scratch training: co-adaptation and the depth-symmetry law</h2>
+      <p>
+        Training the entire backbone and adapters jointly from scratch for 100 epochs on ImageNet-1k (24 multi-stage <code>ConvNeXt-Atto</code> runs + 18 <code>ViT-Tiny</code> runs) changes the picture in three ways that fine-tuning alone cannot see:
+      </p>
+      <ul class="clean">
+        <li><strong>Co-adaptation unlocks <code>anti</code> via spatial derivative &amp; GELU demodulation:</strong> from scratch, <code>anti</code> is no longer suppressed (Stage-4 <code>RMS = 0.744</code>, <code>Bypass&Delta; = &minus;5.13%</code>, beating <code>none</code> on all 3/3 seeds). Inspecting the downstream 7&times;7 depthwise conv block (<code>stages[3].blocks[1]</code>) shows how: its horizontally antisymmetric filter energy jumps <strong>9.7&times;</strong> over baseline (<code>6.86%</code> vs. <code>0.71%</code>, turning odd features into even features via <span class="math">odd * odd = even</span>), while quadratic GELU rectification supplies <strong>26.4%</strong> of post-GAP shift energy (vs. <code>2.7%</code> in fine-tuning, where the pretrained 99.5%-even filter trapped <code>anti</code> near zero).</li>
+        <li><strong>Depth hierarchy of symmetry:</strong> inside the same multi-stage network, mid-level <code>Stage 3 (14&times;14)</code> preserves substantial antisymmetry in <code>free_star</code> (<code>FuncAnti = 0.375</code>) and <code>star</code> (<code>0.280</code>), whereas late semantic <code>Stage 4 (7&times;7)</code> right before global pooling collapses toward exchange symmetry (<code>FuncAnti = 0.049</code> in <code>free_star</code>, <code>0.132</code> in <code>star</code>).</li>
+        <li><strong>Backbone mixer determines whether cross-token products beat <code>self_avg</code>:</strong> in from-scratch <code>ConvNeXt-Atto</code> (whose only spatial mixer is depthwise conv), every cross-token bilinear mode outperforms <code>self_avg</code> (<code>star</code> reaches <strong>71.49 &plusmn; 0.27%</strong>, <code>+0.58%</code> over <code>none</code> and <code>+0.30%</code> over <code>self_avg</code>, with <code>+3.61%</code> higher low-contrast accuracy at half the products of <code>sym</code>/<code>anti</code>). In <code>ViT-Tiny</code>, where self-attention already performs pairwise cross-token mixing, pointwise quadratic <code>self_avg</code> is competitive or stronger.</li>
+      </ul>
+    </div>
+
+    <div class="l-wide">
+      <div class="fig-card">
+        <div class="fig-header">
+          <div>
+            <span class="fig-label">Figure 3</span>
+            <span class="fig-title">100-Epoch From-Scratch Co-Adaptation, Depth Hierarchy &amp; Downstream Demodulation</span>
+          </div>
+          <div class="pills" id="fig3-backbone-pills">
+            <button class="pill active" data-bb="convnext">ConvNeXt-Atto 100ep Multi-Stage (3 seeds)</button>
+            <button class="pill" data-bb="vittiny">ViT-Tiny 100ep Cross-Backbone (3 seeds)</button>
+          </div>
+        </div>
+
+        <div class="two-col-equal">
+          <div>
+            <h3 id="fig3-left-title" style="margin-top:0;color:var(--muted);">100-Epoch Accuracy &amp; Cross-Token vs. SelfAvg</h3>
+            <svg id="svg-fig3-left" viewBox="0 0 460 255" style="width:100%;height:auto;display:block;"></svg>
+          </div>
+          <div>
+            <h3 id="fig3-right-title" style="margin-top:0;color:var(--muted);">Depth Symmetry (Stage 3 vs 4) &amp; Demodulation</h3>
+            <svg id="svg-fig3-right" viewBox="0 0 460 255" style="width:100%;height:auto;display:block;"></svg>
+          </div>
+        </div>
+
+        <div class="fig-caption" id="fig3-caption"></div>
+      </div>
+    </div>
+
+    <!-- SECTION 5: TAKEAWAYS -->
+    <div class="l-body" id="takeaways">
+      <h2>5. Practical decision guide</h2>
+      <ul class="clean">
+        <li><strong>Default to unconstrained <code>star</code> <span class="math">(Au) &odot; (Bv)</span> or <code>self_avg</code> unless the task is genuinely chiral/directional:</strong> <code>star</code> uses half the elementwise multiplications of <code>sym</code>/<code>anti</code>, needs no coordinate-group alignment, and lets its projection matrices <span class="math">(A, B)</span> align automatically in late semantic stages (<code>FuncAnti &rarr; 0.13</code>) while preserving directional cross-terms in mid-level stages (<code>0.28</code>), achieving the best 100-epoch from-scratch ConvNeXt accuracy (<code>71.49%</code>) and low-contrast robustness.</li>
+        <li><strong>Use <code>free_star</code> + swapped-pair <code>FuncAnti</code> as a zero-overhead symmetry probe:</strong> adding only <span class="math">R</span> scalar angles (<span class="math">&lt;0.01%</span> parameters) doubles rank-bottlenecked capacity from <span class="math">R</span> to <span class="math">2R</span> and reveals whether a layer/task wants symmetry (<code>FuncAnti = 0.003</code> on ImageNet Stage-4 fine-tuning) or antisymmetry (<code>0.625</code> on 4-way rotation; <code>0.375</code> in Stage 3).</li>
+        <li><strong>Always include <code>self_avg</code> when claiming cross-token multiplicative gains:</strong> on pretrained backbones or Transformers with self-attention, apparent gains from symmetric token-pair multiplication can come entirely from single-token degree-2 polynomial capacity.</li>
+        <li><strong>Hard-code <code>anti</code> only when inputs have physical exchange antisymmetry AND aligned coordinates (or learned projections):</strong> fixed channel-grouped wedges collapse under random orthogonal basis rotations (<code>R&sup2; = &minus;0.02</code>), whereas projected <code>anti</code> is <span class="math">O(d)</span>-invariant and excels when orientation flips the target label.</li>
+      </ul>
+
+      <details>
+        <summary>Experimental inventory, zero-decode /dev/shm pipeline, and reproducibility</summary>
+        <p style="margin-top:8px;">
+          All ImageNet-1k runs used an aspect-ratio-preserving 320&times;320 uint8 RAM cache in <code>/dev/shm</code> shared read-only via <code>np.memmap</code> across 8&times; NVIDIA H800 GPUs (<code>bf16</code> AMP, <code>torch.compile</code>, fused AdamW, global/effective batch 1024), reaching <strong>75,000 images/s aggregate node throughput</strong> with <code>2.1% to 3.5%</code> data-wait overhead. Every comparison uses strictly paired data seeds, identical augmentation settings (<code>antialias=False</code> isolated cleanly from earlier <code>antialias=True</code> runs), and post-<code>W<sub>out</sub></code> functional symmetry telemetry. All scripts, unit tests, configs, and JSON summaries are available in <a href="https://github.com/nooobkevin/exchange-symmetry-vision">nooobkevin/exchange-symmetry-vision</a>.
+        </p>
+      </details>
+    </div>
+
+    <footer class="site-footer">
+      <div><strong>Exchange Symmetry in Vision</strong> &middot; Companion empirical study to <a href="https://nooobkevin.github.io/CliffordNet/">CliffordNet</a></div>
+      <div class="link-grid">
+        <a href="https://github.com/nooobkevin/exchange-symmetry-vision">GitHub Repository</a>
+        <a href="https://nooobkevin.github.io/CliffordNet/">Precursor: Subspace Clifford Networks</a>
+        <a href="https://github.com/ParaMind2025/CAN/issues/8">CAN Issue #8 Discussion</a>
+      </div>
+    </footer>
+  </article>
+
+  <script src="./data/exsym_data.js"></script>
+  <script>
+  (() => {
+    "use strict";
+    const D = window.__EXSYM_DATA__ || {};
+
+    const progressEl = document.getElementById("progress-bar");
+    window.addEventListener("scroll", () => {
+      const h = document.documentElement;
+      progressEl.style.width = ((h.scrollTop / Math.max(1, h.scrollHeight - h.clientHeight)) * 100).toFixed(1) + "%";
+    }, { passive: true });
+
+    const COLORS = {
+      none: "#64748b",
+      anti: "#c84b31",
+      anti_rmsmatched: "#c84b31",
+      sym: "#2563eb",
+      star: "#0f766e",
+      self_avg: "#b45309",
+      free_anti: "#9333ea",
+      free_star: "#0d9488",
+      free_sym: "#3b82f6",
+      grouped_wedge: "#6b7280",
+      grouped_wedge_fixed: "#dc2626",
+      grouped_wedge_proj: "#6b7280"
+    };
+
+    const LABELS = {
+      none: "None (Baseline)",
+      anti: "Anti (θ = −π/4)",
+      anti_rmsmatched: "Anti (RMS-matched)",
+      sym: "Sym (θ = +π/4)",
+      star: "Star (θ = 0, p only)",
+      self_avg: "SelfAvg (no cross-token)",
+      free_anti: "Free (from Anti)",
+      free_star: "Free (from Star)",
+      free_sym: "Free (from Sym)",
+      grouped_wedge: "Grouped Wedge (k=4)",
+      grouped_wedge_fixed: "Grouped Wedge (no proj)",
+      grouped_wedge_proj: "Grouped Wedge (+ proj)"
+    };
+
+    function esc(s) {
+      return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    }
+
+    // =========================================================================
+    // FIGURE 1: SYNTHETIC ORACLE
+    // =========================================================================
+    let fig1View = "coord";
+    let fig1Teacher = "antisymmetric";
+
+    function renderFig1() {
+      const svgL = document.getElementById("svg-fig1-left");
+      const svgR = document.getElementById("svg-fig1-right");
+      const titleL = document.getElementById("fig1-left-title");
+      const titleR = document.getElementById("fig1-right-title");
+      const cap = document.getElementById("fig1-caption");
+      const teacherWrap = document.getElementById("fig1-teacher-pills");
+
+      teacherWrap.style.display = fig1View === "thermo" ? "none" : "flex";
+
+      if (fig1View === "coord" && D.exp1_oracle) {
+        titleL.textContent = "Aligned 4-Channel Coords: Val R² at N=256";
+        titleR.textContent = "Random Orthogonal Rotation Q: Val R² at N=256";
+        const keys = ["grouped_wedge_fixed", "grouped_wedge_proj", "anti", "sym", "star", "free_star"];
+        const al = D.exp1_oracle.summary[fig1Teacher].aligned["256"];
+        const ro = D.exp1_oracle.summary[fig1Teacher].rotated["256"];
+
+        const drawBars = (svg, obj) => {
+          let html = `<line x1="155" y1="18" x2="155" y2="225" stroke="#cfc9bc" stroke-width="1"/>`;
+          keys.forEach((k, idx) => {
+            const y = 26 + idx * 32;
+            const v = Math.max(-0.25, obj[k].r2_mean);
+            const zeroX = 155 + (0.25 / 1.25) * 265;
+            const valX = 155 + ((v + 0.25) / 1.25) * 265;
+            const x0 = Math.min(zeroX, valX);
+            const w = Math.max(2, Math.abs(valX - zeroX));
+            const col = obj[k].r2_mean < 0 ? "#dc2626" : (COLORS[k] || "#0f766e");
+            html += `<text x="148" y="${y + 14}" text-anchor="end" font-size="11.5" fill="#1a1d21">${esc(LABELS[k])}</text>`;
+            html += `<rect x="${x0.toFixed(1)}" y="${y + 2}" width="${w.toFixed(1)}" height="17" rx="3" fill="${col}" opacity="0.88"/>`;
+            html += `<text x="${(Math.max(zeroX, valX) + 6).toFixed(1)}" y="${y + 14}" font-size="11" font-family="monospace" fill="#1a1d21">${obj[k].r2_mean.toFixed(3)}</text>`;
+          });
+          const zx = 155 + (0.25 / 1.25) * 265;
+          html += `<line x1="${zx}" y1="18" x2="${zx}" y2="225" stroke="#94a3b8" stroke-dasharray="3,3"/>`;
+          html += `<text x="${zx}" y="242" text-anchor="middle" font-size="10.5" fill="#5b626b">R² = 0</text>`;
+          html += `<text x="420" y="242" text-anchor="end" font-size="10.5" fill="#5b626b">R² = 1.0</text>`;
+          svg.innerHTML = html;
+        };
+        drawBars(svgL, al);
+        drawBars(svgR, ro);
+        cap.innerHTML = `Ground-truth bilinear teacher (<code>d=16, rank=16, N=256</code>, 5 seeds). Hard-coded <code>k=4</code> grouped wedge excels when the ground-truth axes align with channel groups (<code>R&sup2; = 0.999</code> on antisymmetric), then collapses to <code>R&sup2; = &minus;0.021</code> after rotating coordinates by a random orthogonal matrix <span class="math">Q &isin; O(d)</span>. Projected <code>anti</code> and <code>free_star</code> are strictly <span class="math">O(d)</span>-invariant.`;
+      } else if (fig1View === "rank" && D.exp1c_rank_noise) {
+        titleL.textContent = `Rank Bottleneck R² (${fig1Teacher} teacher, d=16, N=512)`;
+        titleR.textContent = "Effective Rank Doubling at R = 8 (d/2)";
+        const rs = ["4", "8", "12", "16", "24"];
+        const rdata = D.exp1c_rank_noise.summary.rank_sweep[fig1Teacher];
+        const series = ["anti", "sym", "star", "free_star"];
+
+        let htmlL = `<rect x="48" y="16" width="385" height="195" fill="none" stroke="#e5e1d8"/>`;
+        [0, 0.5, 1.0].forEach(yv => {
+          const py = 211 - ((yv + 0.4) / 1.45) * 195;
+          htmlL += `<line x1="48" y1="${py}" x2="433" y2="${py}" stroke="#eee" />`;
+          htmlL += `<text x="42" y="${py + 4}" text-anchor="end" font-size="10.5" fill="#5b626b">${yv.toFixed(1)}</text>`;
+        });
+        rs.forEach((r, i) => {
+          const px = 65 + i * 88;
+          htmlL += `<text x="${px}" y="228" text-anchor="middle" font-size="11" font-family="monospace" fill="#5b626b">R=${r}</text>`;
+        });
+        series.forEach(m => {
+          const pts = rs.map((r, i) => {
+            const v = Math.max(-0.38, rdata[r][m]);
+            const px = 65 + i * 88;
+            const py = 211 - ((v + 0.4) / 1.45) * 195;
+            return `${px},${py.toFixed(1)}`;
+          });
+          htmlL += `<polyline fill="none" stroke="${COLORS[m]}" stroke-width="2.4" points="${pts.join(" ")}"/>`;
+          pts.forEach(pt => {
+            const [cx, cy] = pt.split(",");
+            htmlL += `<circle cx="${cx}" cy="${cy}" r="3.6" fill="${COLORS[m]}"/>`;
+          });
+        });
+        svgL.innerHTML = htmlL;
+
+        // Right: R=8 bar comparison
+        const r8 = rdata["8"];
+        let htmlR = "";
+        ["anti", "sym", "star", "free_anti", "free_star"].forEach((m, i) => {
+          const y = 28 + i * 38;
+          const v = Math.max(-0.35, r8[m]);
+          const zx = 140 + (0.35 / 1.38) * 265;
+          const vx = 140 + ((v + 0.35) / 1.38) * 265;
+          htmlR += `<text x="132" y="${y + 15}" text-anchor="end" font-size="11.5" fill="#1a1d21">${esc(LABELS[m])}</text>`;
+          htmlR += `<rect x="${Math.min(zx, vx)}" y="${y + 2}" width="${Math.max(2, Math.abs(vx - zx))}" height="20" rx="3" fill="${COLORS[m]}"/>`;
+          htmlR += `<text x="${Math.max(zx, vx) + 6}" y="${y + 16}" font-size="11.5" font-family="monospace" fill="#1a1d21">${r8[m].toFixed(3)}</text>`;
+        });
+        svgR.innerHTML = htmlR;
+        cap.innerHTML = `Because <span class="math">p<sub>r</sub> = (a<sub>r</sub><sup>T</sup>u)(b<sub>r</sub><sup>T</sup>v)</span> has rank 1 while <span class="math">cos(&theta;<sub>r</sub>)p<sub>r</sub> + sin(&theta;<sub>r</sub>)q<sub>r</sub></span> has rank 2 whenever <span class="math">sin(2&theta;<sub>r</sub>) &ne; &plusmn;1</span>, <code>free_star</code> doubles the expressible bilinear rank from <span class="math">R</span> to <span class="math">2R</span> using only <span class="math">R</span> scalar angles. At <span class="math">R = 8</span> on a rank-16 general teacher, <code>free_star</code> jumps from <code>0.855</code> (<code>star</code>) to <code>0.967</code>.`;
+      } else if (fig1View === "thermo" && D.exp1b_thermometer) {
+        titleL.textContent = "Swapped-Pair FuncAnti vs. Ground-Truth E_anti";
+        titleR.textContent = "Per-Channel EffAnti(θ) vs. Post-Readout FuncAnti";
+        const fracs = ["0.0", "0.25", "0.5", "0.75", "1.0"];
+        const sm = D.exp1b_thermometer.summary;
+
+        let htmlL = `<rect x="52" y="18" width="370" height="192" fill="none" stroke="#e5e1d8"/>`;
+        htmlL += `<line x1="52" y1="210" x2="422" y2="18" stroke="#94a3b8" stroke-dasharray="4,4" stroke-width="1.5"/>`;
+        fracs.forEach((f, i) => {
+          const fv = parseFloat(f);
+          const px = 52 + fv * 370;
+          const py = 210 - fv * 192;
+          htmlL += `<text x="${px}" y="228" text-anchor="middle" font-size="10.5" font-family="monospace" fill="#5b626b">${fv.toFixed(2)}</text>`;
+          htmlL += `<text x="45" y="${py + 4}" text-anchor="end" font-size="10.5" font-family="monospace" fill="#5b626b">${fv.toFixed(2)}</text>`;
+        });
+        ["free_anti", "free_star", "free_sym"].forEach(m => {
+          const pts = fracs.map(f => {
+            const x = 52 + parseFloat(f) * 370;
+            const y = 210 - sm[f][m].func_anti_mean * 192;
+            return `${x.toFixed(1)},${y.toFixed(1)}`;
+          });
+          htmlL += `<polyline fill="none" stroke="${COLORS[m]}" stroke-width="2.3" points="${pts.join(" ")}"/>`;
+          pts.forEach(p => {
+            const [cx, cy] = p.split(",");
+            htmlL += `<circle cx="${cx}" cy="${cy}" r="3.8" fill="${COLORS[m]}"/>`;
+          });
+        });
+        htmlL += `<text x="237" y="247" text-anchor="middle" font-size="11" fill="#5b626b">True Teacher Antisymmetric Energy Fraction</text>`;
+        svgL.innerHTML = htmlL;
+
+        // Right: at E_anti = 0.0, show EffAnti(theta) vs FuncAnti(M_hat) for free_anti!
+        const e0 = sm["0.0"];
+        let htmlR = `<text x="20" y="30" font-size="12" fill="#1a1d21" font-weight="600">Symmetric Teacher (True E_anti = 0.00):</text>`;
+        ["free_anti", "free_star", "free_sym"].forEach((m, idx) => {
+          const y = 52 + idx * 58;
+          const ea = e0[m].eff_anti_mean;
+          const fa = e0[m].func_anti_mean;
+          htmlR += `<text x="20" y="${y + 12}" font-size="11.5" font-weight="600" fill="${COLORS[m]}">${esc(LABELS[m])}</text>`;
+          htmlR += `<text x="20" y="${y + 30}" font-size="11" fill="#5b626b">Channel EffAnti(θ):</text>`;
+          htmlR += `<rect x="145" y="${y + 19}" width="${Math.max(3, ea * 230)}" height="12" rx="2" fill="#94a3b8"/>`;
+          htmlR += `<text x="${152 + ea * 230}" y="${y + 29}" font-size="11" font-family="monospace" fill="#1a1d21">${ea.toFixed(3)}</text>`;
+          htmlR += `<text x="20" y="${y + 46}" font-size="11" fill="#5b626b">Post-W_out FuncAnti:</text>`;
+          htmlR += `<rect x="145" y="${y + 35}" width="${Math.max(3, fa * 230)}" height="12" rx="2" fill="${COLORS[m]}"/>`;
+          htmlR += `<text x="${152 + fa * 230}" y="${y + 45}" font-size="11" font-family="monospace" fill="#0f766e">${fa.toFixed(3)}</text>`;
+        });
+        svgR.innerHTML = htmlR;
+        cap.innerHTML = `Instrumentation calibration (<code>d=24, rank=24, N=2048</code>, 5 seeds). When <code>free_anti</code> learns a purely symmetric teacher, per-channel <code>EffAnti(&theta;)</code> stops at <code>0.477</code> because paired channels cancel their antisymmetric parts in <code>W<sub>out</sub></code>; swapped-pair <code>FuncAnti</code> measures the actual operator output and recovers <code>0.001</code>, matching ground truth across the entire <code>[0, 1]</code> spectrum.`;
+      }
+    }
+
+    document.querySelectorAll("#fig1-view-pills .pill").forEach(btn => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll("#fig1-view-pills .pill").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        fig1View = btn.dataset.view;
+        renderFig1();
+      });
+    });
+    document.querySelectorAll("#fig1-teacher-pills .pill").forEach(btn => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll("#fig1-teacher-pills .pill").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        fig1Teacher = btn.dataset.teacher;
+        renderFig1();
+      });
+    });
+
+    // =========================================================================
+    // FIGURE 2: TASK x PAIR DOUBLE DISSOCIATION
+    // =========================================================================
+    let fig2Wave = "waveA_ft_s4_dir";
+
+    function renderFig2() {
+      const wdata = (D.waves || {})[fig2Wave];
+      const tbody = document.getElementById("tbody-fig2");
+      const svg = document.getElementById("svg-fig2-interv");
+      const cap = document.getElementById("fig2-caption");
+
+      if (!wdata || wdata.status !== "complete" || !Object.keys(wdata.modes || {}).length) {
+        tbody.innerHTML = `<tr><td colspan="5" style="color:var(--muted);padding:18px 8px;">Wave currently running on 8&times; H800; reload after completion for full 3-seed forensics.</td></tr>`;
+        svg.innerHTML = `<text x="225" y="125" text-anchor="middle" font-size="13" fill="#5b626b">Training in progress on H800...</text>`;
+        return;
+      }
+
+      const symStageKey = fig2Wave === "waveB2_ft_s3_dir" ? "stage3_mid" : "stage4_mid";
+      const modes = Object.keys(wdata.modes);
+      let rowsHtml = "";
+      modes.forEach(m => {
+        const md = wdata.modes[m];
+        const sm = (md.symmetry || {})[symStageKey] || {};
+        const dStr = m === "none" ? "ref" : (md.delta_vs_none_mean !== undefined ? `${md.delta_vs_none_mean >= 0 ? "+" : ""}${md.delta_vs_none_mean.toFixed(2)}%` : "--");
+        const faStr = sm.func_anti !== undefined ? sm.func_anti.toFixed(3) : "n/a";
+        const rrStr = sm.rms_ratio !== undefined ? sm.rms_ratio.toFixed(3) : "n/a";
+        const highlight = (m === "free_star" || m === "self_avg") ? `style="background:var(--surface-alt);"` : "";
+        rowsHtml += `<tr ${highlight}>
+          <td><strong style="color:${COLORS[m] || "#1a1d21"}">${esc(LABELS[m] || m)}</strong></td>
+          <td class="num">${md.clean_mean.toFixed(2)} &plusmn; ${md.clean_std.toFixed(2)}</td>
+          <td class="num">${dStr}</td>
+          <td class="num">${faStr}</td>
+          <td class="num">${rrStr}</td>
+        </tr>`;
+      });
+      tbody.innerHTML = rowsHtml;
+
+      // Draw causal intervention horizontal bars: Sym->0 (blue) vs Anti->0 (coral)
+      const intModes = modes.filter(m => wdata.modes[m].intervention);
+      let maxDrop = 0.5;
+      intModes.forEach(m => {
+        const iv = wdata.modes[m].intervention;
+        maxDrop = Math.max(maxDrop, Math.abs(iv.sym0_delta), Math.abs(iv.anti0_delta));
+      });
+
+      let sHtml = `<text x="148" y="16" font-size="11" fill="#2563eb" font-weight="600">&FilledSmallSquare; Zero Sym (s=0, a=1)</text>`;
+      sHtml += `<text x="295" y="16" font-size="11" fill="#c84b31" font-weight="600">&FilledSmallSquare; Zero Anti (s=1, a=0)</text>`;
+      const zeroX = 395;
+      sHtml += `<line x1="${zeroX}" y1="26" x2="${zeroX}" y2="235" stroke="#94a3b8" stroke-width="1"/>`;
+
+      intModes.forEach((m, idx) => {
+        const iv = wdata.modes[m].intervention;
+        const y = 32 + idx * 32;
+        const scale = 235 / maxDrop;
+        const wSym = Math.max(1.5, Math.abs(iv.sym0_delta) * scale);
+        const wAnti = Math.max(1.5, Math.abs(iv.anti0_delta) * scale);
+        const xSym = iv.sym0_delta <= 0 ? zeroX - wSym : zeroX;
+        const xAnti = iv.anti0_delta <= 0 ? zeroX - wAnti : zeroX;
+
+        sHtml += `<text x="142" y="${y + 15}" text-anchor="end" font-size="11.5" fill="#1a1d21">${esc(LABELS[m] || m)}</text>`;
+        sHtml += `<rect x="${xSym.toFixed(1)}" y="${y + 2}" width="${wSym.toFixed(1)}" height="9" rx="2" fill="#2563eb"/>`;
+        sHtml += `<rect x="${xAnti.toFixed(1)}" y="${y + 13}" width="${wAnti.toFixed(1)}" height="9" rx="2" fill="#c84b31"/>`;
+        const domVal = Math.abs(iv.anti0_delta) > Math.abs(iv.sym0_delta) ? iv.anti0_delta : iv.sym0_delta;
+        sHtml += `<text x="401" y="${y + 15}" font-size="10.5" font-family="monospace" fill="#5b626b">${domVal >= 0 ? "+" : ""}${domVal.toFixed(2)}%</text>`;
+      });
+      svg.innerHTML = sHtml;
+
+      const captions = {
+        waveA_ft_s4_dir: `Stage-4 directed shift on reflection-invariant ImageNet-1k (30 epochs, 4 paired seeds, <code>antialias=False</code>). Even when <code>anti</code> starts with equalized step-0 RMS, training suppresses it to <code>RMS = 0.037</code>. <code>free_star</code> converges to <code>FuncAnti = 0.003</code>, and <code>self_avg</code> (zero cross-token multiplication) matches <code>sym</code> and <code>free_star</code> within <code>0.04%</code>.`,
+        waveC_rot4_s4_dir: `Same ConvNeXt-Atto Stage-4 directed adapter trained on 4-way rotation prediction (<code>{0&deg;, 90&deg;, 180&deg;, 270&deg;}</code>, 15 epochs, 3 paired seeds). Causal dependence flips completely to the coral bars: zeroing <code>Anti</code> drops <code>anti</code> by <code>&minus;7.37%</code> and <code>free_star</code> by <code>&minus;3.51%</code> (vs. <code>&minus;0.23%</code> when zeroing <code>Sym</code>), while <code>free_sym</code> escapes from <code>0.000</code> to <code>0.498</code>.`,
+        waveB_ft_s4_ctx: `Stage-4 isotropic center-surround pair <code>(u, DWConv5x5(u))</code> on ImageNet-1k (30 epochs, 3 paired seeds). Because swapping center and surround is not a horizontal reflection, <code>anti</code> is no longer suppressed (<code>RMS = 0.417</code>, <code>Anti&rarr;0 = &minus;0.91%</code>) and matches <code>sym</code>, <code>self_avg</code>, and <code>free_star</code>.`,
+        waveB2_ft_s3_dir: `Mid-level Stage-3 (<code>14&times;14</code>) directed shift on ImageNet-1k (30 epochs, 3 paired seeds), testing whether placing the adapter earlier than the final pre-GAP stage retains directional antisymmetry.`
+      };
+      cap.innerHTML = captions[fig2Wave] || "";
+    }
+
+    document.querySelectorAll("#fig2-wave-pills .pill").forEach(btn => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll("#fig2-wave-pills .pill").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        fig2Wave = btn.dataset.wave;
+        renderFig2();
+      });
+    });
+
+    // =========================================================================
+    // FIGURE 3: 100-EPOCH FROM-SCRATCH & DEMODULATION FORENSICS
+    // =========================================================================
+    let fig3BB = "convnext";
+
+    function renderFig3() {
+      const svgL = document.getElementById("svg-fig3-left");
+      const svgR = document.getElementById("svg-fig3-right");
+      const titleL = document.getElementById("fig3-left-title");
+      const titleR = document.getElementById("fig3-right-title");
+      const cap = document.getElementById("fig3-caption");
+
+      const wKey = fig3BB === "convnext" ? "waveD_scratch_convnext" : "waveE_scratch_vittiny";
+      const wdata = (D.waves || {})[wKey];
+
+      if (!wdata || wdata.status !== "complete" || !Object.keys(wdata.modes || {}).length) {
+        svgL.innerHTML = `<text x="230" y="125" text-anchor="middle" font-size="13" fill="#5b626b">ViT-Tiny 3-seed forensics completing on H800...</text>`;
+        svgR.innerHTML = `<text x="230" y="125" text-anchor="middle" font-size="13" fill="#5b626b">Reload shortly for 3-seed ViT-Tiny breakdown.</text>`;
+        return;
+      }
+
+      const modes = Object.keys(wdata.modes);
+      const vals = modes.map(m => wdata.modes[m].clean_mean);
+      const minV = Math.floor((Math.min(...vals) - 0.35) * 2) / 2;
+      const maxV = Math.ceil((Math.max(...vals) + 0.25) * 2) / 2;
+
+      titleL.textContent = fig3BB === "convnext"
+        ? "ConvNeXt-Atto 100-Ep Clean Top-1 (3 seeds)"
+        : "ViT-Tiny 100-Ep Clean Top-1 (cross-backbone)";
+
+      let htmlL = "";
+      modes.forEach((m, idx) => {
+        const md = wdata.modes[m];
+        const y = 18 + idx * (215 / modes.length);
+        const w = Math.max(4, ((md.clean_mean - minV) / Math.max(0.5, maxV - minV)) * 235);
+        htmlL += `<text x="150" y="${y + 14}" text-anchor="end" font-size="11.5" fill="#1a1d21">${esc(LABELS[m] || m)}</text>`;
+        htmlL += `<rect x="158" y="${y + 2}" width="${w.toFixed(1)}" height="17" rx="3" fill="${COLORS[m] || "#0f766e"}" opacity="0.9"/>`;
+        htmlL += `<text x="${(164 + w).toFixed(1)}" y="${y + 14}" font-size="11" font-family="monospace" fill="#1a1d21">${md.clean_mean.toFixed(2)}±${md.clean_std.toFixed(2)}%</text>`;
+      });
+      svgL.innerHTML = htmlL;
+
+      if (fig3BB === "convnext" && D.diag_demod) {
+        titleR.textContent = "Depth Hierarchy (S3 vs S4) & Downstream Demodulation";
+        const s3_fs = wdata.modes.free_star.symmetry.stage3_mid.func_anti;
+        const s4_fs = wdata.modes.free_star.symmetry.stage4_mid.func_anti;
+        const s3_fa = wdata.modes.free_anti.symmetry.stage3_mid.func_anti;
+        const s4_fa = wdata.modes.free_anti.symmetry.stage4_mid.func_anti;
+        const s3_st = wdata.modes.star.symmetry.stage3_mid.func_anti;
+        const s4_st = wdata.modes.star.symmetry.stage4_mid.func_anti;
+
+        let htmlR = `<text x="16" y="22" font-size="11.5" font-weight="600" fill="#1a1d21">A. Learned FuncAnti by Stage Depth (100ep Scratch)</text>`;
+        [["free_star", s3_fs, s4_fs], ["free_anti", s3_fa, s4_fa], ["star", s3_st, s4_st]].forEach(([m, v3, v4], i) => {
+          const y = 34 + i * 30;
+          htmlR += `<text x="128" y="${y + 13}" text-anchor="end" font-size="11" fill="#1a1d21">${esc(LABELS[m])}</text>`;
+          htmlR += `<rect x="136" y="${y + 1}" width="${(v3 * 240).toFixed(1)}" height="9" rx="2" fill="#0f766e"/>`;
+          htmlR += `<text x="${(142 + v3 * 240).toFixed(1)}" y="${y + 9}" font-size="10" font-family="monospace" fill="#0f766e">S3: ${v3.toFixed(3)}</text>`;
+          htmlR += `<rect x="136" y="${y + 12}" width="${Math.max(3, v4 * 240).toFixed(1)}" height="9" rx="2" fill="#94a3b8"/>`;
+          htmlR += `<text x="${(142 + v4 * 240).toFixed(1)}" y="${y + 20}" font-size="10" font-family="monospace" fill="#5b626b">S4: ${v4.toFixed(3)}</text>`;
+        });
+
+        const dmA = D.diag_demod.waveA_finetuned;
+        const dmD = D.diag_demod.waveD_scratch;
+        htmlR += `<line x1="16" y1="132" x2="444" y2="132" stroke="#e5e1d8"/>`;
+        htmlR += `<text x="16" y="150" font-size="11.5" font-weight="600" fill="#1a1d21">B. How Scratch Demodulates Anti (Downstream 7&times;7 DWConv Odd%)</text>`;
+        const dItems = [
+          ["None (Scratch)", dmD.none.dwconv_horiz_odd_energy_frac_mean * 100, "#64748b"],
+          ["Anti (Fine-Tuned)", dmA.anti_rmsmatched.dwconv_horiz_odd_energy_frac_weighted * 100, "#94a3b8"],
+          ["Sym (Scratch)", dmD.sym.dwconv_horiz_odd_energy_frac_weighted * 100, "#2563eb"],
+          ["Anti (Scratch, 9.7x!)", dmD.anti.dwconv_horiz_odd_energy_frac_weighted * 100, "#c84b31"]
+        ];
+        dItems.forEach(([lbl, pct, col], i) => {
+          const y = 160 + i * 22;
+          const w = Math.max(3, (pct / 8.0) * 235);
+          htmlR += `<text x="155" y="${y + 13}" text-anchor="end" font-size="11" fill="#1a1d21">${lbl}</text>`;
+          htmlR += `<rect x="163" y="${y + 3}" width="${w.toFixed(1)}" height="13" rx="2" fill="${col}"/>`;
+          htmlR += `<text x="${(169 + w).toFixed(1)}" y="${y + 13}" font-size="10.5" font-family="monospace" fill="#1a1d21">${pct.toFixed(2)}%</text>`;
+        });
+        svgR.innerHTML = htmlR;
+        cap.innerHTML = `100-epoch from-scratch multi-stage <code>ConvNeXt-Atto</code> (24 runs, 3 paired seeds). Every cross-token bilinear variant beats <code>self_avg</code> (<code>star</code> leads at <code>71.49 &plusmn; 0.27%</code>, <code>+0.58%</code> over <code>none</code>). Mid-level Stage 3 retains <code>FuncAnti = 0.375</code> in <code>free_star</code> while pre-GAP Stage 4 drops to <code>0.049</code>; downstream 7&times;7 depthwise conv filters increase horizontal antisymmetry 9.7&times; (<code>6.86%</code> vs. <code>0.71%</code>) to demodulate <code>anti</code>.`;
+      } else {
+        titleR.textContent = "ViT-Tiny Symmetry & Causal Intervention";
+        let htmlR = "";
+        const intModes = modes.filter(m => wdata.modes[m].intervention);
+        intModes.forEach((m, i) => {
+          const md = wdata.modes[m];
+          const sm = (md.symmetry || {}).mid_vit || {};
+          const iv = md.intervention;
+          const y = 26 + i * 38;
+          htmlR += `<text x="135" y="${y + 14}" text-anchor="end" font-size="11.5" fill="#1a1d21">${esc(LABELS[m] || m)}</text>`;
+          htmlR += `<text x="145" y="${y + 14}" font-size="11" font-family="monospace" fill="#5b626b">FuncAnti=${sm.func_anti !== undefined ? sm.func_anti.toFixed(3) : "n/a"} | BypassΔ=${iv.bypass_delta.toFixed(2)}%</text>`;
+        });
+        svgR.innerHTML = htmlR;
+        cap.innerHTML = `100-epoch from-scratch <code>ViT-Tiny</code> (adapter placed after block 8 on the 14&times;14 patch grid). Because global self-attention already performs pairwise cross-token mixing in every block, single-token quadratic gating (<code>self_avg</code>) provides strong complementary channel nonlinearity.`;
+      }
+    }
+
+    document.querySelectorAll("#fig3-backbone-pills .pill").forEach(btn => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll("#fig3-backbone-pills .pill").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        fig3BB = btn.dataset.bb;
+        renderFig3();
+      });
+    });
+
+    renderFig1();
+    renderFig2();
+    renderFig3();
+  })();
+  </script>
+</body>
+</html>

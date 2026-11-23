@@ -1,0 +1,7205 @@
+{
+  "num_runs": 18,
+  "runs": {
+    "ft_s3_dir_anti_s101": {
+      "name": "ft_s3_dir_anti_s101",
+      "args": {
+        "name": "ft_s3_dir_anti_s101",
+        "output_dir": "/scratch/itscspod/chtaihei/exsym_runs/waveB_stage3_directed",
+        "cache_dir": "/dev/shm/in1k_raw_cache_ar320",
+        "backbone": "convnext_atto",
+        "mode": "anti",
+        "pair_type": "directed_right",
+        "placement": "stage3_mid",
+        "vit_insert_block": 8,
+        "rank_ratio": 1.0,
+        "gamma_init": 0.1,
+        "pretrained_ckpt": "/scratch/itscspod/chtaihei/cliffordnet_runs/in1k_waveC_100ep/in1k_convnext_atto_100ep/checkpoints/last.ckpt",
+        "rotation_task": false,
+        "epochs": 30,
+        "batch_size": 512,
+        "grad_accum": 2,
+        "num_workers": 12,
+        "lr": 0.0004,
+        "adapter_lr_mult": 3.0,
+        "min_lr": 1e-06,
+        "warmup_epochs": 2,
+        "weight_decay": 0.05,
+        "drop_path": 0.1,
+        "ema_decay": 0.999,
+        "mixup": 0.8,
+        "cutmix": 1.0,
+        "label_smoothing": 0.1,
+        "clip_grad": 5.0,
+        "no_compile": false,
+        "data_seed": 101,
+        "init_seed": 3101,
+        "eval_interval": 3,
+        "save_best_only": false,
+        "resume": true,
+        "max_steps": 0,
+        "deadline_iso": "2026-11-23T09:45:00+08:00"
+      },
+      "full_eval": {
+        "clean": 71.43,
+        "clean_top5": 90.53,
+        "contrast_012": 31.03,
+        "gaussian_noise": 25.41,
+        "fft_phase": 2.62,
+        "hflip": 71.36,
+        "hflip_consistency": 91.18
+      },
+      "symmetry_final": {
+        "stage3_mid": {
+          "mode": "anti",
+          "pair_type": "directed_right",
+          "dim": 160,
+          "rank": 160,
+          "mean_e_anti": 1.0,
+          "std_e_anti": 0.0,
+          "theta_mean": -0.7853981256484985,
+          "theta_std": 5.979178752113512e-08,
+          "theta_quantiles": [
+            -0.7853981852531433,
+            -0.7853981852531433,
+            -0.7853981852531433,
+            -0.7853981852531433,
+            -0.7853981852531433
+          ],
+          "weight_weighted_e_anti": 1.0,
+          "eff_anti": 1.0,
+          "func_anti": 0.9999999999999732,
+          "delta_rms": 0.159420907497406,
+          "x_rms": 2.2692251205444336,
+          "rms_ratio": 0.07025345614857184,
+          "top25_energy_frac": 0.42126186363837764
+        }
+      },
+      "intervention": {
+        "anti_sweep": {
+          "s1.0_a1.0": {
+            "clean": 72.3,
+            "clean_top5": 90.71,
+            "contrast_012": 30.62,
+            "fft_phase": 2.64,
+            "hflip": 72.09,
+            "hflip_consistency": 91.63
+          },
+          "s1.0_a0.75": {
+            "clean": 72.22,
+            "clean_top5": 90.74,
+            "contrast_012": 30.45,
+            "fft_phase": 2.59,
+            "hflip": 72.02,
+            "hflip_consistency": 91.74
+          },
+          "s1.0_a0.5": {
+            "clean": 72.12,
+            "clean_top5": 90.77,
+            "contrast_012": 30.36,
+            "fft_phase": 2.52,
+            "hflip": 71.96,
+            "hflip_consistency": 91.79
+          },
+          "s1.0_a0.0": {
+            "clean": 71.98,
+            "clean_top5": 90.6,
+            "contrast_012": 30.03,
+            "fft_phase": 2.38,
+            "hflip": 71.88,
+            "hflip_consistency": 91.83
+          }
+        },
+        "sym_sweep": {
+          "s1.0_a1.0": {
+            "clean": 72.3,
+            "clean_top5": 90.71,
+            "contrast_012": 30.62,
+            "fft_phase": 2.64,
+            "hflip": 72.09,
+            "hflip_consistency": 91.63
+          },
+          "s0.75_a1.0": {
+            "clean": 72.3,
+            "clean_top5": 90.71,
+            "contrast_012": 30.62,
+            "fft_phase": 2.64,
+            "hflip": 72.09,
+            "hflip_consistency": 91.63
+          },
+          "s0.5_a1.0": {
+            "clean": 72.3,
+            "clean_top5": 90.71,
+            "contrast_012": 30.62,
+            "fft_phase": 2.64,
+            "hflip": 72.09,
+            "hflip_consistency": 91.63
+          },
+          "s0.0_a1.0": {
+            "clean": 72.3,
+            "clean_top5": 90.71,
+            "contrast_012": 30.62,
+            "fft_phase": 2.64,
+            "hflip": 72.09,
+            "hflip_consistency": 91.63
+          }
+        },
+        "bypass": {
+          "s0.0_a0.0": {
+            "clean": 72.0,
+            "clean_top5": 90.6,
+            "contrast_012": 30.03,
+            "fft_phase": 2.38,
+            "hflip": 71.88,
+            "hflip_consistency": 91.83
+          }
+        }
+      },
+      "trajectory": [
+        {
+          "epoch": -1,
+          "top1": 71.088,
+          "theta_grad_norm": null,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 1.0,
+              "func_anti": 0.9999999999933786,
+              "mean_e_anti": 1.0,
+              "rms_ratio": 0.0012170838592548377
+            }
+          }
+        },
+        {
+          "epoch": 0,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 1,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 2,
+          "top1": 70.132,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 1.0,
+              "func_anti": 0.9999999999975551,
+              "mean_e_anti": 1.0,
+              "rms_ratio": 0.008704465939032891
+            }
+          }
+        },
+        {
+          "epoch": 3,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 4,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 5,
+          "top1": 70.124,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 1.0,
+              "func_anti": 0.9999999999984415,
+              "mean_e_anti": 1.0,
+              "rms_ratio": 0.028179113007987113
+            }
+          }
+        },
+        {
+          "epoch": 6,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 7,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 8,
+          "top1": 70.198,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 1.0,
+              "func_anti": 0.9999999999964686,
+              "mean_e_anti": 1.0,
+              "rms_ratio": 0.03869637618170517
+            }
+          }
+        },
+        {
+          "epoch": 9,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 10,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 11,
+          "top1": 70.468,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 1.0,
+              "func_anti": 0.9999999999946239,
+              "mean_e_anti": 1.0,
+              "rms_ratio": 0.048321455870899796
+            }
+          }
+        },
+        {
+          "epoch": 12,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 13,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 14,
+          "top1": 70.742,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 1.0,
+              "func_anti": 0.9999999999967565,
+              "mean_e_anti": 1.0,
+              "rms_ratio": 0.05470298056738132
+            }
+          }
+        },
+        {
+          "epoch": 15,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 16,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 17,
+          "top1": 70.91,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 1.0,
+              "func_anti": 0.9999999999956379,
+              "mean_e_anti": 1.0,
+              "rms_ratio": 0.05987659251551362
+            }
+          }
+        },
+        {
+          "epoch": 18,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 19,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 20,
+          "top1": 71.13,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 1.0,
+              "func_anti": 0.9999999999947129,
+              "mean_e_anti": 1.0,
+              "rms_ratio": 0.06589986450222088
+            }
+          }
+        },
+        {
+          "epoch": 21,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 22,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 23,
+          "top1": 71.282,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 1.0,
+              "func_anti": 0.9999999999969948,
+              "mean_e_anti": 1.0,
+              "rms_ratio": 0.06931832182660394
+            }
+          }
+        },
+        {
+          "epoch": 24,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 25,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 26,
+          "top1": 71.442,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 1.0,
+              "func_anti": 0.9999999999992017,
+              "mean_e_anti": 1.0,
+              "rms_ratio": 0.06978164443858034
+            }
+          }
+        },
+        {
+          "epoch": 27,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 28,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 29,
+          "top1": 71.432,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 1.0,
+              "func_anti": 0.9999999999934219,
+              "mean_e_anti": 1.0,
+              "rms_ratio": 0.07003164100520921
+            }
+          }
+        }
+      ]
+    },
+    "ft_s3_dir_free_star_s42": {
+      "name": "ft_s3_dir_free_star_s42",
+      "args": {
+        "name": "ft_s3_dir_free_star_s42",
+        "output_dir": "/scratch/itscspod/chtaihei/exsym_runs/waveB_stage3_directed",
+        "cache_dir": "/dev/shm/in1k_raw_cache_ar320",
+        "backbone": "convnext_atto",
+        "mode": "free_star",
+        "pair_type": "directed_right",
+        "placement": "stage3_mid",
+        "vit_insert_block": 8,
+        "rank_ratio": 1.0,
+        "gamma_init": 0.1,
+        "pretrained_ckpt": "/scratch/itscspod/chtaihei/cliffordnet_runs/in1k_waveC_100ep/in1k_convnext_atto_100ep/checkpoints/last.ckpt",
+        "rotation_task": false,
+        "epochs": 30,
+        "batch_size": 512,
+        "grad_accum": 2,
+        "num_workers": 12,
+        "lr": 0.0004,
+        "adapter_lr_mult": 3.0,
+        "min_lr": 1e-06,
+        "warmup_epochs": 2,
+        "weight_decay": 0.05,
+        "drop_path": 0.1,
+        "ema_decay": 0.999,
+        "mixup": 0.8,
+        "cutmix": 1.0,
+        "label_smoothing": 0.1,
+        "clip_grad": 5.0,
+        "no_compile": false,
+        "data_seed": 42,
+        "init_seed": 3042,
+        "eval_interval": 3,
+        "save_best_only": false,
+        "resume": true,
+        "max_steps": 0,
+        "deadline_iso": "2026-11-23T09:45:00+08:00"
+      },
+      "full_eval": {
+        "clean": 71.38,
+        "clean_top5": 90.41,
+        "contrast_012": 31.09,
+        "gaussian_noise": 25.11,
+        "fft_phase": 2.6,
+        "hflip": 71.32,
+        "hflip_consistency": 91.3
+      },
+      "symmetry_final": {
+        "stage3_mid": {
+          "mode": "free_star",
+          "pair_type": "directed_right",
+          "dim": 160,
+          "rank": 160,
+          "mean_e_anti": 0.6370952129364014,
+          "std_e_anti": 0.19264505803585052,
+          "theta_mean": -0.15321269631385803,
+          "theta_std": 0.22117598354816437,
+          "theta_quantiles": [
+            -0.4224682152271271,
+            -0.30318331718444824,
+            -0.142734557390213,
+            -0.028530249372124672,
+            0.1200735867023468
+          ],
+          "weight_weighted_e_anti": 0.6520473302293632,
+          "eff_anti": 0.6541131158545974,
+          "func_anti": 0.5525647183189126,
+          "delta_rms": 0.15958170592784882,
+          "x_rms": 2.147629499435425,
+          "rms_ratio": 0.07430597594687544,
+          "top25_energy_frac": 0.43468141873457716
+        }
+      },
+      "intervention": {
+        "anti_sweep": {
+          "s1.0_a1.0": {
+            "clean": 72.13,
+            "clean_top5": 90.54,
+            "contrast_012": 31.08,
+            "fft_phase": 2.61,
+            "hflip": 71.87,
+            "hflip_consistency": 91.46
+          },
+          "s1.0_a0.75": {
+            "clean": 72.08,
+            "clean_top5": 90.62,
+            "contrast_012": 30.97,
+            "fft_phase": 2.55,
+            "hflip": 71.87,
+            "hflip_consistency": 91.57
+          },
+          "s1.0_a0.5": {
+            "clean": 71.95,
+            "clean_top5": 90.62,
+            "contrast_012": 30.95,
+            "fft_phase": 2.52,
+            "hflip": 71.8,
+            "hflip_consistency": 91.59
+          },
+          "s1.0_a0.0": {
+            "clean": 71.89,
+            "clean_top5": 90.55,
+            "contrast_012": 30.56,
+            "fft_phase": 2.48,
+            "hflip": 71.66,
+            "hflip_consistency": 91.62
+          }
+        },
+        "sym_sweep": {
+          "s1.0_a1.0": {
+            "clean": 72.13,
+            "clean_top5": 90.54,
+            "contrast_012": 31.08,
+            "fft_phase": 2.61,
+            "hflip": 71.87,
+            "hflip_consistency": 91.46
+          },
+          "s0.75_a1.0": {
+            "clean": 72.05,
+            "clean_top5": 90.58,
+            "contrast_012": 31.68,
+            "fft_phase": 2.7,
+            "hflip": 71.88,
+            "hflip_consistency": 91.49
+          },
+          "s0.5_a1.0": {
+            "clean": 72.09,
+            "clean_top5": 90.57,
+            "contrast_012": 32.05,
+            "fft_phase": 2.72,
+            "hflip": 71.84,
+            "hflip_consistency": 91.43
+          },
+          "s0.0_a1.0": {
+            "clean": 72.05,
+            "clean_top5": 90.59,
+            "contrast_012": 32.7,
+            "fft_phase": 2.73,
+            "hflip": 71.68,
+            "hflip_consistency": 91.66
+          }
+        },
+        "bypass": {
+          "s0.0_a0.0": {
+            "clean": 71.97,
+            "clean_top5": 90.55,
+            "contrast_012": 32.55,
+            "fft_phase": 2.59,
+            "hflip": 71.54,
+            "hflip_consistency": 91.8
+          }
+        }
+      },
+      "trajectory": [
+        {
+          "epoch": -1,
+          "top1": 71.132,
+          "theta_grad_norm": null,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.5,
+              "func_anti": 0.09950976886333424,
+              "mean_e_anti": 0.5,
+              "rms_ratio": 0.0027948226736439217
+            }
+          }
+        },
+        {
+          "epoch": 0,
+          "top1": null,
+          "theta_grad_norm": 0.000392
+        },
+        {
+          "epoch": 1,
+          "top1": null,
+          "theta_grad_norm": 8.8e-05
+        },
+        {
+          "epoch": 2,
+          "top1": 70.12,
+          "theta_grad_norm": 0.000415,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.6699788030704144,
+              "func_anti": 0.7047415617500465,
+              "mean_e_anti": 0.5680721998214722,
+              "rms_ratio": 0.004228095980969886
+            }
+          }
+        },
+        {
+          "epoch": 3,
+          "top1": null,
+          "theta_grad_norm": 0.000729
+        },
+        {
+          "epoch": 4,
+          "top1": null,
+          "theta_grad_norm": 0.000935
+        },
+        {
+          "epoch": 5,
+          "top1": 70.058,
+          "theta_grad_norm": 0.001247,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.7287176342683078,
+              "func_anti": 0.6625962120098751,
+              "mean_e_anti": 0.6783880591392517,
+              "rms_ratio": 0.024722675933519817
+            }
+          }
+        },
+        {
+          "epoch": 6,
+          "top1": null,
+          "theta_grad_norm": 0.001509
+        },
+        {
+          "epoch": 7,
+          "top1": null,
+          "theta_grad_norm": 0.001696
+        },
+        {
+          "epoch": 8,
+          "top1": 70.302,
+          "theta_grad_norm": 0.001916,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.712912392403448,
+              "func_anti": 0.6293490109028204,
+              "mean_e_anti": 0.6888574361801147,
+              "rms_ratio": 0.03817034857962759
+            }
+          }
+        },
+        {
+          "epoch": 9,
+          "top1": null,
+          "theta_grad_norm": 0.002152
+        },
+        {
+          "epoch": 10,
+          "top1": null,
+          "theta_grad_norm": 0.002227
+        },
+        {
+          "epoch": 11,
+          "top1": 70.584,
+          "theta_grad_norm": 0.002419,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.690507753482303,
+              "func_anti": 0.6084879299138717,
+              "mean_e_anti": 0.6778278946876526,
+              "rms_ratio": 0.0477879425806652
+            }
+          }
+        },
+        {
+          "epoch": 12,
+          "top1": null,
+          "theta_grad_norm": 0.002523
+        },
+        {
+          "epoch": 13,
+          "top1": null,
+          "theta_grad_norm": 0.002679
+        },
+        {
+          "epoch": 14,
+          "top1": 70.634,
+          "theta_grad_norm": 0.002805,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.6785130933607797,
+              "func_anti": 0.5946140840525873,
+              "mean_e_anti": 0.665940523147583,
+              "rms_ratio": 0.05637719387834255
+            }
+          }
+        },
+        {
+          "epoch": 15,
+          "top1": null,
+          "theta_grad_norm": 0.002755
+        },
+        {
+          "epoch": 16,
+          "top1": null,
+          "theta_grad_norm": 0.002838
+        },
+        {
+          "epoch": 17,
+          "top1": 70.878,
+          "theta_grad_norm": 0.00306,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.6700926454338166,
+              "func_anti": 0.5771478587981582,
+              "mean_e_anti": 0.6546661257743835,
+              "rms_ratio": 0.06210581648676971
+            }
+          }
+        },
+        {
+          "epoch": 18,
+          "top1": null,
+          "theta_grad_norm": 0.003156
+        },
+        {
+          "epoch": 19,
+          "top1": null,
+          "theta_grad_norm": 0.003335
+        },
+        {
+          "epoch": 20,
+          "top1": 71.058,
+          "theta_grad_norm": 0.00336,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.6627138521395196,
+              "func_anti": 0.5669572963104302,
+              "mean_e_anti": 0.6459411382675171,
+              "rms_ratio": 0.06765066944944798
+            }
+          }
+        },
+        {
+          "epoch": 21,
+          "top1": null,
+          "theta_grad_norm": 0.003292
+        },
+        {
+          "epoch": 22,
+          "top1": null,
+          "theta_grad_norm": 0.003415
+        },
+        {
+          "epoch": 23,
+          "top1": 71.176,
+          "theta_grad_norm": 0.003486,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.6565714199894492,
+              "func_anti": 0.5594325009313765,
+              "mean_e_anti": 0.6406237483024597,
+              "rms_ratio": 0.07012794563842562
+            }
+          }
+        },
+        {
+          "epoch": 24,
+          "top1": null,
+          "theta_grad_norm": 0.003528
+        },
+        {
+          "epoch": 25,
+          "top1": null,
+          "theta_grad_norm": 0.003531
+        },
+        {
+          "epoch": 26,
+          "top1": 71.372,
+          "theta_grad_norm": 0.003627,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.6539328296524938,
+              "func_anti": 0.5532665557997518,
+              "mean_e_anti": 0.6370952129364014,
+              "rms_ratio": 0.07360201447319065
+            }
+          }
+        },
+        {
+          "epoch": 27,
+          "top1": null,
+          "theta_grad_norm": 0.003563
+        },
+        {
+          "epoch": 28,
+          "top1": null,
+          "theta_grad_norm": 0.003526
+        },
+        {
+          "epoch": 29,
+          "top1": 71.34,
+          "theta_grad_norm": 0.003737,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.6534155449779477,
+              "func_anti": 0.55187774066008,
+              "mean_e_anti": 0.6360237002372742,
+              "rms_ratio": 0.07427740479749384
+            }
+          }
+        }
+      ]
+    },
+    "ft_s3_dir_sym_s202": {
+      "name": "ft_s3_dir_sym_s202",
+      "args": {
+        "name": "ft_s3_dir_sym_s202",
+        "output_dir": "/scratch/itscspod/chtaihei/exsym_runs/waveB_stage3_directed",
+        "cache_dir": "/dev/shm/in1k_raw_cache_ar320",
+        "backbone": "convnext_atto",
+        "mode": "sym",
+        "pair_type": "directed_right",
+        "placement": "stage3_mid",
+        "vit_insert_block": 8,
+        "rank_ratio": 1.0,
+        "gamma_init": 0.1,
+        "pretrained_ckpt": "/scratch/itscspod/chtaihei/cliffordnet_runs/in1k_waveC_100ep/in1k_convnext_atto_100ep/checkpoints/last.ckpt",
+        "rotation_task": false,
+        "epochs": 30,
+        "batch_size": 512,
+        "grad_accum": 2,
+        "num_workers": 12,
+        "lr": 0.0004,
+        "adapter_lr_mult": 3.0,
+        "min_lr": 1e-06,
+        "warmup_epochs": 2,
+        "weight_decay": 0.05,
+        "drop_path": 0.1,
+        "ema_decay": 0.999,
+        "mixup": 0.8,
+        "cutmix": 1.0,
+        "label_smoothing": 0.1,
+        "clip_grad": 5.0,
+        "no_compile": false,
+        "data_seed": 202,
+        "init_seed": 3202,
+        "eval_interval": 3,
+        "save_best_only": false,
+        "resume": true,
+        "max_steps": 0,
+        "deadline_iso": "2026-11-23T09:45:00+08:00"
+      },
+      "full_eval": {
+        "clean": 71.15,
+        "clean_top5": 90.55,
+        "contrast_012": 30.68,
+        "gaussian_noise": 25.06,
+        "fft_phase": 3.04,
+        "hflip": 71.31,
+        "hflip_consistency": 91.48
+      },
+      "symmetry_final": {
+        "stage3_mid": {
+          "mode": "sym",
+          "pair_type": "directed_right",
+          "dim": 160,
+          "rank": 160,
+          "mean_e_anti": 0.0,
+          "std_e_anti": 0.0,
+          "theta_mean": 0.7853981256484985,
+          "theta_std": 5.979178752113512e-08,
+          "theta_quantiles": [
+            0.7853981852531433,
+            0.7853981852531433,
+            0.7853981852531433,
+            0.7853981852531433,
+            0.7853981852531433
+          ],
+          "weight_weighted_e_anti": 0.0,
+          "eff_anti": 0.0,
+          "func_anti": 1.1751959225412304e-12,
+          "delta_rms": 0.1377815157175064,
+          "x_rms": 2.152010202407837,
+          "rms_ratio": 0.06402456436467899,
+          "top25_energy_frac": 0.4185444718191769
+        }
+      },
+      "intervention": {
+        "anti_sweep": {
+          "s1.0_a1.0": {
+            "clean": 71.72,
+            "clean_top5": 90.77,
+            "contrast_012": 30.48,
+            "fft_phase": 3.02,
+            "hflip": 71.71,
+            "hflip_consistency": 91.55
+          },
+          "s1.0_a0.75": {
+            "clean": 71.72,
+            "clean_top5": 90.77,
+            "contrast_012": 30.48,
+            "fft_phase": 3.02,
+            "hflip": 71.71,
+            "hflip_consistency": 91.55
+          },
+          "s1.0_a0.5": {
+            "clean": 71.72,
+            "clean_top5": 90.77,
+            "contrast_012": 30.48,
+            "fft_phase": 3.02,
+            "hflip": 71.71,
+            "hflip_consistency": 91.55
+          },
+          "s1.0_a0.0": {
+            "clean": 71.72,
+            "clean_top5": 90.77,
+            "contrast_012": 30.48,
+            "fft_phase": 3.02,
+            "hflip": 71.71,
+            "hflip_consistency": 91.55
+          }
+        },
+        "sym_sweep": {
+          "s1.0_a1.0": {
+            "clean": 71.72,
+            "clean_top5": 90.77,
+            "contrast_012": 30.48,
+            "fft_phase": 3.02,
+            "hflip": 71.71,
+            "hflip_consistency": 91.55
+          },
+          "s0.75_a1.0": {
+            "clean": 71.77,
+            "clean_top5": 90.81,
+            "contrast_012": 30.75,
+            "fft_phase": 2.95,
+            "hflip": 71.65,
+            "hflip_consistency": 91.7
+          },
+          "s0.5_a1.0": {
+            "clean": 71.66,
+            "clean_top5": 90.83,
+            "contrast_012": 31.2,
+            "fft_phase": 2.94,
+            "hflip": 71.63,
+            "hflip_consistency": 91.78
+          },
+          "s0.0_a1.0": {
+            "clean": 71.55,
+            "clean_top5": 90.78,
+            "contrast_012": 31.69,
+            "fft_phase": 2.93,
+            "hflip": 71.4,
+            "hflip_consistency": 91.59
+          }
+        },
+        "bypass": {
+          "s0.0_a0.0": {
+            "clean": 71.55,
+            "clean_top5": 90.77,
+            "contrast_012": 31.68,
+            "fft_phase": 2.93,
+            "hflip": 71.4,
+            "hflip_consistency": 91.58
+          }
+        }
+      },
+      "trajectory": [
+        {
+          "epoch": -1,
+          "top1": 71.09,
+          "theta_grad_norm": null,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.0,
+              "func_anti": 6.698732324494639e-13,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.003256630605727908
+            }
+          }
+        },
+        {
+          "epoch": 0,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 1,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 2,
+          "top1": 70.162,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.0,
+              "func_anti": 2.130612594582403e-12,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.0017804940402779195
+            }
+          }
+        },
+        {
+          "epoch": 3,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 4,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 5,
+          "top1": 70.224,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.0,
+              "func_anti": 3.604331222845913e-12,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.01627574875581618
+            }
+          }
+        },
+        {
+          "epoch": 6,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 7,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 8,
+          "top1": 70.162,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.0,
+              "func_anti": 3.8933860781419175e-12,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.0286488619803237
+            }
+          }
+        },
+        {
+          "epoch": 9,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 10,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 11,
+          "top1": 70.438,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.0,
+              "func_anti": 3.4360255415152632e-12,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.03644391862996981
+            }
+          }
+        },
+        {
+          "epoch": 12,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 13,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 14,
+          "top1": 70.674,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.0,
+              "func_anti": 1.5940922111342162e-12,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.044572133102939344
+            }
+          }
+        },
+        {
+          "epoch": 15,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 16,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 17,
+          "top1": 70.76,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.0,
+              "func_anti": 2.8567562224130616e-12,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.049964015771708566
+            }
+          }
+        },
+        {
+          "epoch": 18,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 19,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 20,
+          "top1": 71.008,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.0,
+              "func_anti": 2.1778366961493337e-12,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.05524262871566885
+            }
+          }
+        },
+        {
+          "epoch": 21,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 22,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 23,
+          "top1": 71.128,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.0,
+              "func_anti": 3.4984819208202662e-12,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.059746077219206384
+            }
+          }
+        },
+        {
+          "epoch": 24,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 25,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 26,
+          "top1": 71.106,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.0,
+              "func_anti": 3.2809928417030915e-12,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.06194820400729631
+            }
+          }
+        },
+        {
+          "epoch": 27,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 28,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 29,
+          "top1": 71.16,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.0,
+              "func_anti": 3.4496795473047734e-12,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.0633293484223909
+            }
+          }
+        }
+      ]
+    },
+    "ft_s3_dir_anti_s202": {
+      "name": "ft_s3_dir_anti_s202",
+      "args": {
+        "name": "ft_s3_dir_anti_s202",
+        "output_dir": "/scratch/itscspod/chtaihei/exsym_runs/waveB_stage3_directed",
+        "cache_dir": "/dev/shm/in1k_raw_cache_ar320",
+        "backbone": "convnext_atto",
+        "mode": "anti",
+        "pair_type": "directed_right",
+        "placement": "stage3_mid",
+        "vit_insert_block": 8,
+        "rank_ratio": 1.0,
+        "gamma_init": 0.1,
+        "pretrained_ckpt": "/scratch/itscspod/chtaihei/cliffordnet_runs/in1k_waveC_100ep/in1k_convnext_atto_100ep/checkpoints/last.ckpt",
+        "rotation_task": false,
+        "epochs": 30,
+        "batch_size": 512,
+        "grad_accum": 2,
+        "num_workers": 12,
+        "lr": 0.0004,
+        "adapter_lr_mult": 3.0,
+        "min_lr": 1e-06,
+        "warmup_epochs": 2,
+        "weight_decay": 0.05,
+        "drop_path": 0.1,
+        "ema_decay": 0.999,
+        "mixup": 0.8,
+        "cutmix": 1.0,
+        "label_smoothing": 0.1,
+        "clip_grad": 5.0,
+        "no_compile": false,
+        "data_seed": 202,
+        "init_seed": 3202,
+        "eval_interval": 3,
+        "save_best_only": false,
+        "resume": true,
+        "max_steps": 0,
+        "deadline_iso": "2026-11-23T09:45:00+08:00"
+      },
+      "full_eval": {
+        "clean": 71.25,
+        "clean_top5": 90.44,
+        "contrast_012": 29.27,
+        "gaussian_noise": 25.22,
+        "fft_phase": 2.92,
+        "hflip": 71.33,
+        "hflip_consistency": 91.4
+      },
+      "symmetry_final": {
+        "stage3_mid": {
+          "mode": "anti",
+          "pair_type": "directed_right",
+          "dim": 160,
+          "rank": 160,
+          "mean_e_anti": 1.0,
+          "std_e_anti": 0.0,
+          "theta_mean": -0.7853981256484985,
+          "theta_std": 5.979178752113512e-08,
+          "theta_quantiles": [
+            -0.7853981852531433,
+            -0.7853981852531433,
+            -0.7853981852531433,
+            -0.7853981852531433,
+            -0.7853981852531433
+          ],
+          "weight_weighted_e_anti": 1.0,
+          "eff_anti": 1.0,
+          "func_anti": 0.9999999999995224,
+          "delta_rms": 0.1574389785528183,
+          "x_rms": 2.291948080062866,
+          "rms_ratio": 0.06869220988134246,
+          "top25_energy_frac": 0.3960241467453338
+        }
+      },
+      "intervention": {
+        "anti_sweep": {
+          "s1.0_a1.0": {
+            "clean": 71.73,
+            "clean_top5": 90.84,
+            "contrast_012": 29.06,
+            "fft_phase": 2.8,
+            "hflip": 71.7,
+            "hflip_consistency": 91.33
+          },
+          "s1.0_a0.75": {
+            "clean": 71.66,
+            "clean_top5": 90.81,
+            "contrast_012": 29.01,
+            "fft_phase": 2.77,
+            "hflip": 71.7,
+            "hflip_consistency": 91.4
+          },
+          "s1.0_a0.5": {
+            "clean": 71.71,
+            "clean_top5": 90.77,
+            "contrast_012": 28.8,
+            "fft_phase": 2.72,
+            "hflip": 71.77,
+            "hflip_consistency": 91.53
+          },
+          "s1.0_a0.0": {
+            "clean": 71.51,
+            "clean_top5": 90.67,
+            "contrast_012": 28.39,
+            "fft_phase": 2.7,
+            "hflip": 71.55,
+            "hflip_consistency": 91.32
+          }
+        },
+        "sym_sweep": {
+          "s1.0_a1.0": {
+            "clean": 71.73,
+            "clean_top5": 90.84,
+            "contrast_012": 29.06,
+            "fft_phase": 2.8,
+            "hflip": 71.7,
+            "hflip_consistency": 91.33
+          },
+          "s0.75_a1.0": {
+            "clean": 71.73,
+            "clean_top5": 90.84,
+            "contrast_012": 29.06,
+            "fft_phase": 2.8,
+            "hflip": 71.7,
+            "hflip_consistency": 91.33
+          },
+          "s0.5_a1.0": {
+            "clean": 71.73,
+            "clean_top5": 90.84,
+            "contrast_012": 29.06,
+            "fft_phase": 2.8,
+            "hflip": 71.7,
+            "hflip_consistency": 91.33
+          },
+          "s0.0_a1.0": {
+            "clean": 71.73,
+            "clean_top5": 90.84,
+            "contrast_012": 29.06,
+            "fft_phase": 2.8,
+            "hflip": 71.7,
+            "hflip_consistency": 91.33
+          }
+        },
+        "bypass": {
+          "s0.0_a0.0": {
+            "clean": 71.5,
+            "clean_top5": 90.67,
+            "contrast_012": 28.39,
+            "fft_phase": 2.7,
+            "hflip": 71.55,
+            "hflip_consistency": 91.31
+          }
+        }
+      },
+      "trajectory": [
+        {
+          "epoch": -1,
+          "top1": 71.084,
+          "theta_grad_norm": null,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 1.0,
+              "func_anti": 0.999999999993296,
+              "mean_e_anti": 1.0,
+              "rms_ratio": 0.001213547287748405
+            }
+          }
+        },
+        {
+          "epoch": 0,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 1,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 2,
+          "top1": 70.184,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 1.0,
+              "func_anti": 0.9999999999982603,
+              "mean_e_anti": 1.0,
+              "rms_ratio": 0.00871329703940582
+            }
+          }
+        },
+        {
+          "epoch": 3,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 4,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 5,
+          "top1": 70.236,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 1.0,
+              "func_anti": 0.9999999999990262,
+              "mean_e_anti": 1.0,
+              "rms_ratio": 0.027456695651381865
+            }
+          }
+        },
+        {
+          "epoch": 6,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 7,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 8,
+          "top1": 70.214,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 1.0,
+              "func_anti": 0.9999999999958931,
+              "mean_e_anti": 1.0,
+              "rms_ratio": 0.03980745791416422
+            }
+          }
+        },
+        {
+          "epoch": 9,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 10,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 11,
+          "top1": 70.52,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 1.0,
+              "func_anti": 0.9999999999973013,
+              "mean_e_anti": 1.0,
+              "rms_ratio": 0.04789496606690598
+            }
+          }
+        },
+        {
+          "epoch": 12,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 13,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 14,
+          "top1": 70.582,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 1.0,
+              "func_anti": 0.9999999999976694,
+              "mean_e_anti": 1.0,
+              "rms_ratio": 0.054697381433165916
+            }
+          }
+        },
+        {
+          "epoch": 15,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 16,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 17,
+          "top1": 70.766,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 1.0,
+              "func_anti": 0.9999999999967844,
+              "mean_e_anti": 1.0,
+              "rms_ratio": 0.06031752376711137
+            }
+          }
+        },
+        {
+          "epoch": 18,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 19,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 20,
+          "top1": 71.054,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 1.0,
+              "func_anti": 0.9999999999966129,
+              "mean_e_anti": 1.0,
+              "rms_ratio": 0.06416939572902108
+            }
+          }
+        },
+        {
+          "epoch": 21,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 22,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 23,
+          "top1": 71.186,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 1.0,
+              "func_anti": 0.9999999999936564,
+              "mean_e_anti": 1.0,
+              "rms_ratio": 0.06653954428407617
+            }
+          }
+        },
+        {
+          "epoch": 24,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 25,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 26,
+          "top1": 71.244,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 1.0,
+              "func_anti": 0.9999999999962961,
+              "mean_e_anti": 1.0,
+              "rms_ratio": 0.06831102967971092
+            }
+          }
+        },
+        {
+          "epoch": 27,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 28,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 29,
+          "top1": 71.244,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 1.0,
+              "func_anti": 0.9999999999973006,
+              "mean_e_anti": 1.0,
+              "rms_ratio": 0.06834327155347544
+            }
+          }
+        }
+      ]
+    },
+    "ft_s3_dir_self_avg_s101": {
+      "name": "ft_s3_dir_self_avg_s101",
+      "args": {
+        "name": "ft_s3_dir_self_avg_s101",
+        "output_dir": "/scratch/itscspod/chtaihei/exsym_runs/waveB_stage3_directed",
+        "cache_dir": "/dev/shm/in1k_raw_cache_ar320",
+        "backbone": "convnext_atto",
+        "mode": "self_avg",
+        "pair_type": "directed_right",
+        "placement": "stage3_mid",
+        "vit_insert_block": 8,
+        "rank_ratio": 1.0,
+        "gamma_init": 0.1,
+        "pretrained_ckpt": "/scratch/itscspod/chtaihei/cliffordnet_runs/in1k_waveC_100ep/in1k_convnext_atto_100ep/checkpoints/last.ckpt",
+        "rotation_task": false,
+        "epochs": 30,
+        "batch_size": 512,
+        "grad_accum": 2,
+        "num_workers": 12,
+        "lr": 0.0004,
+        "adapter_lr_mult": 3.0,
+        "min_lr": 1e-06,
+        "warmup_epochs": 2,
+        "weight_decay": 0.05,
+        "drop_path": 0.1,
+        "ema_decay": 0.999,
+        "mixup": 0.8,
+        "cutmix": 1.0,
+        "label_smoothing": 0.1,
+        "clip_grad": 5.0,
+        "no_compile": false,
+        "data_seed": 101,
+        "init_seed": 3101,
+        "eval_interval": 3,
+        "save_best_only": false,
+        "resume": true,
+        "max_steps": 0,
+        "deadline_iso": "2026-11-23T09:45:00+08:00"
+      },
+      "full_eval": {
+        "clean": 71.44,
+        "clean_top5": 90.47,
+        "contrast_012": 32.12,
+        "gaussian_noise": 25.22,
+        "fft_phase": 2.54,
+        "hflip": 71.53,
+        "hflip_consistency": 91.38
+      },
+      "symmetry_final": {
+        "stage3_mid": {
+          "mode": "self_avg",
+          "pair_type": "directed_right",
+          "dim": 160,
+          "rank": 160,
+          "mean_e_anti": 0.0,
+          "std_e_anti": 0.0,
+          "theta_mean": 0.7853981256484985,
+          "theta_std": 5.979178752113512e-08,
+          "theta_quantiles": [
+            0.7853981852531433,
+            0.7853981852531433,
+            0.7853981852531433,
+            0.7853981852531433,
+            0.7853981852531433
+          ],
+          "weight_weighted_e_anti": 0.0,
+          "eff_anti": 0.0,
+          "func_anti": 0.0,
+          "delta_rms": 0.1429210901260376,
+          "x_rms": 2.1259384155273438,
+          "rms_ratio": 0.0672272955237914,
+          "top25_energy_frac": 0.36998426666631906
+        }
+      },
+      "intervention": {
+        "anti_sweep": {
+          "s1.0_a1.0": {
+            "clean": 72.32,
+            "clean_top5": 90.71,
+            "contrast_012": 31.7,
+            "fft_phase": 2.57,
+            "hflip": 72.21,
+            "hflip_consistency": 91.59
+          },
+          "s1.0_a0.75": {
+            "clean": 72.32,
+            "clean_top5": 90.71,
+            "contrast_012": 31.7,
+            "fft_phase": 2.57,
+            "hflip": 72.21,
+            "hflip_consistency": 91.59
+          },
+          "s1.0_a0.5": {
+            "clean": 72.32,
+            "clean_top5": 90.71,
+            "contrast_012": 31.7,
+            "fft_phase": 2.57,
+            "hflip": 72.21,
+            "hflip_consistency": 91.59
+          },
+          "s1.0_a0.0": {
+            "clean": 72.32,
+            "clean_top5": 90.71,
+            "contrast_012": 31.7,
+            "fft_phase": 2.57,
+            "hflip": 72.21,
+            "hflip_consistency": 91.59
+          }
+        },
+        "sym_sweep": {
+          "s1.0_a1.0": {
+            "clean": 72.32,
+            "clean_top5": 90.71,
+            "contrast_012": 31.7,
+            "fft_phase": 2.57,
+            "hflip": 72.21,
+            "hflip_consistency": 91.59
+          },
+          "s0.75_a1.0": {
+            "clean": 72.14,
+            "clean_top5": 90.77,
+            "contrast_012": 31.88,
+            "fft_phase": 2.61,
+            "hflip": 72.08,
+            "hflip_consistency": 91.48
+          },
+          "s0.5_a1.0": {
+            "clean": 72.07,
+            "clean_top5": 90.75,
+            "contrast_012": 31.95,
+            "fft_phase": 2.68,
+            "hflip": 72.01,
+            "hflip_consistency": 91.69
+          },
+          "s0.0_a1.0": {
+            "clean": 71.75,
+            "clean_top5": 90.63,
+            "contrast_012": 31.55,
+            "fft_phase": 2.71,
+            "hflip": 71.63,
+            "hflip_consistency": 91.54
+          }
+        },
+        "bypass": {
+          "s0.0_a0.0": {
+            "clean": 71.75,
+            "clean_top5": 90.63,
+            "contrast_012": 31.55,
+            "fft_phase": 2.71,
+            "hflip": 71.63,
+            "hflip_consistency": 91.54
+          }
+        }
+      },
+      "trajectory": [
+        {
+          "epoch": -1,
+          "top1": 71.126,
+          "theta_grad_norm": null,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.0,
+              "func_anti": 0.0,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.0036991199505014465
+            }
+          }
+        },
+        {
+          "epoch": 0,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 1,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 2,
+          "top1": 70.162,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.0,
+              "func_anti": 0.0,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.0017794437371453195
+            }
+          }
+        },
+        {
+          "epoch": 3,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 4,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 5,
+          "top1": 70.106,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.0,
+              "func_anti": 0.0,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.01560504209330997
+            }
+          }
+        },
+        {
+          "epoch": 6,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 7,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 8,
+          "top1": 70.256,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.0,
+              "func_anti": 0.0,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.026882797442985825
+            }
+          }
+        },
+        {
+          "epoch": 9,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 10,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 11,
+          "top1": 70.492,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.0,
+              "func_anti": 0.0,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.037288735240822546
+            }
+          }
+        },
+        {
+          "epoch": 12,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 13,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 14,
+          "top1": 70.688,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.0,
+              "func_anti": 0.0,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.0448617680942555
+            }
+          }
+        },
+        {
+          "epoch": 15,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 16,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 17,
+          "top1": 70.916,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.0,
+              "func_anti": 0.0,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.05207131470506665
+            }
+          }
+        },
+        {
+          "epoch": 18,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 19,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 20,
+          "top1": 71.172,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.0,
+              "func_anti": 0.0,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.05869010471083034
+            }
+          }
+        },
+        {
+          "epoch": 21,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 22,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 23,
+          "top1": 71.284,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.0,
+              "func_anti": 0.0,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.0628208221541248
+            }
+          }
+        },
+        {
+          "epoch": 24,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 25,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 26,
+          "top1": 71.408,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.0,
+              "func_anti": 0.0,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.06518717579519887
+            }
+          }
+        },
+        {
+          "epoch": 27,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 28,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 29,
+          "top1": 71.454,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.0,
+              "func_anti": 0.0,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.0666924740071524
+            }
+          }
+        }
+      ]
+    },
+    "ft_s3_dir_sym_s42": {
+      "name": "ft_s3_dir_sym_s42",
+      "args": {
+        "name": "ft_s3_dir_sym_s42",
+        "output_dir": "/scratch/itscspod/chtaihei/exsym_runs/waveB_stage3_directed",
+        "cache_dir": "/dev/shm/in1k_raw_cache_ar320",
+        "backbone": "convnext_atto",
+        "mode": "sym",
+        "pair_type": "directed_right",
+        "placement": "stage3_mid",
+        "vit_insert_block": 8,
+        "rank_ratio": 1.0,
+        "gamma_init": 0.1,
+        "pretrained_ckpt": "/scratch/itscspod/chtaihei/cliffordnet_runs/in1k_waveC_100ep/in1k_convnext_atto_100ep/checkpoints/last.ckpt",
+        "rotation_task": false,
+        "epochs": 30,
+        "batch_size": 512,
+        "grad_accum": 2,
+        "num_workers": 12,
+        "lr": 0.0004,
+        "adapter_lr_mult": 3.0,
+        "min_lr": 1e-06,
+        "warmup_epochs": 2,
+        "weight_decay": 0.05,
+        "drop_path": 0.1,
+        "ema_decay": 0.999,
+        "mixup": 0.8,
+        "cutmix": 1.0,
+        "label_smoothing": 0.1,
+        "clip_grad": 5.0,
+        "no_compile": false,
+        "data_seed": 42,
+        "init_seed": 3042,
+        "eval_interval": 3,
+        "save_best_only": false,
+        "resume": true,
+        "max_steps": 0,
+        "deadline_iso": "2026-11-23T09:45:00+08:00"
+      },
+      "full_eval": {
+        "clean": 71.34,
+        "clean_top5": 90.49,
+        "contrast_012": 32.49,
+        "gaussian_noise": 24.99,
+        "fft_phase": 2.64,
+        "hflip": 71.34,
+        "hflip_consistency": 91.39
+      },
+      "symmetry_final": {
+        "stage3_mid": {
+          "mode": "sym",
+          "pair_type": "directed_right",
+          "dim": 160,
+          "rank": 160,
+          "mean_e_anti": 0.0,
+          "std_e_anti": 0.0,
+          "theta_mean": 0.7853981256484985,
+          "theta_std": 5.979178752113512e-08,
+          "theta_quantiles": [
+            0.7853981852531433,
+            0.7853981852531433,
+            0.7853981852531433,
+            0.7853981852531433,
+            0.7853981852531433
+          ],
+          "weight_weighted_e_anti": 0.0,
+          "eff_anti": 0.0,
+          "func_anti": 3.066904976779231e-11,
+          "delta_rms": 0.1347706913948059,
+          "x_rms": 2.151719093322754,
+          "rms_ratio": 0.06263396175319924,
+          "top25_energy_frac": 0.39007285550998855
+        }
+      },
+      "intervention": {
+        "anti_sweep": {
+          "s1.0_a1.0": {
+            "clean": 72.03,
+            "clean_top5": 90.73,
+            "contrast_012": 32.55,
+            "fft_phase": 2.66,
+            "hflip": 72.02,
+            "hflip_consistency": 91.55
+          },
+          "s1.0_a0.75": {
+            "clean": 72.03,
+            "clean_top5": 90.73,
+            "contrast_012": 32.55,
+            "fft_phase": 2.66,
+            "hflip": 72.02,
+            "hflip_consistency": 91.55
+          },
+          "s1.0_a0.5": {
+            "clean": 72.03,
+            "clean_top5": 90.73,
+            "contrast_012": 32.55,
+            "fft_phase": 2.66,
+            "hflip": 72.02,
+            "hflip_consistency": 91.55
+          },
+          "s1.0_a0.0": {
+            "clean": 72.03,
+            "clean_top5": 90.73,
+            "contrast_012": 32.55,
+            "fft_phase": 2.66,
+            "hflip": 72.02,
+            "hflip_consistency": 91.55
+          }
+        },
+        "sym_sweep": {
+          "s1.0_a1.0": {
+            "clean": 72.03,
+            "clean_top5": 90.73,
+            "contrast_012": 32.55,
+            "fft_phase": 2.66,
+            "hflip": 72.02,
+            "hflip_consistency": 91.55
+          },
+          "s0.75_a1.0": {
+            "clean": 71.98,
+            "clean_top5": 90.7,
+            "contrast_012": 33.02,
+            "fft_phase": 2.68,
+            "hflip": 71.93,
+            "hflip_consistency": 91.8
+          },
+          "s0.5_a1.0": {
+            "clean": 71.97,
+            "clean_top5": 90.69,
+            "contrast_012": 33.16,
+            "fft_phase": 2.67,
+            "hflip": 71.86,
+            "hflip_consistency": 91.91
+          },
+          "s0.0_a1.0": {
+            "clean": 71.8,
+            "clean_top5": 90.63,
+            "contrast_012": 33.53,
+            "fft_phase": 2.67,
+            "hflip": 71.6,
+            "hflip_consistency": 91.87
+          }
+        },
+        "bypass": {
+          "s0.0_a0.0": {
+            "clean": 71.8,
+            "clean_top5": 90.63,
+            "contrast_012": 33.53,
+            "fft_phase": 2.67,
+            "hflip": 71.6,
+            "hflip_consistency": 91.87
+          }
+        }
+      },
+      "trajectory": [
+        {
+          "epoch": -1,
+          "top1": 71.124,
+          "theta_grad_norm": null,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.0,
+              "func_anti": 4.653557702206682e-13,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.0037507169070044592
+            }
+          }
+        },
+        {
+          "epoch": 0,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 1,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 2,
+          "top1": 70.144,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.0,
+              "func_anti": 1.308390233455323e-12,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.00167725360683235
+            }
+          }
+        },
+        {
+          "epoch": 3,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 4,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 5,
+          "top1": 70.052,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.0,
+              "func_anti": 2.4070281794421827e-12,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.01527904832963475
+            }
+          }
+        },
+        {
+          "epoch": 6,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 7,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 8,
+          "top1": 70.29,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.0,
+              "func_anti": 5.498182346160008e-12,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.0272160367140608
+            }
+          }
+        },
+        {
+          "epoch": 9,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 10,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 11,
+          "top1": 70.516,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.0,
+              "func_anti": 6.503260116515347e-12,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.035499903934594776
+            }
+          }
+        },
+        {
+          "epoch": 12,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 13,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 14,
+          "top1": 70.636,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.0,
+              "func_anti": 3.402640478689558e-12,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.04270197763023934
+            }
+          }
+        },
+        {
+          "epoch": 15,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 16,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 17,
+          "top1": 70.884,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.0,
+              "func_anti": 2.2378147279477628e-12,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.04910969500867991
+            }
+          }
+        },
+        {
+          "epoch": 18,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 19,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 20,
+          "top1": 70.998,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.0,
+              "func_anti": 3.196527228865296e-12,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.054288809769216455
+            }
+          }
+        },
+        {
+          "epoch": 21,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 22,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 23,
+          "top1": 71.226,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.0,
+              "func_anti": 2.1639134370070236e-12,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.057965913875779713
+            }
+          }
+        },
+        {
+          "epoch": 24,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 25,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 26,
+          "top1": 71.308,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.0,
+              "func_anti": 6.9068531851780895e-12,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.061366680660307524
+            }
+          }
+        },
+        {
+          "epoch": 27,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 28,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 29,
+          "top1": 71.322,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.0,
+              "func_anti": 2.727365789059532e-12,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.061975289227099696
+            }
+          }
+        }
+      ]
+    },
+    "ft_s3_dir_anti_s42": {
+      "name": "ft_s3_dir_anti_s42",
+      "args": {
+        "name": "ft_s3_dir_anti_s42",
+        "output_dir": "/scratch/itscspod/chtaihei/exsym_runs/waveB_stage3_directed",
+        "cache_dir": "/dev/shm/in1k_raw_cache_ar320",
+        "backbone": "convnext_atto",
+        "mode": "anti",
+        "pair_type": "directed_right",
+        "placement": "stage3_mid",
+        "vit_insert_block": 8,
+        "rank_ratio": 1.0,
+        "gamma_init": 0.1,
+        "pretrained_ckpt": "/scratch/itscspod/chtaihei/cliffordnet_runs/in1k_waveC_100ep/in1k_convnext_atto_100ep/checkpoints/last.ckpt",
+        "rotation_task": false,
+        "epochs": 30,
+        "batch_size": 512,
+        "grad_accum": 2,
+        "num_workers": 12,
+        "lr": 0.0004,
+        "adapter_lr_mult": 3.0,
+        "min_lr": 1e-06,
+        "warmup_epochs": 2,
+        "weight_decay": 0.05,
+        "drop_path": 0.1,
+        "ema_decay": 0.999,
+        "mixup": 0.8,
+        "cutmix": 1.0,
+        "label_smoothing": 0.1,
+        "clip_grad": 5.0,
+        "no_compile": false,
+        "data_seed": 42,
+        "init_seed": 3042,
+        "eval_interval": 3,
+        "save_best_only": false,
+        "resume": true,
+        "max_steps": 0,
+        "deadline_iso": "2026-11-23T09:45:00+08:00"
+      },
+      "full_eval": {
+        "clean": 71.34,
+        "clean_top5": 90.5,
+        "contrast_012": 31.19,
+        "gaussian_noise": 24.98,
+        "fft_phase": 2.65,
+        "hflip": 71.37,
+        "hflip_consistency": 91.33
+      },
+      "symmetry_final": {
+        "stage3_mid": {
+          "mode": "anti",
+          "pair_type": "directed_right",
+          "dim": 160,
+          "rank": 160,
+          "mean_e_anti": 1.0,
+          "std_e_anti": 0.0,
+          "theta_mean": -0.7853981256484985,
+          "theta_std": 5.979178752113512e-08,
+          "theta_quantiles": [
+            -0.7853981852531433,
+            -0.7853981852531433,
+            -0.7853981852531433,
+            -0.7853981852531433,
+            -0.7853981852531433
+          ],
+          "weight_weighted_e_anti": 1.0,
+          "eff_anti": 1.0,
+          "func_anti": 0.9999999999993093,
+          "delta_rms": 0.15305308997631073,
+          "x_rms": 2.2761318683624268,
+          "rms_ratio": 0.06724262864718179,
+          "top25_energy_frac": 0.44634794050922993
+        }
+      },
+      "intervention": {
+        "anti_sweep": {
+          "s1.0_a1.0": {
+            "clean": 72.13,
+            "clean_top5": 90.73,
+            "contrast_012": 31.26,
+            "fft_phase": 2.69,
+            "hflip": 71.97,
+            "hflip_consistency": 91.5
+          },
+          "s1.0_a0.75": {
+            "clean": 72.08,
+            "clean_top5": 90.78,
+            "contrast_012": 31.15,
+            "fft_phase": 2.7,
+            "hflip": 71.88,
+            "hflip_consistency": 91.62
+          },
+          "s1.0_a0.5": {
+            "clean": 72.02,
+            "clean_top5": 90.7,
+            "contrast_012": 31.06,
+            "fft_phase": 2.62,
+            "hflip": 71.83,
+            "hflip_consistency": 91.58
+          },
+          "s1.0_a0.0": {
+            "clean": 71.8,
+            "clean_top5": 90.65,
+            "contrast_012": 30.7,
+            "fft_phase": 2.55,
+            "hflip": 71.62,
+            "hflip_consistency": 91.74
+          }
+        },
+        "sym_sweep": {
+          "s1.0_a1.0": {
+            "clean": 72.13,
+            "clean_top5": 90.73,
+            "contrast_012": 31.26,
+            "fft_phase": 2.69,
+            "hflip": 71.97,
+            "hflip_consistency": 91.5
+          },
+          "s0.75_a1.0": {
+            "clean": 72.13,
+            "clean_top5": 90.73,
+            "contrast_012": 31.26,
+            "fft_phase": 2.69,
+            "hflip": 71.97,
+            "hflip_consistency": 91.5
+          },
+          "s0.5_a1.0": {
+            "clean": 72.13,
+            "clean_top5": 90.73,
+            "contrast_012": 31.26,
+            "fft_phase": 2.69,
+            "hflip": 71.97,
+            "hflip_consistency": 91.5
+          },
+          "s0.0_a1.0": {
+            "clean": 72.13,
+            "clean_top5": 90.73,
+            "contrast_012": 31.26,
+            "fft_phase": 2.69,
+            "hflip": 71.97,
+            "hflip_consistency": 91.5
+          }
+        },
+        "bypass": {
+          "s0.0_a0.0": {
+            "clean": 71.8,
+            "clean_top5": 90.65,
+            "contrast_012": 30.7,
+            "fft_phase": 2.56,
+            "hflip": 71.62,
+            "hflip_consistency": 91.74
+          }
+        }
+      },
+      "trajectory": [
+        {
+          "epoch": -1,
+          "top1": 71.094,
+          "theta_grad_norm": null,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 1.0,
+              "func_anti": 0.9999999999916052,
+              "mean_e_anti": 1.0,
+              "rms_ratio": 0.0012468433225353514
+            }
+          }
+        },
+        {
+          "epoch": 0,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 1,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 2,
+          "top1": 70.116,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 1.0,
+              "func_anti": 0.9999999999971286,
+              "mean_e_anti": 1.0,
+              "rms_ratio": 0.008532451022885123
+            }
+          }
+        },
+        {
+          "epoch": 3,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 4,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 5,
+          "top1": 70.022,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 1.0,
+              "func_anti": 0.9999999999977316,
+              "mean_e_anti": 1.0,
+              "rms_ratio": 0.028273031239304067
+            }
+          }
+        },
+        {
+          "epoch": 6,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 7,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 8,
+          "top1": 70.3,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 1.0,
+              "func_anti": 0.9999999999960093,
+              "mean_e_anti": 1.0,
+              "rms_ratio": 0.03942161124578927
+            }
+          }
+        },
+        {
+          "epoch": 9,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 10,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 11,
+          "top1": 70.558,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 1.0,
+              "func_anti": 0.9999999999944209,
+              "mean_e_anti": 1.0,
+              "rms_ratio": 0.04765561431961242
+            }
+          }
+        },
+        {
+          "epoch": 12,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 13,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 14,
+          "top1": 70.66,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 1.0,
+              "func_anti": 0.9999999999918558,
+              "mean_e_anti": 1.0,
+              "rms_ratio": 0.054549864362660495
+            }
+          }
+        },
+        {
+          "epoch": 15,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 16,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 17,
+          "top1": 70.924,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 1.0,
+              "func_anti": 0.9999999999925778,
+              "mean_e_anti": 1.0,
+              "rms_ratio": 0.06000842644671289
+            }
+          }
+        },
+        {
+          "epoch": 18,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 19,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 20,
+          "top1": 71.064,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 1.0,
+              "func_anti": 0.9999999999974762,
+              "mean_e_anti": 1.0,
+              "rms_ratio": 0.06349118447656195
+            }
+          }
+        },
+        {
+          "epoch": 21,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 22,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 23,
+          "top1": 71.204,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 1.0,
+              "func_anti": 0.9999999999966319,
+              "mean_e_anti": 1.0,
+              "rms_ratio": 0.06477835162778552
+            }
+          }
+        },
+        {
+          "epoch": 24,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 25,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 26,
+          "top1": 71.32,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 1.0,
+              "func_anti": 0.9999999999970435,
+              "mean_e_anti": 1.0,
+              "rms_ratio": 0.06642521139428852
+            }
+          }
+        },
+        {
+          "epoch": 27,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 28,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 29,
+          "top1": 71.352,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 1.0,
+              "func_anti": 0.9999999999934217,
+              "mean_e_anti": 1.0,
+              "rms_ratio": 0.06689981913294579
+            }
+          }
+        }
+      ]
+    },
+    "ft_s3_dir_self_avg_s202": {
+      "name": "ft_s3_dir_self_avg_s202",
+      "args": {
+        "name": "ft_s3_dir_self_avg_s202",
+        "output_dir": "/scratch/itscspod/chtaihei/exsym_runs/waveB_stage3_directed",
+        "cache_dir": "/dev/shm/in1k_raw_cache_ar320",
+        "backbone": "convnext_atto",
+        "mode": "self_avg",
+        "pair_type": "directed_right",
+        "placement": "stage3_mid",
+        "vit_insert_block": 8,
+        "rank_ratio": 1.0,
+        "gamma_init": 0.1,
+        "pretrained_ckpt": "/scratch/itscspod/chtaihei/cliffordnet_runs/in1k_waveC_100ep/in1k_convnext_atto_100ep/checkpoints/last.ckpt",
+        "rotation_task": false,
+        "epochs": 30,
+        "batch_size": 512,
+        "grad_accum": 2,
+        "num_workers": 12,
+        "lr": 0.0004,
+        "adapter_lr_mult": 3.0,
+        "min_lr": 1e-06,
+        "warmup_epochs": 2,
+        "weight_decay": 0.05,
+        "drop_path": 0.1,
+        "ema_decay": 0.999,
+        "mixup": 0.8,
+        "cutmix": 1.0,
+        "label_smoothing": 0.1,
+        "clip_grad": 5.0,
+        "no_compile": false,
+        "data_seed": 202,
+        "init_seed": 3202,
+        "eval_interval": 3,
+        "save_best_only": false,
+        "resume": true,
+        "max_steps": 0,
+        "deadline_iso": "2026-11-23T09:45:00+08:00"
+      },
+      "full_eval": {
+        "clean": 71.2,
+        "clean_top5": 90.55,
+        "contrast_012": 29.71,
+        "gaussian_noise": 25.17,
+        "fft_phase": 3.04,
+        "hflip": 71.35,
+        "hflip_consistency": 91.57
+      },
+      "symmetry_final": {
+        "stage3_mid": {
+          "mode": "self_avg",
+          "pair_type": "directed_right",
+          "dim": 160,
+          "rank": 160,
+          "mean_e_anti": 0.0,
+          "std_e_anti": 0.0,
+          "theta_mean": 0.7853981256484985,
+          "theta_std": 5.979178752113512e-08,
+          "theta_quantiles": [
+            0.7853981852531433,
+            0.7853981852531433,
+            0.7853981852531433,
+            0.7853981852531433,
+            0.7853981852531433
+          ],
+          "weight_weighted_e_anti": 0.0,
+          "eff_anti": 0.0,
+          "func_anti": 0.0,
+          "delta_rms": 0.1414407193660736,
+          "x_rms": 2.125649929046631,
+          "rms_ratio": 0.06653998733907741,
+          "top25_energy_frac": 0.38889207309336554
+        }
+      },
+      "intervention": {
+        "anti_sweep": {
+          "s1.0_a1.0": {
+            "clean": 71.82,
+            "clean_top5": 90.9,
+            "contrast_012": 29.36,
+            "fft_phase": 2.95,
+            "hflip": 71.85,
+            "hflip_consistency": 91.59
+          },
+          "s1.0_a0.75": {
+            "clean": 71.82,
+            "clean_top5": 90.9,
+            "contrast_012": 29.36,
+            "fft_phase": 2.95,
+            "hflip": 71.85,
+            "hflip_consistency": 91.59
+          },
+          "s1.0_a0.5": {
+            "clean": 71.82,
+            "clean_top5": 90.9,
+            "contrast_012": 29.36,
+            "fft_phase": 2.95,
+            "hflip": 71.85,
+            "hflip_consistency": 91.59
+          },
+          "s1.0_a0.0": {
+            "clean": 71.82,
+            "clean_top5": 90.9,
+            "contrast_012": 29.36,
+            "fft_phase": 2.95,
+            "hflip": 71.85,
+            "hflip_consistency": 91.59
+          }
+        },
+        "sym_sweep": {
+          "s1.0_a1.0": {
+            "clean": 71.82,
+            "clean_top5": 90.9,
+            "contrast_012": 29.36,
+            "fft_phase": 2.95,
+            "hflip": 71.85,
+            "hflip_consistency": 91.59
+          },
+          "s0.75_a1.0": {
+            "clean": 71.66,
+            "clean_top5": 90.86,
+            "contrast_012": 29.5,
+            "fft_phase": 3.02,
+            "hflip": 71.71,
+            "hflip_consistency": 91.63
+          },
+          "s0.5_a1.0": {
+            "clean": 71.59,
+            "clean_top5": 90.8,
+            "contrast_012": 29.59,
+            "fft_phase": 3.04,
+            "hflip": 71.67,
+            "hflip_consistency": 91.84
+          },
+          "s0.0_a1.0": {
+            "clean": 71.28,
+            "clean_top5": 90.71,
+            "contrast_012": 29.3,
+            "fft_phase": 3.08,
+            "hflip": 71.34,
+            "hflip_consistency": 91.98
+          }
+        },
+        "bypass": {
+          "s0.0_a0.0": {
+            "clean": 71.28,
+            "clean_top5": 90.71,
+            "contrast_012": 29.3,
+            "fft_phase": 3.08,
+            "hflip": 71.34,
+            "hflip_consistency": 91.98
+          }
+        }
+      },
+      "trajectory": [
+        {
+          "epoch": -1,
+          "top1": 71.09,
+          "theta_grad_norm": null,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.0,
+              "func_anti": 0.0,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.0032964595650783993
+            }
+          }
+        },
+        {
+          "epoch": 0,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 1,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 2,
+          "top1": 70.126,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.0,
+              "func_anti": 0.0,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.0017847621735536466
+            }
+          }
+        },
+        {
+          "epoch": 3,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 4,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 5,
+          "top1": 70.192,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.0,
+              "func_anti": 0.0,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.01596265186761188
+            }
+          }
+        },
+        {
+          "epoch": 6,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 7,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 8,
+          "top1": 70.23,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.0,
+              "func_anti": 0.0,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.027618124670130285
+            }
+          }
+        },
+        {
+          "epoch": 9,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 10,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 11,
+          "top1": 70.448,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.0,
+              "func_anti": 0.0,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.03661832991847712
+            }
+          }
+        },
+        {
+          "epoch": 12,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 13,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 14,
+          "top1": 70.744,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.0,
+              "func_anti": 0.0,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.044613166417614654
+            }
+          }
+        },
+        {
+          "epoch": 15,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 16,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 17,
+          "top1": 70.77,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.0,
+              "func_anti": 0.0,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.051522233480566934
+            }
+          }
+        },
+        {
+          "epoch": 18,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 19,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 20,
+          "top1": 71.016,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.0,
+              "func_anti": 0.0,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.05696801130768164
+            }
+          }
+        },
+        {
+          "epoch": 21,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 22,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 23,
+          "top1": 71.15,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.0,
+              "func_anti": 0.0,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.06191162376004014
+            }
+          }
+        },
+        {
+          "epoch": 24,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 25,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 26,
+          "top1": 71.164,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.0,
+              "func_anti": 0.0,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.06458690895144728
+            }
+          }
+        },
+        {
+          "epoch": 27,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 28,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 29,
+          "top1": 71.196,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.0,
+              "func_anti": 0.0,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.06606571834230549
+            }
+          }
+        }
+      ]
+    },
+    "ft_s3_dir_free_anti_s101": {
+      "name": "ft_s3_dir_free_anti_s101",
+      "args": {
+        "name": "ft_s3_dir_free_anti_s101",
+        "output_dir": "/scratch/itscspod/chtaihei/exsym_runs/waveB_stage3_directed",
+        "cache_dir": "/dev/shm/in1k_raw_cache_ar320",
+        "backbone": "convnext_atto",
+        "mode": "free_anti",
+        "pair_type": "directed_right",
+        "placement": "stage3_mid",
+        "vit_insert_block": 8,
+        "rank_ratio": 1.0,
+        "gamma_init": 0.1,
+        "pretrained_ckpt": "/scratch/itscspod/chtaihei/cliffordnet_runs/in1k_waveC_100ep/in1k_convnext_atto_100ep/checkpoints/last.ckpt",
+        "rotation_task": false,
+        "epochs": 30,
+        "batch_size": 512,
+        "grad_accum": 2,
+        "num_workers": 12,
+        "lr": 0.0004,
+        "adapter_lr_mult": 3.0,
+        "min_lr": 1e-06,
+        "warmup_epochs": 2,
+        "weight_decay": 0.05,
+        "drop_path": 0.1,
+        "ema_decay": 0.999,
+        "mixup": 0.8,
+        "cutmix": 1.0,
+        "label_smoothing": 0.1,
+        "clip_grad": 5.0,
+        "no_compile": false,
+        "data_seed": 101,
+        "init_seed": 3101,
+        "eval_interval": 3,
+        "save_best_only": false,
+        "resume": true,
+        "max_steps": 0,
+        "deadline_iso": "2026-11-23T09:45:00+08:00"
+      },
+      "full_eval": {
+        "clean": 71.37,
+        "clean_top5": 90.52,
+        "contrast_012": 30.61,
+        "gaussian_noise": 25.37,
+        "fft_phase": 2.58,
+        "hflip": 71.35,
+        "hflip_consistency": 91.18
+      },
+      "symmetry_final": {
+        "stage3_mid": {
+          "mode": "free_anti",
+          "pair_type": "directed_right",
+          "dim": 160,
+          "rank": 160,
+          "mean_e_anti": 0.9316779971122742,
+          "std_e_anti": 0.10576802492141724,
+          "theta_mean": -0.7990182638168335,
+          "theta_std": 0.2745009660720825,
+          "theta_quantiles": [
+            -1.1549042463302612,
+            -0.9248954057693481,
+            -0.785159707069397,
+            -0.6392266154289246,
+            -0.481934517621994
+          ],
+          "weight_weighted_e_anti": 0.9261154601865054,
+          "eff_anti": 0.897314729813034,
+          "func_anti": 0.871548076360387,
+          "delta_rms": 0.1652301400899887,
+          "x_rms": 2.211627244949341,
+          "rms_ratio": 0.07470975973339189,
+          "top25_energy_frac": 0.4286176778354745
+        }
+      },
+      "intervention": {
+        "anti_sweep": {
+          "s1.0_a1.0": {
+            "clean": 72.13,
+            "clean_top5": 90.69,
+            "contrast_012": 30.23,
+            "fft_phase": 2.62,
+            "hflip": 72.05,
+            "hflip_consistency": 91.5
+          },
+          "s1.0_a0.75": {
+            "clean": 72.11,
+            "clean_top5": 90.71,
+            "contrast_012": 30.04,
+            "fft_phase": 2.57,
+            "hflip": 72.0,
+            "hflip_consistency": 91.49
+          },
+          "s1.0_a0.5": {
+            "clean": 72.05,
+            "clean_top5": 90.65,
+            "contrast_012": 29.85,
+            "fft_phase": 2.48,
+            "hflip": 72.0,
+            "hflip_consistency": 91.49
+          },
+          "s1.0_a0.0": {
+            "clean": 71.91,
+            "clean_top5": 90.61,
+            "contrast_012": 29.42,
+            "fft_phase": 2.39,
+            "hflip": 71.84,
+            "hflip_consistency": 91.62
+          }
+        },
+        "sym_sweep": {
+          "s1.0_a1.0": {
+            "clean": 72.13,
+            "clean_top5": 90.69,
+            "contrast_012": 30.23,
+            "fft_phase": 2.62,
+            "hflip": 72.05,
+            "hflip_consistency": 91.5
+          },
+          "s0.75_a1.0": {
+            "clean": 72.13,
+            "clean_top5": 90.74,
+            "contrast_012": 30.17,
+            "fft_phase": 2.62,
+            "hflip": 72.05,
+            "hflip_consistency": 91.55
+          },
+          "s0.5_a1.0": {
+            "clean": 72.16,
+            "clean_top5": 90.73,
+            "contrast_012": 30.2,
+            "fft_phase": 2.68,
+            "hflip": 72.07,
+            "hflip_consistency": 91.55
+          },
+          "s0.0_a1.0": {
+            "clean": 72.18,
+            "clean_top5": 90.8,
+            "contrast_012": 30.2,
+            "fft_phase": 2.72,
+            "hflip": 72.05,
+            "hflip_consistency": 91.48
+          }
+        },
+        "bypass": {
+          "s0.0_a0.0": {
+            "clean": 71.95,
+            "clean_top5": 90.59,
+            "contrast_012": 29.39,
+            "fft_phase": 2.42,
+            "hflip": 71.86,
+            "hflip_consistency": 91.4
+          }
+        }
+      },
+      "trajectory": [
+        {
+          "epoch": -1,
+          "top1": 71.088,
+          "theta_grad_norm": null,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 1.0,
+              "func_anti": 0.9999999999933786,
+              "mean_e_anti": 1.0,
+              "rms_ratio": 0.0012170838592548377
+            }
+          }
+        },
+        {
+          "epoch": 0,
+          "top1": null,
+          "theta_grad_norm": 0.000655
+        },
+        {
+          "epoch": 1,
+          "top1": null,
+          "theta_grad_norm": 0.000505
+        },
+        {
+          "epoch": 2,
+          "top1": 70.124,
+          "theta_grad_norm": 0.000834,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.9986248324262732,
+              "func_anti": 0.9987104304019175,
+              "mean_e_anti": 0.999110221862793,
+              "rms_ratio": 0.008680059447580428
+            }
+          }
+        },
+        {
+          "epoch": 3,
+          "top1": null,
+          "theta_grad_norm": 0.001119
+        },
+        {
+          "epoch": 4,
+          "top1": null,
+          "theta_grad_norm": 0.001414
+        },
+        {
+          "epoch": 5,
+          "top1": 70.136,
+          "theta_grad_norm": 0.001671,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.9837200478095974,
+              "func_anti": 0.9858967817478967,
+              "mean_e_anti": 0.9916385412216187,
+              "rms_ratio": 0.02841883499558178
+            }
+          }
+        },
+        {
+          "epoch": 6,
+          "top1": null,
+          "theta_grad_norm": 0.002084
+        },
+        {
+          "epoch": 7,
+          "top1": null,
+          "theta_grad_norm": 0.002228
+        },
+        {
+          "epoch": 8,
+          "top1": 70.26,
+          "theta_grad_norm": 0.002489,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.9522819076737771,
+              "func_anti": 0.9501679816241192,
+              "mean_e_anti": 0.9789457321166992,
+              "rms_ratio": 0.039345599930852876
+            }
+          }
+        },
+        {
+          "epoch": 9,
+          "top1": null,
+          "theta_grad_norm": 0.002652
+        },
+        {
+          "epoch": 10,
+          "top1": null,
+          "theta_grad_norm": 0.002765
+        },
+        {
+          "epoch": 11,
+          "top1": 70.502,
+          "theta_grad_norm": 0.003094,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.9284898612811157,
+              "func_anti": 0.9232054139477085,
+              "mean_e_anti": 0.9653335809707642,
+              "rms_ratio": 0.04885249027323963
+            }
+          }
+        },
+        {
+          "epoch": 12,
+          "top1": null,
+          "theta_grad_norm": 0.003199
+        },
+        {
+          "epoch": 13,
+          "top1": null,
+          "theta_grad_norm": 0.003327
+        },
+        {
+          "epoch": 14,
+          "top1": 70.706,
+          "theta_grad_norm": 0.003567,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.9132450918165363,
+              "func_anti": 0.9041580991009441,
+              "mean_e_anti": 0.9547514915466309,
+              "rms_ratio": 0.056431575909111846
+            }
+          }
+        },
+        {
+          "epoch": 15,
+          "top1": null,
+          "theta_grad_norm": 0.003574
+        },
+        {
+          "epoch": 16,
+          "top1": null,
+          "theta_grad_norm": 0.003742
+        },
+        {
+          "epoch": 17,
+          "top1": 70.938,
+          "theta_grad_norm": 0.003855,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.9070516498480954,
+              "func_anti": 0.8931382052387731,
+              "mean_e_anti": 0.9455240368843079,
+              "rms_ratio": 0.06250037886479062
+            }
+          }
+        },
+        {
+          "epoch": 18,
+          "top1": null,
+          "theta_grad_norm": 0.003958
+        },
+        {
+          "epoch": 19,
+          "top1": null,
+          "theta_grad_norm": 0.004068
+        },
+        {
+          "epoch": 20,
+          "top1": 71.096,
+          "theta_grad_norm": 0.00436,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.900761018225078,
+              "func_anti": 0.8819989872173007,
+              "mean_e_anti": 0.9379949569702148,
+              "rms_ratio": 0.069181658461861
+            }
+          }
+        },
+        {
+          "epoch": 21,
+          "top1": null,
+          "theta_grad_norm": 0.004413
+        },
+        {
+          "epoch": 22,
+          "top1": null,
+          "theta_grad_norm": 0.004522
+        },
+        {
+          "epoch": 23,
+          "top1": 71.29,
+          "theta_grad_norm": 0.004761,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.8997937542699157,
+              "func_anti": 0.8783160865118682,
+              "mean_e_anti": 0.9338776469230652,
+              "rms_ratio": 0.07261871760974971
+            }
+          }
+        },
+        {
+          "epoch": 24,
+          "top1": null,
+          "theta_grad_norm": 0.004916
+        },
+        {
+          "epoch": 25,
+          "top1": null,
+          "theta_grad_norm": 0.004578
+        },
+        {
+          "epoch": 26,
+          "top1": 71.384,
+          "theta_grad_norm": 0.004716,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.8975531207180463,
+              "func_anti": 0.8721049008695134,
+              "mean_e_anti": 0.9316779971122742,
+              "rms_ratio": 0.07419487943019595
+            }
+          }
+        },
+        {
+          "epoch": 27,
+          "top1": null,
+          "theta_grad_norm": 0.004983
+        },
+        {
+          "epoch": 28,
+          "top1": null,
+          "theta_grad_norm": 0.004974
+        },
+        {
+          "epoch": 29,
+          "top1": 71.382,
+          "theta_grad_norm": 0.004943,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.8970162497869785,
+              "func_anti": 0.8707248826386247,
+              "mean_e_anti": 0.9311116933822632,
+              "rms_ratio": 0.07448085144483929
+            }
+          }
+        }
+      ]
+    },
+    "ft_s3_dir_self_avg_s42": {
+      "name": "ft_s3_dir_self_avg_s42",
+      "args": {
+        "name": "ft_s3_dir_self_avg_s42",
+        "output_dir": "/scratch/itscspod/chtaihei/exsym_runs/waveB_stage3_directed",
+        "cache_dir": "/dev/shm/in1k_raw_cache_ar320",
+        "backbone": "convnext_atto",
+        "mode": "self_avg",
+        "pair_type": "directed_right",
+        "placement": "stage3_mid",
+        "vit_insert_block": 8,
+        "rank_ratio": 1.0,
+        "gamma_init": 0.1,
+        "pretrained_ckpt": "/scratch/itscspod/chtaihei/cliffordnet_runs/in1k_waveC_100ep/in1k_convnext_atto_100ep/checkpoints/last.ckpt",
+        "rotation_task": false,
+        "epochs": 30,
+        "batch_size": 512,
+        "grad_accum": 2,
+        "num_workers": 12,
+        "lr": 0.0004,
+        "adapter_lr_mult": 3.0,
+        "min_lr": 1e-06,
+        "warmup_epochs": 2,
+        "weight_decay": 0.05,
+        "drop_path": 0.1,
+        "ema_decay": 0.999,
+        "mixup": 0.8,
+        "cutmix": 1.0,
+        "label_smoothing": 0.1,
+        "clip_grad": 5.0,
+        "no_compile": false,
+        "data_seed": 42,
+        "init_seed": 3042,
+        "eval_interval": 3,
+        "save_best_only": false,
+        "resume": true,
+        "max_steps": 0,
+        "deadline_iso": "2026-11-23T09:45:00+08:00"
+      },
+      "full_eval": {
+        "clean": 71.3,
+        "clean_top5": 90.58,
+        "contrast_012": 31.69,
+        "gaussian_noise": 24.99,
+        "fft_phase": 2.65,
+        "hflip": 71.42,
+        "hflip_consistency": 91.46
+      },
+      "symmetry_final": {
+        "stage3_mid": {
+          "mode": "self_avg",
+          "pair_type": "directed_right",
+          "dim": 160,
+          "rank": 160,
+          "mean_e_anti": 0.0,
+          "std_e_anti": 0.0,
+          "theta_mean": 0.7853981256484985,
+          "theta_std": 5.979178752113512e-08,
+          "theta_quantiles": [
+            0.7853981852531433,
+            0.7853981852531433,
+            0.7853981852531433,
+            0.7853981852531433,
+            0.7853981852531433
+          ],
+          "weight_weighted_e_anti": 0.0,
+          "eff_anti": 0.0,
+          "func_anti": 0.0,
+          "delta_rms": 0.14394225180149078,
+          "x_rms": 2.121434450149536,
+          "rms_ratio": 0.0678513784818308,
+          "top25_energy_frac": 0.37842269006213725
+        }
+      },
+      "intervention": {
+        "anti_sweep": {
+          "s1.0_a1.0": {
+            "clean": 72.09,
+            "clean_top5": 90.82,
+            "contrast_012": 31.61,
+            "fft_phase": 2.64,
+            "hflip": 72.02,
+            "hflip_consistency": 91.76
+          },
+          "s1.0_a0.75": {
+            "clean": 72.09,
+            "clean_top5": 90.82,
+            "contrast_012": 31.61,
+            "fft_phase": 2.64,
+            "hflip": 72.02,
+            "hflip_consistency": 91.76
+          },
+          "s1.0_a0.5": {
+            "clean": 72.09,
+            "clean_top5": 90.82,
+            "contrast_012": 31.61,
+            "fft_phase": 2.64,
+            "hflip": 72.02,
+            "hflip_consistency": 91.76
+          },
+          "s1.0_a0.0": {
+            "clean": 72.09,
+            "clean_top5": 90.82,
+            "contrast_012": 31.61,
+            "fft_phase": 2.64,
+            "hflip": 72.02,
+            "hflip_consistency": 91.76
+          }
+        },
+        "sym_sweep": {
+          "s1.0_a1.0": {
+            "clean": 72.09,
+            "clean_top5": 90.82,
+            "contrast_012": 31.61,
+            "fft_phase": 2.64,
+            "hflip": 72.02,
+            "hflip_consistency": 91.76
+          },
+          "s0.75_a1.0": {
+            "clean": 72.01,
+            "clean_top5": 90.76,
+            "contrast_012": 31.52,
+            "fft_phase": 2.72,
+            "hflip": 71.9,
+            "hflip_consistency": 91.91
+          },
+          "s0.5_a1.0": {
+            "clean": 71.96,
+            "clean_top5": 90.75,
+            "contrast_012": 31.35,
+            "fft_phase": 2.73,
+            "hflip": 71.78,
+            "hflip_consistency": 91.86
+          },
+          "s0.0_a1.0": {
+            "clean": 71.9,
+            "clean_top5": 90.55,
+            "contrast_012": 30.84,
+            "fft_phase": 2.73,
+            "hflip": 71.52,
+            "hflip_consistency": 91.93
+          }
+        },
+        "bypass": {
+          "s0.0_a0.0": {
+            "clean": 71.9,
+            "clean_top5": 90.55,
+            "contrast_012": 30.84,
+            "fft_phase": 2.73,
+            "hflip": 71.52,
+            "hflip_consistency": 91.93
+          }
+        }
+      },
+      "trajectory": [
+        {
+          "epoch": -1,
+          "top1": 71.102,
+          "theta_grad_norm": null,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.0,
+              "func_anti": 0.0,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.0037909734556300675
+            }
+          }
+        },
+        {
+          "epoch": 0,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 1,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 2,
+          "top1": 70.128,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.0,
+              "func_anti": 0.0,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.0020212213861496124
+            }
+          }
+        },
+        {
+          "epoch": 3,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 4,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 5,
+          "top1": 70.092,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.0,
+              "func_anti": 0.0,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.015433038605938608
+            }
+          }
+        },
+        {
+          "epoch": 6,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 7,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 8,
+          "top1": 70.366,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.0,
+              "func_anti": 0.0,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.02664208403060024
+            }
+          }
+        },
+        {
+          "epoch": 9,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 10,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 11,
+          "top1": 70.578,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.0,
+              "func_anti": 0.0,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.037089400015431664
+            }
+          }
+        },
+        {
+          "epoch": 12,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 13,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 14,
+          "top1": 70.556,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.0,
+              "func_anti": 0.0,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.04529931703674037
+            }
+          }
+        },
+        {
+          "epoch": 15,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 16,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 17,
+          "top1": 70.97,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.0,
+              "func_anti": 0.0,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.05243662941575476
+            }
+          }
+        },
+        {
+          "epoch": 18,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 19,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 20,
+          "top1": 71.054,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.0,
+              "func_anti": 0.0,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.0584480727355608
+            }
+          }
+        },
+        {
+          "epoch": 21,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 22,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 23,
+          "top1": 71.196,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.0,
+              "func_anti": 0.0,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.06253356972119634
+            }
+          }
+        },
+        {
+          "epoch": 24,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 25,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 26,
+          "top1": 71.28,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.0,
+              "func_anti": 0.0,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.06656194394406739
+            }
+          }
+        },
+        {
+          "epoch": 27,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 28,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 29,
+          "top1": 71.296,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.0,
+              "func_anti": 0.0,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.06707371487431518
+            }
+          }
+        }
+      ]
+    },
+    "ft_s3_dir_free_anti_s202": {
+      "name": "ft_s3_dir_free_anti_s202",
+      "args": {
+        "name": "ft_s3_dir_free_anti_s202",
+        "output_dir": "/scratch/itscspod/chtaihei/exsym_runs/waveB_stage3_directed",
+        "cache_dir": "/dev/shm/in1k_raw_cache_ar320",
+        "backbone": "convnext_atto",
+        "mode": "free_anti",
+        "pair_type": "directed_right",
+        "placement": "stage3_mid",
+        "vit_insert_block": 8,
+        "rank_ratio": 1.0,
+        "gamma_init": 0.1,
+        "pretrained_ckpt": "/scratch/itscspod/chtaihei/cliffordnet_runs/in1k_waveC_100ep/in1k_convnext_atto_100ep/checkpoints/last.ckpt",
+        "rotation_task": false,
+        "epochs": 30,
+        "batch_size": 512,
+        "grad_accum": 2,
+        "num_workers": 12,
+        "lr": 0.0004,
+        "adapter_lr_mult": 3.0,
+        "min_lr": 1e-06,
+        "warmup_epochs": 2,
+        "weight_decay": 0.05,
+        "drop_path": 0.1,
+        "ema_decay": 0.999,
+        "mixup": 0.8,
+        "cutmix": 1.0,
+        "label_smoothing": 0.1,
+        "clip_grad": 5.0,
+        "no_compile": false,
+        "data_seed": 202,
+        "init_seed": 3202,
+        "eval_interval": 3,
+        "save_best_only": false,
+        "resume": true,
+        "max_steps": 0,
+        "deadline_iso": "2026-11-23T09:45:00+08:00"
+      },
+      "full_eval": {
+        "clean": 71.25,
+        "clean_top5": 90.48,
+        "contrast_012": 29.1,
+        "gaussian_noise": 25.35,
+        "fft_phase": 2.99,
+        "hflip": 71.33,
+        "hflip_consistency": 91.56
+      },
+      "symmetry_final": {
+        "stage3_mid": {
+          "mode": "free_anti",
+          "pair_type": "directed_right",
+          "dim": 160,
+          "rank": 160,
+          "mean_e_anti": 0.919581413269043,
+          "std_e_anti": 0.12224913388490677,
+          "theta_mean": -0.802476704120636,
+          "theta_std": 0.3013072609901428,
+          "theta_quantiles": [
+            -1.1684675216674805,
+            -1.0131055116653442,
+            -0.7900573015213013,
+            -0.6407069563865662,
+            -0.42943841218948364
+          ],
+          "weight_weighted_e_anti": 0.9124186131131594,
+          "eff_anti": 0.8779353396894842,
+          "func_anti": 0.8461471804462781,
+          "delta_rms": 0.1605093777179718,
+          "x_rms": 2.2140238285064697,
+          "rms_ratio": 0.07249668032084722,
+          "top25_energy_frac": 0.4339945200538195
+        }
+      },
+      "intervention": {
+        "anti_sweep": {
+          "s1.0_a1.0": {
+            "clean": 71.66,
+            "clean_top5": 90.85,
+            "contrast_012": 28.88,
+            "fft_phase": 2.91,
+            "hflip": 71.8,
+            "hflip_consistency": 91.56
+          },
+          "s1.0_a0.75": {
+            "clean": 71.61,
+            "clean_top5": 90.84,
+            "contrast_012": 28.79,
+            "fft_phase": 2.91,
+            "hflip": 71.78,
+            "hflip_consistency": 91.45
+          },
+          "s1.0_a0.5": {
+            "clean": 71.66,
+            "clean_top5": 90.77,
+            "contrast_012": 28.64,
+            "fft_phase": 2.88,
+            "hflip": 71.7,
+            "hflip_consistency": 91.52
+          },
+          "s1.0_a0.0": {
+            "clean": 71.51,
+            "clean_top5": 90.73,
+            "contrast_012": 28.18,
+            "fft_phase": 2.77,
+            "hflip": 71.67,
+            "hflip_consistency": 91.51
+          }
+        },
+        "sym_sweep": {
+          "s1.0_a1.0": {
+            "clean": 71.66,
+            "clean_top5": 90.85,
+            "contrast_012": 28.88,
+            "fft_phase": 2.91,
+            "hflip": 71.8,
+            "hflip_consistency": 91.56
+          },
+          "s0.75_a1.0": {
+            "clean": 71.6,
+            "clean_top5": 90.84,
+            "contrast_012": 28.99,
+            "fft_phase": 2.93,
+            "hflip": 71.79,
+            "hflip_consistency": 91.6
+          },
+          "s0.5_a1.0": {
+            "clean": 71.59,
+            "clean_top5": 90.81,
+            "contrast_012": 28.85,
+            "fft_phase": 2.95,
+            "hflip": 71.72,
+            "hflip_consistency": 91.45
+          },
+          "s0.0_a1.0": {
+            "clean": 71.56,
+            "clean_top5": 90.74,
+            "contrast_012": 28.81,
+            "fft_phase": 3.01,
+            "hflip": 71.69,
+            "hflip_consistency": 91.45
+          }
+        },
+        "bypass": {
+          "s0.0_a0.0": {
+            "clean": 71.43,
+            "clean_top5": 90.66,
+            "contrast_012": 28.14,
+            "fft_phase": 2.83,
+            "hflip": 71.62,
+            "hflip_consistency": 91.43
+          }
+        }
+      },
+      "trajectory": [
+        {
+          "epoch": -1,
+          "top1": 71.084,
+          "theta_grad_norm": null,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 1.0,
+              "func_anti": 0.999999999993296,
+              "mean_e_anti": 1.0,
+              "rms_ratio": 0.001213547287748405
+            }
+          }
+        },
+        {
+          "epoch": 0,
+          "top1": null,
+          "theta_grad_norm": 0.00061
+        },
+        {
+          "epoch": 1,
+          "top1": null,
+          "theta_grad_norm": 0.000478
+        },
+        {
+          "epoch": 2,
+          "top1": 70.114,
+          "theta_grad_norm": 0.000775,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.9988349466618274,
+              "func_anti": 0.9991265503073608,
+              "mean_e_anti": 0.9991893768310547,
+              "rms_ratio": 0.008687639305373467
+            }
+          }
+        },
+        {
+          "epoch": 3,
+          "top1": null,
+          "theta_grad_norm": 0.001093
+        },
+        {
+          "epoch": 4,
+          "top1": null,
+          "theta_grad_norm": 0.001433
+        },
+        {
+          "epoch": 5,
+          "top1": 70.262,
+          "theta_grad_norm": 0.001681,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.9901126078576696,
+              "func_anti": 0.9914721579772963,
+              "mean_e_anti": 0.9920918345451355,
+              "rms_ratio": 0.02752845673218845
+            }
+          }
+        },
+        {
+          "epoch": 6,
+          "top1": null,
+          "theta_grad_norm": 0.001937
+        },
+        {
+          "epoch": 7,
+          "top1": null,
+          "theta_grad_norm": 0.002182
+        },
+        {
+          "epoch": 8,
+          "top1": 70.206,
+          "theta_grad_norm": 0.00241,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.9605780536713757,
+              "func_anti": 0.9617453144941387,
+              "mean_e_anti": 0.977527916431427,
+              "rms_ratio": 0.04053951802829417
+            }
+          }
+        },
+        {
+          "epoch": 9,
+          "top1": null,
+          "theta_grad_norm": 0.002486
+        },
+        {
+          "epoch": 10,
+          "top1": null,
+          "theta_grad_norm": 0.002779
+        },
+        {
+          "epoch": 11,
+          "top1": 70.462,
+          "theta_grad_norm": 0.002866,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.9282624738647727,
+              "func_anti": 0.9220724944219258,
+              "mean_e_anti": 0.9607201814651489,
+              "rms_ratio": 0.04833877565870113
+            }
+          }
+        },
+        {
+          "epoch": 12,
+          "top1": null,
+          "theta_grad_norm": 0.003027
+        },
+        {
+          "epoch": 13,
+          "top1": null,
+          "theta_grad_norm": 0.003264
+        },
+        {
+          "epoch": 14,
+          "top1": 70.536,
+          "theta_grad_norm": 0.003361,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.9053877103018413,
+              "func_anti": 0.8908183784901991,
+              "mean_e_anti": 0.9461264610290527,
+              "rms_ratio": 0.05549420862553041
+            }
+          }
+        },
+        {
+          "epoch": 15,
+          "top1": null,
+          "theta_grad_norm": 0.00367
+        },
+        {
+          "epoch": 16,
+          "top1": null,
+          "theta_grad_norm": 0.003694
+        },
+        {
+          "epoch": 17,
+          "top1": 70.802,
+          "theta_grad_norm": 0.003833,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.8920649838824615,
+              "func_anti": 0.8700510703614699,
+              "mean_e_anti": 0.934295654296875,
+              "rms_ratio": 0.061550633641832456
+            }
+          }
+        },
+        {
+          "epoch": 18,
+          "top1": null,
+          "theta_grad_norm": 0.003815
+        },
+        {
+          "epoch": 19,
+          "top1": null,
+          "theta_grad_norm": 0.003947
+        },
+        {
+          "epoch": 20,
+          "top1": 71.084,
+          "theta_grad_norm": 0.00415,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.8844417156753818,
+              "func_anti": 0.8606902709583348,
+              "mean_e_anti": 0.9272216558456421,
+              "rms_ratio": 0.06660323020035805
+            }
+          }
+        },
+        {
+          "epoch": 21,
+          "top1": null,
+          "theta_grad_norm": 0.004365
+        },
+        {
+          "epoch": 22,
+          "top1": null,
+          "theta_grad_norm": 0.004406
+        },
+        {
+          "epoch": 23,
+          "top1": 71.17,
+          "theta_grad_norm": 0.004388,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.8797878541338939,
+              "func_anti": 0.8507958143489456,
+              "mean_e_anti": 0.9224438667297363,
+              "rms_ratio": 0.06927431341064154
+            }
+          }
+        },
+        {
+          "epoch": 24,
+          "top1": null,
+          "theta_grad_norm": 0.004462
+        },
+        {
+          "epoch": 25,
+          "top1": null,
+          "theta_grad_norm": 0.004556
+        },
+        {
+          "epoch": 26,
+          "top1": 71.202,
+          "theta_grad_norm": 0.004702,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.8782529716109047,
+              "func_anti": 0.8481583305131144,
+              "mean_e_anti": 0.92021244764328,
+              "rms_ratio": 0.07197029479574894
+            }
+          }
+        },
+        {
+          "epoch": 27,
+          "top1": null,
+          "theta_grad_norm": 0.004635
+        },
+        {
+          "epoch": 28,
+          "top1": null,
+          "theta_grad_norm": 0.004797
+        },
+        {
+          "epoch": 29,
+          "top1": 71.252,
+          "theta_grad_norm": 0.004592,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.8782004253300162,
+              "func_anti": 0.8468448566370661,
+              "mean_e_anti": 0.919581413269043,
+              "rms_ratio": 0.07199827510993592
+            }
+          }
+        }
+      ]
+    },
+    "ft_s3_dir_star_s101": {
+      "name": "ft_s3_dir_star_s101",
+      "args": {
+        "name": "ft_s3_dir_star_s101",
+        "output_dir": "/scratch/itscspod/chtaihei/exsym_runs/waveB_stage3_directed",
+        "cache_dir": "/dev/shm/in1k_raw_cache_ar320",
+        "backbone": "convnext_atto",
+        "mode": "star",
+        "pair_type": "directed_right",
+        "placement": "stage3_mid",
+        "vit_insert_block": 8,
+        "rank_ratio": 1.0,
+        "gamma_init": 0.1,
+        "pretrained_ckpt": "/scratch/itscspod/chtaihei/cliffordnet_runs/in1k_waveC_100ep/in1k_convnext_atto_100ep/checkpoints/last.ckpt",
+        "rotation_task": false,
+        "epochs": 30,
+        "batch_size": 512,
+        "grad_accum": 2,
+        "num_workers": 12,
+        "lr": 0.0004,
+        "adapter_lr_mult": 3.0,
+        "min_lr": 1e-06,
+        "warmup_epochs": 2,
+        "weight_decay": 0.05,
+        "drop_path": 0.1,
+        "ema_decay": 0.999,
+        "mixup": 0.8,
+        "cutmix": 1.0,
+        "label_smoothing": 0.1,
+        "clip_grad": 5.0,
+        "no_compile": false,
+        "data_seed": 101,
+        "init_seed": 3101,
+        "eval_interval": 3,
+        "save_best_only": false,
+        "resume": true,
+        "max_steps": 0,
+        "deadline_iso": "2026-11-23T09:45:00+08:00"
+      },
+      "full_eval": {
+        "clean": 71.38,
+        "clean_top5": 90.48,
+        "contrast_012": 31.95,
+        "gaussian_noise": 25.01,
+        "fft_phase": 2.56,
+        "hflip": 71.39,
+        "hflip_consistency": 91.33
+      },
+      "symmetry_final": {
+        "stage3_mid": {
+          "mode": "star",
+          "pair_type": "directed_right",
+          "dim": 160,
+          "rank": 160,
+          "mean_e_anti": 0.5,
+          "std_e_anti": 0.0,
+          "theta_mean": 0.0,
+          "theta_std": 0.0,
+          "theta_quantiles": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "weight_weighted_e_anti": 0.5,
+          "eff_anti": 0.5,
+          "func_anti": 0.40525952865015713,
+          "delta_rms": 0.16006538271903992,
+          "x_rms": 2.1403141021728516,
+          "rms_ratio": 0.07478593097926196,
+          "top25_energy_frac": 0.43036039518963487
+        }
+      },
+      "intervention": {
+        "anti_sweep": {
+          "s1.0_a1.0": {
+            "clean": 72.19,
+            "clean_top5": 90.7,
+            "contrast_012": 31.68,
+            "fft_phase": 2.57,
+            "hflip": 72.13,
+            "hflip_consistency": 91.65
+          },
+          "s1.0_a0.75": {
+            "clean": 72.19,
+            "clean_top5": 90.75,
+            "contrast_012": 31.59,
+            "fft_phase": 2.53,
+            "hflip": 72.19,
+            "hflip_consistency": 91.61
+          },
+          "s1.0_a0.5": {
+            "clean": 72.2,
+            "clean_top5": 90.76,
+            "contrast_012": 31.48,
+            "fft_phase": 2.51,
+            "hflip": 72.17,
+            "hflip_consistency": 91.57
+          },
+          "s1.0_a0.0": {
+            "clean": 72.09,
+            "clean_top5": 90.77,
+            "contrast_012": 31.3,
+            "fft_phase": 2.45,
+            "hflip": 72.21,
+            "hflip_consistency": 91.5
+          }
+        },
+        "sym_sweep": {
+          "s1.0_a1.0": {
+            "clean": 72.19,
+            "clean_top5": 90.7,
+            "contrast_012": 31.68,
+            "fft_phase": 2.57,
+            "hflip": 72.13,
+            "hflip_consistency": 91.65
+          },
+          "s0.75_a1.0": {
+            "clean": 72.2,
+            "clean_top5": 90.7,
+            "contrast_012": 31.9,
+            "fft_phase": 2.6,
+            "hflip": 72.09,
+            "hflip_consistency": 91.57
+          },
+          "s0.5_a1.0": {
+            "clean": 72.13,
+            "clean_top5": 90.68,
+            "contrast_012": 32.03,
+            "fft_phase": 2.62,
+            "hflip": 71.98,
+            "hflip_consistency": 91.5
+          },
+          "s0.0_a1.0": {
+            "clean": 72.03,
+            "clean_top5": 90.56,
+            "contrast_012": 32.16,
+            "fft_phase": 2.62,
+            "hflip": 71.83,
+            "hflip_consistency": 91.53
+          }
+        },
+        "bypass": {
+          "s0.0_a0.0": {
+            "clean": 72.0,
+            "clean_top5": 90.59,
+            "contrast_012": 31.84,
+            "fft_phase": 2.5,
+            "hflip": 71.84,
+            "hflip_consistency": 91.55
+          }
+        }
+      },
+      "trajectory": [
+        {
+          "epoch": -1,
+          "top1": 71.12,
+          "theta_grad_norm": null,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.5,
+              "func_anti": 0.09971546777210971,
+              "mean_e_anti": 0.5,
+              "rms_ratio": 0.002725134440697818
+            }
+          }
+        },
+        {
+          "epoch": 0,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 1,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 2,
+          "top1": 70.15,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.5,
+              "func_anti": 0.5160853417771041,
+              "mean_e_anti": 0.5,
+              "rms_ratio": 0.0036534246778407043
+            }
+          }
+        },
+        {
+          "epoch": 3,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 4,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 5,
+          "top1": 70.152,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.5,
+              "func_anti": 0.468722783413535,
+              "mean_e_anti": 0.5,
+              "rms_ratio": 0.023700695230673204
+            }
+          }
+        },
+        {
+          "epoch": 6,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 7,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 8,
+          "top1": 70.316,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.5,
+              "func_anti": 0.4483205475246037,
+              "mean_e_anti": 0.5,
+              "rms_ratio": 0.03673072575166059
+            }
+          }
+        },
+        {
+          "epoch": 9,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 10,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 11,
+          "top1": 70.468,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.5,
+              "func_anti": 0.4359916543888345,
+              "mean_e_anti": 0.5,
+              "rms_ratio": 0.045666996304988446
+            }
+          }
+        },
+        {
+          "epoch": 12,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 13,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 14,
+          "top1": 70.716,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.5,
+              "func_anti": 0.4273170122293477,
+              "mean_e_anti": 0.5,
+              "rms_ratio": 0.05363523610763046
+            }
+          }
+        },
+        {
+          "epoch": 15,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 16,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 17,
+          "top1": 70.958,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.5,
+              "func_anti": 0.4256950552430715,
+              "mean_e_anti": 0.5,
+              "rms_ratio": 0.05903670789600643
+            }
+          }
+        },
+        {
+          "epoch": 18,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 19,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 20,
+          "top1": 71.13,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.5,
+              "func_anti": 0.4193262293610139,
+              "mean_e_anti": 0.5,
+              "rms_ratio": 0.06577251820786995
+            }
+          }
+        },
+        {
+          "epoch": 21,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 22,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 23,
+          "top1": 71.262,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.5,
+              "func_anti": 0.4134033055796492,
+              "mean_e_anti": 0.5,
+              "rms_ratio": 0.07085354147052576
+            }
+          }
+        },
+        {
+          "epoch": 24,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 25,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 26,
+          "top1": 71.364,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.5,
+              "func_anti": 0.40843778371878037,
+              "mean_e_anti": 0.5,
+              "rms_ratio": 0.07394430910816802
+            }
+          }
+        },
+        {
+          "epoch": 27,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 28,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 29,
+          "top1": 71.378,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.5,
+              "func_anti": 0.40696722454839335,
+              "mean_e_anti": 0.5,
+              "rms_ratio": 0.07419873175795083
+            }
+          }
+        }
+      ]
+    },
+    "ft_s3_dir_free_anti_s42": {
+      "name": "ft_s3_dir_free_anti_s42",
+      "args": {
+        "name": "ft_s3_dir_free_anti_s42",
+        "output_dir": "/scratch/itscspod/chtaihei/exsym_runs/waveB_stage3_directed",
+        "cache_dir": "/dev/shm/in1k_raw_cache_ar320",
+        "backbone": "convnext_atto",
+        "mode": "free_anti",
+        "pair_type": "directed_right",
+        "placement": "stage3_mid",
+        "vit_insert_block": 8,
+        "rank_ratio": 1.0,
+        "gamma_init": 0.1,
+        "pretrained_ckpt": "/scratch/itscspod/chtaihei/cliffordnet_runs/in1k_waveC_100ep/in1k_convnext_atto_100ep/checkpoints/last.ckpt",
+        "rotation_task": false,
+        "epochs": 30,
+        "batch_size": 512,
+        "grad_accum": 2,
+        "num_workers": 12,
+        "lr": 0.0004,
+        "adapter_lr_mult": 3.0,
+        "min_lr": 1e-06,
+        "warmup_epochs": 2,
+        "weight_decay": 0.05,
+        "drop_path": 0.1,
+        "ema_decay": 0.999,
+        "mixup": 0.8,
+        "cutmix": 1.0,
+        "label_smoothing": 0.1,
+        "clip_grad": 5.0,
+        "no_compile": false,
+        "data_seed": 42,
+        "init_seed": 3042,
+        "eval_interval": 3,
+        "save_best_only": false,
+        "resume": true,
+        "max_steps": 0,
+        "deadline_iso": "2026-11-23T09:45:00+08:00"
+      },
+      "full_eval": {
+        "clean": 71.32,
+        "clean_top5": 90.44,
+        "contrast_012": 30.9,
+        "gaussian_noise": 24.93,
+        "fft_phase": 2.62,
+        "hflip": 71.4,
+        "hflip_consistency": 91.3
+      },
+      "symmetry_final": {
+        "stage3_mid": {
+          "mode": "free_anti",
+          "pair_type": "directed_right",
+          "dim": 160,
+          "rank": 160,
+          "mean_e_anti": 0.919106125831604,
+          "std_e_anti": 0.11497459560632706,
+          "theta_mean": -0.7492417693138123,
+          "theta_std": 0.29701557755470276,
+          "theta_quantiles": [
+            -1.101457953453064,
+            -0.9063690304756165,
+            -0.7661882638931274,
+            -0.5783582925796509,
+            -0.38525858521461487
+          ],
+          "weight_weighted_e_anti": 0.9145071854885328,
+          "eff_anti": 0.8882686565587566,
+          "func_anti": 0.8393179158504038,
+          "delta_rms": 0.16486357152462006,
+          "x_rms": 2.2176663875579834,
+          "rms_ratio": 0.07434101560522006,
+          "top25_energy_frac": 0.4671993066950233
+        }
+      },
+      "intervention": {
+        "anti_sweep": {
+          "s1.0_a1.0": {
+            "clean": 72.05,
+            "clean_top5": 90.66,
+            "contrast_012": 30.95,
+            "fft_phase": 2.65,
+            "hflip": 71.89,
+            "hflip_consistency": 91.48
+          },
+          "s1.0_a0.75": {
+            "clean": 71.99,
+            "clean_top5": 90.65,
+            "contrast_012": 30.84,
+            "fft_phase": 2.64,
+            "hflip": 71.79,
+            "hflip_consistency": 91.42
+          },
+          "s1.0_a0.5": {
+            "clean": 72.01,
+            "clean_top5": 90.67,
+            "contrast_012": 30.69,
+            "fft_phase": 2.6,
+            "hflip": 71.71,
+            "hflip_consistency": 91.52
+          },
+          "s1.0_a0.0": {
+            "clean": 71.78,
+            "clean_top5": 90.62,
+            "contrast_012": 30.25,
+            "fft_phase": 2.46,
+            "hflip": 71.64,
+            "hflip_consistency": 91.66
+          }
+        },
+        "sym_sweep": {
+          "s1.0_a1.0": {
+            "clean": 72.05,
+            "clean_top5": 90.66,
+            "contrast_012": 30.95,
+            "fft_phase": 2.65,
+            "hflip": 71.89,
+            "hflip_consistency": 91.48
+          },
+          "s0.75_a1.0": {
+            "clean": 72.08,
+            "clean_top5": 90.71,
+            "contrast_012": 31.09,
+            "fft_phase": 2.67,
+            "hflip": 71.84,
+            "hflip_consistency": 91.5
+          },
+          "s0.5_a1.0": {
+            "clean": 72.05,
+            "clean_top5": 90.7,
+            "contrast_012": 31.29,
+            "fft_phase": 2.68,
+            "hflip": 71.8,
+            "hflip_consistency": 91.55
+          },
+          "s0.0_a1.0": {
+            "clean": 71.98,
+            "clean_top5": 90.62,
+            "contrast_012": 31.68,
+            "fft_phase": 2.68,
+            "hflip": 71.66,
+            "hflip_consistency": 91.48
+          }
+        },
+        "bypass": {
+          "s0.0_a0.0": {
+            "clean": 71.76,
+            "clean_top5": 90.64,
+            "contrast_012": 31.05,
+            "fft_phase": 2.51,
+            "hflip": 71.59,
+            "hflip_consistency": 91.78
+          }
+        }
+      },
+      "trajectory": [
+        {
+          "epoch": -1,
+          "top1": 71.094,
+          "theta_grad_norm": null,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 1.0,
+              "func_anti": 0.9999999999916052,
+              "mean_e_anti": 1.0,
+              "rms_ratio": 0.0012468433225353514
+            }
+          }
+        },
+        {
+          "epoch": 0,
+          "top1": null,
+          "theta_grad_norm": 0.000696
+        },
+        {
+          "epoch": 1,
+          "top1": null,
+          "theta_grad_norm": 0.000521
+        },
+        {
+          "epoch": 2,
+          "top1": 70.122,
+          "theta_grad_norm": 0.000807,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.9986410027579489,
+              "func_anti": 0.99909706131566,
+              "mean_e_anti": 0.9992729425430298,
+              "rms_ratio": 0.008492087653670318
+            }
+          }
+        },
+        {
+          "epoch": 3,
+          "top1": null,
+          "theta_grad_norm": 0.001162
+        },
+        {
+          "epoch": 4,
+          "top1": null,
+          "theta_grad_norm": 0.001377
+        },
+        {
+          "epoch": 5,
+          "top1": 70.03,
+          "theta_grad_norm": 0.001712,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.9844387073278094,
+              "func_anti": 0.9865319086689409,
+              "mean_e_anti": 0.9912030100822449,
+              "rms_ratio": 0.028300223060108598
+            }
+          }
+        },
+        {
+          "epoch": 6,
+          "top1": null,
+          "theta_grad_norm": 0.002041
+        },
+        {
+          "epoch": 7,
+          "top1": null,
+          "theta_grad_norm": 0.002209
+        },
+        {
+          "epoch": 8,
+          "top1": 70.304,
+          "theta_grad_norm": 0.00251,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.9562511312723311,
+              "func_anti": 0.9512343880719791,
+              "mean_e_anti": 0.9761916399002075,
+              "rms_ratio": 0.040011330789964
+            }
+          }
+        },
+        {
+          "epoch": 9,
+          "top1": null,
+          "theta_grad_norm": 0.00275
+        },
+        {
+          "epoch": 10,
+          "top1": null,
+          "theta_grad_norm": 0.002944
+        },
+        {
+          "epoch": 11,
+          "top1": 70.508,
+          "theta_grad_norm": 0.003173,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.9307161462686742,
+              "func_anti": 0.9141821579167898,
+              "mean_e_anti": 0.9588079452514648,
+              "rms_ratio": 0.04939423259101937
+            }
+          }
+        },
+        {
+          "epoch": 12,
+          "top1": null,
+          "theta_grad_norm": 0.003171
+        },
+        {
+          "epoch": 13,
+          "top1": null,
+          "theta_grad_norm": 0.003322
+        },
+        {
+          "epoch": 14,
+          "top1": 70.612,
+          "theta_grad_norm": 0.003514,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.9114489502326539,
+              "func_anti": 0.8855732162747646,
+              "mean_e_anti": 0.9442477226257324,
+              "rms_ratio": 0.057896279062801315
+            }
+          }
+        },
+        {
+          "epoch": 15,
+          "top1": null,
+          "theta_grad_norm": 0.003599
+        },
+        {
+          "epoch": 16,
+          "top1": null,
+          "theta_grad_norm": 0.003972
+        },
+        {
+          "epoch": 17,
+          "top1": 70.908,
+          "theta_grad_norm": 0.00395,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.9013532833522644,
+              "func_anti": 0.8685848961747362,
+              "mean_e_anti": 0.9336633682250977,
+              "rms_ratio": 0.06369580613941062
+            }
+          }
+        },
+        {
+          "epoch": 18,
+          "top1": null,
+          "theta_grad_norm": 0.004053
+        },
+        {
+          "epoch": 19,
+          "top1": null,
+          "theta_grad_norm": 0.004411
+        },
+        {
+          "epoch": 20,
+          "top1": 71.094,
+          "theta_grad_norm": 0.004453,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.8926051302865876,
+              "func_anti": 0.8568721803252399,
+              "mean_e_anti": 0.9261937141418457,
+              "rms_ratio": 0.06903049181347827
+            }
+          }
+        },
+        {
+          "epoch": 21,
+          "top1": null,
+          "theta_grad_norm": 0.004607
+        },
+        {
+          "epoch": 22,
+          "top1": null,
+          "theta_grad_norm": 0.004594
+        },
+        {
+          "epoch": 23,
+          "top1": 71.204,
+          "theta_grad_norm": 0.004622,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.8897541301200294,
+              "func_anti": 0.8466970109176772,
+              "mean_e_anti": 0.9214391708374023,
+              "rms_ratio": 0.07100731383599304
+            }
+          }
+        },
+        {
+          "epoch": 24,
+          "top1": null,
+          "theta_grad_norm": 0.004951
+        },
+        {
+          "epoch": 25,
+          "top1": null,
+          "theta_grad_norm": 0.004762
+        },
+        {
+          "epoch": 26,
+          "top1": 71.334,
+          "theta_grad_norm": 0.005025,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.8883143836724011,
+              "func_anti": 0.841466655100211,
+              "mean_e_anti": 0.919106125831604,
+              "rms_ratio": 0.07384921177248527
+            }
+          }
+        },
+        {
+          "epoch": 27,
+          "top1": null,
+          "theta_grad_norm": 0.00507
+        },
+        {
+          "epoch": 28,
+          "top1": null,
+          "theta_grad_norm": 0.004728
+        },
+        {
+          "epoch": 29,
+          "top1": 71.328,
+          "theta_grad_norm": 0.005193,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.887800225865358,
+              "func_anti": 0.8391908308198877,
+              "mean_e_anti": 0.9184449911117554,
+              "rms_ratio": 0.07449085441106151
+            }
+          }
+        }
+      ]
+    },
+    "ft_s3_dir_star_s202": {
+      "name": "ft_s3_dir_star_s202",
+      "args": {
+        "name": "ft_s3_dir_star_s202",
+        "output_dir": "/scratch/itscspod/chtaihei/exsym_runs/waveB_stage3_directed",
+        "cache_dir": "/dev/shm/in1k_raw_cache_ar320",
+        "backbone": "convnext_atto",
+        "mode": "star",
+        "pair_type": "directed_right",
+        "placement": "stage3_mid",
+        "vit_insert_block": 8,
+        "rank_ratio": 1.0,
+        "gamma_init": 0.1,
+        "pretrained_ckpt": "/scratch/itscspod/chtaihei/cliffordnet_runs/in1k_waveC_100ep/in1k_convnext_atto_100ep/checkpoints/last.ckpt",
+        "rotation_task": false,
+        "epochs": 30,
+        "batch_size": 512,
+        "grad_accum": 2,
+        "num_workers": 12,
+        "lr": 0.0004,
+        "adapter_lr_mult": 3.0,
+        "min_lr": 1e-06,
+        "warmup_epochs": 2,
+        "weight_decay": 0.05,
+        "drop_path": 0.1,
+        "ema_decay": 0.999,
+        "mixup": 0.8,
+        "cutmix": 1.0,
+        "label_smoothing": 0.1,
+        "clip_grad": 5.0,
+        "no_compile": false,
+        "data_seed": 202,
+        "init_seed": 3202,
+        "eval_interval": 3,
+        "save_best_only": false,
+        "resume": true,
+        "max_steps": 0,
+        "deadline_iso": "2026-11-23T09:45:00+08:00"
+      },
+      "full_eval": {
+        "clean": 71.25,
+        "clean_top5": 90.54,
+        "contrast_012": 29.68,
+        "gaussian_noise": 25.15,
+        "fft_phase": 3.01,
+        "hflip": 71.38,
+        "hflip_consistency": 91.46
+      },
+      "symmetry_final": {
+        "stage3_mid": {
+          "mode": "star",
+          "pair_type": "directed_right",
+          "dim": 160,
+          "rank": 160,
+          "mean_e_anti": 0.5,
+          "std_e_anti": 0.0,
+          "theta_mean": 0.0,
+          "theta_std": 0.0,
+          "theta_quantiles": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "weight_weighted_e_anti": 0.5,
+          "eff_anti": 0.5,
+          "func_anti": 0.41240187264692263,
+          "delta_rms": 0.15539801120758057,
+          "x_rms": 2.1645710468292236,
+          "rms_ratio": 0.0717915965083316,
+          "top25_energy_frac": 0.4040681938317507
+        }
+      },
+      "intervention": {
+        "anti_sweep": {
+          "s1.0_a1.0": {
+            "clean": 71.86,
+            "clean_top5": 90.9,
+            "contrast_012": 29.32,
+            "fft_phase": 2.97,
+            "hflip": 71.89,
+            "hflip_consistency": 91.41
+          },
+          "s1.0_a0.75": {
+            "clean": 71.87,
+            "clean_top5": 90.83,
+            "contrast_012": 29.36,
+            "fft_phase": 2.94,
+            "hflip": 71.93,
+            "hflip_consistency": 91.47
+          },
+          "s1.0_a0.5": {
+            "clean": 71.91,
+            "clean_top5": 90.8,
+            "contrast_012": 29.31,
+            "fft_phase": 2.9,
+            "hflip": 71.95,
+            "hflip_consistency": 91.56
+          },
+          "s1.0_a0.0": {
+            "clean": 71.86,
+            "clean_top5": 90.83,
+            "contrast_012": 29.31,
+            "fft_phase": 2.85,
+            "hflip": 71.75,
+            "hflip_consistency": 91.64
+          }
+        },
+        "sym_sweep": {
+          "s1.0_a1.0": {
+            "clean": 71.86,
+            "clean_top5": 90.9,
+            "contrast_012": 29.32,
+            "fft_phase": 2.97,
+            "hflip": 71.89,
+            "hflip_consistency": 91.41
+          },
+          "s0.75_a1.0": {
+            "clean": 71.87,
+            "clean_top5": 90.84,
+            "contrast_012": 29.67,
+            "fft_phase": 3.03,
+            "hflip": 71.84,
+            "hflip_consistency": 91.44
+          },
+          "s0.5_a1.0": {
+            "clean": 71.78,
+            "clean_top5": 90.8,
+            "contrast_012": 30.08,
+            "fft_phase": 3.03,
+            "hflip": 71.77,
+            "hflip_consistency": 91.39
+          },
+          "s0.0_a1.0": {
+            "clean": 71.75,
+            "clean_top5": 90.88,
+            "contrast_012": 30.48,
+            "fft_phase": 3.08,
+            "hflip": 71.59,
+            "hflip_consistency": 91.38
+          }
+        },
+        "bypass": {
+          "s0.0_a0.0": {
+            "clean": 71.55,
+            "clean_top5": 90.84,
+            "contrast_012": 30.33,
+            "fft_phase": 2.94,
+            "hflip": 71.58,
+            "hflip_consistency": 91.57
+          }
+        }
+      },
+      "trajectory": [
+        {
+          "epoch": -1,
+          "top1": 71.078,
+          "theta_grad_norm": null,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.5,
+              "func_anti": 0.12192708182415063,
+              "mean_e_anti": 0.5,
+              "rms_ratio": 0.0024569592575060446
+            }
+          }
+        },
+        {
+          "epoch": 0,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 1,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 2,
+          "top1": 70.184,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.5,
+              "func_anti": 0.5365131313233724,
+              "mean_e_anti": 0.5,
+              "rms_ratio": 0.003858222671749991
+            }
+          }
+        },
+        {
+          "epoch": 3,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 4,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 5,
+          "top1": 70.264,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.5,
+              "func_anti": 0.47213419732939543,
+              "mean_e_anti": 0.5,
+              "rms_ratio": 0.023638436974920324
+            }
+          }
+        },
+        {
+          "epoch": 6,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 7,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 8,
+          "top1": 70.206,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.5,
+              "func_anti": 0.45377003098656643,
+              "mean_e_anti": 0.5,
+              "rms_ratio": 0.037807971485400736
+            }
+          }
+        },
+        {
+          "epoch": 9,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 10,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 11,
+          "top1": 70.488,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.5,
+              "func_anti": 0.443985064878229,
+              "mean_e_anti": 0.5,
+              "rms_ratio": 0.04535448994315197
+            }
+          }
+        },
+        {
+          "epoch": 12,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 13,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 14,
+          "top1": 70.704,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.5,
+              "func_anti": 0.4362090776998852,
+              "mean_e_anti": 0.5,
+              "rms_ratio": 0.05317965752726514
+            }
+          }
+        },
+        {
+          "epoch": 15,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 16,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 17,
+          "top1": 70.796,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.5,
+              "func_anti": 0.4249236470156999,
+              "mean_e_anti": 0.5,
+              "rms_ratio": 0.05900272794695849
+            }
+          }
+        },
+        {
+          "epoch": 18,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 19,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 20,
+          "top1": 70.956,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.5,
+              "func_anti": 0.42635472963519055,
+              "mean_e_anti": 0.5,
+              "rms_ratio": 0.06368850961957861
+            }
+          }
+        },
+        {
+          "epoch": 21,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 22,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 23,
+          "top1": 71.152,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.5,
+              "func_anti": 0.41919587242700795,
+              "mean_e_anti": 0.5,
+              "rms_ratio": 0.06697510869268405
+            }
+          }
+        },
+        {
+          "epoch": 24,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 25,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 26,
+          "top1": 71.198,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.5,
+              "func_anti": 0.417058893624884,
+              "mean_e_anti": 0.5,
+              "rms_ratio": 0.07015651655903749
+            }
+          }
+        },
+        {
+          "epoch": 27,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 28,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 29,
+          "top1": 71.242,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.5,
+              "func_anti": 0.41453975127476217,
+              "mean_e_anti": 0.5,
+              "rms_ratio": 0.07113014432053784
+            }
+          }
+        }
+      ]
+    },
+    "ft_s3_dir_free_star_s101": {
+      "name": "ft_s3_dir_free_star_s101",
+      "args": {
+        "name": "ft_s3_dir_free_star_s101",
+        "output_dir": "/scratch/itscspod/chtaihei/exsym_runs/waveB_stage3_directed",
+        "cache_dir": "/dev/shm/in1k_raw_cache_ar320",
+        "backbone": "convnext_atto",
+        "mode": "free_star",
+        "pair_type": "directed_right",
+        "placement": "stage3_mid",
+        "vit_insert_block": 8,
+        "rank_ratio": 1.0,
+        "gamma_init": 0.1,
+        "pretrained_ckpt": "/scratch/itscspod/chtaihei/cliffordnet_runs/in1k_waveC_100ep/in1k_convnext_atto_100ep/checkpoints/last.ckpt",
+        "rotation_task": false,
+        "epochs": 30,
+        "batch_size": 512,
+        "grad_accum": 2,
+        "num_workers": 12,
+        "lr": 0.0004,
+        "adapter_lr_mult": 3.0,
+        "min_lr": 1e-06,
+        "warmup_epochs": 2,
+        "weight_decay": 0.05,
+        "drop_path": 0.1,
+        "ema_decay": 0.999,
+        "mixup": 0.8,
+        "cutmix": 1.0,
+        "label_smoothing": 0.1,
+        "clip_grad": 5.0,
+        "no_compile": false,
+        "data_seed": 101,
+        "init_seed": 3101,
+        "eval_interval": 3,
+        "save_best_only": false,
+        "resume": true,
+        "max_steps": 0,
+        "deadline_iso": "2026-11-23T09:45:00+08:00"
+      },
+      "full_eval": {
+        "clean": 71.43,
+        "clean_top5": 90.5,
+        "contrast_012": 31.87,
+        "gaussian_noise": 25.52,
+        "fft_phase": 2.56,
+        "hflip": 71.42,
+        "hflip_consistency": 91.18
+      },
+      "symmetry_final": {
+        "stage3_mid": {
+          "mode": "free_star",
+          "pair_type": "directed_right",
+          "dim": 160,
+          "rank": 160,
+          "mean_e_anti": 0.6439379453659058,
+          "std_e_anti": 0.19458897411823273,
+          "theta_mean": -0.16183167695999146,
+          "theta_std": 0.22329770028591156,
+          "theta_quantiles": [
+            -0.4985787868499756,
+            -0.3038047254085541,
+            -0.17200762033462524,
+            0.009006216190755367,
+            0.1168857291340828
+          ],
+          "weight_weighted_e_anti": 0.661443695018941,
+          "eff_anti": 0.6722071562380302,
+          "func_anti": 0.569285665930735,
+          "delta_rms": 0.16878172755241394,
+          "x_rms": 2.1399104595184326,
+          "rms_ratio": 0.07887326630965519,
+          "top25_energy_frac": 0.4422721130047884
+        }
+      },
+      "intervention": {
+        "anti_sweep": {
+          "s1.0_a1.0": {
+            "clean": 72.34,
+            "clean_top5": 90.63,
+            "contrast_012": 31.55,
+            "fft_phase": 2.63,
+            "hflip": 72.17,
+            "hflip_consistency": 91.6
+          },
+          "s1.0_a0.75": {
+            "clean": 72.27,
+            "clean_top5": 90.7,
+            "contrast_012": 31.45,
+            "fft_phase": 2.55,
+            "hflip": 72.17,
+            "hflip_consistency": 91.7
+          },
+          "s1.0_a0.5": {
+            "clean": 72.2,
+            "clean_top5": 90.73,
+            "contrast_012": 31.37,
+            "fft_phase": 2.49,
+            "hflip": 72.09,
+            "hflip_consistency": 91.62
+          },
+          "s1.0_a0.0": {
+            "clean": 72.1,
+            "clean_top5": 90.78,
+            "contrast_012": 30.98,
+            "fft_phase": 2.4,
+            "hflip": 72.06,
+            "hflip_consistency": 91.48
+          }
+        },
+        "sym_sweep": {
+          "s1.0_a1.0": {
+            "clean": 72.34,
+            "clean_top5": 90.63,
+            "contrast_012": 31.55,
+            "fft_phase": 2.63,
+            "hflip": 72.17,
+            "hflip_consistency": 91.6
+          },
+          "s0.75_a1.0": {
+            "clean": 72.16,
+            "clean_top5": 90.69,
+            "contrast_012": 31.51,
+            "fft_phase": 2.64,
+            "hflip": 72.1,
+            "hflip_consistency": 91.51
+          },
+          "s0.5_a1.0": {
+            "clean": 72.19,
+            "clean_top5": 90.72,
+            "contrast_012": 31.62,
+            "fft_phase": 2.62,
+            "hflip": 72.06,
+            "hflip_consistency": 91.54
+          },
+          "s0.0_a1.0": {
+            "clean": 72.13,
+            "clean_top5": 90.59,
+            "contrast_012": 31.7,
+            "fft_phase": 2.65,
+            "hflip": 71.91,
+            "hflip_consistency": 91.43
+          }
+        },
+        "bypass": {
+          "s0.0_a0.0": {
+            "clean": 71.88,
+            "clean_top5": 90.62,
+            "contrast_012": 31.36,
+            "fft_phase": 2.41,
+            "hflip": 71.81,
+            "hflip_consistency": 91.37
+          }
+        }
+      },
+      "trajectory": [
+        {
+          "epoch": -1,
+          "top1": 71.12,
+          "theta_grad_norm": null,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.5,
+              "func_anti": 0.09971546777210971,
+              "mean_e_anti": 0.5,
+              "rms_ratio": 0.002725134440697818
+            }
+          }
+        },
+        {
+          "epoch": 0,
+          "top1": null,
+          "theta_grad_norm": 0.000372
+        },
+        {
+          "epoch": 1,
+          "top1": null,
+          "theta_grad_norm": 8.6e-05
+        },
+        {
+          "epoch": 2,
+          "top1": 70.124,
+          "theta_grad_norm": 0.000399,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.6163347755878112,
+              "func_anti": 0.629163351832392,
+              "mean_e_anti": 0.5661741495132446,
+              "rms_ratio": 0.003904490019854712
+            }
+          }
+        },
+        {
+          "epoch": 3,
+          "top1": null,
+          "theta_grad_norm": 0.000704
+        },
+        {
+          "epoch": 4,
+          "top1": null,
+          "theta_grad_norm": 0.00101
+        },
+        {
+          "epoch": 5,
+          "top1": 70.168,
+          "theta_grad_norm": 0.001181,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.7020254432591351,
+              "func_anti": 0.6494853664773378,
+              "mean_e_anti": 0.6745597124099731,
+              "rms_ratio": 0.02538156622716093
+            }
+          }
+        },
+        {
+          "epoch": 6,
+          "top1": null,
+          "theta_grad_norm": 0.001478
+        },
+        {
+          "epoch": 7,
+          "top1": null,
+          "theta_grad_norm": 0.001669
+        },
+        {
+          "epoch": 8,
+          "top1": 70.322,
+          "theta_grad_norm": 0.001828,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.7002736354776298,
+              "func_anti": 0.6278666551305381,
+              "mean_e_anti": 0.6876537799835205,
+              "rms_ratio": 0.03860908523461279
+            }
+          }
+        },
+        {
+          "epoch": 9,
+          "top1": null,
+          "theta_grad_norm": 0.002003
+        },
+        {
+          "epoch": 10,
+          "top1": null,
+          "theta_grad_norm": 0.002074
+        },
+        {
+          "epoch": 11,
+          "top1": 70.478,
+          "theta_grad_norm": 0.002278,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.6941632201057852,
+              "func_anti": 0.6117684938429794,
+              "mean_e_anti": 0.6829063892364502,
+              "rms_ratio": 0.04913561038555957
+            }
+          }
+        },
+        {
+          "epoch": 12,
+          "top1": null,
+          "theta_grad_norm": 0.002582
+        },
+        {
+          "epoch": 13,
+          "top1": null,
+          "theta_grad_norm": 0.002655
+        },
+        {
+          "epoch": 14,
+          "top1": 70.776,
+          "theta_grad_norm": 0.002664,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.6920135088822558,
+              "func_anti": 0.6040063286047554,
+              "mean_e_anti": 0.6732670068740845,
+              "rms_ratio": 0.05742096603230511
+            }
+          }
+        },
+        {
+          "epoch": 15,
+          "top1": null,
+          "theta_grad_norm": 0.002794
+        },
+        {
+          "epoch": 16,
+          "top1": null,
+          "theta_grad_norm": 0.002896
+        },
+        {
+          "epoch": 17,
+          "top1": 71.006,
+          "theta_grad_norm": 0.003015,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.6859162220004483,
+              "func_anti": 0.5988401686726681,
+              "mean_e_anti": 0.6650883555412292,
+              "rms_ratio": 0.06338594553495636
+            }
+          }
+        },
+        {
+          "epoch": 18,
+          "top1": null,
+          "theta_grad_norm": 0.002967
+        },
+        {
+          "epoch": 19,
+          "top1": null,
+          "theta_grad_norm": 0.003056
+        },
+        {
+          "epoch": 20,
+          "top1": 71.146,
+          "theta_grad_norm": 0.003245,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.680067180526275,
+              "func_anti": 0.5870908356382717,
+              "mean_e_anti": 0.6543579697608948,
+              "rms_ratio": 0.07083442872608164
+            }
+          }
+        },
+        {
+          "epoch": 21,
+          "top1": null,
+          "theta_grad_norm": 0.00336
+        },
+        {
+          "epoch": 22,
+          "top1": null,
+          "theta_grad_norm": 0.003339
+        },
+        {
+          "epoch": 23,
+          "top1": 71.244,
+          "theta_grad_norm": 0.003566,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.6758530234014379,
+              "func_anti": 0.5804601060786982,
+              "mean_e_anti": 0.6477832794189453,
+              "rms_ratio": 0.0764470056220999
+            }
+          }
+        },
+        {
+          "epoch": 24,
+          "top1": null,
+          "theta_grad_norm": 0.003553
+        },
+        {
+          "epoch": 25,
+          "top1": null,
+          "theta_grad_norm": 0.003537
+        },
+        {
+          "epoch": 26,
+          "top1": 71.44,
+          "theta_grad_norm": 0.003581,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.6717797347111301,
+              "func_anti": 0.5709140730686313,
+              "mean_e_anti": 0.6439379453659058,
+              "rms_ratio": 0.078237697610174
+            }
+          }
+        },
+        {
+          "epoch": 27,
+          "top1": null,
+          "theta_grad_norm": 0.003629
+        },
+        {
+          "epoch": 28,
+          "top1": null,
+          "theta_grad_norm": 0.003608
+        },
+        {
+          "epoch": 29,
+          "top1": 71.418,
+          "theta_grad_norm": 0.003605,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.6709460324514867,
+              "func_anti": 0.5686608151134351,
+              "mean_e_anti": 0.6429167985916138,
+              "rms_ratio": 0.07943573898896213
+            }
+          }
+        }
+      ]
+    },
+    "ft_s3_dir_star_s42": {
+      "name": "ft_s3_dir_star_s42",
+      "args": {
+        "name": "ft_s3_dir_star_s42",
+        "output_dir": "/scratch/itscspod/chtaihei/exsym_runs/waveB_stage3_directed",
+        "cache_dir": "/dev/shm/in1k_raw_cache_ar320",
+        "backbone": "convnext_atto",
+        "mode": "star",
+        "pair_type": "directed_right",
+        "placement": "stage3_mid",
+        "vit_insert_block": 8,
+        "rank_ratio": 1.0,
+        "gamma_init": 0.1,
+        "pretrained_ckpt": "/scratch/itscspod/chtaihei/cliffordnet_runs/in1k_waveC_100ep/in1k_convnext_atto_100ep/checkpoints/last.ckpt",
+        "rotation_task": false,
+        "epochs": 30,
+        "batch_size": 512,
+        "grad_accum": 2,
+        "num_workers": 12,
+        "lr": 0.0004,
+        "adapter_lr_mult": 3.0,
+        "min_lr": 1e-06,
+        "warmup_epochs": 2,
+        "weight_decay": 0.05,
+        "drop_path": 0.1,
+        "ema_decay": 0.999,
+        "mixup": 0.8,
+        "cutmix": 1.0,
+        "label_smoothing": 0.1,
+        "clip_grad": 5.0,
+        "no_compile": false,
+        "data_seed": 42,
+        "init_seed": 3042,
+        "eval_interval": 3,
+        "save_best_only": false,
+        "resume": true,
+        "max_steps": 0,
+        "deadline_iso": "2026-11-23T09:45:00+08:00"
+      },
+      "full_eval": {
+        "clean": 71.36,
+        "clean_top5": 90.43,
+        "contrast_012": 31.45,
+        "gaussian_noise": 25.17,
+        "fft_phase": 2.61,
+        "hflip": 71.39,
+        "hflip_consistency": 91.24
+      },
+      "symmetry_final": {
+        "stage3_mid": {
+          "mode": "star",
+          "pair_type": "directed_right",
+          "dim": 160,
+          "rank": 160,
+          "mean_e_anti": 0.5,
+          "std_e_anti": 0.0,
+          "theta_mean": 0.0,
+          "theta_std": 0.0,
+          "theta_quantiles": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "weight_weighted_e_anti": 0.5,
+          "eff_anti": 0.5,
+          "func_anti": 0.4038687133690553,
+          "delta_rms": 0.15352600812911987,
+          "x_rms": 2.1706457138061523,
+          "rms_ratio": 0.07072826631846674,
+          "top25_energy_frac": 0.4210579521211062
+        }
+      },
+      "intervention": {
+        "anti_sweep": {
+          "s1.0_a1.0": {
+            "clean": 72.03,
+            "clean_top5": 90.66,
+            "contrast_012": 31.44,
+            "fft_phase": 2.65,
+            "hflip": 71.98,
+            "hflip_consistency": 91.19
+          },
+          "s1.0_a0.75": {
+            "clean": 71.98,
+            "clean_top5": 90.69,
+            "contrast_012": 31.47,
+            "fft_phase": 2.62,
+            "hflip": 71.94,
+            "hflip_consistency": 91.22
+          },
+          "s1.0_a0.5": {
+            "clean": 71.93,
+            "clean_top5": 90.7,
+            "contrast_012": 31.38,
+            "fft_phase": 2.58,
+            "hflip": 71.84,
+            "hflip_consistency": 91.37
+          },
+          "s1.0_a0.0": {
+            "clean": 71.95,
+            "clean_top5": 90.7,
+            "contrast_012": 31.23,
+            "fft_phase": 2.51,
+            "hflip": 71.83,
+            "hflip_consistency": 91.52
+          }
+        },
+        "sym_sweep": {
+          "s1.0_a1.0": {
+            "clean": 72.03,
+            "clean_top5": 90.66,
+            "contrast_012": 31.44,
+            "fft_phase": 2.65,
+            "hflip": 71.98,
+            "hflip_consistency": 91.19
+          },
+          "s0.75_a1.0": {
+            "clean": 72.0,
+            "clean_top5": 90.67,
+            "contrast_012": 31.93,
+            "fft_phase": 2.65,
+            "hflip": 71.92,
+            "hflip_consistency": 91.3
+          },
+          "s0.5_a1.0": {
+            "clean": 72.02,
+            "clean_top5": 90.67,
+            "contrast_012": 32.14,
+            "fft_phase": 2.68,
+            "hflip": 71.87,
+            "hflip_consistency": 91.41
+          },
+          "s0.0_a1.0": {
+            "clean": 71.97,
+            "clean_top5": 90.64,
+            "contrast_012": 32.49,
+            "fft_phase": 2.64,
+            "hflip": 71.7,
+            "hflip_consistency": 91.46
+          }
+        },
+        "bypass": {
+          "s0.0_a0.0": {
+            "clean": 71.92,
+            "clean_top5": 90.55,
+            "contrast_012": 32.19,
+            "fft_phase": 2.55,
+            "hflip": 71.59,
+            "hflip_consistency": 91.72
+          }
+        }
+      },
+      "trajectory": [
+        {
+          "epoch": -1,
+          "top1": 71.132,
+          "theta_grad_norm": null,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.5,
+              "func_anti": 0.09950976886333424,
+              "mean_e_anti": 0.5,
+              "rms_ratio": 0.0027948226736439217
+            }
+          }
+        },
+        {
+          "epoch": 0,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 1,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 2,
+          "top1": 70.128,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.5,
+              "func_anti": 0.5604412734334945,
+              "mean_e_anti": 0.5,
+              "rms_ratio": 0.00379549865067332
+            }
+          }
+        },
+        {
+          "epoch": 3,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 4,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 5,
+          "top1": 70.064,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.5,
+              "func_anti": 0.4625656449929517,
+              "mean_e_anti": 0.5,
+              "rms_ratio": 0.02310131599710755
+            }
+          }
+        },
+        {
+          "epoch": 6,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 7,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 8,
+          "top1": 70.29,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.5,
+              "func_anti": 0.4368846469018688,
+              "mean_e_anti": 0.5,
+              "rms_ratio": 0.03582567117223385
+            }
+          }
+        },
+        {
+          "epoch": 9,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 10,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 11,
+          "top1": 70.562,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.5,
+              "func_anti": 0.4370335628575911,
+              "mean_e_anti": 0.5,
+              "rms_ratio": 0.045038417416023276
+            }
+          }
+        },
+        {
+          "epoch": 12,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 13,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 14,
+          "top1": 70.604,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.5,
+              "func_anti": 0.4275834887607749,
+              "mean_e_anti": 0.5,
+              "rms_ratio": 0.053244809208825135
+            }
+          }
+        },
+        {
+          "epoch": 15,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 16,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 17,
+          "top1": 70.856,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.5,
+              "func_anti": 0.41695657647848144,
+              "mean_e_anti": 0.5,
+              "rms_ratio": 0.059151935920006685
+            }
+          }
+        },
+        {
+          "epoch": 18,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 19,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 20,
+          "top1": 71.036,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.5,
+              "func_anti": 0.41508198477252434,
+              "mean_e_anti": 0.5,
+              "rms_ratio": 0.06420538312519822
+            }
+          }
+        },
+        {
+          "epoch": 21,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 22,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 23,
+          "top1": 71.244,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.5,
+              "func_anti": 0.41013730098103307,
+              "mean_e_anti": 0.5,
+              "rms_ratio": 0.06717505135188696
+            }
+          }
+        },
+        {
+          "epoch": 24,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 25,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 26,
+          "top1": 71.344,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.5,
+              "func_anti": 0.4056967736909844,
+              "mean_e_anti": 0.5,
+              "rms_ratio": 0.07004761517348566
+            }
+          }
+        },
+        {
+          "epoch": 27,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 28,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 29,
+          "top1": 71.33,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.5,
+              "func_anti": 0.40461596712059966,
+              "mean_e_anti": 0.5,
+              "rms_ratio": 0.07083340140678288
+            }
+          }
+        }
+      ]
+    },
+    "ft_s3_dir_free_star_s202": {
+      "name": "ft_s3_dir_free_star_s202",
+      "args": {
+        "name": "ft_s3_dir_free_star_s202",
+        "output_dir": "/scratch/itscspod/chtaihei/exsym_runs/waveB_stage3_directed",
+        "cache_dir": "/dev/shm/in1k_raw_cache_ar320",
+        "backbone": "convnext_atto",
+        "mode": "free_star",
+        "pair_type": "directed_right",
+        "placement": "stage3_mid",
+        "vit_insert_block": 8,
+        "rank_ratio": 1.0,
+        "gamma_init": 0.1,
+        "pretrained_ckpt": "/scratch/itscspod/chtaihei/cliffordnet_runs/in1k_waveC_100ep/in1k_convnext_atto_100ep/checkpoints/last.ckpt",
+        "rotation_task": false,
+        "epochs": 30,
+        "batch_size": 512,
+        "grad_accum": 2,
+        "num_workers": 12,
+        "lr": 0.0004,
+        "adapter_lr_mult": 3.0,
+        "min_lr": 1e-06,
+        "warmup_epochs": 2,
+        "weight_decay": 0.05,
+        "drop_path": 0.1,
+        "ema_decay": 0.999,
+        "mixup": 0.8,
+        "cutmix": 1.0,
+        "label_smoothing": 0.1,
+        "clip_grad": 5.0,
+        "no_compile": false,
+        "data_seed": 202,
+        "init_seed": 3202,
+        "eval_interval": 3,
+        "save_best_only": false,
+        "resume": true,
+        "max_steps": 0,
+        "deadline_iso": "2026-11-23T09:45:00+08:00"
+      },
+      "full_eval": {
+        "clean": 71.25,
+        "clean_top5": 90.52,
+        "contrast_012": 29.7,
+        "gaussian_noise": 25.17,
+        "fft_phase": 2.95,
+        "hflip": 71.4,
+        "hflip_consistency": 91.46
+      },
+      "symmetry_final": {
+        "stage3_mid": {
+          "mode": "free_star",
+          "pair_type": "directed_right",
+          "dim": 160,
+          "rank": 160,
+          "mean_e_anti": 0.6390289664268494,
+          "std_e_anti": 0.19487610459327698,
+          "theta_mean": -0.15637296438217163,
+          "theta_std": 0.2275296002626419,
+          "theta_quantiles": [
+            -0.4483867883682251,
+            -0.29639801383018494,
+            -0.14276380836963654,
+            0.010642633773386478,
+            0.10518154501914978
+          ],
+          "weight_weighted_e_anti": 0.6590047346540333,
+          "eff_anti": 0.6680831449703462,
+          "func_anti": 0.5742965394306915,
+          "delta_rms": 0.15898866951465607,
+          "x_rms": 2.158720016479492,
+          "rms_ratio": 0.07364950910768861,
+          "top25_energy_frac": 0.4097445363373715
+        }
+      },
+      "intervention": {
+        "anti_sweep": {
+          "s1.0_a1.0": {
+            "clean": 71.87,
+            "clean_top5": 90.76,
+            "contrast_012": 29.48,
+            "fft_phase": 2.92,
+            "hflip": 71.88,
+            "hflip_consistency": 91.56
+          },
+          "s1.0_a0.75": {
+            "clean": 71.81,
+            "clean_top5": 90.78,
+            "contrast_012": 29.34,
+            "fft_phase": 2.89,
+            "hflip": 71.91,
+            "hflip_consistency": 91.65
+          },
+          "s1.0_a0.5": {
+            "clean": 71.8,
+            "clean_top5": 90.73,
+            "contrast_012": 29.26,
+            "fft_phase": 2.84,
+            "hflip": 71.82,
+            "hflip_consistency": 91.62
+          },
+          "s1.0_a0.0": {
+            "clean": 71.66,
+            "clean_top5": 90.65,
+            "contrast_012": 28.91,
+            "fft_phase": 2.77,
+            "hflip": 71.73,
+            "hflip_consistency": 91.61
+          }
+        },
+        "sym_sweep": {
+          "s1.0_a1.0": {
+            "clean": 71.87,
+            "clean_top5": 90.76,
+            "contrast_012": 29.48,
+            "fft_phase": 2.92,
+            "hflip": 71.88,
+            "hflip_consistency": 91.56
+          },
+          "s0.75_a1.0": {
+            "clean": 71.79,
+            "clean_top5": 90.81,
+            "contrast_012": 29.77,
+            "fft_phase": 2.94,
+            "hflip": 71.86,
+            "hflip_consistency": 91.57
+          },
+          "s0.5_a1.0": {
+            "clean": 71.79,
+            "clean_top5": 90.75,
+            "contrast_012": 30.04,
+            "fft_phase": 2.96,
+            "hflip": 71.88,
+            "hflip_consistency": 91.51
+          },
+          "s0.0_a1.0": {
+            "clean": 71.71,
+            "clean_top5": 90.73,
+            "contrast_012": 30.58,
+            "fft_phase": 2.98,
+            "hflip": 71.61,
+            "hflip_consistency": 91.44
+          }
+        },
+        "bypass": {
+          "s0.0_a0.0": {
+            "clean": 71.54,
+            "clean_top5": 90.73,
+            "contrast_012": 30.12,
+            "fft_phase": 2.85,
+            "hflip": 71.56,
+            "hflip_consistency": 91.67
+          }
+        }
+      },
+      "trajectory": [
+        {
+          "epoch": -1,
+          "top1": 71.078,
+          "theta_grad_norm": null,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.5,
+              "func_anti": 0.12192708182415063,
+              "mean_e_anti": 0.5,
+              "rms_ratio": 0.0024569592575060446
+            }
+          }
+        },
+        {
+          "epoch": 0,
+          "top1": null,
+          "theta_grad_norm": 0.000328
+        },
+        {
+          "epoch": 1,
+          "top1": null,
+          "theta_grad_norm": 8.7e-05
+        },
+        {
+          "epoch": 2,
+          "top1": 70.152,
+          "theta_grad_norm": 0.000351,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.6109823661526792,
+              "func_anti": 0.6390142902378071,
+              "mean_e_anti": 0.5710281133651733,
+              "rms_ratio": 0.004069511065441161
+            }
+          }
+        },
+        {
+          "epoch": 3,
+          "top1": null,
+          "theta_grad_norm": 0.000695
+        },
+        {
+          "epoch": 4,
+          "top1": null,
+          "theta_grad_norm": 0.000992
+        },
+        {
+          "epoch": 5,
+          "top1": 70.276,
+          "theta_grad_norm": 0.001216,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.7079378672137964,
+              "func_anti": 0.6573355846166491,
+              "mean_e_anti": 0.6754436492919922,
+              "rms_ratio": 0.02495427395739448
+            }
+          }
+        },
+        {
+          "epoch": 6,
+          "top1": null,
+          "theta_grad_norm": 0.001501
+        },
+        {
+          "epoch": 7,
+          "top1": null,
+          "theta_grad_norm": 0.001643
+        },
+        {
+          "epoch": 8,
+          "top1": 70.216,
+          "theta_grad_norm": 0.001832,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.7094851162201916,
+              "func_anti": 0.6382017304945697,
+              "mean_e_anti": 0.6841608881950378,
+              "rms_ratio": 0.039307113600468735
+            }
+          }
+        },
+        {
+          "epoch": 9,
+          "top1": null,
+          "theta_grad_norm": 0.001947
+        },
+        {
+          "epoch": 10,
+          "top1": null,
+          "theta_grad_norm": 0.002152
+        },
+        {
+          "epoch": 11,
+          "top1": 70.486,
+          "theta_grad_norm": 0.002296,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.6996027058634071,
+              "func_anti": 0.6180640638307555,
+              "mean_e_anti": 0.6763054728507996,
+              "rms_ratio": 0.04762744545864185
+            }
+          }
+        },
+        {
+          "epoch": 12,
+          "top1": null,
+          "theta_grad_norm": 0.002428
+        },
+        {
+          "epoch": 13,
+          "top1": null,
+          "theta_grad_norm": 0.002595
+        },
+        {
+          "epoch": 14,
+          "top1": 70.624,
+          "theta_grad_norm": 0.002658,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.6887952432506761,
+              "func_anti": 0.598922554220356,
+              "mean_e_anti": 0.6655747890472412,
+              "rms_ratio": 0.05582285381761473
+            }
+          }
+        },
+        {
+          "epoch": 15,
+          "top1": null,
+          "theta_grad_norm": 0.002944
+        },
+        {
+          "epoch": 16,
+          "top1": null,
+          "theta_grad_norm": 0.003034
+        },
+        {
+          "epoch": 17,
+          "top1": 70.812,
+          "theta_grad_norm": 0.003007,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.6800149149942502,
+              "func_anti": 0.5884149460280299,
+              "mean_e_anti": 0.6567896604537964,
+              "rms_ratio": 0.06168587043036681
+            }
+          }
+        },
+        {
+          "epoch": 18,
+          "top1": null,
+          "theta_grad_norm": 0.003073
+        },
+        {
+          "epoch": 19,
+          "top1": null,
+          "theta_grad_norm": 0.003031
+        },
+        {
+          "epoch": 20,
+          "top1": 71.038,
+          "theta_grad_norm": 0.003338,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.6737578171744114,
+              "func_anti": 0.5882550424113084,
+              "mean_e_anti": 0.648730993270874,
+              "rms_ratio": 0.06654126479772042
+            }
+          }
+        },
+        {
+          "epoch": 21,
+          "top1": null,
+          "theta_grad_norm": 0.003301
+        },
+        {
+          "epoch": 22,
+          "top1": null,
+          "theta_grad_norm": 0.00347
+        },
+        {
+          "epoch": 23,
+          "top1": 71.142,
+          "theta_grad_norm": 0.003481,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.6711069786152597,
+              "func_anti": 0.5809876392728558,
+              "mean_e_anti": 0.6433078050613403,
+              "rms_ratio": 0.07014439702408708
+            }
+          }
+        },
+        {
+          "epoch": 24,
+          "top1": null,
+          "theta_grad_norm": 0.003683
+        },
+        {
+          "epoch": 25,
+          "top1": null,
+          "theta_grad_norm": 0.003495
+        },
+        {
+          "epoch": 26,
+          "top1": 71.218,
+          "theta_grad_norm": 0.003688,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.6689507720755927,
+              "func_anti": 0.579360064897074,
+              "mean_e_anti": 0.6399109959602356,
+              "rms_ratio": 0.07268055466012723
+            }
+          }
+        },
+        {
+          "epoch": 27,
+          "top1": null,
+          "theta_grad_norm": 0.003787
+        },
+        {
+          "epoch": 28,
+          "top1": null,
+          "theta_grad_norm": 0.003609
+        },
+        {
+          "epoch": 29,
+          "top1": 71.278,
+          "theta_grad_norm": 0.003697,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.6679753422055874,
+              "func_anti": 0.5765867448461749,
+              "mean_e_anti": 0.6390289664268494,
+              "rms_ratio": 0.07296645263322596
+            }
+          }
+        }
+      ]
+    },
+    "ft_s3_dir_sym_s101": {
+      "name": "ft_s3_dir_sym_s101",
+      "args": {
+        "name": "ft_s3_dir_sym_s101",
+        "output_dir": "/scratch/itscspod/chtaihei/exsym_runs/waveB_stage3_directed",
+        "cache_dir": "/dev/shm/in1k_raw_cache_ar320",
+        "backbone": "convnext_atto",
+        "mode": "sym",
+        "pair_type": "directed_right",
+        "placement": "stage3_mid",
+        "vit_insert_block": 8,
+        "rank_ratio": 1.0,
+        "gamma_init": 0.1,
+        "pretrained_ckpt": "/scratch/itscspod/chtaihei/cliffordnet_runs/in1k_waveC_100ep/in1k_convnext_atto_100ep/checkpoints/last.ckpt",
+        "rotation_task": false,
+        "epochs": 30,
+        "batch_size": 512,
+        "grad_accum": 2,
+        "num_workers": 12,
+        "lr": 0.0004,
+        "adapter_lr_mult": 3.0,
+        "min_lr": 1e-06,
+        "warmup_epochs": 2,
+        "weight_decay": 0.05,
+        "drop_path": 0.1,
+        "ema_decay": 0.999,
+        "mixup": 0.8,
+        "cutmix": 1.0,
+        "label_smoothing": 0.1,
+        "clip_grad": 5.0,
+        "no_compile": false,
+        "data_seed": 101,
+        "init_seed": 3101,
+        "eval_interval": 3,
+        "save_best_only": false,
+        "resume": true,
+        "max_steps": 0,
+        "deadline_iso": "2026-11-23T09:45:00+08:00"
+      },
+      "full_eval": {
+        "clean": 71.36,
+        "clean_top5": 90.53,
+        "contrast_012": 33.56,
+        "gaussian_noise": 25.65,
+        "fft_phase": 2.64,
+        "hflip": 71.43,
+        "hflip_consistency": 91.22
+      },
+      "symmetry_final": {
+        "stage3_mid": {
+          "mode": "sym",
+          "pair_type": "directed_right",
+          "dim": 160,
+          "rank": 160,
+          "mean_e_anti": 0.0,
+          "std_e_anti": 0.0,
+          "theta_mean": 0.7853981256484985,
+          "theta_std": 5.979178752113512e-08,
+          "theta_quantiles": [
+            0.7853981852531433,
+            0.7853981852531433,
+            0.7853981852531433,
+            0.7853981852531433,
+            0.7853981852531433
+          ],
+          "weight_weighted_e_anti": 0.0,
+          "eff_anti": 0.0,
+          "func_anti": 1.4250551391574135e-13,
+          "delta_rms": 0.13350501656532288,
+          "x_rms": 2.1606109142303467,
+          "rms_ratio": 0.061790401819237346,
+          "top25_energy_frac": 0.393821761949623
+        }
+      },
+      "intervention": {
+        "anti_sweep": {
+          "s1.0_a1.0": {
+            "clean": 72.16,
+            "clean_top5": 90.78,
+            "contrast_012": 33.54,
+            "fft_phase": 2.69,
+            "hflip": 71.99,
+            "hflip_consistency": 91.27
+          },
+          "s1.0_a0.75": {
+            "clean": 72.16,
+            "clean_top5": 90.78,
+            "contrast_012": 33.54,
+            "fft_phase": 2.69,
+            "hflip": 71.99,
+            "hflip_consistency": 91.27
+          },
+          "s1.0_a0.5": {
+            "clean": 72.16,
+            "clean_top5": 90.78,
+            "contrast_012": 33.54,
+            "fft_phase": 2.69,
+            "hflip": 71.99,
+            "hflip_consistency": 91.27
+          },
+          "s1.0_a0.0": {
+            "clean": 72.16,
+            "clean_top5": 90.78,
+            "contrast_012": 33.54,
+            "fft_phase": 2.69,
+            "hflip": 71.99,
+            "hflip_consistency": 91.27
+          }
+        },
+        "sym_sweep": {
+          "s1.0_a1.0": {
+            "clean": 72.16,
+            "clean_top5": 90.78,
+            "contrast_012": 33.54,
+            "fft_phase": 2.69,
+            "hflip": 71.99,
+            "hflip_consistency": 91.27
+          },
+          "s0.75_a1.0": {
+            "clean": 72.08,
+            "clean_top5": 90.77,
+            "contrast_012": 33.47,
+            "fft_phase": 2.66,
+            "hflip": 72.0,
+            "hflip_consistency": 91.42
+          },
+          "s0.5_a1.0": {
+            "clean": 72.02,
+            "clean_top5": 90.73,
+            "contrast_012": 33.3,
+            "fft_phase": 2.64,
+            "hflip": 71.89,
+            "hflip_consistency": 91.38
+          },
+          "s0.0_a1.0": {
+            "clean": 71.88,
+            "clean_top5": 90.66,
+            "contrast_012": 33.29,
+            "fft_phase": 2.58,
+            "hflip": 71.89,
+            "hflip_consistency": 91.45
+          }
+        },
+        "bypass": {
+          "s0.0_a0.0": {
+            "clean": 71.88,
+            "clean_top5": 90.66,
+            "contrast_012": 33.29,
+            "fft_phase": 2.58,
+            "hflip": 71.89,
+            "hflip_consistency": 91.45
+          }
+        }
+      },
+      "trajectory": [
+        {
+          "epoch": -1,
+          "top1": 71.116,
+          "theta_grad_norm": null,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.0,
+              "func_anti": 5.467261187278362e-13,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.0036569901498746927
+            }
+          }
+        },
+        {
+          "epoch": 0,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 1,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 2,
+          "top1": 70.12,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.0,
+              "func_anti": 2.2018231552785652e-12,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.0018749202631639992
+            }
+          }
+        },
+        {
+          "epoch": 3,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 4,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 5,
+          "top1": 70.114,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.0,
+              "func_anti": 3.321027293846052e-12,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.016394981477886834
+            }
+          }
+        },
+        {
+          "epoch": 6,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 7,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 8,
+          "top1": 70.298,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.0,
+              "func_anti": 2.218738701772504e-12,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.027687977476484837
+            }
+          }
+        },
+        {
+          "epoch": 9,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 10,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 11,
+          "top1": 70.508,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.0,
+              "func_anti": 5.384016607181849e-12,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.03589290457222129
+            }
+          }
+        },
+        {
+          "epoch": 12,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 13,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 14,
+          "top1": 70.726,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.0,
+              "func_anti": 1.8647326616221855e-12,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.042708228026012776
+            }
+          }
+        },
+        {
+          "epoch": 15,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 16,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 17,
+          "top1": 70.868,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.0,
+              "func_anti": 3.0858282798110604e-12,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.04786577142171749
+            }
+          }
+        },
+        {
+          "epoch": 18,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 19,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 20,
+          "top1": 71.048,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.0,
+              "func_anti": 3.268636784209181e-12,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.054146059261876975
+            }
+          }
+        },
+        {
+          "epoch": 21,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 22,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 23,
+          "top1": 71.258,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.0,
+              "func_anti": 2.6378967944334938e-12,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.05907902316569047
+            }
+          }
+        },
+        {
+          "epoch": 24,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 25,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 26,
+          "top1": 71.328,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.0,
+              "func_anti": 1.9394425480104185e-12,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.06098477492329549
+            }
+          }
+        },
+        {
+          "epoch": 27,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 28,
+          "top1": null,
+          "theta_grad_norm": 0.0
+        },
+        {
+          "epoch": 29,
+          "top1": 71.372,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "stage3_mid": {
+              "eff_anti": 0.0,
+              "func_anti": 2.0116946582559117e-12,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.061485414690867365
+            }
+          }
+        }
+      ]
+    }
+  }
+}

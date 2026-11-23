@@ -255,16 +255,26 @@ class ViTWithAdapter(nn.Module):
         insert_after_block: int = 8,
         rank_ratio: float = 1.0,
         gamma_init: float = 0.1,
+        pretrained_ckpt: str | Path | None = None,
     ) -> None:
         super().__init__()
         self.timm_name = timm_name
         self.adapter_mode = adapter_mode
         self.insert_after_block = insert_after_block
+        init_classes = 1000 if pretrained_ckpt is not None else num_classes
         self.backbone = timm.create_model(
             timm_name,
-            num_classes=num_classes,
+            num_classes=init_classes,
             drop_path_rate=drop_path_rate,
         )
+        if pretrained_ckpt is not None:
+            ck = torch.load(str(pretrained_ckpt), map_location="cpu", weights_only=False)
+            sd = ck.get("ema_model", ck.get("model", ck))
+            bb_sd = {k[len("backbone."):]: v for k, v in sd.items() if k.startswith("backbone.")}
+            self.backbone.load_state_dict(bb_sd, strict=True)
+            if num_classes != 1000:
+                in_f = self.backbone.head.in_features
+                self.backbone.head = nn.Linear(in_f, num_classes)
         dim = self.backbone.embed_dim
         self.adapters = nn.ModuleDict()
         if adapter_mode != "none":

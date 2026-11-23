@@ -112,6 +112,7 @@ def main() -> None:
     f_wc = _load_if_exists(RES / "forensics_waveC_rot4_matched_aa0.json")
     f_wd = _load_if_exists(RES / "forensics_waveD_scratch_100ep.json")
     f_we = _load_if_exists(RES / "forensics_waveE_vit_tiny_3seeds.json") or _load_if_exists(RES / "forensics_waveE_vit_tiny_scratch.json")
+    f_wf = _load_if_exists(RES / "forensics_waveF_vit_tiny_rot4.json")
 
     # Inject matched Wave A `none` baseline into Wave B summaries so delta_vs_none is computed cleanly
     if f_wa and f_wb_ctx and "runs" in f_wb_ctx:
@@ -136,6 +137,7 @@ def main() -> None:
             "s3_context": _load_if_exists(RES / "exp2_frozen_s3_context.json"),
         },
         "diag_self_avg": _load_if_exists(RES / "diag_self_avg_and_init_scale.json"),
+        "diag_cross_regime_swap": _load_if_exists(RES / "diag_cross_regime_selfavg_swap.json"),
         "diag_demod": _load_if_exists(RES / "diag_demodulation_coadaptation.json"),
         "throughput_h800": _load_if_exists(RES / "throughput_benchmark_h800.json"),
         "waves": {
@@ -156,6 +158,9 @@ def main() -> None:
             ),
             "waveE_scratch_vittiny": _summarize_forensics(
                 f_we, "scratch_vittiny_dir_", ["none", "anti", "sym", "star", "self_avg", "free_star"], [42, 101, 202], ["mid_vit"]
+            ),
+            "waveF_rot4_vittiny": _summarize_forensics(
+                f_wf, "rot4_vittiny_dir_", ["anti", "sym", "self_avg", "free_star"], [42, 101], ["mid_vit"]
             ),
         },
     }

@@ -396,10 +396,10 @@
     <div class="l-body" id="oracle">
       <h2>1. Three algebraic laws before touching a backbone</h2>
       <p>
-        Any bilinear form <span class="math">y = u<sup>T</sup> M v</span> can be represented by unconstrained Hadamard products <span class="math">p = (Au) &odot; (Bv)</span> once the rank <span class="math">R</span> is wide enough, because a wedge term <span class="math">u<sub>i</sub> v<sub>j</sub> &minus; u<sub>j</sub> v<sub>i</sub></span> is a difference of two products. Hard-coding symmetry therefore changes sample complexity, coordinate dependence, and effective rank rather than universal expressivity.
+        Any bilinear form <span class="math">y = u<sup>T</sup> M v</span> can be represented by unconstrained Hadamard products <span class="math">p = (Au) &odot; (Bv)</span> once the rank <span class="math">R</span> is wide enough, since each wedge term <span class="math">u<sub>i</sub> v<sub>j</sub> &minus; u<sub>j</sub> v<sub>i</sub></span> is a difference of two products. Every wide-enough student can express the target function, so hard-coding symmetry changes sample efficiency, coordinate sensitivity, and effective rank.
       </p>
       <p>
-        Testing ground-truth teachers <span class="math">y = u<sup>T</sup> M v + &epsilon;</span> (<span class="math">d = 16</span>) across antisymmetric, symmetric, and mixed matrices exposes three clean properties, plus an instrumentation trap: individual channels in a learnable layer can have <span class="math">&theta;<sub>r</sub> &ne; +&pi;/4</span> while canceling their antisymmetric parts across channels in the readout <span class="math">W<sub>out</sub></span>. Measuring post-readout functional antisymmetry via swapped inputs, <span class="math">FuncAnti(&delta;) = ||&delta;<sub>anti</sub>||<sup>2</sup> / (||&delta;<sub>sym</sub>||<sup>2</sup> + ||&delta;<sub>anti</sub>||<sup>2</sup>)</span>, recovers the true operator symmetry to three decimal places regardless of initialization.
+        Testing ground-truth teachers <span class="math">y = u<sup>T</sup> M v + &epsilon;</span> (<span class="math">d = 16</span>) across antisymmetric, symmetric, and mixed matrices exposes two structural trade-offs and one measurement trap. Individual channels in a learnable layer can hold <span class="math">&theta;<sub>r</sub> &ne; +&pi;/4</span> while canceling their antisymmetric parts across channels inside <span class="math">W<sub>out</sub></span>. Measuring post-readout functional antisymmetry on swapped inputs, <span class="math">FuncAnti(&delta;) = ||&delta;<sub>anti</sub>||<sup>2</sup> / (||&delta;<sub>sym</sub>||<sup>2</sup> + ||&delta;<sub>anti</sub>||<sup>2</sup>)</span>, avoids that trap and recovers the true operator symmetry to three decimal places from any initialization.
       </p>
     </div>
 
@@ -440,18 +440,16 @@
 
     <!-- SECTION 2: TASK x PAIR DOUBLE DISSOCIATION -->
     <div class="l-body" id="dissociation">
-      <h2>2. Task symmetry vs. pair geometry: a double dissociation</h2>
+      <h2>2. Task symmetry, pair geometry, and stage depth</h2>
       <p>
-        To test exchange symmetry inside a standard non-Clifford vision model without activation confounds, we insert a pure bilinear residual adapter (no internal SiLU or GELU) into <code>ConvNeXt-Atto</code> with shared <code>RMSNorm2d</code>. Because the adapter is strictly bilinear up to <code>W<sub>out</sub></code>, swapping <span class="math">u</span> and <span class="math">v</span> flips the exact residual update <span class="math">&delta;(v, u) = &minus;&delta;(u, v)</span> for <code>anti</code> and preserves it for <code>sym</code>.
+        To test exchange symmetry inside a non-Clifford vision model without activation confounds, we insert a pure bilinear residual adapter (no internal SiLU or GELU) into <code>ConvNeXt-Atto</code> with shared <code>RMSNorm2d</code>. Because the adapter is strictly bilinear up to <code>W<sub>out</sub></code>, swapping <span class="math">u</span> and <span class="math">v</span> flips the exact residual update <span class="math">&delta;(v, u) = &minus;&delta;(u, v)</span> for <code>anti</code> and preserves it for <code>sym</code>.
       </p>
       <p>
-        Comparing horizontally directed neighbor pairs <span class="math">(x<sub>i,j</sub>, x<sub>i,j+1</sub>)</span> across three paired experimental settings reveals why antisymmetry appeared useless in one regime and indispensable in another:
+        At Stage 4 (<code>7&times;7</code>, one block before global average pooling), horizontally directed neighbor pairs <span class="math">(x<sub>i,j</sub>, x<sub>i,j+1</sub>)</span> collide with reflection-invariant ImageNet-1k labels: horizontal flips reverse left-right pair order while leaving the class unchanged. During 30-epoch fine-tuning, gradient descent suppresses <code>anti</code> residual amplitude by 10&times; (<code>RMS = 0.037</code> vs. <code>0.374</code> for <code>sym</code>, even when step-0 RMS is equalized), and <code>free_star</code> converges across all four seeds to <strong>99.7% functional symmetry</strong> (<code>FuncAnti = 0.003</code>).
       </p>
-      <ul class="clean">
-        <li><strong>Directed neighbor + reflection-invariant ImageNet-1k classification:</strong> horizontal image flips swap left-right order while preserving the class label. During 30-epoch fine-tuning, gradient descent suppresses <code>anti</code> residual amplitude by 10&times; (<code>RMS ratio = 0.037</code> vs. <code>0.374</code> for <code>sym</code>, even when step-0 RMS is explicitly equalized), and <code>free_star</code> converges across all four seeds to <strong>99.7% functional symmetry</strong> (<code>FuncAnti = 0.003</code>).</li>
-        <li><strong>Directed neighbor + 4-way image rotation prediction (<code>{0&deg;, 90&deg;, 180&deg;, 270&deg;}</code>):</strong> on the exact same backbone and images, spatial orientation now determines the label. Every indicator reverses: <code>anti</code> grows to <code>RMS = 0.624</code> (1.5&times; larger than <code>sym</code>), zeroing the antisymmetric component at inference drops <code>anti</code> by <strong>&minus;7.37%</strong> and <code>free_star</code> by <strong>&minus;3.51%</strong> (15&times; larger than zeroing <code>sym</code>), and <code>free_sym</code> actively escapes pure symmetry (<code>FuncAnti: 0.000 &rarr; 0.498</code>).</li>
-        <li><strong>Isotropic center-surround pair <code>(u, DWConv5x5(u))</code> on ImageNet-1k:</strong> swapping center and isotropic surround is no longer a spatial reflection. Immediately, <code>anti</code> stops collapsing (<code>RMS = 0.417</code>, <code>+0.20%</code> over baseline, <code>&minus;0.91%</code> when zeroed), matching <code>sym</code> and <code>free_star</code>.</li>
-      </ul>
+      <p>
+        Three controlled changes each reverse that suppression without changing the bilinear operator itself. Keeping Stage-4 directed pairs and switching the task to 4-way rotation prediction (<code>{0&deg;, 90&deg;, 180&deg;, 270&deg;}</code>) makes orientation informative: <code>anti</code> grows to <code>RMS = 0.624</code>, zeroing <code>Anti</code> at inference drops <code>anti</code> by <strong>&minus;7.37%</strong> and <code>free_star</code> by <strong>&minus;3.51%</strong> (15&times; the impact of zeroing <code>Sym</code>), and <code>free_sym</code> escapes pure symmetry (<code>FuncAnti: 0.000 &rarr; 0.498</code>). Keeping ImageNet-1k classification and switching Stage-4 pairs to isotropic center-surround <code>(u, DWConv5x5(u))</code> removes the reflection conflict, lifting <code>anti</code> to <code>RMS = 0.417</code> (<code>&minus;0.91%</code> when zeroed). Finally, moving the exact same directed pair earlier to mid-level Stage 3 (<code>14&times;14</code>, three nonlinear blocks before GAP) lets existing downstream layers demodulate oriented edges: <code>free_star</code> moves upward to <strong>56.5% antisymmetry</strong> (<code>FuncAnti = 0.565</code>, <code>Anti&rarr;0 = &minus;0.23%</code> vs. <code>Sym&rarr;0 = &minus;0.15%</code>).
+      </p>
     </div>
 
     <div class="l-wide">
@@ -459,13 +457,14 @@
         <div class="fig-header">
           <div>
             <span class="fig-label">Figure 2</span>
-            <span class="fig-title">Interactive Task &times; Pair Explorer: Paired Accuracy, FuncAnti &amp; Causal Decomposed Interventions</span>
+            <span class="fig-title">Interactive Task, Pair &amp; Stage Explorer: Paired Accuracy, FuncAnti &amp; Causal Interventions</span>
           </div>
           <div class="pills" id="fig2-wave-pills">
-            <button class="pill active" data-wave="waveA_ft_s4_dir">IN1K Directed (4 seeds)</button>
-            <button class="pill" data-wave="waveC_rot4_s4_dir">4-Way Rotation Directed (3 seeds)</button>
-            <button class="pill" data-wave="waveB_ft_s4_ctx">IN1K Center-Context (3 seeds)</button>
-            <button class="pill" data-wave="waveB2_ft_s3_dir">IN1K Stage-3 Directed (3 seeds)</button>
+            <button class="pill active" data-wave="waveA_ft_s4_dir">IN1K S4 Directed (4s)</button>
+            <button class="pill" data-wave="waveC_rot4_s4_dir">Rot4 S4 Directed (3s)</button>
+            <button class="pill" data-wave="waveB_ft_s4_ctx">IN1K S4 Center-Context (3s)</button>
+            <button class="pill" data-wave="waveB2_ft_s3_dir">IN1K S3 Directed (3s)</button>
+            <button class="pill" data-wave="waveF_rot4_vittiny">Rot4 ViT-Tiny (2s)</button>
           </div>
         </div>
 
@@ -508,21 +507,70 @@
         SelfAvg(<i>u</i>, <i>v</i>) = [ (<i>Au</i>) &odot; (<i>Bu</i>) + (<i>Av</i>) &odot; (<i>Bv</i>) ] / &radic;2, &nbsp;&nbsp;&nbsp; SelfAvg(<i>u</i>, <i>v</i>) &minus; Sym(<i>u</i>, <i>v</i>) = [ <i>A</i>(<i>u</i> &minus; <i>v</i>) &odot; <i>B</i>(<i>u</i> &minus; <i>v</i>) ] / &radic;2
       </div>
       <p>
-        Swapping <code>sym</code> to <code>self_avg</code> at inference on our four trained Wave A checkpoints without retraining drops 50k ImageNet-1k Top-1 by only <strong>&minus;0.066%</strong> (compared to <strong>&minus;0.354%</strong> when bypassing the adapter) and preserves <strong>96.0%</strong> top-1 prediction agreement. Retraining <code>self_avg</code> from the same initialization across all four paired seeds matches <code>sym</code> and <code>free_star</code> on clean Top-1 (<code>71.45%</code> vs. <code>71.42%</code> and <code>71.47%</code>; paired <code>SelfAvg &minus; Sym = +0.04 &plusmn; 0.08%</code>), though <code>self_avg</code> loses <strong>&minus;1.35%</strong> on 0.12&times; low-contrast images (<code>29.25%</code> vs. <code>30.60%</code>) where the cross-difference term <span class="math">A(u &minus; v) &odot; B(u &minus; v)</span> carries local contrast. During short fine-tuning, clean accuracy gains come from adding degree-2 channel gating rather than cross-token products.
+        Swapping <code>sym</code> to <code>self_avg</code> at inference without retraining measures how much each trained model actually relies on the cross-token difference term <span class="math">A(u &minus; v) &odot; B(u &minus; v) / &radic;2</span> across training regimes:
+      </p>
+      <table class="compact">
+        <thead>
+          <tr>
+            <th>Training Regime (50k ImageNet-1k Val, 3 seeds)</th>
+            <th>Mode</th>
+            <th class="num">Orig Top-1</th>
+            <th class="num">Swap &rarr; SelfAvg &Delta;</th>
+            <th class="num">Full Bypass &Delta;</th>
+            <th class="num">KL(Orig || SA)</th>
+            <th class="num">Top-1 Agree</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>ConvNeXt-Atto 30ep Fine-Tuned (Stage 4)</td>
+            <td><code>sym</code> / <code>free_star</code></td>
+            <td class="num">71.40 / 71.47%</td>
+            <td class="num">&minus;0.09 / &minus;0.08%</td>
+            <td class="num">&minus;0.40 / &minus;0.46%</td>
+            <td class="num">0.010</td>
+            <td class="num">96.1%</td>
+          </tr>
+          <tr style="background:var(--coral-soft);">
+            <td><strong>ConvNeXt-Atto 100ep From-Scratch (Multi-Stage)</strong></td>
+            <td><code>sym</code> / <code>free_star</code></td>
+            <td class="num">71.33 / 71.36%</td>
+            <td class="num" style="color:var(--coral);font-weight:600;">&minus;3.20 / &minus;14.15%</td>
+            <td class="num">&minus;4.22 / &minus;4.60%</td>
+            <td class="num" style="color:var(--coral);">0.164 / 0.696</td>
+            <td class="num">84.4 / 66.9%</td>
+          </tr>
+          <tr style="background:var(--surface-alt);">
+            <td>ViT-Tiny 100ep From-Scratch (Block 8, 14&times;14)</td>
+            <td><code>sym</code> / <code>free_star</code></td>
+            <td class="num">67.49 / 67.48%</td>
+            <td class="num">&minus;1.25 / &minus;4.67%</td>
+            <td class="num">&minus;2.75 / &minus;3.31%</td>
+            <td class="num">0.058 / 0.194</td>
+            <td class="num">89.3 / 80.2%</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>
+        During 30-epoch Stage-4 fine-tuning, replacing cross-token <code>sym</code> with pointwise <code>self_avg</code> barely moves predictions (<code>96.1%</code> agreement, <code>&minus;0.09%</code> Top-1), and retraining <code>self_avg</code> matches <code>sym</code> and <code>free_star</code> on clean Top-1 (<code>71.45%</code> vs. <code>71.42%</code> and <code>71.47%</code>; paired <code>SelfAvg &minus; Sym = +0.04 &plusmn; 0.08%</code>), losing only on 0.12&times; low-contrast images (<code>29.25%</code> vs. <code>30.60%</code>). In 100-epoch from-scratch <code>ConvNeXt-Atto</code>, however, the same swap collapses <code>sym</code> by <strong>&minus;3.20%</strong> (76% of the full bypass drop) and <code>free_star</code> by <strong>&minus;14.15%</strong>, proving that from-scratch ConvNeXt genuinely relies on cross-token multiplication.
       </p>
     </div>
 
     <!-- SECTION 4: FROM-SCRATCH CO-ADAPTATION & DEPTH HIERARCHY -->
     <div class="l-body" id="coadaptation">
-      <h2>4. 100-epoch from-scratch training: co-adaptation and the depth-symmetry law</h2>
+      <h2>4. 100-epoch from-scratch training: co-adaptation and architectural complementarity</h2>
       <p>
-        Training the entire backbone and adapters jointly from scratch for 100 epochs on ImageNet-1k (24 multi-stage <code>ConvNeXt-Atto</code> runs + 18 <code>ViT-Tiny</code> runs) changes the picture in three ways that fine-tuning alone cannot see:
+        Training the entire backbone and adapters jointly from scratch for 100 epochs on ImageNet-1k (24 multi-stage <code>ConvNeXt-Atto</code> runs + 18 <code>ViT-Tiny</code> runs across three paired seeds) resolves why fine-tuning and from-scratch training behave so differently, and why ConvNets and Vision Transformers prefer opposite multiplicative structures.
       </p>
-      <ul class="clean">
-        <li><strong>Co-adaptation unlocks <code>anti</code> via spatial derivative &amp; GELU demodulation:</strong> from scratch, <code>anti</code> is no longer suppressed (Stage-4 <code>RMS = 0.744</code>, <code>Bypass&Delta; = &minus;5.13%</code>, beating <code>none</code> on all 3/3 seeds). Inspecting the downstream 7&times;7 depthwise conv block (<code>stages[3].blocks[1]</code>) shows how: its horizontally antisymmetric filter energy jumps <strong>9.7&times;</strong> over baseline (<code>6.86%</code> vs. <code>0.71%</code>, turning odd features into even features via <span class="math">odd * odd = even</span>), while quadratic GELU rectification supplies <strong>26.4%</strong> of post-GAP shift energy (vs. <code>2.7%</code> in fine-tuning, where the pretrained 99.5%-even filter trapped <code>anti</code> near zero).</li>
-        <li><strong>Depth hierarchy of symmetry:</strong> inside the same multi-stage network, mid-level <code>Stage 3 (14&times;14)</code> preserves substantial antisymmetry in <code>free_star</code> (<code>FuncAnti = 0.375</code>) and <code>star</code> (<code>0.280</code>), whereas late semantic <code>Stage 4 (7&times;7)</code> right before global pooling collapses toward exchange symmetry (<code>FuncAnti = 0.049</code> in <code>free_star</code>, <code>0.132</code> in <code>star</code>).</li>
-        <li><strong>Backbone mixer determines whether cross-token products beat <code>self_avg</code>:</strong> in from-scratch <code>ConvNeXt-Atto</code> (whose only spatial mixer is depthwise conv), every cross-token bilinear mode outperforms <code>self_avg</code> (<code>star</code> reaches <strong>71.49 &plusmn; 0.27%</strong>, <code>+0.58%</code> over <code>none</code> and <code>+0.30%</code> over <code>self_avg</code>, with <code>+3.61%</code> higher low-contrast accuracy at half the products of <code>sym</code>/<code>anti</code>). In <code>ViT-Tiny</code>, where self-attention already performs pairwise cross-token mixing, pointwise quadratic <code>self_avg</code> is competitive or stronger.</li>
-      </ul>
+      <p>
+        First, joint training unlocks <code>anti</code> on reflection-invariant ImageNet-1k (Stage-4 <code>RMS = 0.744</code>, <code>Bypass&Delta; = &minus;5.13%</code>, beating <code>none</code> across all 3/3 seeds in both ConvNeXt and ViT-Tiny). Inspecting the downstream 7&times;7 depthwise conv block (<code>stages[3].blocks[1]</code>) shows the exact demodulation mechanism: its horizontally antisymmetric filter energy increases <strong>9.7&times;</strong> over baseline (<code>6.86%</code> vs. <code>0.71%</code>, turning odd features into even features via spatial differentiation), while quadratic GELU rectification supplies <strong>26.4%</strong> of post-GAP shift energy (vs. <code>2.7%</code> in fine-tuning, where the pretrained 99.5%-even filter trapped <code>anti</code> near zero).
+      </p>
+      <p>
+        Second, symmetry follows a consistent depth gradient. Inside multi-stage <code>ConvNeXt-Atto</code>, mid-level Stage 3 (<code>14&times;14</code>) retains substantial antisymmetry in <code>free_star</code> (<code>FuncAnti = 0.375</code>) and <code>star</code> (<code>0.280</code>), while pre-GAP Stage 4 (<code>7&times;7</code>) collapses toward exchange symmetry (<code>0.049</code> in <code>free_star</code>; <code>0.132</code> in <code>star</code> via learned alignment of <span class="math">A</span> and <span class="math">B</span>).
+      </p>
+      <p>
+        Third, whether cross-token multiplication beats single-token <code>self_avg</code> depends on what the host backbone already computes. In <code>ConvNeXt-Atto</code>, whose only spatial mixer is linear depthwise convolution, every cross-token bilinear mode beats <code>self_avg</code> (<code>71.19 &plusmn; 0.11%</code>), led by unconstrained <code>star</code> at <strong>71.49 &plusmn; 0.27%</strong> (<code>+0.58%</code> over <code>none</code>, <code>+0.30%</code> over <code>self_avg</code>, and <code>+3.61%</code> higher on low-contrast images at half the multiplications of <code>sym</code>/<code>anti</code>). In <code>ViT-Tiny</code>, where softmax self-attention already computes pairwise cross-token interactions in every block, single-token quadratic gating <code>self_avg</code> wins across all three seeds at <strong>67.93 &plusmn; 0.54%</strong> (<code>+0.64 &plusmn; 0.25%</code> over <code>none</code> <code>67.29%</code>, ahead of <code>star</code> <code>67.63%</code>, <code>anti</code> <code>67.57%</code>, and <code>sym</code> <code>67.48%</code>).
+      </p>
     </div>
 
     <div class="l-wide">
@@ -557,10 +605,10 @@
     <div class="l-body" id="takeaways">
       <h2>5. Practical decision guide</h2>
       <ul class="clean">
-        <li><strong>Default to unconstrained <code>star</code> <span class="math">(Au) &odot; (Bv)</span> or <code>self_avg</code> unless the task is genuinely chiral/directional:</strong> <code>star</code> uses half the elementwise multiplications of <code>sym</code>/<code>anti</code>, needs no coordinate-group alignment, and lets its projection matrices <span class="math">(A, B)</span> align automatically in late semantic stages (<code>FuncAnti &rarr; 0.13</code>) while preserving directional cross-terms in mid-level stages (<code>0.28</code>), achieving the best 100-epoch from-scratch ConvNeXt accuracy (<code>71.49%</code>) and low-contrast robustness.</li>
-        <li><strong>Use <code>free_star</code> + swapped-pair <code>FuncAnti</code> as a zero-overhead symmetry probe:</strong> adding only <span class="math">R</span> scalar angles (<span class="math">&lt;0.01%</span> parameters) doubles rank-bottlenecked capacity from <span class="math">R</span> to <span class="math">2R</span> and reveals whether a layer/task wants symmetry (<code>FuncAnti = 0.003</code> on ImageNet Stage-4 fine-tuning) or antisymmetry (<code>0.625</code> on 4-way rotation; <code>0.375</code> in Stage 3).</li>
-        <li><strong>Always include <code>self_avg</code> when claiming cross-token multiplicative gains:</strong> on pretrained backbones or Transformers with self-attention, apparent gains from symmetric token-pair multiplication can come entirely from single-token degree-2 polynomial capacity.</li>
-        <li><strong>Hard-code <code>anti</code> only when inputs have physical exchange antisymmetry AND aligned coordinates (or learned projections):</strong> fixed channel-grouped wedges collapse under random orthogonal basis rotations (<code>R&sup2; = &minus;0.02</code>), whereas projected <code>anti</code> is <span class="math">O(d)</span>-invariant and excels when orientation flips the target label.</li>
+        <li>In convolutional backbones without self-attention, default to unconstrained <code>star</code> <span class="math">(Au) &odot; (Bv)</span>. It uses half the elementwise products of <code>sym</code> or <code>anti</code>, needs no channel-group alignment, preserves directional cross-terms in mid-level stages (<code>FuncAnti = 0.280</code>), and aligns its projections automatically in pre-GAP stages (<code>0.132</code>), reaching the highest 100-epoch ConvNeXt accuracy (<code>71.49%</code>) and low-contrast robustness.</li>
+        <li>In Vision Transformers where self-attention already mixes token pairs, spend multiplicative capacity on single-token quadratic channel gating (<code>self_avg</code>, <code>+0.64%</code> over ViT-Tiny baseline across 3/3 seeds). Always include <code>self_avg</code> as a control before attributing accuracy gains to symmetric cross-token interaction.</li>
+        <li>Use <code>free_star</code> with swapped-pair <code>FuncAnti</code> as a lightweight symmetry probe: adding <span class="math">R</span> scalar angles (<span class="math">&lt;0.01%</span> parameters) doubles rank-bottlenecked capacity from <span class="math">R</span> to <span class="math">2R</span> and measures whether a given stage and task prefer symmetry (<code>0.003</code> at pre-GAP Stage 4) or antisymmetry (<code>0.625</code> on 4-way rotation; <code>0.565</code> at Stage 3).</li>
+        <li>Hard-code <code>anti</code> only when the target flips or permutes under spatial orientation and projections <span class="math">(A, B)</span> are learned; unprojected channel-grouped wedges fail under orthogonal basis rotations (<code>R&sup2; = &minus;0.02</code>).</li>
       </ul>
 
       <details>
@@ -803,7 +851,7 @@
         return;
       }
 
-      const symStageKey = fig2Wave === "waveB2_ft_s3_dir" ? "stage3_mid" : "stage4_mid";
+      const symStageKey = fig2Wave === "waveB2_ft_s3_dir" ? "stage3_mid" : (fig2Wave === "waveF_rot4_vittiny" ? "mid_vit" : "stage4_mid");
       const modes = Object.keys(wdata.modes);
       let rowsHtml = "";
       modes.forEach(m => {
@@ -857,7 +905,8 @@
         waveA_ft_s4_dir: `Stage-4 directed shift on reflection-invariant ImageNet-1k (30 epochs, 4 paired seeds, <code>antialias=False</code>). Even when <code>anti</code> starts with equalized step-0 RMS, training suppresses it to <code>RMS = 0.037</code>. <code>free_star</code> converges to <code>FuncAnti = 0.003</code>, and <code>self_avg</code> (zero cross-token multiplication) matches <code>sym</code> and <code>free_star</code> within <code>0.04%</code>.`,
         waveC_rot4_s4_dir: `Same ConvNeXt-Atto Stage-4 directed adapter trained on 4-way rotation prediction (<code>{0&deg;, 90&deg;, 180&deg;, 270&deg;}</code>, 15 epochs, 3 paired seeds). Causal dependence flips completely to the coral bars: zeroing <code>Anti</code> drops <code>anti</code> by <code>&minus;7.37%</code> and <code>free_star</code> by <code>&minus;3.51%</code> (vs. <code>&minus;0.23%</code> when zeroing <code>Sym</code>), while <code>free_sym</code> escapes from <code>0.000</code> to <code>0.498</code>.`,
         waveB_ft_s4_ctx: `Stage-4 isotropic center-surround pair <code>(u, DWConv5x5(u))</code> on ImageNet-1k (30 epochs, 3 paired seeds). Because swapping center and surround is not a horizontal reflection, <code>anti</code> is no longer suppressed (<code>RMS = 0.417</code>, <code>Anti&rarr;0 = &minus;0.91%</code>) and matches <code>sym</code>, <code>self_avg</code>, and <code>free_star</code>.`,
-        waveB2_ft_s3_dir: `Mid-level Stage-3 (<code>14&times;14</code>) directed shift on ImageNet-1k (30 epochs, 3 paired seeds), testing whether placing the adapter earlier than the final pre-GAP stage retains directional antisymmetry.`
+        waveB2_ft_s3_dir: `Mid-level Stage-3 (<code>14&times;14</code>) directed shift on ImageNet-1k (30 epochs, 3 paired seeds). Because three nonlinear blocks and spatial downsampling follow Stage 3 before global pooling, <code>anti</code> is no longer suppressed (<code>RMS = 0.069</code> vs. <code>0.063</code> for <code>sym</code>) and <code>free_star</code> shifts upward into antisymmetry (<code>FuncAnti = 0.565</code>, <code>Anti&rarr;0 = &minus;0.23%</code> vs. <code>Sym&rarr;0 = &minus;0.15%</code>).`,
+        waveF_rot4_vittiny: `10-epoch 4-way rotation fine-tuning on our 100-epoch <code>ViT-Tiny</code> checkpoints (block 8, <code>14&times;14</code> patch grid, 2 paired seeds), testing whether orientation sensitivity also flips causal symmetry dependence inside a Vision Transformer.`
       };
       cap.innerHTML = captions[fig2Wave] || "";
     }
@@ -951,19 +1000,32 @@
         svgR.innerHTML = htmlR;
         cap.innerHTML = `100-epoch from-scratch multi-stage <code>ConvNeXt-Atto</code> (24 runs, 3 paired seeds). Every cross-token bilinear variant beats <code>self_avg</code> (<code>star</code> leads at <code>71.49 &plusmn; 0.27%</code>, <code>+0.58%</code> over <code>none</code>). Mid-level Stage 3 retains <code>FuncAnti = 0.375</code> in <code>free_star</code> while pre-GAP Stage 4 drops to <code>0.049</code>; downstream 7&times;7 depthwise conv filters increase horizontal antisymmetry 9.7&times; (<code>6.86%</code> vs. <code>0.71%</code>) to demodulate <code>anti</code>.`;
       } else {
-        titleR.textContent = "ViT-Tiny Symmetry & Causal Intervention";
-        let htmlR = "";
+        titleR.textContent = "ViT-Tiny Causal Interventions (&Delta; Top-1% when zeroed)";
         const intModes = modes.filter(m => wdata.modes[m].intervention);
+        let maxD = 1.0;
+        intModes.forEach(m => {
+          const iv = wdata.modes[m].intervention;
+          maxD = Math.max(maxD, Math.abs(iv.bypass_delta), Math.abs(iv.sym0_delta), Math.abs(iv.anti0_delta));
+        });
+        const zx = 390;
+        let htmlR = `<text x="148" y="18" font-size="11" fill="#2563eb" font-weight="600">&FilledSmallSquare; Zero Sym</text>`;
+        htmlR += `<text x="245" y="18" font-size="11" fill="#c84b31" font-weight="600">&FilledSmallSquare; Zero Anti</text>`;
+        htmlR += `<line x1="${zx}" y1="26" x2="${zx}" y2="232" stroke="#94a3b8"/>`;
         intModes.forEach((m, i) => {
           const md = wdata.modes[m];
           const sm = (md.symmetry || {}).mid_vit || {};
           const iv = md.intervention;
-          const y = 26 + i * 38;
-          htmlR += `<text x="135" y="${y + 14}" text-anchor="end" font-size="11.5" fill="#1a1d21">${esc(LABELS[m] || m)}</text>`;
-          htmlR += `<text x="145" y="${y + 14}" font-size="11" font-family="monospace" fill="#5b626b">FuncAnti=${sm.func_anti !== undefined ? sm.func_anti.toFixed(3) : "n/a"} | BypassΔ=${iv.bypass_delta.toFixed(2)}%</text>`;
+          const y = 34 + i * 38;
+          const sc = 225 / maxD;
+          const ws = Math.max(2, Math.abs(iv.sym0_delta) * sc);
+          const wa = Math.max(2, Math.abs(iv.anti0_delta) * sc);
+          htmlR += `<text x="140" y="${y + 15}" text-anchor="end" font-size="11.5" fill="#1a1d21">${esc(LABELS[m] || m)}</text>`;
+          htmlR += `<rect x="${(zx - ws).toFixed(1)}" y="${y + 2}" width="${ws.toFixed(1)}" height="9" rx="2" fill="#2563eb"/>`;
+          htmlR += `<rect x="${(zx - wa).toFixed(1)}" y="${y + 13}" width="${wa.toFixed(1)}" height="9" rx="2" fill="#c84b31"/>`;
+          htmlR += `<text x="396" y="${y + 15}" font-size="10.5" font-family="monospace" fill="#5b626b">FA=${sm.func_anti !== undefined ? sm.func_anti.toFixed(2) : "--"}</text>`;
         });
         svgR.innerHTML = htmlR;
-        cap.innerHTML = `100-epoch from-scratch <code>ViT-Tiny</code> (adapter placed after block 8 on the 14&times;14 patch grid). Because global self-attention already performs pairwise cross-token mixing in every block, single-token quadratic gating (<code>self_avg</code>) provides strong complementary channel nonlinearity.`;
+        cap.innerHTML = `100-epoch from-scratch <code>ViT-Tiny</code> (18 runs, 3 paired seeds, adapter after block 8 on the <code>14&times;14</code> patch grid). Because softmax self-attention already performs pairwise cross-token mixing in every block, single-token quadratic gating (<code>self_avg</code>) leads across all 3/3 seeds at <code>67.93 &plusmn; 0.54%</code> (<code>+0.64 &plusmn; 0.25%</code> over <code>none</code> <code>67.29%</code>, ahead of <code>star</code> <code>67.63%</code>, <code>anti</code> <code>67.57%</code>, and <code>sym</code> <code>67.48%</code>).`;
       }
     }
 

@@ -1,0 +1,32 @@
+[
+  {
+    "name": "scratch_vittiny_dir_anti_s202",
+    "mode": "anti",
+    "pair_type": "directed_right",
+    "placement": "stage4_mid",
+    "backbone": "vit_tiny_patch16_224",
+    "data_seed": 202,
+    "init_seed": 6202,
+    "n_params": 5828392,
+    "n_adapter_params": 110976,
+    "best_ema_top1": 67.556,
+    "best_raw_top1": 67.552,
+    "wall_time_min": 273.6,
+    "status": "ok"
+  },
+  {
+    "name": "scratch_vittiny_dir_star_s202",
+    "mode": "star",
+    "pair_type": "directed_right",
+    "placement": "stage4_mid",
+    "backbone": "vit_tiny_patch16_224",
+    "data_seed": 202,
+    "init_seed": 6202,
+    "n_params": 5828392,
+    "n_adapter_params": 110976,
+    "best_ema_top1": 67.864,
+    "best_raw_top1": 67.858,
+    "wall_time_min": 277.04,
+    "status": "ok"
+  }
+]

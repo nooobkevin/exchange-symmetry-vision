@@ -68,6 +68,7 @@ def build_model(args: argparse.Namespace) -> nn.Module:
             insert_after_block=args.vit_insert_block,
             rank_ratio=args.rank_ratio,
             gamma_init=args.gamma_init,
+            pretrained_ckpt=args.pretrained_ckpt if args.pretrained_ckpt else None,
         )
     else:
         model = ConvNeXtWithAdapter(

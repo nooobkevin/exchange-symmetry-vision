@@ -1,0 +1,62 @@
+[
+  {
+    "name": "scratch_vittiny_dir_none_s202",
+    "mode": "none",
+    "pair_type": "directed_right",
+    "placement": "stage4_mid",
+    "backbone": "vit_tiny_patch16_224",
+    "data_seed": 202,
+    "init_seed": 6202,
+    "n_params": 5717416,
+    "n_adapter_params": 0,
+    "best_ema_top1": 67.54,
+    "best_raw_top1": 67.526,
+    "wall_time_min": 280.41,
+    "status": "ok"
+  },
+  {
+    "name": "scratch_vittiny_dir_sym_s202",
+    "mode": "sym",
+    "pair_type": "directed_right",
+    "placement": "stage4_mid",
+    "backbone": "vit_tiny_patch16_224",
+    "data_seed": 202,
+    "init_seed": 6202,
+    "n_params": 5828392,
+    "n_adapter_params": 110976,
+    "best_ema_top1": 67.788,
+    "best_raw_top1": 67.832,
+    "wall_time_min": 280.7,
+    "status": "ok"
+  },
+  {
+    "name": "scratch_vittiny_dir_self_avg_s202",
+    "mode": "self_avg",
+    "pair_type": "directed_right",
+    "placement": "stage4_mid",
+    "backbone": "vit_tiny_patch16_224",
+    "data_seed": 202,
+    "init_seed": 6202,
+    "n_params": 5828392,
+    "n_adapter_params": 110976,
+    "best_ema_top1": 68.45,
+    "best_raw_top1": 68.498,
+    "wall_time_min": 279.63,
+    "status": "ok"
+  },
+  {
+    "name": "scratch_vittiny_dir_free_star_s202",
+    "mode": "free_star",
+    "pair_type": "directed_right",
+    "placement": "stage4_mid",
+    "backbone": "vit_tiny_patch16_224",
+    "data_seed": 202,
+    "init_seed": 6202,
+    "n_params": 5828584,
+    "n_adapter_params": 111168,
+    "best_ema_top1": 67.65,
+    "best_raw_top1": 67.622,
+    "wall_time_min": 277.9,
+    "status": "ok"
+  }
+]

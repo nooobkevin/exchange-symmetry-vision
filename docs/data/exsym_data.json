@@ -25341,8 +25341,509 @@
       }
     },
     "waveF_rot4_vittiny": {
-      "status": "pending",
-      "modes": {}
+      "status": "complete",
+      "modes": {
+        "anti": {
+          "n_seeds": 2,
+          "clean_mean": 90.28,
+          "clean_std": 0.22,
+          "clean_seeds": [
+            90.44,
+            90.13
+          ],
+          "clean_top5": 100.0,
+          "symmetry": {
+            "mid_vit": {
+              "eff_anti": 1.0,
+              "func_anti": 1.0,
+              "mean_e_anti": 1.0,
+              "rms_ratio": 0.59
+            }
+          },
+          "intervention": {
+            "bypass_delta": -18.38,
+            "sym0_delta": 0.0,
+            "anti0_delta": -18.39,
+            "anti_curve": {
+              "1.0": 0.0,
+              "0.75": -0.06,
+              "0.5": -0.28,
+              "0.0": -18.39
+            },
+            "sym_curve": {
+              "1.0": 0.0,
+              "0.75": 0.0,
+              "0.5": 0.0,
+              "0.0": 0.0
+            }
+          },
+          "trajectory": [
+            {
+              "epoch": -1,
+              "top1": 24.92,
+              "mid_vit": {
+                "func_anti": 1.0,
+                "rms_ratio": 0.0038
+              }
+            },
+            {
+              "epoch": 0,
+              "top1": 76.42,
+              "mid_vit": {
+                "func_anti": 1.0,
+                "rms_ratio": 0.109
+              }
+            },
+            {
+              "epoch": 1,
+              "top1": 86.83,
+              "mid_vit": {
+                "func_anti": 1.0,
+                "rms_ratio": 0.3918
+              }
+            },
+            {
+              "epoch": 2,
+              "top1": 88.15,
+              "mid_vit": {
+                "func_anti": 1.0,
+                "rms_ratio": 0.5628
+              }
+            },
+            {
+              "epoch": 3,
+              "top1": 88.77,
+              "mid_vit": {
+                "func_anti": 1.0,
+                "rms_ratio": 0.6286
+              }
+            },
+            {
+              "epoch": 4,
+              "top1": 89.13,
+              "mid_vit": {
+                "func_anti": 1.0,
+                "rms_ratio": 0.6453
+              }
+            },
+            {
+              "epoch": 5,
+              "top1": 89.48,
+              "mid_vit": {
+                "func_anti": 1.0,
+                "rms_ratio": 0.6402
+              }
+            },
+            {
+              "epoch": 6,
+              "top1": 89.76,
+              "mid_vit": {
+                "func_anti": 1.0,
+                "rms_ratio": 0.628
+              }
+            },
+            {
+              "epoch": 7,
+              "top1": 90.01,
+              "mid_vit": {
+                "func_anti": 1.0,
+                "rms_ratio": 0.61
+              }
+            },
+            {
+              "epoch": 8,
+              "top1": 90.21,
+              "mid_vit": {
+                "func_anti": 1.0,
+                "rms_ratio": 0.596
+              }
+            },
+            {
+              "epoch": 9,
+              "top1": 90.28,
+              "mid_vit": {
+                "func_anti": 1.0,
+                "rms_ratio": 0.5906
+              }
+            }
+          ]
+        },
+        "sym": {
+          "n_seeds": 2,
+          "clean_mean": 90.3,
+          "clean_std": 0.31,
+          "clean_seeds": [
+            90.52,
+            90.08
+          ],
+          "clean_top5": 100.0,
+          "symmetry": {
+            "mid_vit": {
+              "eff_anti": 0.0,
+              "func_anti": 0.0,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.4951
+            }
+          },
+          "intervention": {
+            "bypass_delta": -5.08,
+            "sym0_delta": -5.07,
+            "anti0_delta": 0.0,
+            "anti_curve": {
+              "1.0": 0.0,
+              "0.75": 0.0,
+              "0.5": 0.0,
+              "0.0": 0.0
+            },
+            "sym_curve": {
+              "1.0": 0.0,
+              "0.75": 0.01,
+              "0.5": -0.43,
+              "0.0": -5.07
+            }
+          },
+          "trajectory": [
+            {
+              "epoch": -1,
+              "top1": 24.92,
+              "mid_vit": {
+                "func_anti": 0.0,
+                "rms_ratio": 0.0057
+              }
+            },
+            {
+              "epoch": 0,
+              "top1": 74.1,
+              "mid_vit": {
+                "func_anti": 0.0,
+                "rms_ratio": 0.041
+              }
+            },
+            {
+              "epoch": 1,
+              "top1": 85.58,
+              "mid_vit": {
+                "func_anti": 0.0,
+                "rms_ratio": 0.223
+              }
+            },
+            {
+              "epoch": 2,
+              "top1": 87.57,
+              "mid_vit": {
+                "func_anti": 0.0,
+                "rms_ratio": 0.3757
+              }
+            },
+            {
+              "epoch": 3,
+              "top1": 88.37,
+              "mid_vit": {
+                "func_anti": 0.0,
+                "rms_ratio": 0.4549
+              }
+            },
+            {
+              "epoch": 4,
+              "top1": 88.91,
+              "mid_vit": {
+                "func_anti": 0.0,
+                "rms_ratio": 0.4889
+              }
+            },
+            {
+              "epoch": 5,
+              "top1": 89.45,
+              "mid_vit": {
+                "func_anti": 0.0,
+                "rms_ratio": 0.4999
+              }
+            },
+            {
+              "epoch": 6,
+              "top1": 89.78,
+              "mid_vit": {
+                "func_anti": 0.0,
+                "rms_ratio": 0.5006
+              }
+            },
+            {
+              "epoch": 7,
+              "top1": 90.0,
+              "mid_vit": {
+                "func_anti": 0.0,
+                "rms_ratio": 0.4993
+              }
+            },
+            {
+              "epoch": 8,
+              "top1": 90.22,
+              "mid_vit": {
+                "func_anti": 0.0,
+                "rms_ratio": 0.4968
+              }
+            },
+            {
+              "epoch": 9,
+              "top1": 90.3,
+              "mid_vit": {
+                "func_anti": 0.0,
+                "rms_ratio": 0.4949
+              }
+            }
+          ]
+        },
+        "self_avg": {
+          "n_seeds": 2,
+          "clean_mean": 90.31,
+          "clean_std": 0.18,
+          "clean_seeds": [
+            90.44,
+            90.19
+          ],
+          "clean_top5": 100.0,
+          "symmetry": {
+            "mid_vit": {
+              "eff_anti": 0.0,
+              "func_anti": 0.0,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.4334
+            }
+          },
+          "intervention": {
+            "bypass_delta": -4.77,
+            "sym0_delta": -4.77,
+            "anti0_delta": 0.0,
+            "anti_curve": {
+              "1.0": 0.0,
+              "0.75": 0.0,
+              "0.5": 0.0,
+              "0.0": 0.0
+            },
+            "sym_curve": {
+              "1.0": 0.0,
+              "0.75": 0.03,
+              "0.5": -0.42,
+              "0.0": -4.77
+            }
+          },
+          "trajectory": [
+            {
+              "epoch": -1,
+              "top1": 24.92,
+              "mid_vit": {
+                "func_anti": 0.0,
+                "rms_ratio": 0.0058
+              }
+            },
+            {
+              "epoch": 0,
+              "top1": 74.26,
+              "mid_vit": {
+                "func_anti": 0.0,
+                "rms_ratio": 0.0412
+              }
+            },
+            {
+              "epoch": 1,
+              "top1": 85.49,
+              "mid_vit": {
+                "func_anti": 0.0,
+                "rms_ratio": 0.1944
+              }
+            },
+            {
+              "epoch": 2,
+              "top1": 87.72,
+              "mid_vit": {
+                "func_anti": 0.0,
+                "rms_ratio": 0.3138
+              }
+            },
+            {
+              "epoch": 3,
+              "top1": 88.61,
+              "mid_vit": {
+                "func_anti": 0.0,
+                "rms_ratio": 0.3767
+              }
+            },
+            {
+              "epoch": 4,
+              "top1": 89.08,
+              "mid_vit": {
+                "func_anti": 0.0,
+                "rms_ratio": 0.4051
+              }
+            },
+            {
+              "epoch": 5,
+              "top1": 89.56,
+              "mid_vit": {
+                "func_anti": 0.0,
+                "rms_ratio": 0.42
+              }
+            },
+            {
+              "epoch": 6,
+              "top1": 89.83,
+              "mid_vit": {
+                "func_anti": 0.0,
+                "rms_ratio": 0.4282
+              }
+            },
+            {
+              "epoch": 7,
+              "top1": 90.11,
+              "mid_vit": {
+                "func_anti": 0.0,
+                "rms_ratio": 0.4305
+              }
+            },
+            {
+              "epoch": 8,
+              "top1": 90.25,
+              "mid_vit": {
+                "func_anti": 0.0,
+                "rms_ratio": 0.4313
+              }
+            },
+            {
+              "epoch": 9,
+              "top1": 90.32,
+              "mid_vit": {
+                "func_anti": 0.0,
+                "rms_ratio": 0.4319
+              }
+            }
+          ]
+        },
+        "free_star": {
+          "n_seeds": 2,
+          "clean_mean": 90.35,
+          "clean_std": 0.16,
+          "clean_seeds": [
+            90.47,
+            90.24
+          ],
+          "clean_top5": 100.0,
+          "symmetry": {
+            "mid_vit": {
+              "eff_anti": 0.775,
+              "func_anti": 0.7285,
+              "mean_e_anti": 0.6651,
+              "rms_ratio": 0.591
+            }
+          },
+          "intervention": {
+            "bypass_delta": -10.61,
+            "sym0_delta": -0.84,
+            "anti0_delta": -6.18,
+            "anti_curve": {
+              "1.0": 0.0,
+              "0.75": 0.01,
+              "0.5": -0.17,
+              "0.0": -6.18
+            },
+            "sym_curve": {
+              "1.0": 0.0,
+              "0.75": -0.09,
+              "0.5": -0.16,
+              "0.0": -0.84
+            }
+          },
+          "trajectory": [
+            {
+              "epoch": -1,
+              "top1": 24.93,
+              "mid_vit": {
+                "func_anti": 0.3057,
+                "rms_ratio": 0.0049
+              }
+            },
+            {
+              "epoch": 0,
+              "top1": 73.77,
+              "mid_vit": {
+                "func_anti": 0.6595,
+                "rms_ratio": 0.0582
+              }
+            },
+            {
+              "epoch": 1,
+              "top1": 86.13,
+              "mid_vit": {
+                "func_anti": 0.7468,
+                "rms_ratio": 0.2953
+              }
+            },
+            {
+              "epoch": 2,
+              "top1": 88.04,
+              "mid_vit": {
+                "func_anti": 0.7517,
+                "rms_ratio": 0.4874
+              }
+            },
+            {
+              "epoch": 3,
+              "top1": 88.73,
+              "mid_vit": {
+                "func_anti": 0.7495,
+                "rms_ratio": 0.5846
+              }
+            },
+            {
+              "epoch": 4,
+              "top1": 89.24,
+              "mid_vit": {
+                "func_anti": 0.7469,
+                "rms_ratio": 0.624
+              }
+            },
+            {
+              "epoch": 5,
+              "top1": 89.59,
+              "mid_vit": {
+                "func_anti": 0.7432,
+                "rms_ratio": 0.632
+              }
+            },
+            {
+              "epoch": 6,
+              "top1": 89.89,
+              "mid_vit": {
+                "func_anti": 0.7395,
+                "rms_ratio": 0.6264
+              }
+            },
+            {
+              "epoch": 7,
+              "top1": 90.14,
+              "mid_vit": {
+                "func_anti": 0.7354,
+                "rms_ratio": 0.6117
+              }
+            },
+            {
+              "epoch": 8,
+              "top1": 90.33,
+              "mid_vit": {
+                "func_anti": 0.7318,
+                "rms_ratio": 0.5991
+              }
+            },
+            {
+              "epoch": 9,
+              "top1": 90.36,
+              "mid_vit": {
+                "func_anti": 0.7293,
+                "rms_ratio": 0.5934
+              }
+            }
+          ]
+        }
+      }
     }
   }
 }

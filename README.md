@@ -21,6 +21,7 @@ This repository tests a concrete question across synthetic bilinear teachers, fr
 - Switching the task on the exact same backbone and images to 4-way rotation prediction `{0, 90, 180, 270}` (Wave C-Matched, 3 paired seeds) reverses every indicator: `anti` grows to `RMS = 0.624`, zeroing `Anti` drops `anti` by `-7.37%` and `free_star` by `-3.51%` (15x the impact of zeroing `Sym`), and `free_sym` escapes pure symmetry (`FuncAnti: 0.000 -> 0.498`).
 - Switching Stage-4 pairs to isotropic center-surround `(u, DWConv5x5(u))` on ImageNet-1k (Wave B1, 3 paired seeds) removes the reflection conflict, lifting `anti` to `RMS = 0.417` (`+0.20%` over baseline, `-0.91%` when zeroed).
 - Moving the directed pair earlier to mid-level Stage 3 (`14x14`, three nonlinear blocks before GAP; Wave B2, 3 paired seeds) also prevents collapse (`anti RMS = 0.069`) and shifts `free_star` upward into antisymmetry (`FuncAnti = 0.565`, `Anti->0 = -0.23%` vs. `Sym->0 = -0.15%`).
+- The same task flip holds inside Vision Transformers (Wave F, `ViT-Tiny` 4-way rotation, 2 paired seeds): switching from ImageNet-1k classification to 4-way rotation flips `free_star` from `FuncAnti = 0.167` (`Sym->0 = -2.88%`) to `0.729` (`Anti->0 = -6.18%` vs. `Sym->0 = -0.84%`, best accuracy `90.35%`).
 
 ### 3. Cross-token multiplication vs. single-token quadratic gating (`SelfAvg`)
 - `SelfAvg(u, v) = ((Au)*(Bu) + (Av)*(Bv)) / sqrt(2)` matches `Sym` in parameter count, receptive field, and exchange symmetry without multiplying across positions (`SelfAvg - Sym = A(u-v)*B(u-v)/sqrt(2)`).

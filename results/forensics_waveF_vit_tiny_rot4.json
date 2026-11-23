@@ -1,0 +1,2077 @@
+{
+  "num_runs": 8,
+  "runs": {
+    "rot4_vittiny_dir_anti_s101": {
+      "name": "rot4_vittiny_dir_anti_s101",
+      "args": {
+        "name": "rot4_vittiny_dir_anti_s101",
+        "output_dir": "/scratch/itscspod/chtaihei/exsym_runs/waveF_vit_tiny_rot4",
+        "cache_dir": "/dev/shm/in1k_raw_cache_ar320",
+        "backbone": "vit_tiny_patch16_224",
+        "mode": "anti",
+        "pair_type": "directed_right",
+        "placement": "stage4_mid",
+        "vit_insert_block": 8,
+        "rank_ratio": 1.0,
+        "gamma_init": 0.1,
+        "pretrained_ckpt": "/scratch/itscspod/chtaihei/exsym_runs/waveE_vit_tiny_scratch/scratch_vittiny_dir_none_s101/best_ema.pt",
+        "rotation_task": true,
+        "epochs": 10,
+        "batch_size": 512,
+        "grad_accum": 2,
+        "num_workers": 12,
+        "lr": 0.0005,
+        "adapter_lr_mult": 3.0,
+        "min_lr": 1e-06,
+        "warmup_epochs": 1,
+        "weight_decay": 0.05,
+        "drop_path": 0.1,
+        "ema_decay": 0.999,
+        "mixup": 0.0,
+        "cutmix": 0.0,
+        "label_smoothing": 0.0,
+        "clip_grad": 5.0,
+        "no_compile": false,
+        "data_seed": 101,
+        "init_seed": 7101,
+        "eval_interval": 1,
+        "save_best_only": false,
+        "resume": true,
+        "max_steps": 0,
+        "deadline_iso": "2026-11-23T09:35:00+08:00"
+      },
+      "full_eval": {
+        "clean": 90.13,
+        "clean_top5": 100.0
+      },
+      "symmetry_final": {
+        "mid_vit": {
+          "mode": "anti",
+          "pair_type": "directed_right",
+          "dim": 192,
+          "rank": 192,
+          "mean_e_anti": 1.0,
+          "std_e_anti": 0.0,
+          "theta_mean": -0.7853981852531433,
+          "theta_std": 0.0,
+          "theta_quantiles": [
+            -0.7853981852531433,
+            -0.7853981852531433,
+            -0.7853981852531433,
+            -0.7853981852531433,
+            -0.7853981852531433
+          ],
+          "weight_weighted_e_anti": 1.0,
+          "eff_anti": 1.0,
+          "func_anti": 0.9999999999968946,
+          "delta_rms": 1.2546409368515015,
+          "x_rms": 2.112494468688965,
+          "rms_ratio": 0.5939144246044555,
+          "top25_energy_frac": 0.7065793348719955
+        }
+      },
+      "intervention": {
+        "anti_sweep": {
+          "s1.0_a1.0": {
+            "clean": 90.18,
+            "clean_top5": 100.0
+          },
+          "s1.0_a0.75": {
+            "clean": 90.1,
+            "clean_top5": 100.0
+          },
+          "s1.0_a0.5": {
+            "clean": 89.89,
+            "clean_top5": 100.0
+          },
+          "s1.0_a0.0": {
+            "clean": 69.0,
+            "clean_top5": 100.0
+          }
+        },
+        "sym_sweep": {
+          "s1.0_a1.0": {
+            "clean": 90.18,
+            "clean_top5": 100.0
+          },
+          "s0.75_a1.0": {
+            "clean": 90.18,
+            "clean_top5": 100.0
+          },
+          "s0.5_a1.0": {
+            "clean": 90.18,
+            "clean_top5": 100.0
+          },
+          "s0.0_a1.0": {
+            "clean": 90.18,
+            "clean_top5": 100.0
+          }
+        },
+        "bypass": {
+          "s0.0_a0.0": {
+            "clean": 69.01,
+            "clean_top5": 100.0
+          }
+        }
+      },
+      "trajectory": [
+        {
+          "epoch": -1,
+          "top1": 25.302,
+          "theta_grad_norm": null,
+          "symmetry": {
+            "mid_vit": {
+              "eff_anti": 1.0,
+              "func_anti": 0.9999999999916453,
+              "mean_e_anti": 1.0,
+              "rms_ratio": 0.0037506578121898615
+            }
+          }
+        },
+        {
+          "epoch": 0,
+          "top1": 76.882,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "mid_vit": {
+              "eff_anti": 1.0,
+              "func_anti": 0.9999999999992217,
+              "mean_e_anti": 1.0,
+              "rms_ratio": 0.11228168688047918
+            }
+          }
+        },
+        {
+          "epoch": 1,
+          "top1": 86.674,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "mid_vit": {
+              "eff_anti": 1.0,
+              "func_anti": 0.9999999999984079,
+              "mean_e_anti": 1.0,
+              "rms_ratio": 0.3954411496661106
+            }
+          }
+        },
+        {
+          "epoch": 2,
+          "top1": 87.918,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "mid_vit": {
+              "eff_anti": 1.0,
+              "func_anti": 0.999999999998795,
+              "mean_e_anti": 1.0,
+              "rms_ratio": 0.5697444958053052
+            }
+          }
+        },
+        {
+          "epoch": 3,
+          "top1": 88.562,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "mid_vit": {
+              "eff_anti": 1.0,
+              "func_anti": 0.9999999999966,
+              "mean_e_anti": 1.0,
+              "rms_ratio": 0.6363153122156275
+            }
+          }
+        },
+        {
+          "epoch": 4,
+          "top1": 88.962,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "mid_vit": {
+              "eff_anti": 1.0,
+              "func_anti": 0.9999999999971942,
+              "mean_e_anti": 1.0,
+              "rms_ratio": 0.6522785099449604
+            }
+          }
+        },
+        {
+          "epoch": 5,
+          "top1": 89.362,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "mid_vit": {
+              "eff_anti": 1.0,
+              "func_anti": 0.9999999999990723,
+              "mean_e_anti": 1.0,
+              "rms_ratio": 0.6455082031595755
+            }
+          }
+        },
+        {
+          "epoch": 6,
+          "top1": 89.634,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "mid_vit": {
+              "eff_anti": 1.0,
+              "func_anti": 0.999999999996654,
+              "mean_e_anti": 1.0,
+              "rms_ratio": 0.633521022033092
+            }
+          }
+        },
+        {
+          "epoch": 7,
+          "top1": 89.902,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "mid_vit": {
+              "eff_anti": 1.0,
+              "func_anti": 0.9999999999969498,
+              "mean_e_anti": 1.0,
+              "rms_ratio": 0.6150508612609618
+            }
+          }
+        },
+        {
+          "epoch": 8,
+          "top1": 90.018,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "mid_vit": {
+              "eff_anti": 1.0,
+              "func_anti": 0.9999999999993138,
+              "mean_e_anti": 1.0,
+              "rms_ratio": 0.6002302607553637
+            }
+          }
+        },
+        {
+          "epoch": 9,
+          "top1": 90.128,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "mid_vit": {
+              "eff_anti": 1.0,
+              "func_anti": 0.9999999999980378,
+              "mean_e_anti": 1.0,
+              "rms_ratio": 0.595205990465866
+            }
+          }
+        }
+      ]
+    },
+    "rot4_vittiny_dir_anti_s42": {
+      "name": "rot4_vittiny_dir_anti_s42",
+      "args": {
+        "name": "rot4_vittiny_dir_anti_s42",
+        "output_dir": "/scratch/itscspod/chtaihei/exsym_runs/waveF_vit_tiny_rot4",
+        "cache_dir": "/dev/shm/in1k_raw_cache_ar320",
+        "backbone": "vit_tiny_patch16_224",
+        "mode": "anti",
+        "pair_type": "directed_right",
+        "placement": "stage4_mid",
+        "vit_insert_block": 8,
+        "rank_ratio": 1.0,
+        "gamma_init": 0.1,
+        "pretrained_ckpt": "/scratch/itscspod/chtaihei/exsym_runs/waveE_vit_tiny_scratch/scratch_vittiny_dir_none_s42/best_ema.pt",
+        "rotation_task": true,
+        "epochs": 10,
+        "batch_size": 512,
+        "grad_accum": 2,
+        "num_workers": 12,
+        "lr": 0.0005,
+        "adapter_lr_mult": 3.0,
+        "min_lr": 1e-06,
+        "warmup_epochs": 1,
+        "weight_decay": 0.05,
+        "drop_path": 0.1,
+        "ema_decay": 0.999,
+        "mixup": 0.0,
+        "cutmix": 0.0,
+        "label_smoothing": 0.0,
+        "clip_grad": 5.0,
+        "no_compile": false,
+        "data_seed": 42,
+        "init_seed": 7042,
+        "eval_interval": 1,
+        "save_best_only": false,
+        "resume": true,
+        "max_steps": 0,
+        "deadline_iso": "2026-11-23T09:35:00+08:00"
+      },
+      "full_eval": {
+        "clean": 90.44,
+        "clean_top5": 100.0
+      },
+      "symmetry_final": {
+        "mid_vit": {
+          "mode": "anti",
+          "pair_type": "directed_right",
+          "dim": 192,
+          "rank": 192,
+          "mean_e_anti": 1.0,
+          "std_e_anti": 0.0,
+          "theta_mean": -0.7853981852531433,
+          "theta_std": 0.0,
+          "theta_quantiles": [
+            -0.7853981852531433,
+            -0.7853981852531433,
+            -0.7853981852531433,
+            -0.7853981852531433,
+            -0.7853981852531433
+          ],
+          "weight_weighted_e_anti": 1.0,
+          "eff_anti": 1.0,
+          "func_anti": 0.9999999999978453,
+          "delta_rms": 1.162531852722168,
+          "x_rms": 1.9838659763336182,
+          "rms_ratio": 0.5859931399552719,
+          "top25_energy_frac": 0.6818695239866234
+        }
+      },
+      "intervention": {
+        "anti_sweep": {
+          "s1.0_a1.0": {
+            "clean": 90.46,
+            "clean_top5": 100.0
+          },
+          "s1.0_a0.75": {
+            "clean": 90.42,
+            "clean_top5": 100.0
+          },
+          "s1.0_a0.5": {
+            "clean": 90.18,
+            "clean_top5": 100.0
+          },
+          "s1.0_a0.0": {
+            "clean": 74.86,
+            "clean_top5": 100.0
+          }
+        },
+        "sym_sweep": {
+          "s1.0_a1.0": {
+            "clean": 90.46,
+            "clean_top5": 100.0
+          },
+          "s0.75_a1.0": {
+            "clean": 90.46,
+            "clean_top5": 100.0
+          },
+          "s0.5_a1.0": {
+            "clean": 90.46,
+            "clean_top5": 100.0
+          },
+          "s0.0_a1.0": {
+            "clean": 90.46,
+            "clean_top5": 100.0
+          }
+        },
+        "bypass": {
+          "s0.0_a0.0": {
+            "clean": 74.88,
+            "clean_top5": 100.0
+          }
+        }
+      },
+      "trajectory": [
+        {
+          "epoch": -1,
+          "top1": 24.548,
+          "theta_grad_norm": null,
+          "symmetry": {
+            "mid_vit": {
+              "eff_anti": 1.0,
+              "func_anti": 0.999999999992639,
+              "mean_e_anti": 1.0,
+              "rms_ratio": 0.003860978834563887
+            }
+          }
+        },
+        {
+          "epoch": 0,
+          "top1": 75.958,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "mid_vit": {
+              "eff_anti": 1.0,
+              "func_anti": 0.9999999999987175,
+              "mean_e_anti": 1.0,
+              "rms_ratio": 0.10570287843403434
+            }
+          }
+        },
+        {
+          "epoch": 1,
+          "top1": 86.982,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "mid_vit": {
+              "eff_anti": 1.0,
+              "func_anti": 0.9999999999973426,
+              "mean_e_anti": 1.0,
+              "rms_ratio": 0.3882395318939107
+            }
+          }
+        },
+        {
+          "epoch": 2,
+          "top1": 88.372,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "mid_vit": {
+              "eff_anti": 1.0,
+              "func_anti": 0.9999999999986537,
+              "mean_e_anti": 1.0,
+              "rms_ratio": 0.5558691012196181
+            }
+          }
+        },
+        {
+          "epoch": 3,
+          "top1": 88.968,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "mid_vit": {
+              "eff_anti": 1.0,
+              "func_anti": 0.9999999999980018,
+              "mean_e_anti": 1.0,
+              "rms_ratio": 0.6208536470828888
+            }
+          }
+        },
+        {
+          "epoch": 4,
+          "top1": 89.306,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "mid_vit": {
+              "eff_anti": 1.0,
+              "func_anti": 0.9999999999979252,
+              "mean_e_anti": 1.0,
+              "rms_ratio": 0.6382712740484208
+            }
+          }
+        },
+        {
+          "epoch": 5,
+          "top1": 89.596,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "mid_vit": {
+              "eff_anti": 1.0,
+              "func_anti": 0.9999999999983974,
+              "mean_e_anti": 1.0,
+              "rms_ratio": 0.6349359708188997
+            }
+          }
+        },
+        {
+          "epoch": 6,
+          "top1": 89.886,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "mid_vit": {
+              "eff_anti": 1.0,
+              "func_anti": 0.9999999999982554,
+              "mean_e_anti": 1.0,
+              "rms_ratio": 0.6224175415980197
+            }
+          }
+        },
+        {
+          "epoch": 7,
+          "top1": 90.124,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "mid_vit": {
+              "eff_anti": 1.0,
+              "func_anti": 0.9999999999976706,
+              "mean_e_anti": 1.0,
+              "rms_ratio": 0.6050484764966605
+            }
+          }
+        },
+        {
+          "epoch": 8,
+          "top1": 90.402,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "mid_vit": {
+              "eff_anti": 1.0,
+              "func_anti": 0.9999999999984834,
+              "mean_e_anti": 1.0,
+              "rms_ratio": 0.5916721528907566
+            }
+          }
+        },
+        {
+          "epoch": 9,
+          "top1": 90.438,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "mid_vit": {
+              "eff_anti": 1.0,
+              "func_anti": 0.999999999997738,
+              "mean_e_anti": 1.0,
+              "rms_ratio": 0.5860522599045577
+            }
+          }
+        }
+      ]
+    },
+    "rot4_vittiny_dir_free_star_s101": {
+      "name": "rot4_vittiny_dir_free_star_s101",
+      "args": {
+        "name": "rot4_vittiny_dir_free_star_s101",
+        "output_dir": "/scratch/itscspod/chtaihei/exsym_runs/waveF_vit_tiny_rot4",
+        "cache_dir": "/dev/shm/in1k_raw_cache_ar320",
+        "backbone": "vit_tiny_patch16_224",
+        "mode": "free_star",
+        "pair_type": "directed_right",
+        "placement": "stage4_mid",
+        "vit_insert_block": 8,
+        "rank_ratio": 1.0,
+        "gamma_init": 0.1,
+        "pretrained_ckpt": "/scratch/itscspod/chtaihei/exsym_runs/waveE_vit_tiny_scratch/scratch_vittiny_dir_none_s101/best_ema.pt",
+        "rotation_task": true,
+        "epochs": 10,
+        "batch_size": 512,
+        "grad_accum": 2,
+        "num_workers": 12,
+        "lr": 0.0005,
+        "adapter_lr_mult": 3.0,
+        "min_lr": 1e-06,
+        "warmup_epochs": 1,
+        "weight_decay": 0.05,
+        "drop_path": 0.1,
+        "ema_decay": 0.999,
+        "mixup": 0.0,
+        "cutmix": 0.0,
+        "label_smoothing": 0.0,
+        "clip_grad": 5.0,
+        "no_compile": false,
+        "data_seed": 101,
+        "init_seed": 7101,
+        "eval_interval": 1,
+        "save_best_only": false,
+        "resume": true,
+        "max_steps": 0,
+        "deadline_iso": "2026-11-23T09:35:00+08:00"
+      },
+      "full_eval": {
+        "clean": 90.24,
+        "clean_top5": 100.0
+      },
+      "symmetry_final": {
+        "mid_vit": {
+          "mode": "free_star",
+          "pair_type": "directed_right",
+          "dim": 192,
+          "rank": 192,
+          "mean_e_anti": 0.6804282665252686,
+          "std_e_anti": 0.23714078962802887,
+          "theta_mean": -0.22819900512695312,
+          "theta_std": 0.3033851385116577,
+          "theta_quantiles": [
+            -0.6922944784164429,
+            -0.4571438431739807,
+            -0.19147048890590668,
+            -0.013271588832139969,
+            0.154407799243927
+          ],
+          "weight_weighted_e_anti": 0.7362337670636914,
+          "eff_anti": 0.7936992104135073,
+          "func_anti": 0.7643798073091369,
+          "delta_rms": 1.261567234992981,
+          "x_rms": 2.029984712600708,
+          "rms_ratio": 0.6214663722155466,
+          "top25_energy_frac": 0.8218916493211373
+        }
+      },
+      "intervention": {
+        "anti_sweep": {
+          "s1.0_a1.0": {
+            "clean": 90.48,
+            "clean_top5": 100.0
+          },
+          "s1.0_a0.75": {
+            "clean": 90.48,
+            "clean_top5": 100.0
+          },
+          "s1.0_a0.5": {
+            "clean": 90.38,
+            "clean_top5": 100.0
+          },
+          "s1.0_a0.0": {
+            "clean": 80.47,
+            "clean_top5": 100.0
+          }
+        },
+        "sym_sweep": {
+          "s1.0_a1.0": {
+            "clean": 90.48,
+            "clean_top5": 100.0
+          },
+          "s0.75_a1.0": {
+            "clean": 90.42,
+            "clean_top5": 100.0
+          },
+          "s0.5_a1.0": {
+            "clean": 90.38,
+            "clean_top5": 100.0
+          },
+          "s0.0_a1.0": {
+            "clean": 89.58,
+            "clean_top5": 100.0
+          }
+        },
+        "bypass": {
+          "s0.0_a0.0": {
+            "clean": 75.64,
+            "clean_top5": 100.0
+          }
+        }
+      },
+      "trajectory": [
+        {
+          "epoch": -1,
+          "top1": 25.306,
+          "theta_grad_norm": null,
+          "symmetry": {
+            "mid_vit": {
+              "eff_anti": 0.5,
+              "func_anti": 0.3065687902955406,
+              "mean_e_anti": 0.5,
+              "rms_ratio": 0.004790273693201544
+            }
+          }
+        },
+        {
+          "epoch": 0,
+          "top1": 73.006,
+          "theta_grad_norm": 0.00672,
+          "symmetry": {
+            "mid_vit": {
+              "eff_anti": 0.5629720084179001,
+              "func_anti": 0.7116979638536363,
+              "mean_e_anti": 0.5317637324333191,
+              "rms_ratio": 0.06303548316917028
+            }
+          }
+        },
+        {
+          "epoch": 1,
+          "top1": 85.818,
+          "theta_grad_norm": 0.01211,
+          "symmetry": {
+            "mid_vit": {
+              "eff_anti": 0.6836232222723657,
+              "func_anti": 0.7817917430807516,
+              "mean_e_anti": 0.6039310097694397,
+              "rms_ratio": 0.3103289841576355
+            }
+          }
+        },
+        {
+          "epoch": 2,
+          "top1": 87.768,
+          "theta_grad_norm": 0.018348,
+          "symmetry": {
+            "mid_vit": {
+              "eff_anti": 0.7627174447910161,
+              "func_anti": 0.7907178765126757,
+              "mean_e_anti": 0.6456916928291321,
+              "rms_ratio": 0.5066778208260845
+            }
+          }
+        },
+        {
+          "epoch": 3,
+          "top1": 88.452,
+          "theta_grad_norm": 0.01907,
+          "symmetry": {
+            "mid_vit": {
+              "eff_anti": 0.7913883329964513,
+              "func_anti": 0.787772947183971,
+              "mean_e_anti": 0.6652495861053467,
+              "rms_ratio": 0.6080911957465468
+            }
+          }
+        },
+        {
+          "epoch": 4,
+          "top1": 88.986,
+          "theta_grad_norm": 0.02188,
+          "symmetry": {
+            "mid_vit": {
+              "eff_anti": 0.8012005341101626,
+              "func_anti": 0.7862418354142964,
+              "mean_e_anti": 0.6751400828361511,
+              "rms_ratio": 0.6546239750786809
+            }
+          }
+        },
+        {
+          "epoch": 5,
+          "top1": 89.394,
+          "theta_grad_norm": 0.025724,
+          "symmetry": {
+            "mid_vit": {
+              "eff_anti": 0.8019655601694697,
+              "func_anti": 0.7821593758898616,
+              "mean_e_anti": 0.6806551814079285,
+              "rms_ratio": 0.6629998216149484
+            }
+          }
+        },
+        {
+          "epoch": 6,
+          "top1": 89.76,
+          "theta_grad_norm": 0.024057,
+          "symmetry": {
+            "mid_vit": {
+              "eff_anti": 0.7990016656182053,
+              "func_anti": 0.7745833768171861,
+              "mean_e_anti": 0.6823179125785828,
+              "rms_ratio": 0.6580472439945597
+            }
+          }
+        },
+        {
+          "epoch": 7,
+          "top1": 90.08,
+          "theta_grad_norm": 0.024041,
+          "symmetry": {
+            "mid_vit": {
+              "eff_anti": 0.7977292030083842,
+              "func_anti": 0.7724112901940371,
+              "mean_e_anti": 0.6821418404579163,
+              "rms_ratio": 0.6442071815388556
+            }
+          }
+        },
+        {
+          "epoch": 8,
+          "top1": 90.232,
+          "theta_grad_norm": 0.023561,
+          "symmetry": {
+            "mid_vit": {
+              "eff_anti": 0.7957699997155162,
+              "func_anti": 0.7701248636862916,
+              "mean_e_anti": 0.6811408400535583,
+              "rms_ratio": 0.632664261588362
+            }
+          }
+        },
+        {
+          "epoch": 9,
+          "top1": 90.244,
+          "theta_grad_norm": 0.021767,
+          "symmetry": {
+            "mid_vit": {
+              "eff_anti": 0.7933481782300185,
+              "func_anti": 0.7678845076087741,
+              "mean_e_anti": 0.6804282665252686,
+              "rms_ratio": 0.6278817340069794
+            }
+          }
+        }
+      ]
+    },
+    "rot4_vittiny_dir_free_star_s42": {
+      "name": "rot4_vittiny_dir_free_star_s42",
+      "args": {
+        "name": "rot4_vittiny_dir_free_star_s42",
+        "output_dir": "/scratch/itscspod/chtaihei/exsym_runs/waveF_vit_tiny_rot4",
+        "cache_dir": "/dev/shm/in1k_raw_cache_ar320",
+        "backbone": "vit_tiny_patch16_224",
+        "mode": "free_star",
+        "pair_type": "directed_right",
+        "placement": "stage4_mid",
+        "vit_insert_block": 8,
+        "rank_ratio": 1.0,
+        "gamma_init": 0.1,
+        "pretrained_ckpt": "/scratch/itscspod/chtaihei/exsym_runs/waveE_vit_tiny_scratch/scratch_vittiny_dir_none_s42/best_ema.pt",
+        "rotation_task": true,
+        "epochs": 10,
+        "batch_size": 512,
+        "grad_accum": 2,
+        "num_workers": 12,
+        "lr": 0.0005,
+        "adapter_lr_mult": 3.0,
+        "min_lr": 1e-06,
+        "warmup_epochs": 1,
+        "weight_decay": 0.05,
+        "drop_path": 0.1,
+        "ema_decay": 0.999,
+        "mixup": 0.0,
+        "cutmix": 0.0,
+        "label_smoothing": 0.0,
+        "clip_grad": 5.0,
+        "no_compile": false,
+        "data_seed": 42,
+        "init_seed": 7042,
+        "eval_interval": 1,
+        "save_best_only": false,
+        "resume": true,
+        "max_steps": 0,
+        "deadline_iso": "2026-11-23T09:35:00+08:00"
+      },
+      "full_eval": {
+        "clean": 90.47,
+        "clean_top5": 100.0
+      },
+      "symmetry_final": {
+        "mid_vit": {
+          "mode": "free_star",
+          "pair_type": "directed_right",
+          "dim": 192,
+          "rank": 192,
+          "mean_e_anti": 0.6498541235923767,
+          "std_e_anti": 0.22574709355831146,
+          "theta_mean": -0.18732869625091553,
+          "theta_std": 0.28488069772720337,
+          "theta_quantiles": [
+            -0.6331126689910889,
+            -0.3835483193397522,
+            -0.13772693276405334,
+            0.019065696746110916,
+            0.1662951111793518
+          ],
+          "weight_weighted_e_anti": 0.7102183851735674,
+          "eff_anti": 0.7563625313685396,
+          "func_anti": 0.6927109216801973,
+          "delta_rms": 1.0654979944229126,
+          "x_rms": 1.9007774591445923,
+          "rms_ratio": 0.5605590435097116,
+          "top25_energy_frac": 0.6815403626138024
+        }
+      },
+      "intervention": {
+        "anti_sweep": {
+          "s1.0_a1.0": {
+            "clean": 90.57,
+            "clean_top5": 100.0
+          },
+          "s1.0_a0.75": {
+            "clean": 90.6,
+            "clean_top5": 100.0
+          },
+          "s1.0_a0.5": {
+            "clean": 90.33,
+            "clean_top5": 100.0
+          },
+          "s1.0_a0.0": {
+            "clean": 88.22,
+            "clean_top5": 100.0
+          }
+        },
+        "sym_sweep": {
+          "s1.0_a1.0": {
+            "clean": 90.57,
+            "clean_top5": 100.0
+          },
+          "s0.75_a1.0": {
+            "clean": 90.46,
+            "clean_top5": 100.0
+          },
+          "s0.5_a1.0": {
+            "clean": 90.35,
+            "clean_top5": 100.0
+          },
+          "s0.0_a1.0": {
+            "clean": 89.8,
+            "clean_top5": 100.0
+          }
+        },
+        "bypass": {
+          "s0.0_a0.0": {
+            "clean": 84.19,
+            "clean_top5": 100.0
+          }
+        }
+      },
+      "trajectory": [
+        {
+          "epoch": -1,
+          "top1": 24.552,
+          "theta_grad_norm": null,
+          "symmetry": {
+            "mid_vit": {
+              "eff_anti": 0.5,
+              "func_anti": 0.3048038228849383,
+              "mean_e_anti": 0.5,
+              "rms_ratio": 0.004944747900071085
+            }
+          }
+        },
+        {
+          "epoch": 0,
+          "top1": 74.53,
+          "theta_grad_norm": 0.006777,
+          "symmetry": {
+            "mid_vit": {
+              "eff_anti": 0.558567902836486,
+              "func_anti": 0.6073049018318406,
+              "mean_e_anti": 0.5124049782752991,
+              "rms_ratio": 0.05334926834800307
+            }
+          }
+        },
+        {
+          "epoch": 1,
+          "top1": 86.442,
+          "theta_grad_norm": 0.011799,
+          "symmetry": {
+            "mid_vit": {
+              "eff_anti": 0.6784074554249615,
+              "func_anti": 0.711745249938741,
+              "mean_e_anti": 0.5736879110336304,
+              "rms_ratio": 0.28027386343343375
+            }
+          }
+        },
+        {
+          "epoch": 2,
+          "top1": 88.316,
+          "theta_grad_norm": 0.013389,
+          "symmetry": {
+            "mid_vit": {
+              "eff_anti": 0.7297493130503653,
+              "func_anti": 0.7127525670725635,
+              "mean_e_anti": 0.610997200012207,
+              "rms_ratio": 0.4680665244300961
+            }
+          }
+        },
+        {
+          "epoch": 3,
+          "top1": 89.018,
+          "theta_grad_norm": 0.014254,
+          "symmetry": {
+            "mid_vit": {
+              "eff_anti": 0.7484497883131683,
+              "func_anti": 0.7111922306171876,
+              "mean_e_anti": 0.6319350600242615,
+              "rms_ratio": 0.561134698159458
+            }
+          }
+        },
+        {
+          "epoch": 4,
+          "top1": 89.488,
+          "theta_grad_norm": 0.015246,
+          "symmetry": {
+            "mid_vit": {
+              "eff_anti": 0.7587430097372323,
+              "func_anti": 0.7075927784748649,
+              "mean_e_anti": 0.6440264582633972,
+              "rms_ratio": 0.5934112506826252
+            }
+          }
+        },
+        {
+          "epoch": 5,
+          "top1": 89.794,
+          "theta_grad_norm": 0.015117,
+          "symmetry": {
+            "mid_vit": {
+              "eff_anti": 0.7621837279010049,
+              "func_anti": 0.7042340836584979,
+              "mean_e_anti": 0.6503978371620178,
+              "rms_ratio": 0.6009616864715753
+            }
+          }
+        },
+        {
+          "epoch": 6,
+          "top1": 90.026,
+          "theta_grad_norm": 0.016553,
+          "symmetry": {
+            "mid_vit": {
+              "eff_anti": 0.763573401792652,
+              "func_anti": 0.7044905360938052,
+              "mean_e_anti": 0.6522417664527893,
+              "rms_ratio": 0.5947359423007653
+            }
+          }
+        },
+        {
+          "epoch": 7,
+          "top1": 90.208,
+          "theta_grad_norm": 0.014663,
+          "symmetry": {
+            "mid_vit": {
+              "eff_anti": 0.7616407841411743,
+              "func_anti": 0.6983860371155199,
+              "mean_e_anti": 0.6518831849098206,
+              "rms_ratio": 0.5792277342094985
+            }
+          }
+        },
+        {
+          "epoch": 8,
+          "top1": 90.424,
+          "theta_grad_norm": 0.014382,
+          "symmetry": {
+            "mid_vit": {
+              "eff_anti": 0.7584090870144609,
+              "func_anti": 0.6933781111963127,
+              "mean_e_anti": 0.6505924463272095,
+              "rms_ratio": 0.5655829617169286
+            }
+          }
+        },
+        {
+          "epoch": 9,
+          "top1": 90.472,
+          "theta_grad_norm": 0.014123,
+          "symmetry": {
+            "mid_vit": {
+              "eff_anti": 0.7560471437881651,
+              "func_anti": 0.6907764383186922,
+              "mean_e_anti": 0.6498541235923767,
+              "rms_ratio": 0.5589717828900664
+            }
+          }
+        }
+      ]
+    },
+    "rot4_vittiny_dir_self_avg_s101": {
+      "name": "rot4_vittiny_dir_self_avg_s101",
+      "args": {
+        "name": "rot4_vittiny_dir_self_avg_s101",
+        "output_dir": "/scratch/itscspod/chtaihei/exsym_runs/waveF_vit_tiny_rot4",
+        "cache_dir": "/dev/shm/in1k_raw_cache_ar320",
+        "backbone": "vit_tiny_patch16_224",
+        "mode": "self_avg",
+        "pair_type": "directed_right",
+        "placement": "stage4_mid",
+        "vit_insert_block": 8,
+        "rank_ratio": 1.0,
+        "gamma_init": 0.1,
+        "pretrained_ckpt": "/scratch/itscspod/chtaihei/exsym_runs/waveE_vit_tiny_scratch/scratch_vittiny_dir_none_s101/best_ema.pt",
+        "rotation_task": true,
+        "epochs": 10,
+        "batch_size": 512,
+        "grad_accum": 2,
+        "num_workers": 12,
+        "lr": 0.0005,
+        "adapter_lr_mult": 3.0,
+        "min_lr": 1e-06,
+        "warmup_epochs": 1,
+        "weight_decay": 0.05,
+        "drop_path": 0.1,
+        "ema_decay": 0.999,
+        "mixup": 0.0,
+        "cutmix": 0.0,
+        "label_smoothing": 0.0,
+        "clip_grad": 5.0,
+        "no_compile": false,
+        "data_seed": 101,
+        "init_seed": 7101,
+        "eval_interval": 1,
+        "save_best_only": false,
+        "resume": true,
+        "max_steps": 0,
+        "deadline_iso": "2026-11-23T09:35:00+08:00"
+      },
+      "full_eval": {
+        "clean": 90.19,
+        "clean_top5": 100.0
+      },
+      "symmetry_final": {
+        "mid_vit": {
+          "mode": "self_avg",
+          "pair_type": "directed_right",
+          "dim": 192,
+          "rank": 192,
+          "mean_e_anti": 0.0,
+          "std_e_anti": 0.0,
+          "theta_mean": 0.7853981852531433,
+          "theta_std": 0.0,
+          "theta_quantiles": [
+            0.7853981852531433,
+            0.7853981852531433,
+            0.7853981852531433,
+            0.7853981852531433,
+            0.7853981852531433
+          ],
+          "weight_weighted_e_anti": 0.0,
+          "eff_anti": 0.0,
+          "func_anti": 0.0,
+          "delta_rms": 0.8431103229522705,
+          "x_rms": 1.981520652770996,
+          "rms_ratio": 0.42548651803010434,
+          "top25_energy_frac": 0.6593775703157387
+        }
+      },
+      "intervention": {
+        "anti_sweep": {
+          "s1.0_a1.0": {
+            "clean": 90.44,
+            "clean_top5": 100.0
+          },
+          "s1.0_a0.75": {
+            "clean": 90.44,
+            "clean_top5": 100.0
+          },
+          "s1.0_a0.5": {
+            "clean": 90.44,
+            "clean_top5": 100.0
+          },
+          "s1.0_a0.0": {
+            "clean": 90.44,
+            "clean_top5": 100.0
+          }
+        },
+        "sym_sweep": {
+          "s1.0_a1.0": {
+            "clean": 90.44,
+            "clean_top5": 100.0
+          },
+          "s0.75_a1.0": {
+            "clean": 90.45,
+            "clean_top5": 100.0
+          },
+          "s0.5_a1.0": {
+            "clean": 89.79,
+            "clean_top5": 100.0
+          },
+          "s0.0_a1.0": {
+            "clean": 83.98,
+            "clean_top5": 100.0
+          }
+        },
+        "bypass": {
+          "s0.0_a0.0": {
+            "clean": 83.98,
+            "clean_top5": 100.0
+          }
+        }
+      },
+      "trajectory": [
+        {
+          "epoch": -1,
+          "top1": 25.304,
+          "theta_grad_norm": null,
+          "symmetry": {
+            "mid_vit": {
+              "eff_anti": 0.0,
+              "func_anti": 0.0,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.0057186176914746575
+            }
+          }
+        },
+        {
+          "epoch": 0,
+          "top1": 73.344,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "mid_vit": {
+              "eff_anti": 0.0,
+              "func_anti": 0.0,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.04593320863977768
+            }
+          }
+        },
+        {
+          "epoch": 1,
+          "top1": 84.94,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "mid_vit": {
+              "eff_anti": 0.0,
+              "func_anti": 0.0,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.2132611013726819
+            }
+          }
+        },
+        {
+          "epoch": 2,
+          "top1": 87.32,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "mid_vit": {
+              "eff_anti": 0.0,
+              "func_anti": 0.0,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.32749784985224684
+            }
+          }
+        },
+        {
+          "epoch": 3,
+          "top1": 88.28,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "mid_vit": {
+              "eff_anti": 0.0,
+              "func_anti": 0.0,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.38180147098147016
+            }
+          }
+        },
+        {
+          "epoch": 4,
+          "top1": 88.812,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "mid_vit": {
+              "eff_anti": 0.0,
+              "func_anti": 0.0,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.4061488565009853
+            }
+          }
+        },
+        {
+          "epoch": 5,
+          "top1": 89.3,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "mid_vit": {
+              "eff_anti": 0.0,
+              "func_anti": 0.0,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.4181626381879756
+            }
+          }
+        },
+        {
+          "epoch": 6,
+          "top1": 89.614,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "mid_vit": {
+              "eff_anti": 0.0,
+              "func_anti": 0.0,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.4257072047241269
+            }
+          }
+        },
+        {
+          "epoch": 7,
+          "top1": 89.952,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "mid_vit": {
+              "eff_anti": 0.0,
+              "func_anti": 0.0,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.4251748623374217
+            }
+          }
+        },
+        {
+          "epoch": 8,
+          "top1": 90.106,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "mid_vit": {
+              "eff_anti": 0.0,
+              "func_anti": 0.0,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.42457698336398275
+            }
+          }
+        },
+        {
+          "epoch": 9,
+          "top1": 90.192,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "mid_vit": {
+              "eff_anti": 0.0,
+              "func_anti": 0.0,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.4251249457890628
+            }
+          }
+        }
+      ]
+    },
+    "rot4_vittiny_dir_self_avg_s42": {
+      "name": "rot4_vittiny_dir_self_avg_s42",
+      "args": {
+        "name": "rot4_vittiny_dir_self_avg_s42",
+        "output_dir": "/scratch/itscspod/chtaihei/exsym_runs/waveF_vit_tiny_rot4",
+        "cache_dir": "/dev/shm/in1k_raw_cache_ar320",
+        "backbone": "vit_tiny_patch16_224",
+        "mode": "self_avg",
+        "pair_type": "directed_right",
+        "placement": "stage4_mid",
+        "vit_insert_block": 8,
+        "rank_ratio": 1.0,
+        "gamma_init": 0.1,
+        "pretrained_ckpt": "/scratch/itscspod/chtaihei/exsym_runs/waveE_vit_tiny_scratch/scratch_vittiny_dir_none_s42/best_ema.pt",
+        "rotation_task": true,
+        "epochs": 10,
+        "batch_size": 512,
+        "grad_accum": 2,
+        "num_workers": 12,
+        "lr": 0.0005,
+        "adapter_lr_mult": 3.0,
+        "min_lr": 1e-06,
+        "warmup_epochs": 1,
+        "weight_decay": 0.05,
+        "drop_path": 0.1,
+        "ema_decay": 0.999,
+        "mixup": 0.0,
+        "cutmix": 0.0,
+        "label_smoothing": 0.0,
+        "clip_grad": 5.0,
+        "no_compile": false,
+        "data_seed": 42,
+        "init_seed": 7042,
+        "eval_interval": 1,
+        "save_best_only": false,
+        "resume": true,
+        "max_steps": 0,
+        "deadline_iso": "2026-11-23T09:35:00+08:00"
+      },
+      "full_eval": {
+        "clean": 90.44,
+        "clean_top5": 100.0
+      },
+      "symmetry_final": {
+        "mid_vit": {
+          "mode": "self_avg",
+          "pair_type": "directed_right",
+          "dim": 192,
+          "rank": 192,
+          "mean_e_anti": 0.0,
+          "std_e_anti": 0.0,
+          "theta_mean": 0.7853981852531433,
+          "theta_std": 0.0,
+          "theta_quantiles": [
+            0.7853981852531433,
+            0.7853981852531433,
+            0.7853981852531433,
+            0.7853981852531433,
+            0.7853981852531433
+          ],
+          "weight_weighted_e_anti": 0.0,
+          "eff_anti": 0.0,
+          "func_anti": 0.0,
+          "delta_rms": 0.8286206722259521,
+          "x_rms": 1.8780033588409424,
+          "rms_ratio": 0.44122427594450975,
+          "top25_energy_frac": 0.5753622898770127
+        }
+      },
+      "intervention": {
+        "anti_sweep": {
+          "s1.0_a1.0": {
+            "clean": 90.45,
+            "clean_top5": 100.0
+          },
+          "s1.0_a0.75": {
+            "clean": 90.45,
+            "clean_top5": 100.0
+          },
+          "s1.0_a0.5": {
+            "clean": 90.45,
+            "clean_top5": 100.0
+          },
+          "s1.0_a0.0": {
+            "clean": 90.45,
+            "clean_top5": 100.0
+          }
+        },
+        "sym_sweep": {
+          "s1.0_a1.0": {
+            "clean": 90.45,
+            "clean_top5": 100.0
+          },
+          "s0.75_a1.0": {
+            "clean": 90.5,
+            "clean_top5": 100.0
+          },
+          "s0.5_a1.0": {
+            "clean": 90.25,
+            "clean_top5": 100.0
+          },
+          "s0.0_a1.0": {
+            "clean": 87.36,
+            "clean_top5": 100.0
+          }
+        },
+        "bypass": {
+          "s0.0_a0.0": {
+            "clean": 87.36,
+            "clean_top5": 100.0
+          }
+        }
+      },
+      "trajectory": [
+        {
+          "epoch": -1,
+          "top1": 24.542,
+          "theta_grad_norm": null,
+          "symmetry": {
+            "mid_vit": {
+              "eff_anti": 0.0,
+              "func_anti": 0.0,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.005927796941814769
+            }
+          }
+        },
+        {
+          "epoch": 0,
+          "top1": 75.17,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "mid_vit": {
+              "eff_anti": 0.0,
+              "func_anti": 0.0,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.03640086115290655
+            }
+          }
+        },
+        {
+          "epoch": 1,
+          "top1": 86.046,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "mid_vit": {
+              "eff_anti": 0.0,
+              "func_anti": 0.0,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.1754574538735408
+            }
+          }
+        },
+        {
+          "epoch": 2,
+          "top1": 88.114,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "mid_vit": {
+              "eff_anti": 0.0,
+              "func_anti": 0.0,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.30005950674633053
+            }
+          }
+        },
+        {
+          "epoch": 3,
+          "top1": 88.936,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "mid_vit": {
+              "eff_anti": 0.0,
+              "func_anti": 0.0,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.3716940978332308
+            }
+          }
+        },
+        {
+          "epoch": 4,
+          "top1": 89.344,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "mid_vit": {
+              "eff_anti": 0.0,
+              "func_anti": 0.0,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.40413946970160863
+            }
+          }
+        },
+        {
+          "epoch": 5,
+          "top1": 89.81,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "mid_vit": {
+              "eff_anti": 0.0,
+              "func_anti": 0.0,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.4218327970324945
+            }
+          }
+        },
+        {
+          "epoch": 6,
+          "top1": 90.048,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "mid_vit": {
+              "eff_anti": 0.0,
+              "func_anti": 0.0,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.43064757020338795
+            }
+          }
+        },
+        {
+          "epoch": 7,
+          "top1": 90.264,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "mid_vit": {
+              "eff_anti": 0.0,
+              "func_anti": 0.0,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.4359181518936845
+            }
+          }
+        },
+        {
+          "epoch": 8,
+          "top1": 90.384,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "mid_vit": {
+              "eff_anti": 0.0,
+              "func_anti": 0.0,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.43809173642160837
+            }
+          }
+        },
+        {
+          "epoch": 9,
+          "top1": 90.44,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "mid_vit": {
+              "eff_anti": 0.0,
+              "func_anti": 0.0,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.43862907089769376
+            }
+          }
+        }
+      ]
+    },
+    "rot4_vittiny_dir_sym_s101": {
+      "name": "rot4_vittiny_dir_sym_s101",
+      "args": {
+        "name": "rot4_vittiny_dir_sym_s101",
+        "output_dir": "/scratch/itscspod/chtaihei/exsym_runs/waveF_vit_tiny_rot4",
+        "cache_dir": "/dev/shm/in1k_raw_cache_ar320",
+        "backbone": "vit_tiny_patch16_224",
+        "mode": "sym",
+        "pair_type": "directed_right",
+        "placement": "stage4_mid",
+        "vit_insert_block": 8,
+        "rank_ratio": 1.0,
+        "gamma_init": 0.1,
+        "pretrained_ckpt": "/scratch/itscspod/chtaihei/exsym_runs/waveE_vit_tiny_scratch/scratch_vittiny_dir_none_s101/best_ema.pt",
+        "rotation_task": true,
+        "epochs": 10,
+        "batch_size": 512,
+        "grad_accum": 2,
+        "num_workers": 12,
+        "lr": 0.0005,
+        "adapter_lr_mult": 3.0,
+        "min_lr": 1e-06,
+        "warmup_epochs": 1,
+        "weight_decay": 0.05,
+        "drop_path": 0.1,
+        "ema_decay": 0.999,
+        "mixup": 0.0,
+        "cutmix": 0.0,
+        "label_smoothing": 0.0,
+        "clip_grad": 5.0,
+        "no_compile": false,
+        "data_seed": 101,
+        "init_seed": 7101,
+        "eval_interval": 1,
+        "save_best_only": false,
+        "resume": true,
+        "max_steps": 0,
+        "deadline_iso": "2026-11-23T09:35:00+08:00"
+      },
+      "full_eval": {
+        "clean": 90.08,
+        "clean_top5": 100.0
+      },
+      "symmetry_final": {
+        "mid_vit": {
+          "mode": "sym",
+          "pair_type": "directed_right",
+          "dim": 192,
+          "rank": 192,
+          "mean_e_anti": 0.0,
+          "std_e_anti": 0.0,
+          "theta_mean": 0.7853981852531433,
+          "theta_std": 0.0,
+          "theta_quantiles": [
+            0.7853981852531433,
+            0.7853981852531433,
+            0.7853981852531433,
+            0.7853981852531433,
+            0.7853981852531433
+          ],
+          "weight_weighted_e_anti": 0.0,
+          "eff_anti": 0.0,
+          "func_anti": 6.942652562468272e-13,
+          "delta_rms": 1.1338744163513184,
+          "x_rms": 2.0588862895965576,
+          "rms_ratio": 0.5507222142770707,
+          "top25_energy_frac": 0.6941294532498754
+        }
+      },
+      "intervention": {
+        "anti_sweep": {
+          "s1.0_a1.0": {
+            "clean": 90.12,
+            "clean_top5": 100.0
+          },
+          "s1.0_a0.75": {
+            "clean": 90.12,
+            "clean_top5": 100.0
+          },
+          "s1.0_a0.5": {
+            "clean": 90.12,
+            "clean_top5": 100.0
+          },
+          "s1.0_a0.0": {
+            "clean": 90.12,
+            "clean_top5": 100.0
+          }
+        },
+        "sym_sweep": {
+          "s1.0_a1.0": {
+            "clean": 90.12,
+            "clean_top5": 100.0
+          },
+          "s0.75_a1.0": {
+            "clean": 90.05,
+            "clean_top5": 100.0
+          },
+          "s0.5_a1.0": {
+            "clean": 89.34,
+            "clean_top5": 100.0
+          },
+          "s0.0_a1.0": {
+            "clean": 81.95,
+            "clean_top5": 100.0
+          }
+        },
+        "bypass": {
+          "s0.0_a0.0": {
+            "clean": 81.95,
+            "clean_top5": 100.0
+          }
+        }
+      },
+      "trajectory": [
+        {
+          "epoch": -1,
+          "top1": 25.284,
+          "theta_grad_norm": null,
+          "symmetry": {
+            "mid_vit": {
+              "eff_anti": 0.0,
+              "func_anti": 4.0379943680858585e-12,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.00564085638953875
+            }
+          }
+        },
+        {
+          "epoch": 0,
+          "top1": 72.894,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "mid_vit": {
+              "eff_anti": 0.0,
+              "func_anti": 7.128479804664338e-13,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.04781796321966858
+            }
+          }
+        },
+        {
+          "epoch": 1,
+          "top1": 85.084,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "mid_vit": {
+              "eff_anti": 0.0,
+              "func_anti": 7.07144810723765e-13,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.27093189271198664
+            }
+          }
+        },
+        {
+          "epoch": 2,
+          "top1": 87.16,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "mid_vit": {
+              "eff_anti": 0.0,
+              "func_anti": 6.2050941172833e-13,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.4394868684546409
+            }
+          }
+        },
+        {
+          "epoch": 3,
+          "top1": 88.024,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "mid_vit": {
+              "eff_anti": 0.0,
+              "func_anti": 1.5997885890740716e-12,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.5206297014573038
+            }
+          }
+        },
+        {
+          "epoch": 4,
+          "top1": 88.56,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "mid_vit": {
+              "eff_anti": 0.0,
+              "func_anti": 6.752418807715804e-13,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.5530936842687806
+            }
+          }
+        },
+        {
+          "epoch": 5,
+          "top1": 89.174,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "mid_vit": {
+              "eff_anti": 0.0,
+              "func_anti": 9.788310036758739e-13,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.5610596912060666
+            }
+          }
+        },
+        {
+          "epoch": 6,
+          "top1": 89.518,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "mid_vit": {
+              "eff_anti": 0.0,
+              "func_anti": 7.039868102999895e-13,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.5591786555222296
+            }
+          }
+        },
+        {
+          "epoch": 7,
+          "top1": 89.73,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "mid_vit": {
+              "eff_anti": 0.0,
+              "func_anti": 1.1845540052826942e-12,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.5569477147903265
+            }
+          }
+        },
+        {
+          "epoch": 8,
+          "top1": 89.966,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "mid_vit": {
+              "eff_anti": 0.0,
+              "func_anti": 6.910766637022199e-13,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.5543554465038081
+            }
+          }
+        },
+        {
+          "epoch": 9,
+          "top1": 90.08,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "mid_vit": {
+              "eff_anti": 0.0,
+              "func_anti": 1.6027864011151255e-12,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.5528639856266739
+            }
+          }
+        }
+      ]
+    },
+    "rot4_vittiny_dir_sym_s42": {
+      "name": "rot4_vittiny_dir_sym_s42",
+      "args": {
+        "name": "rot4_vittiny_dir_sym_s42",
+        "output_dir": "/scratch/itscspod/chtaihei/exsym_runs/waveF_vit_tiny_rot4",
+        "cache_dir": "/dev/shm/in1k_raw_cache_ar320",
+        "backbone": "vit_tiny_patch16_224",
+        "mode": "sym",
+        "pair_type": "directed_right",
+        "placement": "stage4_mid",
+        "vit_insert_block": 8,
+        "rank_ratio": 1.0,
+        "gamma_init": 0.1,
+        "pretrained_ckpt": "/scratch/itscspod/chtaihei/exsym_runs/waveE_vit_tiny_scratch/scratch_vittiny_dir_none_s42/best_ema.pt",
+        "rotation_task": true,
+        "epochs": 10,
+        "batch_size": 512,
+        "grad_accum": 2,
+        "num_workers": 12,
+        "lr": 0.0005,
+        "adapter_lr_mult": 3.0,
+        "min_lr": 1e-06,
+        "warmup_epochs": 1,
+        "weight_decay": 0.05,
+        "drop_path": 0.1,
+        "ema_decay": 0.999,
+        "mixup": 0.0,
+        "cutmix": 0.0,
+        "label_smoothing": 0.0,
+        "clip_grad": 5.0,
+        "no_compile": false,
+        "data_seed": 42,
+        "init_seed": 7042,
+        "eval_interval": 1,
+        "save_best_only": false,
+        "resume": true,
+        "max_steps": 0,
+        "deadline_iso": "2026-11-23T09:35:00+08:00"
+      },
+      "full_eval": {
+        "clean": 90.52,
+        "clean_top5": 100.0
+      },
+      "symmetry_final": {
+        "mid_vit": {
+          "mode": "sym",
+          "pair_type": "directed_right",
+          "dim": 192,
+          "rank": 192,
+          "mean_e_anti": 0.0,
+          "std_e_anti": 0.0,
+          "theta_mean": 0.7853981852531433,
+          "theta_std": 0.0,
+          "theta_quantiles": [
+            0.7853981852531433,
+            0.7853981852531433,
+            0.7853981852531433,
+            0.7853981852531433,
+            0.7853981852531433
+          ],
+          "weight_weighted_e_anti": 0.0,
+          "eff_anti": 0.0,
+          "func_anti": 1.8910452639545438e-23,
+          "delta_rms": 0.8433437943458557,
+          "x_rms": 1.9186513423919678,
+          "rms_ratio": 0.4395503110505036,
+          "top25_energy_frac": 0.5598438566574668
+        }
+      },
+      "intervention": {
+        "anti_sweep": {
+          "s1.0_a1.0": {
+            "clean": 90.56,
+            "clean_top5": 100.0
+          },
+          "s1.0_a0.75": {
+            "clean": 90.56,
+            "clean_top5": 100.0
+          },
+          "s1.0_a0.5": {
+            "clean": 90.56,
+            "clean_top5": 100.0
+          },
+          "s1.0_a0.0": {
+            "clean": 90.56,
+            "clean_top5": 100.0
+          }
+        },
+        "sym_sweep": {
+          "s1.0_a1.0": {
+            "clean": 90.56,
+            "clean_top5": 100.0
+          },
+          "s0.75_a1.0": {
+            "clean": 90.66,
+            "clean_top5": 100.0
+          },
+          "s0.5_a1.0": {
+            "clean": 90.48,
+            "clean_top5": 100.0
+          },
+          "s0.0_a1.0": {
+            "clean": 88.59,
+            "clean_top5": 100.0
+          }
+        },
+        "bypass": {
+          "s0.0_a0.0": {
+            "clean": 88.58,
+            "clean_top5": 100.0
+          }
+        }
+      },
+      "trajectory": [
+        {
+          "epoch": -1,
+          "top1": 24.548,
+          "theta_grad_norm": null,
+          "symmetry": {
+            "mid_vit": {
+              "eff_anti": 0.0,
+              "func_anti": 4.649956447388779e-12,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.005830971104160788
+            }
+          }
+        },
+        {
+          "epoch": 0,
+          "top1": 75.306,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "mid_vit": {
+              "eff_anti": 0.0,
+              "func_anti": 2.100154104881778e-12,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.03428196489235333
+            }
+          }
+        },
+        {
+          "epoch": 1,
+          "top1": 86.084,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "mid_vit": {
+              "eff_anti": 0.0,
+              "func_anti": 1.7244407853738551e-12,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.17505806285524866
+            }
+          }
+        },
+        {
+          "epoch": 2,
+          "top1": 87.972,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "mid_vit": {
+              "eff_anti": 0.0,
+              "func_anti": 1.1862342749283636e-12,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.3119390964477562
+            }
+          }
+        },
+        {
+          "epoch": 3,
+          "top1": 88.712,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "mid_vit": {
+              "eff_anti": 0.0,
+              "func_anti": 1.068521403314771e-12,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.38909043746911054
+            }
+          }
+        },
+        {
+          "epoch": 4,
+          "top1": 89.254,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "mid_vit": {
+              "eff_anti": 0.0,
+              "func_anti": 9.59227525391292e-13,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.42470855373450667
+            }
+          }
+        },
+        {
+          "epoch": 5,
+          "top1": 89.726,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "mid_vit": {
+              "eff_anti": 0.0,
+              "func_anti": 2.010816084828555e-12,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.4387210653162469
+            }
+          }
+        },
+        {
+          "epoch": 6,
+          "top1": 90.038,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "mid_vit": {
+              "eff_anti": 0.0,
+              "func_anti": 1.0610204171314942e-12,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.44199207360610393
+            }
+          }
+        },
+        {
+          "epoch": 7,
+          "top1": 90.266,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "mid_vit": {
+              "eff_anti": 0.0,
+              "func_anti": 1.4131643683814247e-12,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.44156318625235635
+            }
+          }
+        },
+        {
+          "epoch": 8,
+          "top1": 90.466,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "mid_vit": {
+              "eff_anti": 0.0,
+              "func_anti": 1.9121898583716366e-12,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.4391945889421851
+            }
+          }
+        },
+        {
+          "epoch": 9,
+          "top1": 90.522,
+          "theta_grad_norm": 0.0,
+          "symmetry": {
+            "mid_vit": {
+              "eff_anti": 0.0,
+              "func_anti": 1.5139378632315602e-12,
+              "mean_e_anti": 0.0,
+              "rms_ratio": 0.43700953186650204
+            }
+          }
+        }
+      ]
+    }
+  }
+}
